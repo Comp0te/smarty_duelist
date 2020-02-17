@@ -1,0 +1,27 @@
+#!/bin/sh
+# add ( "./scripts/pre_push" ) to `.git/hooks/pre-push`
+# Make executable with `chmod +x`
+
+flutter format --set-exit-if-changed lib/src lib/main.dart
+
+if [[ $? -ne 0 ]]; then
+        echo "--- format failed"
+        exit 1
+fi
+
+flutter analyze
+
+if [[ $? -ne 0 ]]; then
+        echo "--- analyze failed"
+        exit 1
+fi
+
+#flutter test
+
+#if [[ $? -ne 0 ]]; then
+#        echo "--- tests failed"
+#        exit 1
+#fi
+
+echo "git push is successful"
+exit 0
