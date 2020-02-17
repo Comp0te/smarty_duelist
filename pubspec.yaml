@@ -33,6 +33,7 @@ dependencies:
   flushbar: ^1.9.1
   injectable: ^0.2.2
   get_it: ^3.1.0
+  auto_route: ^0.2.2
 
 dev_dependencies:
   flutter_test:
@@ -41,6 +42,7 @@ dev_dependencies:
   freezed: ^0.6.1
   build_runner: ^1.7.4
   injectable_generator: ^0.2.2
+  auto_route_generator: ^0.2.2
 
 flutter:
 
