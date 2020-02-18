@@ -1,1 +1,22 @@
 include: package:lint/analysis_options.yaml
+
+analyzer:
+  exclude:
+    - lib/generated/**/*.dart
+
+  errors:
+    # Ignore errors like
+#    included_file_warning: ignore
+    # temporarily due to errors in lib/generated/ and broken exclude option
+#    omit_local_variable_types: ignore
+
+linter:
+  rules:
+    # Rules overridden by me
+    # - always_specify_types
+#    - omit_local_variable_types # opposite of always_specify_types
+#    - avoid_returning_null # not yet tested
+    # - directives_ordering # doesn't sort automatically
+    # - sort_constructors_first
+#    - parameter_assignments # we do this commonly
+#    type_annotate_public_apis: false

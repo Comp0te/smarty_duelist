@@ -69,3 +69,7 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
+flutter_intl:
+  enabled: true
+#  class_name: Sets the name for the generated localization class. Default: S
+  main_locale: en # (e.g. "en", "en_GB"). Default: en
