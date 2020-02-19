@@ -2,7 +2,7 @@
 # add ( "./scripts/pre_push" ) to `.git/hooks/pre-push`
 # Make executable with `chmod +x`
 
-find . \
+find ./lib \
 -not -path "*generated*" \
 -not -path "*l10n*" \
 -type f \
