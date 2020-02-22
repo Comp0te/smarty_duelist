@@ -29,10 +29,46 @@ class S {
 
   final String localeName;
 
-  String get one {
+  String get username {
     return Intl.message(
-      'one',
-      name: 'one',
+      'Username',
+      name: 'username',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get email {
+    return Intl.message(
+      'Email',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get errorRequired {
+    return Intl.message(
+      'Required',
+      name: 'errorRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String errorMinLength(dynamic digit) {
+    return Intl.message(
+      'Min $digit characters',
+      name: 'errorMinLength',
+      desc: '',
+      args: [digit],
+    );
+  }
+
+  String get errorEmail {
+    return Intl.message(
+      'Incorrect email address',
+      name: 'errorEmail',
       desc: '',
       args: [],
     );

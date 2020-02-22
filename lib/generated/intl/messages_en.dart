@@ -19,8 +19,14 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static m0(digit) => "Min ${digit} characters";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
-    "one" : MessageLookupByLibrary.simpleMessage("one")
+    "email" : MessageLookupByLibrary.simpleMessage("Email"),
+    "errorEmail" : MessageLookupByLibrary.simpleMessage("Incorrect email address"),
+    "errorMinLength" : m0,
+    "errorRequired" : MessageLookupByLibrary.simpleMessage("Required"),
+    "username" : MessageLookupByLibrary.simpleMessage("Username")
   };
 }

@@ -1,3 +1,8 @@
 {
-  "one": "one"
+  "username": "Username",
+  "email": "Email",
+
+  "errorRequired": "Required",
+  "errorMinLength": "Min {digit} characters",
+  "errorEmail": "Incorrect email address"
 }
