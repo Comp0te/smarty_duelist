@@ -1,4 +1,4 @@
-package com.compote.smarty_duelist
+package com.compote.smartyduelist
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
