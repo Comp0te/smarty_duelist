@@ -3,9 +3,9 @@
 //import 'package:flutter_bloc/flutter_bloc.dart';
 //import 'package:flutter_form_builder/flutter_form_builder.dart';
 //
-//import 'package:flutter_app/src/constants/constants.dart';
-//import 'package:flutter_app/src/widgets/widgets.dart';
-//import 'package:flutter_app/src/blocs/blocs.dart';
+//import 'package:flutter_app/src/constants/index.dart';
+//import 'package:flutter_app/src/widgets/index.dart';
+//import 'package:flutter_app/src/blocs/index.dart';
 //import 'package:smarty_duelist/core/core.dart';
 //
 //enum LoginFormData { email, password }

@@ -5,7 +5,7 @@
 //
 //import 'package:smarty_duelist/core/core.dart';
 //import 'package:smarty_duelist/generated/l10n.dart';
-//import 'package:smarty_duelist/presentation/shared/shared.dart';
+//import 'package:smarty_duelist/presentation/shared/index.dart';
 //
 //enum RegisterFormData { username, email, password1, password2 }
 //
