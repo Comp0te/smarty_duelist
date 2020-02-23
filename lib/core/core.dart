@@ -1,3 +1,3 @@
-export 'constants/constants.dart';
-export 'helpers/helpers.dart';
-export 'mixins/mixins.dart';
+export 'constants/index.dart';
+export 'helpers/index.dart';
+export 'mixins/index.dart';

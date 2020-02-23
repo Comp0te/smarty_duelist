@@ -1,8 +1,12 @@
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 
+abstract class ID {
+  int id;
+}
+
 mixin StateUpdaterMixin on Equatable {
-  Map<String, V> updateEntities<V>({
+  Map<String, V> updateEntities<V extends ID>({
     @required Map<String, V> stateEntities,
     @required List<V> eventEntitiesList,
   }) {
@@ -10,11 +14,7 @@ mixin StateUpdaterMixin on Equatable {
       return stateEntities;
     }
 
-    final eventEntitiesMap = Map.fromIterable(
-      eventEntitiesList,
-      key: (entity) => entity.id.toString(),
-      value: (entity) => entity as V,
-    );
+    final eventEntitiesMap = { for (var entity in eventEntitiesList) entity.id.toString() : entity };
     final newEntities = Map.of(stateEntities)..addAll(eventEntitiesMap);
 
     return newEntities;
