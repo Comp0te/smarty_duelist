@@ -14,6 +14,7 @@ class ToggleBoolValue extends BoolValueEvent {}
 class SetBoolValue extends BoolValueEvent {
   final bool value;
 
+  // ignore: avoid_positional_boolean_parameters
   const SetBoolValue(this.value);
 
   @override
