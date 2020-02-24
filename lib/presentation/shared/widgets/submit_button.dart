@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:smarty_duelist/core/core.dart';
 
-
 class SubmitButton extends StatelessWidget with ThemeMixin {
   final VoidCallback onPress;
   final String title;

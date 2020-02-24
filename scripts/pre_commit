@@ -4,7 +4,7 @@
 
 declare -a filesToFormat="$(\
     git diff --cached --name-only --diff-filter=ACMR -z -- '*.dart'\
-    | xargs -0 -r  flutter format -n \
+    | xargs -0 flutter format -n \
 )"
 
 if [[ -z "$filesToFormat" ]]; then

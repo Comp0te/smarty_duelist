@@ -1,2 +1,1 @@
-abstract class HeroTag {
-}
+abstract class HeroTag {}
