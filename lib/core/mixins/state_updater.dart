@@ -14,7 +14,9 @@ mixin StateUpdaterMixin on Equatable {
       return stateEntities;
     }
 
-    final eventEntitiesMap = { for (var entity in eventEntitiesList) entity.id.toString() : entity };
+    final eventEntitiesMap = {
+      for (var entity in eventEntitiesList) entity.id.toString(): entity
+    };
     final newEntities = Map.of(stateEntities)..addAll(eventEntitiesMap);
 
     return newEntities;

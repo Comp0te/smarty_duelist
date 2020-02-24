@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:smarty_duelist/core/core.dart';
 
-
 class Spinner extends StatelessWidget with ThemeMixin {
   const Spinner();
 

@@ -1,2 +1,1 @@
-abstract class ImageAssets {
-}
+abstract class ImageAssets {}
