@@ -58,7 +58,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     );
 
     yield failureOrAuth.fold(
-      (failure) => AuthError(message: failure.message),
+      (failure) => AuthError(failure: failure),
       (auth) => AuthAuthenticated(user: auth.user),
     );
   }
@@ -72,7 +72,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     );
 
     yield failureOrAuth.fold(
-      (failure) => AuthError(message: failure.message),
+      (failure) => AuthError(failure: failure),
       (auth) => AuthAuthenticated(user: auth.user),
     );
   }
