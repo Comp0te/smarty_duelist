@@ -1,7 +1,11 @@
 include: package:lint/analysis_options.yaml
 
 analyzer:
-  exclude: [lib/generated/**]
+  exclude: [
+    "lib/generated/**",
+    "**/*.freezed.dart",
+    "**/*.g.dart",
+  ]
 
   errors:
     # Ignore errors like
