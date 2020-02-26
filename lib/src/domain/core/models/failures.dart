@@ -1,15 +1,12 @@
-import 'package:equatable/equatable.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:meta/meta.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter/foundation.dart';
 
-@immutable
-abstract class Failure extends Equatable {
-  final String message;
-  const Failure([this.message]);
+part 'failures.freezed.dart';
 
-  @override
-  List<Object> get props => [message];
-}
-
-class UnknownFailure extends Failure {
-  const UnknownFailure([String message]) : super(message);
+@freezed
+abstract class Failure with _$Failure {
+  const factory Failure.auth(AuthException exception) = AuthFailure;
+  const factory Failure.unknown(Exception exception) = UnknownFailure;
 }
