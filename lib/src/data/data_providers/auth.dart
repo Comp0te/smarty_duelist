@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:meta/meta.dart';
 
+import 'package:smarty_duelist/src/core/index.dart' show SupportedLanguages;
 import 'package:smarty_duelist/src/domain/index.dart' show IAuthDataProvider;
 
 @immutable
@@ -13,6 +15,38 @@ class AuthDataProvider implements IAuthDataProvider {
     @required this.googleSignIn,
     @required this.auth,
   });
+
+  @override
+  Future<FirebaseUser> getCurrentUser() => auth.currentUser();
+
+  @override
+  Future<void> signOut() => auth.signOut();
+
+  @override
+  Stream<FirebaseUser> onAuthStateChanged() => auth.onAuthStateChanged;
+
+  @override
+  Future<void> sendResetPassword({@required String email}) =>
+      auth.sendPasswordResetEmail(email: email);
+
+  @override
+  Future<void> confirmResetPassword({
+    @required String code,
+    @required String newPassword,
+  }) =>
+      auth.confirmPasswordReset(code, newPassword);
+
+  @override
+  Future<AuthResult> signUpWithEmail({
+    @required String email,
+    @required String password,
+  }) =>
+      auth.createUserWithEmailAndPassword(email: email, password: password);
+
+  @override
+  Future<void> configureAuthLanguage(SupportedLanguages languageTag) {
+    return auth.setLanguageCode(describeEnum(languageTag));
+  }
 
   @override
   Future<AuthResult> signInWithGoogle() async {
@@ -42,7 +76,10 @@ class AuthDataProvider implements IAuthDataProvider {
   }
 
   @override
-  Future<AuthResult> signInWithEmail({String email, String password}) {
+  Future<AuthResult> signInWithEmail({
+    @required String email,
+    @required String password,
+  }) {
     return auth.signInWithEmailAndPassword(email: email, password: password);
   }
 
