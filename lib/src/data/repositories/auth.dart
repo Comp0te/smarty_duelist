@@ -6,32 +6,24 @@ import 'package:smarty_duelist/src/domain/index.dart'
     show
         AuthCredentialsProviders,
         AuthFailure,
-        Failure,
-        IAuthRepository,
-        IAuthWithCredentialDataProvider,
-        IAuthWithEmailDataProvider;
+        IAuthDataProvider,
+        IAuthRepository;
 
 @immutable
 class AuthRepository implements IAuthRepository {
-  final IAuthWithCredentialDataProvider googleAuthDataProvider;
-  final IAuthWithCredentialDataProvider facebookAuthDataProvider;
-  final IAuthWithCredentialDataProvider appleAuthDataProvider;
-  final IAuthWithEmailDataProvider emailAuthDataProvider;
+  final IAuthDataProvider authDataProvider;
 
   const AuthRepository({
-    @required this.googleAuthDataProvider,
-    @required this.facebookAuthDataProvider,
-    @required this.appleAuthDataProvider,
-    @required this.emailAuthDataProvider,
+    @required this.authDataProvider,
   });
 
   @override
-  Future<Either<Failure, AuthResult>> signInWithEmail({
+  Future<Either<AuthFailure, AuthResult>> signInWithEmail({
     String email,
     String password,
   }) async {
     try {
-      return Right(await emailAuthDataProvider.signIn(
+      return Right(await authDataProvider.signInWithEmail(
         email: email,
         password: password,
       ));
@@ -41,17 +33,17 @@ class AuthRepository implements IAuthRepository {
   }
 
   @override
-  Future<Either<Failure, AuthResult>> signInWithCredentials({
+  Future<Either<AuthFailure, AuthResult>> signInWithCredentials({
     @required AuthCredentialsProviders provider,
   }) async {
     try {
       switch (provider) {
         case AuthCredentialsProviders.google:
-          return Right(await googleAuthDataProvider.signIn());
+          return Right(await authDataProvider.signInWithGoogle());
         case AuthCredentialsProviders.facebook:
-          return Right(await facebookAuthDataProvider.signIn());
+          return Right(await authDataProvider.signInWithApple());
         case AuthCredentialsProviders.apple:
-          return Right(await appleAuthDataProvider.signIn());
+          return Right(await authDataProvider.signInWithApple());
         default:
           return null;
       }

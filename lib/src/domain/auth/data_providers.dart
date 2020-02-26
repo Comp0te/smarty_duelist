@@ -1,12 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 
-abstract class IAuthWithCredentialDataProvider {
-  Future<AuthResult> signIn();
-}
-
-abstract class IAuthWithEmailDataProvider {
-  Future<AuthResult> signIn({
-    String email,
-    String password,
+abstract class IAuthDataProvider {
+  Future<AuthResult> signInWithGoogle();
+  Future<AuthResult> signInWithFacebook();
+  Future<AuthResult> signInWithApple();
+  Future<AuthResult> signInWithEmail({
+    @required String email,
+    @required String password,
   });
 }
