@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:meta/meta.dart';
 import 'package:bloc/bloc.dart';
 
@@ -14,23 +12,20 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }) : assert(authRepository != null);
 
   @override
-  AuthState get initialState => AuthInit();
+  AuthState get initialState => const AuthInit();
 
   @override
   Stream<AuthState> mapEventToState(AuthEvent event) async* {
-    if (event is AppStarted) {
-      yield* _mapAppStartedToState(event);
-    } else if (event is SignInWithCredential) {
-      yield* _mapSignInWithCredentialToState(event);
-    } else if (event is SignInWithEmail) {
-      yield* _mapSignInWithEmailToState(event);
-    } else if (event is LoggedOut) {
-      yield* _mapLoggedOutToState(event);
-    }
+    event.map(
+      appStarted: (value) => _mapAppStartedToState(value),
+      signInWithCredential: (value) => _mapSignInWithCredentialToState(value),
+      signInWithEmail: (value) => _mapSignInWithEmailToState(value),
+      signOut: (value) => _mapSignOutToState(value),
+    );
   }
 
   Stream<AuthState> _mapAppStartedToState(AppStarted event) async* {
-    yield AuthLoading();
+    yield const AuthLoading();
 
 //    authRepository.addTokenInterceptor(
 //        secureStorageRepository: secureStorageRepository,
@@ -56,7 +51,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   Stream<AuthState> _mapSignInWithCredentialToState(
     SignInWithCredential event,
   ) async* {
-    yield AuthLoading();
+    yield const AuthLoading();
 
     final failureOrAuth = await authRepository.signInWithCredentials(
       provider: event.provider,
@@ -69,7 +64,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   Stream<AuthState> _mapSignInWithEmailToState(SignInWithEmail event) async* {
-    yield AuthLoading();
+    yield const AuthLoading();
 
     final failureOrAuth = await authRepository.signInWithEmail(
       email: event.email,
@@ -82,12 +77,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     );
   }
 
-  Stream<AuthState> _mapLoggedOutToState(LoggedOut event) async* {
-    yield AuthLoading();
+  Stream<AuthState> _mapSignOutToState(SignOut event) async* {
+    yield const AuthLoading();
 
 //    await secureStorageRepository.deleteToken();
 //    await authRepository.logout();
 
-    yield AuthUnauthenticated();
+    yield const AuthUnauthenticated();
   }
 }
