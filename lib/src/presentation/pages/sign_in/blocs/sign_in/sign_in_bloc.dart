@@ -16,7 +16,7 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
 
   @override
   Stream<SignInState> mapEventToState(SignInEvent event) async* {
-    event.map(
+    yield* event.map(
       signInWithCredential: (value) => _mapSignInWithCredentialToState(value),
       signInWithEmail: (value) => _mapSignInWithEmailToState(value),
     );
