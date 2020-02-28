@@ -11,36 +11,30 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result appStarted(),
-    @required Result signInWithCredential(AuthCredentialsProviders provider),
-    @required
-        Result signInWithEmail(
-            @required String email, @required String password),
-    @required Result signOut(),
+    @required Result signedIn(@required FirebaseUser user),
+    @required Result signedOut(),
   });
 
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result appStarted(),
-    Result signInWithCredential(AuthCredentialsProviders provider),
-    Result signInWithEmail(@required String email, @required String password),
-    Result signOut(),
+    Result signedIn(@required FirebaseUser user),
+    Result signedOut(),
     @required Result orElse(),
   });
 
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result appStarted(AppStarted value),
-    @required Result signInWithCredential(SignInWithCredential value),
-    @required Result signInWithEmail(SignInWithEmail value),
-    @required Result signOut(SignOut value),
+    @required Result signedIn(SignedIn value),
+    @required Result signedOut(SignedOut value),
   });
 
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result appStarted(AppStarted value),
-    Result signInWithCredential(SignInWithCredential value),
-    Result signInWithEmail(SignInWithEmail value),
-    Result signOut(SignOut value),
+    Result signedIn(SignedIn value),
+    Result signedOut(SignedOut value),
     @required Result orElse(),
   });
 }
@@ -52,22 +46,14 @@ class _$AuthEventTearOff {
     return const AppStarted();
   }
 
-  SignInWithCredential signInWithCredential(AuthCredentialsProviders provider) {
-    return SignInWithCredential(
-      provider,
+  SignedIn signedIn({@required FirebaseUser user}) {
+    return SignedIn(
+      user: user,
     );
   }
 
-  SignInWithEmail signInWithEmail(
-      {@required String email, @required String password}) {
-    return SignInWithEmail(
-      email: email,
-      password: password,
-    );
-  }
-
-  SignOut signOut() {
-    return const SignOut();
+  SignedOut signedOut() {
+    return const SignedOut();
   }
 }
 
@@ -99,16 +85,12 @@ class _$AppStarted with DiagnosticableTreeMixin implements AppStarted {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result appStarted(),
-    @required Result signInWithCredential(AuthCredentialsProviders provider),
-    @required
-        Result signInWithEmail(
-            @required String email, @required String password),
-    @required Result signOut(),
+    @required Result signedIn(@required FirebaseUser user),
+    @required Result signedOut(),
   }) {
     assert(appStarted != null);
-    assert(signInWithCredential != null);
-    assert(signInWithEmail != null);
-    assert(signOut != null);
+    assert(signedIn != null);
+    assert(signedOut != null);
     return appStarted();
   }
 
@@ -116,9 +98,8 @@ class _$AppStarted with DiagnosticableTreeMixin implements AppStarted {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result appStarted(),
-    Result signInWithCredential(AuthCredentialsProviders provider),
-    Result signInWithEmail(@required String email, @required String password),
-    Result signOut(),
+    Result signedIn(@required FirebaseUser user),
+    Result signedOut(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -132,14 +113,12 @@ class _$AppStarted with DiagnosticableTreeMixin implements AppStarted {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result appStarted(AppStarted value),
-    @required Result signInWithCredential(SignInWithCredential value),
-    @required Result signInWithEmail(SignInWithEmail value),
-    @required Result signOut(SignOut value),
+    @required Result signedIn(SignedIn value),
+    @required Result signedOut(SignedOut value),
   }) {
     assert(appStarted != null);
-    assert(signInWithCredential != null);
-    assert(signInWithEmail != null);
-    assert(signOut != null);
+    assert(signedIn != null);
+    assert(signedOut != null);
     return appStarted(this);
   }
 
@@ -147,9 +126,8 @@ class _$AppStarted with DiagnosticableTreeMixin implements AppStarted {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result appStarted(AppStarted value),
-    Result signInWithCredential(SignInWithCredential value),
-    Result signInWithEmail(SignInWithEmail value),
-    Result signOut(SignOut value),
+    Result signedIn(SignedIn value),
+    Result signedOut(SignedOut value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -164,48 +142,43 @@ abstract class AppStarted implements AuthEvent {
   const factory AppStarted() = _$AppStarted;
 }
 
-class _$SignInWithCredential
-    with DiagnosticableTreeMixin
-    implements SignInWithCredential {
-  const _$SignInWithCredential(this.provider) : assert(provider != null);
+class _$SignedIn with DiagnosticableTreeMixin implements SignedIn {
+  const _$SignedIn({@required this.user}) : assert(user != null);
 
   @override
-  final AuthCredentialsProviders provider;
+  final FirebaseUser user;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthEvent.signInWithCredential(provider: $provider)';
+    return 'AuthEvent.signedIn(user: $user)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'AuthEvent.signInWithCredential'))
-      ..add(DiagnosticsProperty('provider', provider));
+      ..add(DiagnosticsProperty('type', 'AuthEvent.signedIn'))
+      ..add(DiagnosticsProperty('user', user));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is SignInWithCredential &&
-            (identical(other.provider, provider) ||
-                const DeepCollectionEquality()
-                    .equals(other.provider, provider)));
+        (other is SignedIn &&
+            (identical(other.user, user) ||
+                const DeepCollectionEquality().equals(other.user, user)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(provider);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(user);
 
   @override
-  _$SignInWithCredential copyWith({
-    Object provider = freezed,
+  _$SignedIn copyWith({
+    Object user = freezed,
   }) {
-    return _$SignInWithCredential(
-      provider == freezed
-          ? this.provider
-          : provider as AuthCredentialsProviders,
+    return _$SignedIn(
+      user: user == freezed ? this.user : user as FirebaseUser,
     );
   }
 
@@ -213,31 +186,26 @@ class _$SignInWithCredential
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result appStarted(),
-    @required Result signInWithCredential(AuthCredentialsProviders provider),
-    @required
-        Result signInWithEmail(
-            @required String email, @required String password),
-    @required Result signOut(),
+    @required Result signedIn(@required FirebaseUser user),
+    @required Result signedOut(),
   }) {
     assert(appStarted != null);
-    assert(signInWithCredential != null);
-    assert(signInWithEmail != null);
-    assert(signOut != null);
-    return signInWithCredential(provider);
+    assert(signedIn != null);
+    assert(signedOut != null);
+    return signedIn(user);
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result appStarted(),
-    Result signInWithCredential(AuthCredentialsProviders provider),
-    Result signInWithEmail(@required String email, @required String password),
-    Result signOut(),
+    Result signedIn(@required FirebaseUser user),
+    Result signedOut(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (signInWithCredential != null) {
-      return signInWithCredential(provider);
+    if (signedIn != null) {
+      return signedIn(user);
     }
     return orElse();
   }
@@ -246,189 +214,56 @@ class _$SignInWithCredential
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result appStarted(AppStarted value),
-    @required Result signInWithCredential(SignInWithCredential value),
-    @required Result signInWithEmail(SignInWithEmail value),
-    @required Result signOut(SignOut value),
+    @required Result signedIn(SignedIn value),
+    @required Result signedOut(SignedOut value),
   }) {
     assert(appStarted != null);
-    assert(signInWithCredential != null);
-    assert(signInWithEmail != null);
-    assert(signOut != null);
-    return signInWithCredential(this);
+    assert(signedIn != null);
+    assert(signedOut != null);
+    return signedIn(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result appStarted(AppStarted value),
-    Result signInWithCredential(SignInWithCredential value),
-    Result signInWithEmail(SignInWithEmail value),
-    Result signOut(SignOut value),
+    Result signedIn(SignedIn value),
+    Result signedOut(SignedOut value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (signInWithCredential != null) {
-      return signInWithCredential(this);
+    if (signedIn != null) {
+      return signedIn(this);
     }
     return orElse();
   }
 }
 
-abstract class SignInWithCredential implements AuthEvent {
-  const factory SignInWithCredential(AuthCredentialsProviders provider) =
-      _$SignInWithCredential;
+abstract class SignedIn implements AuthEvent {
+  const factory SignedIn({@required FirebaseUser user}) = _$SignedIn;
 
-  AuthCredentialsProviders get provider;
+  FirebaseUser get user;
 
-  SignInWithCredential copyWith({AuthCredentialsProviders provider});
+  SignedIn copyWith({FirebaseUser user});
 }
 
-class _$SignInWithEmail
-    with DiagnosticableTreeMixin
-    implements SignInWithEmail {
-  const _$SignInWithEmail({@required this.email, @required this.password})
-      : assert(email != null),
-        assert(password != null);
-
-  @override
-  final String email;
-  @override
-  final String password;
+class _$SignedOut with DiagnosticableTreeMixin implements SignedOut {
+  const _$SignedOut();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthEvent.signInWithEmail(email: $email, password: $password)';
+    return 'AuthEvent.signedOut()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'AuthEvent.signInWithEmail'))
-      ..add(DiagnosticsProperty('email', email))
-      ..add(DiagnosticsProperty('password', password));
+    properties..add(DiagnosticsProperty('type', 'AuthEvent.signedOut'));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is SignInWithEmail &&
-            (identical(other.email, email) ||
-                const DeepCollectionEquality().equals(other.email, email)) &&
-            (identical(other.password, password) ||
-                const DeepCollectionEquality()
-                    .equals(other.password, password)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(email) ^
-      const DeepCollectionEquality().hash(password);
-
-  @override
-  _$SignInWithEmail copyWith({
-    Object email = freezed,
-    Object password = freezed,
-  }) {
-    return _$SignInWithEmail(
-      email: email == freezed ? this.email : email as String,
-      password: password == freezed ? this.password : password as String,
-    );
-  }
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result appStarted(),
-    @required Result signInWithCredential(AuthCredentialsProviders provider),
-    @required
-        Result signInWithEmail(
-            @required String email, @required String password),
-    @required Result signOut(),
-  }) {
-    assert(appStarted != null);
-    assert(signInWithCredential != null);
-    assert(signInWithEmail != null);
-    assert(signOut != null);
-    return signInWithEmail(email, password);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result appStarted(),
-    Result signInWithCredential(AuthCredentialsProviders provider),
-    Result signInWithEmail(@required String email, @required String password),
-    Result signOut(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (signInWithEmail != null) {
-      return signInWithEmail(email, password);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result appStarted(AppStarted value),
-    @required Result signInWithCredential(SignInWithCredential value),
-    @required Result signInWithEmail(SignInWithEmail value),
-    @required Result signOut(SignOut value),
-  }) {
-    assert(appStarted != null);
-    assert(signInWithCredential != null);
-    assert(signInWithEmail != null);
-    assert(signOut != null);
-    return signInWithEmail(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result appStarted(AppStarted value),
-    Result signInWithCredential(SignInWithCredential value),
-    Result signInWithEmail(SignInWithEmail value),
-    Result signOut(SignOut value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (signInWithEmail != null) {
-      return signInWithEmail(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class SignInWithEmail implements AuthEvent {
-  const factory SignInWithEmail(
-      {@required String email, @required String password}) = _$SignInWithEmail;
-
-  String get email;
-  String get password;
-
-  SignInWithEmail copyWith({String email, String password});
-}
-
-class _$SignOut with DiagnosticableTreeMixin implements SignOut {
-  const _$SignOut();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthEvent.signOut()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'AuthEvent.signOut'));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is SignOut);
+    return identical(this, other) || (other is SignedOut);
   }
 
   @override
@@ -438,31 +273,26 @@ class _$SignOut with DiagnosticableTreeMixin implements SignOut {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result appStarted(),
-    @required Result signInWithCredential(AuthCredentialsProviders provider),
-    @required
-        Result signInWithEmail(
-            @required String email, @required String password),
-    @required Result signOut(),
+    @required Result signedIn(@required FirebaseUser user),
+    @required Result signedOut(),
   }) {
     assert(appStarted != null);
-    assert(signInWithCredential != null);
-    assert(signInWithEmail != null);
-    assert(signOut != null);
-    return signOut();
+    assert(signedIn != null);
+    assert(signedOut != null);
+    return signedOut();
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result appStarted(),
-    Result signInWithCredential(AuthCredentialsProviders provider),
-    Result signInWithEmail(@required String email, @required String password),
-    Result signOut(),
+    Result signedIn(@required FirebaseUser user),
+    Result signedOut(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (signOut != null) {
-      return signOut();
+    if (signedOut != null) {
+      return signedOut();
     }
     return orElse();
   }
@@ -471,34 +301,31 @@ class _$SignOut with DiagnosticableTreeMixin implements SignOut {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result appStarted(AppStarted value),
-    @required Result signInWithCredential(SignInWithCredential value),
-    @required Result signInWithEmail(SignInWithEmail value),
-    @required Result signOut(SignOut value),
+    @required Result signedIn(SignedIn value),
+    @required Result signedOut(SignedOut value),
   }) {
     assert(appStarted != null);
-    assert(signInWithCredential != null);
-    assert(signInWithEmail != null);
-    assert(signOut != null);
-    return signOut(this);
+    assert(signedIn != null);
+    assert(signedOut != null);
+    return signedOut(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result appStarted(AppStarted value),
-    Result signInWithCredential(SignInWithCredential value),
-    Result signInWithEmail(SignInWithEmail value),
-    Result signOut(SignOut value),
+    Result signedIn(SignedIn value),
+    Result signedOut(SignedOut value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (signOut != null) {
-      return signOut(this);
+    if (signedOut != null) {
+      return signedOut(this);
     }
     return orElse();
   }
 }
 
-abstract class SignOut implements AuthEvent {
-  const factory SignOut() = _$SignOut;
+abstract class SignedOut implements AuthEvent {
+  const factory SignedOut() = _$SignedOut;
 }
