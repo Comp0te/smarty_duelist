@@ -8,10 +8,8 @@ import 'package:smarty_duelist/src/domain/index.dart'
     show
         AuthCredentialsProviders,
         AuthFailure,
-        Failure,
         IAuthDataProvider,
-        IAuthRepository,
-        UnknownFailure;
+        IAuthRepository;
 
 @immutable
 class AuthRepository implements IAuthRepository {
@@ -22,7 +20,7 @@ class AuthRepository implements IAuthRepository {
   });
 
   @override
-  Future<Either<Failure, AuthResult>> signInWithEmail({
+  Future<Either<AuthFailure, AuthResult>> signInWithEmail({
     @required String email,
     @required String password,
   }) async {
@@ -31,13 +29,13 @@ class AuthRepository implements IAuthRepository {
         email: email,
         password: password,
       ));
-    } on Exception catch (e) {
-      return Left(_handelErrors(e));
+    } on AuthException catch (e) {
+      return Left(AuthFailure(e));
     }
   }
 
   @override
-  Future<Either<Failure, AuthResult>> signInWithCredentials({
+  Future<Either<AuthFailure, AuthResult>> signInWithCredentials({
     @required AuthCredentialsProviders provider,
   }) async {
     try {
@@ -51,32 +49,34 @@ class AuthRepository implements IAuthRepository {
         default:
           return null;
       }
-    } on Exception catch (e) {
-      return Left(_handelErrors(e));
+    } on AuthException catch (e) {
+      return Left(AuthFailure(e));
     }
   }
 
   @override
-  Future<Either<Failure, void>> confirmResetPassword({
+  Future<Either<AuthFailure, bool>> confirmResetPassword({
     String code,
     String newPassword,
   }) async {
     try {
-      return Right(await authDataProvider.confirmResetPassword(
+      await authDataProvider.confirmResetPassword(
         code: code,
         newPassword: newPassword,
-      ));
-    } on Exception catch (e) {
-      return Left(_handelErrors(e));
+      );
+
+      return Right(true);
+    } on AuthException catch (e) {
+      return Left(AuthFailure(e));
     }
   }
 
   @override
-  Future<Either<Failure, FirebaseUser>> getCurrentUser() async {
+  Future<Either<AuthFailure, FirebaseUser>> getCurrentUser() async {
     try {
       return Right(await authDataProvider.getCurrentUser());
-    } on Exception catch (e) {
-      return Left(_handelErrors(e));
+    } on AuthException catch (e) {
+      return Left(AuthFailure(e));
     }
   }
 
@@ -86,30 +86,33 @@ class AuthRepository implements IAuthRepository {
   }
 
   @override
-  Future<Either<Failure, void>> sendResetPassword({
+  Future<Either<AuthFailure, bool>> sendResetPassword({
     @required String email,
     SupportedLanguages languageTag = SupportedLanguages.ru,
   }) async {
     try {
       await authDataProvider.configureAuthLanguage(languageTag);
+      await authDataProvider.sendResetPassword(email: email);
 
-      return Right(await authDataProvider.sendResetPassword(email: email));
-    } on Exception catch (e) {
-      return Left(_handelErrors(e));
+      return Right(true);
+    } on AuthException catch (e) {
+      return Left(AuthFailure(e));
     }
   }
 
   @override
-  Future<Either<Failure, void>> signOut() async {
+  Future<Either<AuthFailure, bool>> signOut() async {
     try {
-      return Right(await authDataProvider.signOut());
-    } on Exception catch (e) {
-      return Left(_handelErrors(e));
+      await authDataProvider.signOut();
+
+      return Right(true);
+    } on AuthException catch (e) {
+      return Left(AuthFailure(e));
     }
   }
 
   @override
-  Future<Either<Failure, AuthResult>> signUpWithEmail({
+  Future<Either<AuthFailure, AuthResult>> signUpWithEmail({
     @required String email,
     @required String password,
   }) async {
@@ -118,14 +121,8 @@ class AuthRepository implements IAuthRepository {
         email: email,
         password: password,
       ));
-    } on Exception catch (e) {
-      return Left(_handelErrors(e));
+    } on AuthException catch (e) {
+      return Left(AuthFailure(e));
     }
-  }
-
-  Failure _handelErrors(Exception e) {
-    if (e is AuthException) return AuthFailure(e);
-
-    return UnknownFailure(e);
   }
 }

@@ -3,35 +3,35 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:smarty_duelist/src/core/index.dart' show SupportedLanguages;
 
-import '../index.dart' show Failure;
+import '../index.dart' show AuthFailure;
 
 abstract class IAuthRepository {
-  Future<Either<Failure, AuthResult>> signInWithEmail({
+  Future<Either<AuthFailure, AuthResult>> signInWithEmail({
     String email,
     String password,
   });
 
-  Future<Either<Failure, AuthResult>> signInWithCredentials({
+  Future<Either<AuthFailure, AuthResult>> signInWithCredentials({
     AuthCredentialsProviders provider,
   });
 
-  Future<Either<Failure, AuthResult>> signUpWithEmail({
+  Future<Either<AuthFailure, AuthResult>> signUpWithEmail({
     String email,
     String password,
   });
 
-  Future<Either<Failure, void>> signOut();
+  Future<Either<AuthFailure, bool>> signOut();
 
-  Future<Either<Failure, FirebaseUser>> getCurrentUser();
+  Future<Either<AuthFailure, FirebaseUser>> getCurrentUser();
 
   Stream<FirebaseUser> onAuthStateChanged();
 
-  Future<Either<Failure, void>> sendResetPassword({
+  Future<Either<AuthFailure, bool>> sendResetPassword({
     String email,
     SupportedLanguages languageTag,
   });
 
-  Future<Either<Failure, void>> confirmResetPassword({
+  Future<Either<AuthFailure, bool>> confirmResetPassword({
     String code,
     String newPassword,
   });

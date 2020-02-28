@@ -8,31 +8,9 @@ part of 'failures.dart';
 // **************************************************************************
 
 mixin _$Failure {
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result auth(AuthException exception),
-    @required Result unknown(Exception exception),
-  });
+  AuthException get exception;
 
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result auth(AuthException exception),
-    Result unknown(Exception exception),
-    @required Result orElse(),
-  });
-
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result auth(AuthFailure value),
-    @required Result unknown(UnknownFailure value),
-  });
-
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result auth(AuthFailure value),
-    Result unknown(UnknownFailure value),
-    @required Result orElse(),
-  });
+  Failure copyWith({AuthException exception});
 }
 
 class _$FailureTearOff {
@@ -40,12 +18,6 @@ class _$FailureTearOff {
 
   AuthFailure auth(AuthException exception) {
     return AuthFailure(
-      exception,
-    );
-  }
-
-  UnknownFailure unknown(Exception exception) {
-    return UnknownFailure(
       exception,
     );
   }
@@ -93,162 +65,14 @@ class _$AuthFailure with DiagnosticableTreeMixin implements AuthFailure {
       exception == freezed ? this.exception : exception as AuthException,
     );
   }
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result auth(AuthException exception),
-    @required Result unknown(Exception exception),
-  }) {
-    assert(auth != null);
-    assert(unknown != null);
-    return auth(exception);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result auth(AuthException exception),
-    Result unknown(Exception exception),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (auth != null) {
-      return auth(exception);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result auth(AuthFailure value),
-    @required Result unknown(UnknownFailure value),
-  }) {
-    assert(auth != null);
-    assert(unknown != null);
-    return auth(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result auth(AuthFailure value),
-    Result unknown(UnknownFailure value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (auth != null) {
-      return auth(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class AuthFailure implements Failure {
   const factory AuthFailure(AuthException exception) = _$AuthFailure;
 
+  @override
   AuthException get exception;
 
+  @override
   AuthFailure copyWith({AuthException exception});
-}
-
-class _$UnknownFailure with DiagnosticableTreeMixin implements UnknownFailure {
-  const _$UnknownFailure(this.exception) : assert(exception != null);
-
-  @override
-  final Exception exception;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Failure.unknown(exception: $exception)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'Failure.unknown'))
-      ..add(DiagnosticsProperty('exception', exception));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is UnknownFailure &&
-            (identical(other.exception, exception) ||
-                const DeepCollectionEquality()
-                    .equals(other.exception, exception)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(exception);
-
-  @override
-  _$UnknownFailure copyWith({
-    Object exception = freezed,
-  }) {
-    return _$UnknownFailure(
-      exception == freezed ? this.exception : exception as Exception,
-    );
-  }
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result auth(AuthException exception),
-    @required Result unknown(Exception exception),
-  }) {
-    assert(auth != null);
-    assert(unknown != null);
-    return unknown(exception);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result auth(AuthException exception),
-    Result unknown(Exception exception),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (unknown != null) {
-      return unknown(exception);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result auth(AuthFailure value),
-    @required Result unknown(UnknownFailure value),
-  }) {
-    assert(auth != null);
-    assert(unknown != null);
-    return unknown(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result auth(AuthFailure value),
-    Result unknown(UnknownFailure value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (unknown != null) {
-      return unknown(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class UnknownFailure implements Failure {
-  const factory UnknownFailure(Exception exception) = _$UnknownFailure;
-
-  Exception get exception;
-
-  UnknownFailure copyWith({Exception exception});
 }
