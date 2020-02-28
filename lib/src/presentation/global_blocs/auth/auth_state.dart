@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:flutter/foundation.dart';
 
-import 'package:smarty_duelist/src/domain/index.dart' show Failure;
+import 'package:smarty_duelist/src/domain/index.dart' show AuthFailure;
 
 part 'auth_state.freezed.dart';
 
@@ -15,5 +15,7 @@ abstract class AuthState with _$AuthState {
   }) = AuthAuthenticated;
   const factory AuthState.authUnauthenticated() = AuthUnauthenticated;
   const factory AuthState.authLoading() = AuthLoading;
-  const factory AuthState.authError({@required Failure failure}) = AuthError;
+  const factory AuthState.authError({
+    @required AuthFailure failure,
+  }) = AuthError;
 }
