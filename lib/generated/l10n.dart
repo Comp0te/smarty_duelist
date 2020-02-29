@@ -47,6 +47,15 @@ class S {
     );
   }
 
+  String get password {
+    return Intl.message(
+      'Password',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
   String get errorRequired {
     return Intl.message(
       'Required',
@@ -69,6 +78,87 @@ class S {
     return Intl.message(
       'Incorrect email address',
       name: 'errorEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get loginGreetings {
+    return Intl.message(
+      'Greetings!',
+      name: 'loginGreetings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get loginEmail {
+    return Intl.message(
+      'Sign in',
+      name: 'loginEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String loginWith(dynamic provider) {
+    return Intl.message(
+      'Sign in with $provider',
+      name: 'loginWith',
+      desc: '',
+      args: [provider],
+    );
+  }
+
+  String get registration {
+    return Intl.message(
+      'Registration',
+      name: 'registration',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get userName {
+    return Intl.message(
+      'User name',
+      name: 'userName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get confirmPassword {
+    return Intl.message(
+      'Confirm password',
+      name: 'confirmPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get register {
+    return Intl.message(
+      'Register',
+      name: 'register',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get getPrice {
+    return Intl.message(
+      'Price - \$value',
+      name: 'getPrice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get mainMenu {
+    return Intl.message(
+      'Main menu',
+      name: 'mainMenu',
       desc: '',
       args: [],
     );

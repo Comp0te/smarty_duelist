@@ -1,8 +1,20 @@
 {
   "username": "Username",
   "email": "Email",
+  "password": "Password",
 
   "errorRequired": "Required",
   "errorMinLength": "Min {digit} characters",
-  "errorEmail": "Incorrect email address"
+  "errorEmail": "Incorrect email address",
+
+  "loginGreetings": "Greetings!",
+  "loginEmail": "Sign in",
+  "loginWith": "Sign in with {provider}",
+
+  "registration": "Registration",
+  "userName": "User name",
+  "confirmPassword": "Confirm password",
+  "register": "Register",
+  "getPrice": "Price - $value",
+  "mainMenu": "Main menu"
 }

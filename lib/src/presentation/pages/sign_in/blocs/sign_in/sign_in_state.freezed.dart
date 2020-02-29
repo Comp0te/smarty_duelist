@@ -11,6 +11,7 @@ mixin _$SignInState {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result init(),
+    @required Result validationShowed(),
     @required Result loading(),
     @required Result success(@required FirebaseUser user),
     @required Result error(@required Failure failure),
@@ -19,6 +20,7 @@ mixin _$SignInState {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result init(),
+    Result validationShowed(),
     Result loading(),
     Result success(@required FirebaseUser user),
     Result error(@required Failure failure),
@@ -28,6 +30,7 @@ mixin _$SignInState {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result init(Init value),
+    @required Result validationShowed(ValidationShowed value),
     @required Result loading(Loading value),
     @required Result success(Success value),
     @required Result error(Error value),
@@ -36,6 +39,7 @@ mixin _$SignInState {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result init(Init value),
+    Result validationShowed(ValidationShowed value),
     Result loading(Loading value),
     Result success(Success value),
     Result error(Error value),
@@ -48,6 +52,10 @@ class _$SignInStateTearOff {
 
   Init init() {
     return const Init();
+  }
+
+  ValidationShowed validationShowed() {
+    return const ValidationShowed();
   }
 
   Loading loading() {
@@ -95,11 +103,13 @@ class _$Init with DiagnosticableTreeMixin implements Init {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result init(),
+    @required Result validationShowed(),
     @required Result loading(),
     @required Result success(@required FirebaseUser user),
     @required Result error(@required Failure failure),
   }) {
     assert(init != null);
+    assert(validationShowed != null);
     assert(loading != null);
     assert(success != null);
     assert(error != null);
@@ -110,6 +120,7 @@ class _$Init with DiagnosticableTreeMixin implements Init {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result init(),
+    Result validationShowed(),
     Result loading(),
     Result success(@required FirebaseUser user),
     Result error(@required Failure failure),
@@ -126,11 +137,13 @@ class _$Init with DiagnosticableTreeMixin implements Init {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result init(Init value),
+    @required Result validationShowed(ValidationShowed value),
     @required Result loading(Loading value),
     @required Result success(Success value),
     @required Result error(Error value),
   }) {
     assert(init != null);
+    assert(validationShowed != null);
     assert(loading != null);
     assert(success != null);
     assert(error != null);
@@ -141,6 +154,7 @@ class _$Init with DiagnosticableTreeMixin implements Init {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result init(Init value),
+    Result validationShowed(ValidationShowed value),
     Result loading(Loading value),
     Result success(Success value),
     Result error(Error value),
@@ -156,6 +170,104 @@ class _$Init with DiagnosticableTreeMixin implements Init {
 
 abstract class Init implements SignInState {
   const factory Init() = _$Init;
+}
+
+class _$ValidationShowed
+    with DiagnosticableTreeMixin
+    implements ValidationShowed {
+  const _$ValidationShowed();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SignInState.validationShowed()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SignInState.validationShowed'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is ValidationShowed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result init(),
+    @required Result validationShowed(),
+    @required Result loading(),
+    @required Result success(@required FirebaseUser user),
+    @required Result error(@required Failure failure),
+  }) {
+    assert(init != null);
+    assert(validationShowed != null);
+    assert(loading != null);
+    assert(success != null);
+    assert(error != null);
+    return validationShowed();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result init(),
+    Result validationShowed(),
+    Result loading(),
+    Result success(@required FirebaseUser user),
+    Result error(@required Failure failure),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (validationShowed != null) {
+      return validationShowed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result init(Init value),
+    @required Result validationShowed(ValidationShowed value),
+    @required Result loading(Loading value),
+    @required Result success(Success value),
+    @required Result error(Error value),
+  }) {
+    assert(init != null);
+    assert(validationShowed != null);
+    assert(loading != null);
+    assert(success != null);
+    assert(error != null);
+    return validationShowed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result init(Init value),
+    Result validationShowed(ValidationShowed value),
+    Result loading(Loading value),
+    Result success(Success value),
+    Result error(Error value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (validationShowed != null) {
+      return validationShowed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ValidationShowed implements SignInState {
+  const factory ValidationShowed() = _$ValidationShowed;
 }
 
 class _$Loading with DiagnosticableTreeMixin implements Loading {
@@ -184,11 +296,13 @@ class _$Loading with DiagnosticableTreeMixin implements Loading {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result init(),
+    @required Result validationShowed(),
     @required Result loading(),
     @required Result success(@required FirebaseUser user),
     @required Result error(@required Failure failure),
   }) {
     assert(init != null);
+    assert(validationShowed != null);
     assert(loading != null);
     assert(success != null);
     assert(error != null);
@@ -199,6 +313,7 @@ class _$Loading with DiagnosticableTreeMixin implements Loading {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result init(),
+    Result validationShowed(),
     Result loading(),
     Result success(@required FirebaseUser user),
     Result error(@required Failure failure),
@@ -215,11 +330,13 @@ class _$Loading with DiagnosticableTreeMixin implements Loading {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result init(Init value),
+    @required Result validationShowed(ValidationShowed value),
     @required Result loading(Loading value),
     @required Result success(Success value),
     @required Result error(Error value),
   }) {
     assert(init != null);
+    assert(validationShowed != null);
     assert(loading != null);
     assert(success != null);
     assert(error != null);
@@ -230,6 +347,7 @@ class _$Loading with DiagnosticableTreeMixin implements Loading {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result init(Init value),
+    Result validationShowed(ValidationShowed value),
     Result loading(Loading value),
     Result success(Success value),
     Result error(Error value),
@@ -291,11 +409,13 @@ class _$Success with DiagnosticableTreeMixin implements Success {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result init(),
+    @required Result validationShowed(),
     @required Result loading(),
     @required Result success(@required FirebaseUser user),
     @required Result error(@required Failure failure),
   }) {
     assert(init != null);
+    assert(validationShowed != null);
     assert(loading != null);
     assert(success != null);
     assert(error != null);
@@ -306,6 +426,7 @@ class _$Success with DiagnosticableTreeMixin implements Success {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result init(),
+    Result validationShowed(),
     Result loading(),
     Result success(@required FirebaseUser user),
     Result error(@required Failure failure),
@@ -322,11 +443,13 @@ class _$Success with DiagnosticableTreeMixin implements Success {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result init(Init value),
+    @required Result validationShowed(ValidationShowed value),
     @required Result loading(Loading value),
     @required Result success(Success value),
     @required Result error(Error value),
   }) {
     assert(init != null);
+    assert(validationShowed != null);
     assert(loading != null);
     assert(success != null);
     assert(error != null);
@@ -337,6 +460,7 @@ class _$Success with DiagnosticableTreeMixin implements Success {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result init(Init value),
+    Result validationShowed(ValidationShowed value),
     Result loading(Loading value),
     Result success(Success value),
     Result error(Error value),
@@ -402,11 +526,13 @@ class _$Error with DiagnosticableTreeMixin implements Error {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result init(),
+    @required Result validationShowed(),
     @required Result loading(),
     @required Result success(@required FirebaseUser user),
     @required Result error(@required Failure failure),
   }) {
     assert(init != null);
+    assert(validationShowed != null);
     assert(loading != null);
     assert(success != null);
     assert(error != null);
@@ -417,6 +543,7 @@ class _$Error with DiagnosticableTreeMixin implements Error {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result init(),
+    Result validationShowed(),
     Result loading(),
     Result success(@required FirebaseUser user),
     Result error(@required Failure failure),
@@ -433,11 +560,13 @@ class _$Error with DiagnosticableTreeMixin implements Error {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result init(Init value),
+    @required Result validationShowed(ValidationShowed value),
     @required Result loading(Loading value),
     @required Result success(Success value),
     @required Result error(Error value),
   }) {
     assert(init != null);
+    assert(validationShowed != null);
     assert(loading != null);
     assert(success != null);
     assert(error != null);
@@ -448,6 +577,7 @@ class _$Error with DiagnosticableTreeMixin implements Error {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result init(Init value),
+    Result validationShowed(ValidationShowed value),
     Result loading(Loading value),
     Result success(Success value),
     Result error(Error value),

@@ -10,28 +10,34 @@ part of 'sign_in_event.dart';
 mixin _$SignInEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result signInWithCredential(AuthCredentialsProviders provider),
-    @required
-        Result signInWithEmail(
-            @required String email, @required String password),
+    @required Result signInWithGoogle(),
+    @required Result signInWithFacebook(),
+    @required Result signInWithApple(),
+    @required Result signInWithEmail(),
   });
 
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result signInWithCredential(AuthCredentialsProviders provider),
-    Result signInWithEmail(@required String email, @required String password),
+    Result signInWithGoogle(),
+    Result signInWithFacebook(),
+    Result signInWithApple(),
+    Result signInWithEmail(),
     @required Result orElse(),
   });
 
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result signInWithCredential(SignInWithCredential value),
+    @required Result signInWithGoogle(SignInWithGoogle value),
+    @required Result signInWithFacebook(SignInWithFacebook value),
+    @required Result signInWithApple(SignInWithApple value),
     @required Result signInWithEmail(SignInWithEmail value),
   });
 
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result signInWithCredential(SignInWithCredential value),
+    Result signInWithGoogle(SignInWithGoogle value),
+    Result signInWithFacebook(SignInWithFacebook value),
+    Result signInWithApple(SignInWithApple value),
     Result signInWithEmail(SignInWithEmail value),
     @required Result orElse(),
   });
@@ -40,91 +46,77 @@ mixin _$SignInEvent {
 class _$SignInEventTearOff {
   const _$SignInEventTearOff();
 
-  SignInWithCredential signInWithCredential(AuthCredentialsProviders provider) {
-    return SignInWithCredential(
-      provider,
-    );
+  SignInWithGoogle signInWithGoogle() {
+    return const SignInWithGoogle();
   }
 
-  SignInWithEmail signInWithEmail(
-      {@required String email, @required String password}) {
-    return SignInWithEmail(
-      email: email,
-      password: password,
-    );
+  SignInWithFacebook signInWithFacebook() {
+    return const SignInWithFacebook();
+  }
+
+  SignInWithApple signInWithApple() {
+    return const SignInWithApple();
+  }
+
+  SignInWithEmail signInWithEmail() {
+    return const SignInWithEmail();
   }
 }
 
 const $SignInEvent = _$SignInEventTearOff();
 
-class _$SignInWithCredential
+class _$SignInWithGoogle
     with DiagnosticableTreeMixin
-    implements SignInWithCredential {
-  const _$SignInWithCredential(this.provider) : assert(provider != null);
-
-  @override
-  final AuthCredentialsProviders provider;
+    implements SignInWithGoogle {
+  const _$SignInWithGoogle();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SignInEvent.signInWithCredential(provider: $provider)';
+    return 'SignInEvent.signInWithGoogle()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'SignInEvent.signInWithCredential'))
-      ..add(DiagnosticsProperty('provider', provider));
+      ..add(DiagnosticsProperty('type', 'SignInEvent.signInWithGoogle'));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is SignInWithCredential &&
-            (identical(other.provider, provider) ||
-                const DeepCollectionEquality()
-                    .equals(other.provider, provider)));
+    return identical(this, other) || (other is SignInWithGoogle);
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(provider);
-
-  @override
-  _$SignInWithCredential copyWith({
-    Object provider = freezed,
-  }) {
-    return _$SignInWithCredential(
-      provider == freezed
-          ? this.provider
-          : provider as AuthCredentialsProviders,
-    );
-  }
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result signInWithCredential(AuthCredentialsProviders provider),
-    @required
-        Result signInWithEmail(
-            @required String email, @required String password),
+    @required Result signInWithGoogle(),
+    @required Result signInWithFacebook(),
+    @required Result signInWithApple(),
+    @required Result signInWithEmail(),
   }) {
-    assert(signInWithCredential != null);
+    assert(signInWithGoogle != null);
+    assert(signInWithFacebook != null);
+    assert(signInWithApple != null);
     assert(signInWithEmail != null);
-    return signInWithCredential(provider);
+    return signInWithGoogle();
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result signInWithCredential(AuthCredentialsProviders provider),
-    Result signInWithEmail(@required String email, @required String password),
+    Result signInWithGoogle(),
+    Result signInWithFacebook(),
+    Result signInWithApple(),
+    Result signInWithEmail(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (signInWithCredential != null) {
-      return signInWithCredential(provider);
+    if (signInWithGoogle != null) {
+      return signInWithGoogle();
     }
     return orElse();
   }
@@ -132,115 +124,91 @@ class _$SignInWithCredential
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result signInWithCredential(SignInWithCredential value),
+    @required Result signInWithGoogle(SignInWithGoogle value),
+    @required Result signInWithFacebook(SignInWithFacebook value),
+    @required Result signInWithApple(SignInWithApple value),
     @required Result signInWithEmail(SignInWithEmail value),
   }) {
-    assert(signInWithCredential != null);
+    assert(signInWithGoogle != null);
+    assert(signInWithFacebook != null);
+    assert(signInWithApple != null);
     assert(signInWithEmail != null);
-    return signInWithCredential(this);
+    return signInWithGoogle(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result signInWithCredential(SignInWithCredential value),
+    Result signInWithGoogle(SignInWithGoogle value),
+    Result signInWithFacebook(SignInWithFacebook value),
+    Result signInWithApple(SignInWithApple value),
     Result signInWithEmail(SignInWithEmail value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (signInWithCredential != null) {
-      return signInWithCredential(this);
+    if (signInWithGoogle != null) {
+      return signInWithGoogle(this);
     }
     return orElse();
   }
 }
 
-abstract class SignInWithCredential implements SignInEvent {
-  const factory SignInWithCredential(AuthCredentialsProviders provider) =
-      _$SignInWithCredential;
-
-  AuthCredentialsProviders get provider;
-
-  SignInWithCredential copyWith({AuthCredentialsProviders provider});
+abstract class SignInWithGoogle implements SignInEvent {
+  const factory SignInWithGoogle() = _$SignInWithGoogle;
 }
 
-class _$SignInWithEmail
+class _$SignInWithFacebook
     with DiagnosticableTreeMixin
-    implements SignInWithEmail {
-  const _$SignInWithEmail({@required this.email, @required this.password})
-      : assert(email != null),
-        assert(password != null);
-
-  @override
-  final String email;
-  @override
-  final String password;
+    implements SignInWithFacebook {
+  const _$SignInWithFacebook();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SignInEvent.signInWithEmail(email: $email, password: $password)';
+    return 'SignInEvent.signInWithFacebook()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'SignInEvent.signInWithEmail'))
-      ..add(DiagnosticsProperty('email', email))
-      ..add(DiagnosticsProperty('password', password));
+      ..add(DiagnosticsProperty('type', 'SignInEvent.signInWithFacebook'));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is SignInWithEmail &&
-            (identical(other.email, email) ||
-                const DeepCollectionEquality().equals(other.email, email)) &&
-            (identical(other.password, password) ||
-                const DeepCollectionEquality()
-                    .equals(other.password, password)));
+    return identical(this, other) || (other is SignInWithFacebook);
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(email) ^
-      const DeepCollectionEquality().hash(password);
-
-  @override
-  _$SignInWithEmail copyWith({
-    Object email = freezed,
-    Object password = freezed,
-  }) {
-    return _$SignInWithEmail(
-      email: email == freezed ? this.email : email as String,
-      password: password == freezed ? this.password : password as String,
-    );
-  }
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result signInWithCredential(AuthCredentialsProviders provider),
-    @required
-        Result signInWithEmail(
-            @required String email, @required String password),
+    @required Result signInWithGoogle(),
+    @required Result signInWithFacebook(),
+    @required Result signInWithApple(),
+    @required Result signInWithEmail(),
   }) {
-    assert(signInWithCredential != null);
+    assert(signInWithGoogle != null);
+    assert(signInWithFacebook != null);
+    assert(signInWithApple != null);
     assert(signInWithEmail != null);
-    return signInWithEmail(email, password);
+    return signInWithFacebook();
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result signInWithCredential(AuthCredentialsProviders provider),
-    Result signInWithEmail(@required String email, @required String password),
+    Result signInWithGoogle(),
+    Result signInWithFacebook(),
+    Result signInWithApple(),
+    Result signInWithEmail(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (signInWithEmail != null) {
-      return signInWithEmail(email, password);
+    if (signInWithFacebook != null) {
+      return signInWithFacebook();
     }
     return orElse();
   }
@@ -248,10 +216,196 @@ class _$SignInWithEmail
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result signInWithCredential(SignInWithCredential value),
+    @required Result signInWithGoogle(SignInWithGoogle value),
+    @required Result signInWithFacebook(SignInWithFacebook value),
+    @required Result signInWithApple(SignInWithApple value),
     @required Result signInWithEmail(SignInWithEmail value),
   }) {
-    assert(signInWithCredential != null);
+    assert(signInWithGoogle != null);
+    assert(signInWithFacebook != null);
+    assert(signInWithApple != null);
+    assert(signInWithEmail != null);
+    return signInWithFacebook(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result signInWithGoogle(SignInWithGoogle value),
+    Result signInWithFacebook(SignInWithFacebook value),
+    Result signInWithApple(SignInWithApple value),
+    Result signInWithEmail(SignInWithEmail value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (signInWithFacebook != null) {
+      return signInWithFacebook(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SignInWithFacebook implements SignInEvent {
+  const factory SignInWithFacebook() = _$SignInWithFacebook;
+}
+
+class _$SignInWithApple
+    with DiagnosticableTreeMixin
+    implements SignInWithApple {
+  const _$SignInWithApple();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SignInEvent.signInWithApple()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'SignInEvent.signInWithApple'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is SignInWithApple);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result signInWithGoogle(),
+    @required Result signInWithFacebook(),
+    @required Result signInWithApple(),
+    @required Result signInWithEmail(),
+  }) {
+    assert(signInWithGoogle != null);
+    assert(signInWithFacebook != null);
+    assert(signInWithApple != null);
+    assert(signInWithEmail != null);
+    return signInWithApple();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result signInWithGoogle(),
+    Result signInWithFacebook(),
+    Result signInWithApple(),
+    Result signInWithEmail(),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (signInWithApple != null) {
+      return signInWithApple();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result signInWithGoogle(SignInWithGoogle value),
+    @required Result signInWithFacebook(SignInWithFacebook value),
+    @required Result signInWithApple(SignInWithApple value),
+    @required Result signInWithEmail(SignInWithEmail value),
+  }) {
+    assert(signInWithGoogle != null);
+    assert(signInWithFacebook != null);
+    assert(signInWithApple != null);
+    assert(signInWithEmail != null);
+    return signInWithApple(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result signInWithGoogle(SignInWithGoogle value),
+    Result signInWithFacebook(SignInWithFacebook value),
+    Result signInWithApple(SignInWithApple value),
+    Result signInWithEmail(SignInWithEmail value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (signInWithApple != null) {
+      return signInWithApple(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SignInWithApple implements SignInEvent {
+  const factory SignInWithApple() = _$SignInWithApple;
+}
+
+class _$SignInWithEmail
+    with DiagnosticableTreeMixin
+    implements SignInWithEmail {
+  const _$SignInWithEmail();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SignInEvent.signInWithEmail()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'SignInEvent.signInWithEmail'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is SignInWithEmail);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result signInWithGoogle(),
+    @required Result signInWithFacebook(),
+    @required Result signInWithApple(),
+    @required Result signInWithEmail(),
+  }) {
+    assert(signInWithGoogle != null);
+    assert(signInWithFacebook != null);
+    assert(signInWithApple != null);
+    assert(signInWithEmail != null);
+    return signInWithEmail();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result signInWithGoogle(),
+    Result signInWithFacebook(),
+    Result signInWithApple(),
+    Result signInWithEmail(),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (signInWithEmail != null) {
+      return signInWithEmail();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result signInWithGoogle(SignInWithGoogle value),
+    @required Result signInWithFacebook(SignInWithFacebook value),
+    @required Result signInWithApple(SignInWithApple value),
+    @required Result signInWithEmail(SignInWithEmail value),
+  }) {
+    assert(signInWithGoogle != null);
+    assert(signInWithFacebook != null);
+    assert(signInWithApple != null);
     assert(signInWithEmail != null);
     return signInWithEmail(this);
   }
@@ -259,7 +413,9 @@ class _$SignInWithEmail
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result signInWithCredential(SignInWithCredential value),
+    Result signInWithGoogle(SignInWithGoogle value),
+    Result signInWithFacebook(SignInWithFacebook value),
+    Result signInWithApple(SignInWithApple value),
     Result signInWithEmail(SignInWithEmail value),
     @required Result orElse(),
   }) {
@@ -272,11 +428,5 @@ class _$SignInWithEmail
 }
 
 abstract class SignInWithEmail implements SignInEvent {
-  const factory SignInWithEmail(
-      {@required String email, @required String password}) = _$SignInWithEmail;
-
-  String get email;
-  String get password;
-
-  SignInWithEmail copyWith({String email, String password});
+  const factory SignInWithEmail() = _$SignInWithEmail;
 }

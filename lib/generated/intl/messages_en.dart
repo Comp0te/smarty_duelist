@@ -21,12 +21,24 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m0(digit) => "Min ${digit} characters";
 
+  static m1(provider) => "Sign in with ${provider}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "confirmPassword" : MessageLookupByLibrary.simpleMessage("Confirm password"),
     "email" : MessageLookupByLibrary.simpleMessage("Email"),
     "errorEmail" : MessageLookupByLibrary.simpleMessage("Incorrect email address"),
     "errorMinLength" : m0,
     "errorRequired" : MessageLookupByLibrary.simpleMessage("Required"),
+    "getPrice" : MessageLookupByLibrary.simpleMessage("Price - \$value"),
+    "loginEmail" : MessageLookupByLibrary.simpleMessage("Sign in"),
+    "loginGreetings" : MessageLookupByLibrary.simpleMessage("Greetings!"),
+    "loginWith" : m1,
+    "mainMenu" : MessageLookupByLibrary.simpleMessage("Main menu"),
+    "password" : MessageLookupByLibrary.simpleMessage("Password"),
+    "register" : MessageLookupByLibrary.simpleMessage("Register"),
+    "registration" : MessageLookupByLibrary.simpleMessage("Registration"),
+    "userName" : MessageLookupByLibrary.simpleMessage("User name"),
     "username" : MessageLookupByLibrary.simpleMessage("Username")
   };
 }
