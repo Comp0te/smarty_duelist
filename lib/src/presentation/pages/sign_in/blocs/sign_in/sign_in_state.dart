@@ -10,6 +10,7 @@ part 'sign_in_state.freezed.dart';
 @freezed
 abstract class SignInState with _$SignInState {
   const factory SignInState.init() = Init;
+  const factory SignInState.validationShowed() = ValidationShowed;
   const factory SignInState.loading() = Loading;
   const factory SignInState.success({
     @required FirebaseUser user,

@@ -1,15 +1,22 @@
+import 'package:flutter/widgets.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:meta/meta.dart';
 import 'package:bloc/bloc.dart';
 
-import 'package:smarty_duelist/src/domain/index.dart' show IAuthRepository;
+import 'package:smarty_duelist/src/domain/index.dart'
+    show AuthCredentialsProviders, IAuthRepository;
 import 'bloc.dart';
 
 class SignInBloc extends Bloc<SignInEvent, SignInState> {
-  final IAuthRepository authRepository;
+  final IAuthRepository _authRepository;
+  final fbKey = GlobalKey<FormBuilderState>();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final passwordFocusNode = FocusNode();
 
-  SignInBloc({
-    @required this.authRepository,
-  }) : assert(authRepository != null);
+  SignInBloc({@required IAuthRepository authRepository})
+      : assert(authRepository != null),
+        _authRepository = authRepository;
 
   @override
   SignInState get initialState => const Init();
@@ -17,18 +24,30 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
   @override
   Stream<SignInState> mapEventToState(SignInEvent event) async* {
     yield* event.map(
-      signInWithCredential: (value) => _mapSignInWithCredentialToState(value),
-      signInWithEmail: (value) => _mapSignInWithEmailToState(value),
+      signInWithGoogle: (event) => _mapSignInWithCredentialsToState(
+        event,
+        AuthCredentialsProviders.google,
+      ),
+      signInWithFacebook: (event) => _mapSignInWithCredentialsToState(
+        event,
+        AuthCredentialsProviders.facebook,
+      ),
+      signInWithApple: (event) => _mapSignInWithCredentialsToState(
+        event,
+        AuthCredentialsProviders.apple,
+      ),
+      signInWithEmail: (event) => _mapSignInWithEmailToState(event),
     );
   }
 
-  Stream<SignInState> _mapSignInWithCredentialToState(
-    SignInWithCredential event,
+  Stream<SignInState> _mapSignInWithCredentialsToState(
+    SignInEvent event,
+    AuthCredentialsProviders provider,
   ) async* {
     yield const Loading();
 
-    final failureOrSignIn = await authRepository.signInWithCredentials(
-      provider: event.provider,
+    final failureOrSignIn = await _authRepository.signInWithCredentials(
+      provider: provider,
     );
 
     yield failureOrSignIn.fold(
@@ -38,16 +57,28 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
   }
 
   Stream<SignInState> _mapSignInWithEmailToState(SignInWithEmail event) async* {
-    yield const Loading();
+    if (fbKey.currentState.validate()) {
+      yield const Loading();
 
-    final failureOrSignIn = await authRepository.signInWithEmail(
-      email: event.email,
-      password: event.password,
-    );
+      final failureOrSignIn = await _authRepository.signInWithEmail(
+        email: emailController.text,
+        password: passwordController.text,
+      );
 
-    yield failureOrSignIn.fold(
-      (failure) => Error(failure: failure),
-      (auth) => Success(user: auth.user),
-    );
+      yield failureOrSignIn.fold(
+        (failure) => Error(failure: failure),
+        (auth) => Success(user: auth.user),
+      );
+    } else if (state is! ValidationShowed) {
+      yield const ValidationShowed();
+    }
+  }
+
+  @override
+  Future<void> close() {
+    emailController.dispose();
+    passwordController.dispose();
+    passwordFocusNode.dispose();
+    return super.close();
   }
 }
