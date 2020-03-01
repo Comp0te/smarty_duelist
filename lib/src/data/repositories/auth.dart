@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 
 import 'package:smarty_duelist/src/core/constants/languages.dart'
@@ -11,6 +12,8 @@ import 'package:smarty_duelist/src/domain/index.dart'
         IAuthDataProvider,
         IAuthRepository;
 
+@RegisterAs(IAuthRepository)
+@singleton
 @immutable
 class AuthRepository implements IAuthRepository {
   final IAuthDataProvider authDataProvider;
