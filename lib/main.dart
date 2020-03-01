@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:smarty_duelist/src/injector.dart' show configureInjector;
 
-void main() => runApp(MyApp());
+void main() {
+  configureInjector();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.

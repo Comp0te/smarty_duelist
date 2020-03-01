@@ -1,11 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 
 import 'package:smarty_duelist/src/core/index.dart' show SupportedLanguages;
 import 'package:smarty_duelist/src/domain/index.dart' show IAuthDataProvider;
 
+@RegisterAs(IAuthDataProvider)
+@singleton
 @immutable
 class AuthDataProvider implements IAuthDataProvider {
   final GoogleSignIn googleSignIn;
