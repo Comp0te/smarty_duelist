@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:meta/meta.dart';
 
-import 'package:smarty_duelist/src/core/index.dart' show SupportedLanguages;
+import 'package:smarty_duelist/src/core/core.dart' show SupportedLanguages;
 
 abstract class IAuthDataProvider {
   Future<AuthResult> signInWithGoogle();

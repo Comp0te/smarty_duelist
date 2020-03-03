@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import 'package:smarty_duelist/src/core/index.dart' show SupportedLanguages;
+import 'package:smarty_duelist/src/core/core.dart' show SupportedLanguages;
 
-import '../index.dart' show AuthFailure;
+import '../domain.dart' show AuthFailure;
 
 abstract class IAuthRepository {
   Future<Either<AuthFailure, AuthResult>> signInWithEmail({
