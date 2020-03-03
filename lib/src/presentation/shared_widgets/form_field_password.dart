@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
-import 'package:smarty_duelist/src/core/core.dart';
 import 'package:smarty_duelist/generated/l10n.dart';
 
-class FormFieldPassword extends StatelessWidget with ThemeMixin {
+class FormFieldPassword extends StatelessWidget {
   final TextEditingController controller;
   final String attribute;
   final String label;
@@ -33,7 +32,7 @@ class FormFieldPassword extends StatelessWidget with ThemeMixin {
       height: 60,
       constraints: const BoxConstraints(maxHeight: 60),
       child: FormBuilderTextField(
-        style: getTextTheme(context).body1,
+        style: Theme.of(context).textTheme.body1,
         controller: controller,
         attribute: attribute,
         autocorrect: false,
