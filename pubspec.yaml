@@ -39,6 +39,7 @@ dependencies:
   dartz: ^0.8.9
   firebase_auth: ^0.15.5+2
   google_sign_in: ^4.1.4
+  rxdart: ^0.23.1
 
 dev_dependencies:
   flutter_test:
