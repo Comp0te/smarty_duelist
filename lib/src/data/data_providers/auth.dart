@@ -4,8 +4,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 
-import 'package:smarty_duelist/src/core/index.dart' show SupportedLanguages;
-import 'package:smarty_duelist/src/domain/index.dart' show IAuthDataProvider;
+import 'package:smarty_duelist/src/core/core.dart' show SupportedLanguages;
+import 'package:smarty_duelist/src/domain/domain.dart' show IAuthDataProvider;
 
 @RegisterAs(IAuthDataProvider)
 @singleton

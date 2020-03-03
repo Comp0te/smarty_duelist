@@ -5,7 +5,7 @@ import 'package:meta/meta.dart';
 
 import 'package:smarty_duelist/src/core/constants/languages.dart'
     show SupportedLanguages;
-import 'package:smarty_duelist/src/domain/index.dart'
+import 'package:smarty_duelist/src/domain/domain.dart'
     show
         AuthCredentialsProviders,
         AuthFailure,
