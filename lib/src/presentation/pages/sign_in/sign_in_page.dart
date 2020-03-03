@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,17 +9,27 @@ import 'package:smarty_duelist/src/core/index.dart'
     show OrientationMixin, ThemeMixin;
 import 'package:smarty_duelist/src/presentation/shared/index.dart'
     show FormFieldEmail, FormFieldPassword, SubmitButton;
+import 'package:smarty_duelist/src/injector.dart' show getIt;
+import 'package:smarty_duelist/src/presentation/index.dart' show Router;
 
 import 'blocs/index.dart';
 
 enum SignInFormData { email, password }
 
-class SignInPage extends StatelessWidget with OrientationMixin, ThemeMixin {
+class SignInPage extends StatelessWidget
+    with OrientationMixin, ThemeMixin
+    implements AutoRouteWrapper {
+  @override
+  Widget get wrappedRoute => BlocProvider<SignInBloc>(
+        create: (_) => getIt<SignInBloc>(),
+        child: this,
+      );
+
   @override
   Widget build(BuildContext context) {
     final signInBloc = BlocProvider.of<SignInBloc>(context);
     void _toRegistrationScreen() {
-//      Navigator.of(context).pushNamed(AuthRouteNames.register);
+      Navigator.of(context).pushNamed(Router.signInPagDialog);
     }
 
     return Scaffold(
