@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:smarty_duelist/src/core/core.dart';
+import 'shared_widgets.dart' show Spinner;
 
-class SubmitButton extends StatelessWidget with ThemeMixin {
+class SubmitButton extends StatelessWidget {
   final VoidCallback onPress;
   final String title;
   final bool isLoading;
@@ -24,7 +24,6 @@ class SubmitButton extends StatelessWidget with ThemeMixin {
       margin: margin,
       child: RaisedButton(
         onPressed: onPress,
-        elevation: 5,
         color: color,
         padding: const EdgeInsets.all(0),
         shape: RoundedRectangleBorder(
@@ -42,15 +41,12 @@ class SubmitButton extends StatelessWidget with ThemeMixin {
               ? Container(
                   width: 25,
                   height: 25,
-                  child: CircularProgressIndicator(
-                    strokeWidth: 2,
-                    backgroundColor: getColorScheme(context).onPrimary,
-                  ),
+                  child: const Spinner(),
                 )
               : Text(
                   title,
                   textAlign: TextAlign.center,
-                  style: getPrimaryTextTheme(context).button,
+                  style: Theme.of(context).primaryTextTheme.button,
                 ),
         ),
       ),
