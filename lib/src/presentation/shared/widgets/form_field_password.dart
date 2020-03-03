@@ -38,6 +38,7 @@ class FormFieldPassword extends StatelessWidget with ThemeMixin {
         attribute: attribute,
         autocorrect: false,
         obscureText: true,
+        maxLines: 1,
         focusNode: focusNode,
         onFieldSubmitted: onFiledSubmitted,
         textInputAction: textInputAction,
