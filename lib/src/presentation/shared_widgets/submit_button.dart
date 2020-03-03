@@ -38,13 +38,11 @@ class SubmitButton extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 8),
           alignment: Alignment.center,
           child: isLoading
-              ? Container(
-                  width: 25,
-                  height: 25,
-                  child: const Spinner(),
+              ? Spinner(
+                  color: Theme.of(context).colorScheme.onPrimary,
                 )
               : Text(
-                  title,
+                  title.toUpperCase(),
                   textAlign: TextAlign.center,
                   style: Theme.of(context).primaryTextTheme.button,
                 ),
