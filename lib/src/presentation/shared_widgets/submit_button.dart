@@ -14,7 +14,7 @@ class SubmitButton extends StatelessWidget {
     this.onPress,
     @required this.title,
     @required this.isLoading,
-    this.color = Colors.blue,
+    this.color,
     this.margin = const EdgeInsets.only(bottom: 25),
   }) : super(key: key);
 
@@ -24,7 +24,7 @@ class SubmitButton extends StatelessWidget {
       margin: margin,
       child: RaisedButton(
         onPressed: onPress,
-        color: color,
+        color: Theme.of(context).colorScheme.primary,
         padding: const EdgeInsets.all(0),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),

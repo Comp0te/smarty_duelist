@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 
 import 'package:smarty_duelist/generated/l10n.dart';
 
-import 'presentation/routes/routes.dart';
+import 'presentation/presentation.dart' show MainRouter, darkTheme, lightTheme;
 
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: lightTheme,
+      darkTheme: darkTheme,
+      themeMode: ThemeMode.system,
       localizationsDelegates: [S.delegate],
       supportedLocales: S.delegate.supportedLocales,
       onGenerateRoute: MainRouter.onGenerateRoute,
