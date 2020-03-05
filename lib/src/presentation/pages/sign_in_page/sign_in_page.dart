@@ -35,7 +35,6 @@ class SignInPage extends StatelessWidget
 //          style: widget.getPrimaryTextTheme(context).headline,
         ),
         centerTitle: true,
-        backgroundColor: Colors.blue,
       ),
       body: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
