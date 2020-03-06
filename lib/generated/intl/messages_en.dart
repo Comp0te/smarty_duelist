@@ -26,19 +26,15 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "confirmPassword" : MessageLookupByLibrary.simpleMessage("Confirm password"),
+    "createAccount" : MessageLookupByLibrary.simpleMessage("Create an account"),
     "email" : MessageLookupByLibrary.simpleMessage("Email"),
     "errorEmail" : MessageLookupByLibrary.simpleMessage("Incorrect email address"),
     "errorMinLength" : m0,
     "errorRequired" : MessageLookupByLibrary.simpleMessage("Required"),
-    "getPrice" : MessageLookupByLibrary.simpleMessage("Price - \$value"),
-    "loginEmail" : MessageLookupByLibrary.simpleMessage("Sign in"),
     "loginGreetings" : MessageLookupByLibrary.simpleMessage("Greetings!"),
-    "loginWith" : m1,
-    "mainMenu" : MessageLookupByLibrary.simpleMessage("Main menu"),
+    "notRegisteredYet" : MessageLookupByLibrary.simpleMessage("Not registered yet?"),
     "password" : MessageLookupByLibrary.simpleMessage("Password"),
-    "register" : MessageLookupByLibrary.simpleMessage("Register"),
-    "registration" : MessageLookupByLibrary.simpleMessage("Registration"),
-    "userName" : MessageLookupByLibrary.simpleMessage("User name"),
-    "username" : MessageLookupByLibrary.simpleMessage("Username")
+    "signInProvider" : m1,
+    "singInEmail" : MessageLookupByLibrary.simpleMessage("Sign in with email")
   };
 }

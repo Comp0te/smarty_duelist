@@ -1,5 +1,4 @@
 {
-  "username": "Username",
   "email": "Email",
   "password": "Password",
 
@@ -8,13 +7,10 @@
   "errorEmail": "Incorrect email address",
 
   "loginGreetings": "Greetings!",
-  "loginEmail": "Sign in",
-  "loginWith": "Sign in with {provider}",
+  "singInEmail": "Sign in with email",
+  "signInProvider": "Sign in with {provider}",
+  "createAccount": "Create an account",
+  "notRegisteredYet": "Not registered yet?",
 
-  "registration": "Registration",
-  "userName": "User name",
-  "confirmPassword": "Confirm password",
-  "register": "Register",
-  "getPrice": "Price - $value",
-  "mainMenu": "Main menu"
+  "confirmPassword": "Confirm password"
 }

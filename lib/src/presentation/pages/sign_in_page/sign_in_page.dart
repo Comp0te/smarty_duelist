@@ -8,7 +8,7 @@ import 'package:smarty_duelist/generated/l10n.dart';
 import 'package:smarty_duelist/src/core/core.dart' show OrientationMixin;
 import 'package:smarty_duelist/src/injector/injector.dart' show getIt;
 import 'package:smarty_duelist/src/presentation/shared_widgets/shared_widgets.dart'
-    show FormTextField, SubmitButton;
+    show FormTextField, SubmitButton, TextButton;
 
 import 'blocs/blocs.dart';
 
@@ -30,10 +30,7 @@ class SignInPage extends StatelessWidget
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          S.of(context).loginGreetings,
-//          style: widget.getPrimaryTextTheme(context).headline,
-        ),
+        title: Text(S.of(context).loginGreetings),
         centerTitle: true,
       ),
       body: GestureDetector(
@@ -57,12 +54,10 @@ class SignInPage extends StatelessWidget
                           children: <Widget>[
                             _buildFormInputs(context),
                             _buildSubmitButtons(context),
-                            SizedBox(
-                              width: 150,
-                              child: InkWell(
-                                onTap: _toRegistrationScreen,
-                                child: Text(S.of(context).registration),
-                              ),
+                            TextButton(
+                              beforeLabel: S.of(context).notRegisteredYet,
+                              label: S.of(context).createAccount,
+                              onPress: _toRegistrationScreen,
                             ),
                           ],
                         ),
@@ -158,7 +153,7 @@ class SignInPage extends StatelessWidget
             builder: (context, signInState) {
               return SubmitButton(
                 isLoading: signInState is Loading,
-                title: S.of(context).loginEmail,
+                title: S.of(context).singInEmail,
                 color: Colors.blue,
                 onPress: onPressSubmit,
               );
@@ -171,7 +166,7 @@ class SignInPage extends StatelessWidget
             builder: (context, signInState) {
               return SubmitButton(
                 isLoading: signInState is Loading,
-                title: S.of(context).loginWith('Google'),
+                title: S.of(context).signInProvider('Google'),
                 color: Colors.blue,
                 onPress: _onPressGoogleSignIn,
               );
