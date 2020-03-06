@@ -8,7 +8,7 @@ import 'package:smarty_duelist/generated/l10n.dart';
 import 'package:smarty_duelist/src/core/core.dart' show OrientationMixin;
 import 'package:smarty_duelist/src/injector/injector.dart' show getIt;
 import 'package:smarty_duelist/src/presentation/shared_widgets/shared_widgets.dart'
-    show FormFieldEmail, FormFieldPassword, SubmitButton;
+    show FormTextField, SubmitButton;
 
 import 'blocs/blocs.dart';
 
@@ -101,24 +101,38 @@ class SignInPage extends StatelessWidget
           Container(
             constraints: getMaxWidthConstraints(context, 0.4),
             margin: const EdgeInsets.only(bottom: 0),
-            child: FormFieldEmail(
+            child: FormTextField(
               controller: signInBloc.emailController,
               attribute: describeEnum(SignInFormData.email),
               onFiledSubmitted: _makeOnNextActionSubmitted(
                 signInBloc.passwordFocusNode,
               ),
+              icon: Icon(Icons.alternate_email),
+              label: S.of(context).email,
+              keyboardType: TextInputType.emailAddress,
+              validatorsList: [
+                FormBuilderValidators.email(
+                  errorText: S.of(context).errorEmail,
+                ),
+              ],
             ),
           ),
           Container(
             constraints: getMaxWidthConstraints(context, 0.4),
             margin: const EdgeInsets.only(bottom: 0),
-            child: FormFieldPassword(
+            child: FormTextField(
               controller: signInBloc.passwordController,
               attribute: describeEnum(SignInFormData.password),
               label: S.of(context).password,
               focusNode: signInBloc.passwordFocusNode,
               onFiledSubmitted: onDoneActionSubmitted,
               textInputAction: TextInputAction.done,
+              icon: Icon(Icons.lock_outline),
+              obscureText: true,
+              validatorsList: [
+                FormBuilderValidators.minLength(8,
+                    errorText: S.of(context).errorMinLength(8)),
+              ],
             ),
           ),
         ],
