@@ -29,15 +29,6 @@ class S {
 
   final String localeName;
 
-  String get username {
-    return Intl.message(
-      'Username',
-      name: 'username',
-      desc: '',
-      args: [],
-    );
-  }
-
   String get email {
     return Intl.message(
       'Email',
@@ -92,37 +83,37 @@ class S {
     );
   }
 
-  String get loginEmail {
+  String get singInEmail {
     return Intl.message(
-      'Sign in',
-      name: 'loginEmail',
+      'Sign in with email',
+      name: 'singInEmail',
       desc: '',
       args: [],
     );
   }
 
-  String loginWith(dynamic provider) {
+  String signInProvider(dynamic provider) {
     return Intl.message(
       'Sign in with $provider',
-      name: 'loginWith',
+      name: 'signInProvider',
       desc: '',
       args: [provider],
     );
   }
 
-  String get registration {
+  String get createAccount {
     return Intl.message(
-      'Registration',
-      name: 'registration',
+      'Create an account',
+      name: 'createAccount',
       desc: '',
       args: [],
     );
   }
 
-  String get userName {
+  String get notRegisteredYet {
     return Intl.message(
-      'User name',
-      name: 'userName',
+      'Not registered yet?',
+      name: 'notRegisteredYet',
       desc: '',
       args: [],
     );
@@ -132,33 +123,6 @@ class S {
     return Intl.message(
       'Confirm password',
       name: 'confirmPassword',
-      desc: '',
-      args: [],
-    );
-  }
-
-  String get register {
-    return Intl.message(
-      'Register',
-      name: 'register',
-      desc: '',
-      args: [],
-    );
-  }
-
-  String get getPrice {
-    return Intl.message(
-      'Price - \$value',
-      name: 'getPrice',
-      desc: '',
-      args: [],
-    );
-  }
-
-  String get mainMenu {
-    return Intl.message(
-      'Main menu',
-      name: 'mainMenu',
       desc: '',
       args: [],
     );
