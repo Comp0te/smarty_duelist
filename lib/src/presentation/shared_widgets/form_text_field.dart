@@ -3,15 +3,21 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 import 'package:smarty_duelist/generated/l10n.dart';
 
-class FormFieldEmail extends StatelessWidget {
+class FormTextField extends StatelessWidget {
   final TextEditingController controller;
   final String attribute;
   final List<FormFieldValidator> validatorsList;
   final ValueChanged<String> onFiledSubmitted;
   final TextInputAction textInputAction;
   final FocusNode focusNode;
+  final Icon icon;
+  final String label;
+  final TextInputType keyboardType;
+  final double marginBottom;
+  final bool isRequired;
+  final bool obscureText;
 
-  const FormFieldEmail({
+  const FormTextField({
     Key key,
     @required this.controller,
     @required this.attribute,
@@ -19,6 +25,12 @@ class FormFieldEmail extends StatelessWidget {
     this.onFiledSubmitted,
     this.textInputAction = TextInputAction.next,
     this.focusNode,
+    this.icon,
+    this.label,
+    this.keyboardType = TextInputType.text,
+    this.marginBottom = 0,
+    this.isRequired = true,
+    this.obscureText = false,
   })  : assert(controller != null),
         assert(attribute != null),
         super(key: key);
@@ -28,25 +40,27 @@ class FormFieldEmail extends StatelessWidget {
     return Container(
       height: 60,
       constraints: const BoxConstraints(maxHeight: 60),
+      margin: EdgeInsets.only(bottom: marginBottom),
       child: FormBuilderTextField(
-        style: Theme.of(context).textTheme.body1,
         controller: controller,
         attribute: attribute,
         autocorrect: false,
         focusNode: focusNode,
-        keyboardType: TextInputType.emailAddress,
+        keyboardType: keyboardType,
         textInputAction: textInputAction,
         onFieldSubmitted: onFiledSubmitted,
+        obscureText: obscureText,
+        maxLines: obscureText ? 1 : null,
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.all(0),
-          labelText: S.of(context).email,
-          icon: Icon(Icons.alternate_email),
+          labelText: label,
+          icon: icon,
         ),
         validators: [
-          FormBuilderValidators.required(
-            errorText: S.of(context).errorRequired,
-          ),
-          FormBuilderValidators.email(errorText: S.of(context).errorEmail),
+          if (isRequired)
+            FormBuilderValidators.required(
+              errorText: S.of(context).errorRequired,
+            ),
           ...validatorsList,
         ],
       ),
