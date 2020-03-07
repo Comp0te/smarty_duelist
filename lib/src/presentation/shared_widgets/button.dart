@@ -12,29 +12,30 @@ class Button extends StatelessWidget {
   final Color color;
   final double height;
   final bool iosOutlined;
+  final Gradient gradient;
 
   const Button({
     Key key,
     @required this.title,
     this.onPress,
-    this.isLoading = true,
+    this.isLoading = false,
     this.color,
     this.height = 44,
     this.iosOutlined = false,
+    this.gradient,
   }) : super(key: key);
+
+  bool get isOutlined =>
+      iosOutlined && Platform.isIOS && !isLoading && onPress != null;
+  BorderRadius get borderRadius => BorderRadius.circular(16);
 
   @override
   Widget build(BuildContext context) {
-    final isOutlined =
-        iosOutlined && Platform.isIOS && !isLoading && onPress != null;
-    final borderRadius = BorderRadius.circular(16);
-    final primaryColor = color ?? Theme.of(context).primaryColor;
-
     return PlatformButton(
       onPressed: isLoading ? null : onPress,
       padding: const EdgeInsets.all(0),
       disabledColor: Theme.of(context).disabledColor.withOpacity(0.1),
-      color: primaryColor,
+      color: _getPrimaryColor(context),
       android: (_) => MaterialRaisedButtonData(
         shape: RoundedRectangleBorder(
           borderRadius: borderRadius,
@@ -50,26 +51,48 @@ class Button extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 8),
         width: double.infinity,
         height: height,
-        decoration: isOutlined
-            ? BoxDecoration(
-                borderRadius: borderRadius,
-                border: Border.all(
-                  color: primaryColor,
-                  width: 1,
-                ))
-            : null,
-        child: isLoading
-            ? Spinner(color: primaryColor)
-            : PlatformText(
-                title,
-                maxLines: 1,
-                softWrap: false,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).primaryTextTheme.button.copyWith(
-                      color: isOutlined ? primaryColor : null,
-                    ),
-              ),
+        decoration: _getDecoration(context),
+        child: _getContent(context),
       ),
     );
+  }
+
+  Color _getPrimaryColor(BuildContext context) {
+    return color ?? Theme.of(context).primaryColor;
+  }
+
+  Widget _getContent(BuildContext context) {
+    if (isLoading) return Spinner(color: _getPrimaryColor(context));
+
+    return PlatformText(
+      title,
+      maxLines: 1,
+      softWrap: false,
+      textAlign: TextAlign.center,
+      style: Theme.of(context).primaryTextTheme.button.copyWith(
+            color: isOutlined ? _getPrimaryColor(context) : null,
+          ),
+    );
+  }
+
+  BoxDecoration _getDecoration(BuildContext context) {
+    if (isOutlined) {
+      return BoxDecoration(
+        borderRadius: borderRadius,
+        border: Border.all(
+          color: _getPrimaryColor(context),
+          width: 1,
+        ),
+      );
+    }
+
+    if (gradient != null) {
+      return BoxDecoration(
+        borderRadius: borderRadius,
+        gradient: gradient,
+      );
+    }
+
+    return null;
   }
 }
