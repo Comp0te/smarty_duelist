@@ -1,5 +1,6 @@
 import 'dart:io' show Platform;
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 TargetPlatform getTargetPlatform() {
@@ -51,9 +52,15 @@ const darkColorScheme = ColorScheme.dark(
 final lightTheme = ThemeData.from(
   colorScheme: lightColorScheme,
   textTheme: textTypography.englishLike,
+).copyWith(
+  primaryColorLight: const Color(0xFFe35183),
+  primaryColorDark: const Color(0xFF78002e),
 );
 
 final darkTheme = ThemeData.from(
   colorScheme: darkColorScheme,
   textTheme: textTypography.englishLike,
+).copyWith(
+  primaryColorLight: const Color(0xFFe35183),
+  primaryColorDark: const Color(0xFF78002e),
 );
