@@ -154,7 +154,6 @@ class SignInPage extends StatelessWidget
               return Button(
                 isLoading: signInState is Loading,
                 title: S.of(context).singInEmail,
-                color: Colors.blue,
                 onPress: onPressSubmit,
               );
             },
@@ -167,7 +166,6 @@ class SignInPage extends StatelessWidget
               return Button(
                 isLoading: signInState is Loading,
                 title: S.of(context).signInProvider('Google'),
-                color: Colors.blue,
                 onPress: _onPressGoogleSignIn,
               );
             },
