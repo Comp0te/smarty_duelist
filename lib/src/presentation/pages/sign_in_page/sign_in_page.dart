@@ -8,7 +8,7 @@ import 'package:smarty_duelist/generated/l10n.dart';
 import 'package:smarty_duelist/src/core/core.dart' show OrientationMixin;
 import 'package:smarty_duelist/src/injector/injector.dart' show getIt;
 import 'package:smarty_duelist/src/presentation/shared_widgets/shared_widgets.dart'
-    show FormTextField, SubmitButton, TextButton;
+    show FormTextField, Button, TextButton;
 
 import 'blocs/blocs.dart';
 
@@ -151,7 +151,7 @@ class SignInPage extends StatelessWidget
           constraints: getMaxWidthConstraints(context, 0.25),
           child: BlocBuilder<SignInBloc, SignInState>(
             builder: (context, signInState) {
-              return SubmitButton(
+              return Button(
                 isLoading: signInState is Loading,
                 title: S.of(context).singInEmail,
                 color: Colors.blue,
@@ -164,7 +164,7 @@ class SignInPage extends StatelessWidget
           constraints: getMaxWidthConstraints(context, 0.25),
           child: BlocBuilder<SignInBloc, SignInState>(
             builder: (context, signInState) {
-              return SubmitButton(
+              return Button(
                 isLoading: signInState is Loading,
                 title: S.of(context).signInProvider('Google'),
                 color: Colors.blue,

@@ -35,6 +35,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "notRegisteredYet" : MessageLookupByLibrary.simpleMessage("Not registered yet?"),
     "password" : MessageLookupByLibrary.simpleMessage("Password"),
     "signInProvider" : m1,
-    "singInEmail" : MessageLookupByLibrary.simpleMessage("Sign in with email")
+    "singInEmail" : MessageLookupByLibrary.simpleMessage("Sign in with Email")
   };
 }

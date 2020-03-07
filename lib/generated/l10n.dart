@@ -85,7 +85,7 @@ class S {
 
   String get singInEmail {
     return Intl.message(
-      'Sign in with email',
+      'Sign in with Email',
       name: 'singInEmail',
       desc: '',
       args: [],
