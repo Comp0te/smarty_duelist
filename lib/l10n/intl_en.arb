@@ -7,7 +7,7 @@
   "errorEmail": "Incorrect email address",
 
   "loginGreetings": "Greetings!",
-  "singInEmail": "Sign in with email",
+  "singInEmail": "Sign in with Email",
   "signInProvider": "Sign in with {provider}",
   "createAccount": "Create an account",
   "notRegisteredYet": "Not registered yet?",
