@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 enum SpinnerMode { inner, standalone }
 
@@ -18,9 +19,12 @@ class Spinner extends StatelessWidget {
           child: SizedBox(
             height: 50,
             width: 50,
-            child: CircularProgressIndicator(
-              strokeWidth: 2,
-              backgroundColor: color,
+            child: PlatformCircularProgressIndicator(
+              ios: (_) => CupertinoProgressIndicatorData(),
+              android: (_) => MaterialProgressIndicatorData(
+                strokeWidth: 2,
+                backgroundColor: color,
+              ),
             ),
           ),
         );
@@ -29,11 +33,14 @@ class Spinner extends StatelessWidget {
         return SizedBox(
           width: 25,
           height: 25,
-          child: CircularProgressIndicator(
-            strokeWidth: 2,
-            backgroundColor: color,
+          child: PlatformCircularProgressIndicator(
+            ios: (_) => CupertinoProgressIndicatorData(),
+            android: (_) => MaterialProgressIndicatorData(
+              strokeWidth: 2,
+              backgroundColor: color,
+            ),
           ),
         );
-    }
+    } /**/
   }
 }
