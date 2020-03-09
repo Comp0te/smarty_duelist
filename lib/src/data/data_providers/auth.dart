@@ -5,7 +5,8 @@ import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 
 import 'package:smarty_duelist/src/core/core.dart' show SupportedLanguages;
-import 'package:smarty_duelist/src/domain/domain.dart' show IAuthDataProvider;
+import 'package:smarty_duelist/src/domain/domain.dart'
+    show AuthAbortException, IAuthDataProvider;
 
 @RegisterAs(IAuthDataProvider)
 @singleton
@@ -51,11 +52,14 @@ class AuthDataProvider implements IAuthDataProvider {
     return auth.setLanguageCode(describeEnum(languageTag));
   }
 
+  /// throws [AuthException], [AuthAbortException]
   @override
   Future<AuthResult> signInWithGoogle() async {
     final googleUser = await googleSignIn.signIn();
-    final googleAuth = await googleUser.authentication;
 
+    if (googleUser == null) throw AuthAbortException();
+
+    final googleAuth = await googleUser.authentication;
     final credential = GoogleAuthProvider.getCredential(
       accessToken: googleAuth.accessToken,
       idToken: googleAuth.idToken,
