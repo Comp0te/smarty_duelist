@@ -28,17 +28,18 @@ class SignInPage extends StatelessWidget
     final signInBloc = BlocProvider.of<SignInBloc>(context);
     void _toRegistrationScreen() {}
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(S.of(context).loginGreetings),
-        centerTitle: true,
-      ),
-      body: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
-        child: SafeArea(
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      excludeFromSemantics: true,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(S.of(context).loginGreetings),
+          centerTitle: true,
+        ),
+        body: SafeArea(
           child: Center(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
