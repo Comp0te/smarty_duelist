@@ -16,21 +16,23 @@ class FormTextField extends StatelessWidget {
   final double marginBottom;
   final bool isRequired;
   final bool obscureText;
+  final int maxLines;
 
   const FormTextField({
     Key key,
     @required this.controller,
     @required this.attribute,
-    this.validatorsList = const [],
     this.onFiledSubmitted,
-    this.textInputAction = TextInputAction.next,
     this.focusNode,
     this.icon,
     this.label,
+    this.validatorsList = const [],
+    this.textInputAction = TextInputAction.next,
     this.keyboardType = TextInputType.text,
-    this.marginBottom = 0,
+    this.marginBottom = 5,
     this.isRequired = true,
     this.obscureText = false,
+    this.maxLines = 1,
   })  : assert(controller != null),
         assert(attribute != null),
         super(key: key);
@@ -38,8 +40,7 @@ class FormTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60,
-      constraints: const BoxConstraints(maxHeight: 60),
+      constraints: const BoxConstraints(minHeight: 70),
       margin: EdgeInsets.only(bottom: marginBottom),
       child: FormBuilderTextField(
         controller: controller,
