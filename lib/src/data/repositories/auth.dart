@@ -7,6 +7,7 @@ import 'package:smarty_duelist/src/core/constants/languages.dart'
     show SupportedLanguages;
 import 'package:smarty_duelist/src/domain/domain.dart'
     show
+        AuthAbortException,
         AuthCredentialsProviders,
         AuthFailure,
         IAuthDataProvider,
@@ -54,6 +55,8 @@ class AuthRepository implements IAuthRepository {
       }
     } on AuthException catch (e) {
       return Left(AuthFailure(e));
+    } on AuthAbortException {
+      return Left(const AuthFailure(AuthException(null, null)));
     }
   }
 
