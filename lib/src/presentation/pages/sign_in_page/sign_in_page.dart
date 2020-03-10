@@ -34,7 +34,6 @@ class SignInPage extends StatelessWidget
       child: Scaffold(
         appBar: AppBar(
           title: Text(S.of(context).loginGreetings),
-          centerTitle: true,
         ),
         body: SafeArea(
           child: Center(
@@ -150,6 +149,7 @@ class SignInPage extends StatelessWidget
       children: [
         Container(
           constraints: getMaxWidthConstraints(context, 0.25),
+          margin: const EdgeInsets.only(bottom: 15),
           child: BlocBuilder<SignInBloc, SignInState>(
             builder: (context, signInState) {
               return Button(
