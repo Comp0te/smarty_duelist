@@ -49,12 +49,33 @@ const darkColorScheme = ColorScheme.dark(
   brightness: Brightness.dark,
 );
 
+//const cupLightTheme = CupertinoThemeData(
+//    primaryColor: Color(0xFFad1457),
+//    barBackgroundColor: Color(0xFFad1457),
+//    scaffoldBackgroundColor: Color(0xffeceff1),
+//    primaryContrastingColor: Color(0xffeceff1),
+//    brightness: Brightness.dark,
+//    textTheme: CupertinoTextThemeData(
+//      primaryColor: Color(0xFFad1457),
+//    ));
+//
+//const cupDarkTheme = CupertinoThemeData(
+//    primaryColor: Color(0xFFad1457),
+//    barBackgroundColor: Color(0xff263238),
+//    scaffoldBackgroundColor: Color(0xff263238),
+//    primaryContrastingColor: Color(0xffeceff1),
+//    brightness: Brightness.dark,
+//    textTheme: CupertinoTextThemeData(
+//      primaryColor: Color(0xFFad1457),
+//    ));
+
 final lightTheme = ThemeData.from(
   colorScheme: lightColorScheme,
   textTheme: textTypography.englishLike,
 ).copyWith(
   primaryColorLight: const Color(0xFFe35183),
   primaryColorDark: const Color(0xFF78002e),
+//  cupertinoOverrideTheme: cupLightTheme,
 );
 
 final darkTheme = ThemeData.from(
@@ -63,4 +84,5 @@ final darkTheme = ThemeData.from(
 ).copyWith(
   primaryColorLight: const Color(0xFFe35183),
   primaryColorDark: const Color(0xFF78002e),
+//  cupertinoOverrideTheme: cupDarkTheme,
 );
