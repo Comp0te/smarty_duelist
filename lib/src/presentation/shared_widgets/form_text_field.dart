@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import 'package:smarty_duelist/generated/l10n.dart';
 
@@ -39,31 +41,74 @@ class FormTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      constraints: const BoxConstraints(minHeight: 70),
-      margin: EdgeInsets.only(bottom: marginBottom),
-      child: FormBuilderTextField(
-        controller: controller,
-        attribute: attribute,
-        autocorrect: false,
-        focusNode: focusNode,
-        keyboardType: keyboardType,
-        textInputAction: textInputAction,
-        onFieldSubmitted: onFiledSubmitted,
-        obscureText: obscureText,
-        maxLines: obscureText ? 1 : null,
-        decoration: InputDecoration(
-          contentPadding: const EdgeInsets.all(0),
-          labelText: label,
-          icon: icon,
-        ),
-        validators: [
-          if (isRequired)
-            FormBuilderValidators.required(
-              errorText: S.of(context).errorRequired,
+    return FormBuilderCustomField(
+      validators: [
+        if (isRequired)
+          FormBuilderValidators.required(
+            errorText: S.of(context).errorRequired,
+          ),
+        ...validatorsList,
+      ],
+      attribute: attribute,
+      formField: FormField(
+        builder: (FormFieldState<dynamic> field) {
+          return Container(
+            constraints: BoxConstraints(
+              minHeight: isMaterial(context) ? 80 : 61,
             ),
-          ...validatorsList,
-        ],
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                PlatformTextField(
+                  android: (_) => MaterialTextFieldData(
+                    decoration: InputDecoration(
+                      contentPadding: const EdgeInsets.all(0),
+                      labelText: label,
+                      icon: icon,
+                      errorText: field.errorText,
+                    ),
+                  ),
+                  ios: (_) => CupertinoTextFieldData(
+                      prefix: icon,
+                      placeholder: label,
+                      clearButtonMode: OverlayVisibilityMode.editing,
+                      decoration: BoxDecoration(
+                        color:
+                            CupertinoTheme.of(context).scaffoldBackgroundColor,
+                        border: Border(
+                          bottom: BorderSide(
+                            width: 1,
+                            color: field?.errorText != null
+                                ? CupertinoColors.destructiveRed
+                                : CupertinoColors.inactiveGray,
+                          ),
+                        ),
+                      )),
+                  controller: controller,
+                  autocorrect: false,
+                  focusNode: focusNode,
+                  keyboardType: keyboardType,
+                  textInputAction: textInputAction,
+                  onSubmitted: onFiledSubmitted,
+                  obscureText: obscureText,
+                  maxLines: obscureText ? 1 : null,
+                ),
+                if (isCupertino(context))
+                  Container(
+                    height: 22,
+                    alignment: Alignment.centerRight,
+                    child: Text(
+                      field?.errorText ?? '',
+                      style: CupertinoTheme.of(context)
+                          .textTheme
+                          .tabLabelTextStyle
+                          .copyWith(color: CupertinoColors.destructiveRed),
+                    ),
+                  ),
+              ],
+            ),
+          );
+        },
       ),
     );
   }
