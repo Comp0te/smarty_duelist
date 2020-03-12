@@ -19,13 +19,7 @@ class Spinner extends StatelessWidget {
           child: SizedBox(
             height: 50,
             width: 50,
-            child: PlatformCircularProgressIndicator(
-              ios: (_) => CupertinoProgressIndicatorData(),
-              android: (_) => MaterialProgressIndicatorData(
-                strokeWidth: 2,
-                backgroundColor: color,
-              ),
-            ),
+            child: _buildSpinner(context),
           ),
         );
       case SpinnerMode.inner:
@@ -33,14 +27,18 @@ class Spinner extends StatelessWidget {
         return SizedBox(
           width: 25,
           height: 25,
-          child: PlatformCircularProgressIndicator(
-            ios: (_) => CupertinoProgressIndicatorData(),
-            android: (_) => MaterialProgressIndicatorData(
-              strokeWidth: 2,
-              backgroundColor: color,
-            ),
-          ),
+          child: _buildSpinner(context),
         );
-    } /**/
+    }
+  }
+
+  Widget _buildSpinner(BuildContext context) {
+    return PlatformCircularProgressIndicator(
+      ios: (_) => CupertinoProgressIndicatorData(),
+      android: (_) => MaterialProgressIndicatorData(
+        strokeWidth: 2,
+        backgroundColor: color ?? Theme.of(context).primaryColor,
+      ),
+    );
   }
 }
