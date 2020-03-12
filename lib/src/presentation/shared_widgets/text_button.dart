@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
@@ -30,9 +31,6 @@ class TextButton extends StatelessWidget {
                 Flexible(
                   child: Text(
                     beforeLabel,
-                    style: Theme.of(context).textTheme.button.copyWith(
-                          color: Theme.of(context).unselectedWidgetColor,
-                        ),
                     softWrap: false,
                     overflow: TextOverflow.fade,
                   ),
@@ -43,7 +41,6 @@ class TextButton extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(
                     horizontal: 4,
                   ),
-                  textColor: Theme.of(context).primaryColor,
                 ),
                 ios: (_) => CupertinoButtonData(
                   padding: const EdgeInsets.symmetric(
