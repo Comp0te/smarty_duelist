@@ -68,5 +68,4 @@ final darkMaterialTheme = ThemeData.from(
     colorScheme: darkColorScheme,
     textTheme: ButtonTextTheme.accent,
   ),
-
 );
