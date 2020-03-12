@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
@@ -34,16 +35,18 @@ class Button extends StatelessWidget {
     return PlatformButton(
       onPressed: isLoading ? null : onPress,
       padding: const EdgeInsets.all(0),
-      disabledColor: Theme.of(context).disabledColor.withOpacity(0.1),
-      color: _getPrimaryColor(context),
       android: (_) => MaterialRaisedButtonData(
         shape: RoundedRectangleBorder(
           borderRadius: borderRadius,
         ),
+        color: color,
+        textTheme: ButtonTextTheme.primary,
       ),
       ios: (_) => CupertinoButtonData(
         minSize: 44,
-        color: iosOutlined ? Theme.of(context).backgroundColor : null,
+        color: iosOutlined
+            ? null
+            : color ?? CupertinoTheme.of(context).primaryColor,
         borderRadius: borderRadius,
       ),
       child: Container(
@@ -57,21 +60,14 @@ class Button extends StatelessWidget {
     );
   }
 
-  Color _getPrimaryColor(BuildContext context) {
-    return color ?? Theme.of(context).primaryColor;
-  }
-
   Widget _getContent(BuildContext context) {
-    if (isLoading) return Spinner(color: _getPrimaryColor(context));
+    if (isLoading) return const Spinner();
 
     return PlatformText(
       title,
       maxLines: 1,
       softWrap: false,
       textAlign: TextAlign.center,
-      style: Theme.of(context).primaryTextTheme.button.copyWith(
-            color: isOutlined ? _getPrimaryColor(context) : null,
-          ),
     );
   }
 
@@ -80,9 +76,7 @@ class Button extends StatelessWidget {
       return BoxDecoration(
         borderRadius: borderRadius,
         border: Border.all(
-          color: _getPrimaryColor(context),
-          width: 1,
-        ),
+            width: 1, color: CupertinoTheme.of(context).primaryColor),
       );
     }
 
