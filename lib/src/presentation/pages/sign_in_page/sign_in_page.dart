@@ -8,7 +8,7 @@ import 'package:smarty_duelist/generated/l10n.dart';
 import 'package:smarty_duelist/src/core/core.dart' show OrientationMixin;
 import 'package:smarty_duelist/src/injector/injector.dart' show getIt;
 import 'package:smarty_duelist/src/presentation/shared_widgets/shared_widgets.dart'
-    show FormTextField, Button, TextButton;
+    show Button, FormTextField, NativeScaffold, TextButton;
 
 import 'blocs/blocs.dart';
 
@@ -31,10 +31,8 @@ class SignInPage extends StatelessWidget
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       excludeFromSemantics: true,
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(S.of(context).loginGreetings),
-        ),
+      child: NativeScaffold(
+        title: Text(S.of(context).loginGreetings),
         body: SafeArea(
           child: Center(
             child: SingleChildScrollView(
