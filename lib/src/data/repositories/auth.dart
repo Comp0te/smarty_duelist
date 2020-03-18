@@ -7,7 +7,6 @@ import 'package:smarty_duelist/src/core/constants/languages.dart'
     show SupportedLanguages;
 import 'package:smarty_duelist/src/domain/domain.dart'
     show
-        AuthAbortException,
         AuthCredentialsProviders,
         AuthFailure,
         IAuthDataProvider,
@@ -27,64 +26,43 @@ class AuthRepository implements IAuthRepository {
   Future<Either<AuthFailure, AuthResult>> signInWithEmail({
     @required String email,
     @required String password,
-  }) async {
-    try {
-      return Right(await authDataProvider.signInWithEmail(
-        email: email,
-        password: password,
-      ));
-    } on AuthException catch (e) {
-      return Left(AuthFailure(e));
-    }
+  }) {
+    return authDataProvider.signInWithEmail(
+      email: email,
+      password: password,
+    );
   }
 
   @override
   Future<Either<AuthFailure, AuthResult>> signInWithCredentials({
     @required AuthCredentialsProviders provider,
   }) async {
-    try {
-      switch (provider) {
-        case AuthCredentialsProviders.google:
-          return Right(await authDataProvider.signInWithGoogle());
-        case AuthCredentialsProviders.facebook:
-          return Right(await authDataProvider.signInWithApple());
-        case AuthCredentialsProviders.apple:
-          return Right(await authDataProvider.signInWithApple());
-        default:
-          return null;
-      }
-    } on AuthException catch (e) {
-      return Left(AuthFailure(e));
-    } on AuthAbortException {
-      return Left(const AuthFailure(AuthException(null, null)));
+    switch (provider) {
+      case AuthCredentialsProviders.google:
+        return authDataProvider.signInWithGoogle();
+      case AuthCredentialsProviders.facebook:
+        return authDataProvider.signInWithApple();
+      case AuthCredentialsProviders.apple:
+        return authDataProvider.signInWithApple();
+      default:
+        return null;
     }
   }
 
   @override
-  Future<Either<AuthFailure, bool>> confirmResetPassword({
+  Future<Either<AuthFailure, Unit>> confirmResetPassword({
     String code,
     String newPassword,
-  }) async {
-    try {
-      await authDataProvider.confirmResetPassword(
-        code: code,
-        newPassword: newPassword,
-      );
-
-      return Right(true);
-    } on AuthException catch (e) {
-      return Left(AuthFailure(e));
-    }
+  }) {
+    return authDataProvider.confirmResetPassword(
+      code: code,
+      newPassword: newPassword,
+    );
   }
 
   @override
-  Future<Either<AuthFailure, FirebaseUser>> getCurrentUser() async {
-    try {
-      return Right(await authDataProvider.getCurrentUser());
-    } on AuthException catch (e) {
-      return Left(AuthFailure(e));
-    }
-  }
+  Future<Option<FirebaseUser>> getCurrentUser() =>
+      authDataProvider.getCurrentUser();
 
   @override
   Stream<FirebaseUser> onAuthStateChanged() {
@@ -92,43 +70,28 @@ class AuthRepository implements IAuthRepository {
   }
 
   @override
-  Future<Either<AuthFailure, bool>> sendResetPassword({
+  Future<Either<AuthFailure, Unit>> sendResetPassword({
     @required String email,
     SupportedLanguages languageTag = SupportedLanguages.ru,
   }) async {
-    try {
-      await authDataProvider.configureAuthLanguage(languageTag);
-      await authDataProvider.sendResetPassword(email: email);
+    await authDataProvider.configureAuthLanguage(languageTag);
 
-      return Right(true);
-    } on AuthException catch (e) {
-      return Left(AuthFailure(e));
-    }
+    return authDataProvider.sendResetPassword(email: email);
   }
 
   @override
-  Future<Either<AuthFailure, bool>> signOut() async {
-    try {
-      await authDataProvider.signOut();
-
-      return Right(true);
-    } on AuthException catch (e) {
-      return Left(AuthFailure(e));
-    }
+  Future<void> signOut() async {
+    await authDataProvider.signOut();
   }
 
   @override
   Future<Either<AuthFailure, AuthResult>> signUpWithEmail({
     @required String email,
     @required String password,
-  }) async {
-    try {
-      return Right(await authDataProvider.signUpWithEmail(
-        email: email,
-        password: password,
-      ));
-    } on AuthException catch (e) {
-      return Left(AuthFailure(e));
-    }
+  }) {
+    return authDataProvider.signUpWithEmail(
+      email: email,
+      password: password,
+    );
   }
 }

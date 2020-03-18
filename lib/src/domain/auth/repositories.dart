@@ -20,18 +20,18 @@ abstract class IAuthRepository {
     String password,
   });
 
-  Future<Either<AuthFailure, bool>> signOut();
+  Future<void> signOut();
 
-  Future<Either<AuthFailure, FirebaseUser>> getCurrentUser();
+  Future<Option<FirebaseUser>> getCurrentUser();
 
   Stream<FirebaseUser> onAuthStateChanged();
 
-  Future<Either<AuthFailure, bool>> sendResetPassword({
+  Future<Either<AuthFailure, Unit>> sendResetPassword({
     String email,
     SupportedLanguages languageTag,
   });
 
-  Future<Either<AuthFailure, bool>> confirmResetPassword({
+  Future<Either<AuthFailure, Unit>> confirmResetPassword({
     String code,
     String newPassword,
   });
