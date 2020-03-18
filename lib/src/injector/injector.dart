@@ -12,9 +12,9 @@ void configureInjector() => $initGetIt(getIt);
 
 @registerModule
 abstract class RegisterModule {
-  @injectable
+  @singleton
   FirebaseAuth get auth => FirebaseAuth.instance;
-  @injectable
+  @lazySingleton
   GoogleSignIn get googleSignIn => GoogleSignIn(
         scopes: [
           'email',

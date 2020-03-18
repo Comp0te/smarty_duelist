@@ -17,14 +17,14 @@ import 'package:get_it/get_it.dart';
 
 void $initGetIt(GetIt g, {String environment}) {
   final registerModule = _$RegisterModule();
-  g.registerFactory<FirebaseAuth>(() => registerModule.auth);
-  g.registerFactory<GoogleSignIn>(() => registerModule.googleSignIn);
+  g.registerLazySingleton<GoogleSignIn>(() => registerModule.googleSignIn);
   g.registerFactory<AuthBloc>(
       () => AuthBloc(authRepository: g<IAuthRepository>()));
   g.registerFactory<SignInBloc>(
       () => SignInBloc(authRepository: g<IAuthRepository>()));
 
   //Eager singletons must be registered in the right order
+  g.registerSingleton<FirebaseAuth>(registerModule.auth);
   g.registerSingleton<IAuthDataProvider>(AuthDataProvider(
       googleSignIn: g<GoogleSignIn>(), auth: g<FirebaseAuth>()));
   g.registerSingleton<IAuthRepository>(
