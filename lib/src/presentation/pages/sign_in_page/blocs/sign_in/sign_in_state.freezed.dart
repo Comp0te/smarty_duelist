@@ -14,7 +14,7 @@ mixin _$SignInState {
     @required Result validationShowed(),
     @required Result loading(),
     @required Result success(@required FirebaseUser user),
-    @required Result error(@required Failure failure),
+    @required Result error(@required AuthFailure failure),
   });
 
   @optionalTypeArgs
@@ -23,7 +23,7 @@ mixin _$SignInState {
     Result validationShowed(),
     Result loading(),
     Result success(@required FirebaseUser user),
-    Result error(@required Failure failure),
+    Result error(@required AuthFailure failure),
     @required Result orElse(),
   });
 
@@ -68,7 +68,7 @@ class _$SignInStateTearOff {
     );
   }
 
-  Error error({@required Failure failure}) {
+  Error error({@required AuthFailure failure}) {
     return Error(
       failure: failure,
     );
@@ -106,7 +106,7 @@ class _$Init with DiagnosticableTreeMixin implements Init {
     @required Result validationShowed(),
     @required Result loading(),
     @required Result success(@required FirebaseUser user),
-    @required Result error(@required Failure failure),
+    @required Result error(@required AuthFailure failure),
   }) {
     assert(init != null);
     assert(validationShowed != null);
@@ -123,7 +123,7 @@ class _$Init with DiagnosticableTreeMixin implements Init {
     Result validationShowed(),
     Result loading(),
     Result success(@required FirebaseUser user),
-    Result error(@required Failure failure),
+    Result error(@required AuthFailure failure),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -204,7 +204,7 @@ class _$ValidationShowed
     @required Result validationShowed(),
     @required Result loading(),
     @required Result success(@required FirebaseUser user),
-    @required Result error(@required Failure failure),
+    @required Result error(@required AuthFailure failure),
   }) {
     assert(init != null);
     assert(validationShowed != null);
@@ -221,7 +221,7 @@ class _$ValidationShowed
     Result validationShowed(),
     Result loading(),
     Result success(@required FirebaseUser user),
-    Result error(@required Failure failure),
+    Result error(@required AuthFailure failure),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -299,7 +299,7 @@ class _$Loading with DiagnosticableTreeMixin implements Loading {
     @required Result validationShowed(),
     @required Result loading(),
     @required Result success(@required FirebaseUser user),
-    @required Result error(@required Failure failure),
+    @required Result error(@required AuthFailure failure),
   }) {
     assert(init != null);
     assert(validationShowed != null);
@@ -316,7 +316,7 @@ class _$Loading with DiagnosticableTreeMixin implements Loading {
     Result validationShowed(),
     Result loading(),
     Result success(@required FirebaseUser user),
-    Result error(@required Failure failure),
+    Result error(@required AuthFailure failure),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -412,7 +412,7 @@ class _$Success with DiagnosticableTreeMixin implements Success {
     @required Result validationShowed(),
     @required Result loading(),
     @required Result success(@required FirebaseUser user),
-    @required Result error(@required Failure failure),
+    @required Result error(@required AuthFailure failure),
   }) {
     assert(init != null);
     assert(validationShowed != null);
@@ -429,7 +429,7 @@ class _$Success with DiagnosticableTreeMixin implements Success {
     Result validationShowed(),
     Result loading(),
     Result success(@required FirebaseUser user),
-    Result error(@required Failure failure),
+    Result error(@required AuthFailure failure),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -486,7 +486,7 @@ class _$Error with DiagnosticableTreeMixin implements Error {
   const _$Error({@required this.failure}) : assert(failure != null);
 
   @override
-  final Failure failure;
+  final AuthFailure failure;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -518,7 +518,7 @@ class _$Error with DiagnosticableTreeMixin implements Error {
     Object failure = freezed,
   }) {
     return _$Error(
-      failure: failure == freezed ? this.failure : failure as Failure,
+      failure: failure == freezed ? this.failure : failure as AuthFailure,
     );
   }
 
@@ -529,7 +529,7 @@ class _$Error with DiagnosticableTreeMixin implements Error {
     @required Result validationShowed(),
     @required Result loading(),
     @required Result success(@required FirebaseUser user),
-    @required Result error(@required Failure failure),
+    @required Result error(@required AuthFailure failure),
   }) {
     assert(init != null);
     assert(validationShowed != null);
@@ -546,7 +546,7 @@ class _$Error with DiagnosticableTreeMixin implements Error {
     Result validationShowed(),
     Result loading(),
     Result success(@required FirebaseUser user),
-    Result error(@required Failure failure),
+    Result error(@required AuthFailure failure),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -592,9 +592,9 @@ class _$Error with DiagnosticableTreeMixin implements Error {
 }
 
 abstract class Error implements SignInState {
-  const factory Error({@required Failure failure}) = _$Error;
+  const factory Error({@required AuthFailure failure}) = _$Error;
 
-  Failure get failure;
+  AuthFailure get failure;
 
-  Error copyWith({Failure failure});
+  Error copyWith({AuthFailure failure});
 }

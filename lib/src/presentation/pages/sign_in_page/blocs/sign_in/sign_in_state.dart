@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:flutter/foundation.dart';
 
-import 'package:smarty_duelist/src/domain/domain.dart' show Failure;
+import 'package:smarty_duelist/src/domain/domain.dart' show AuthFailure;
 
 part 'sign_in_state.freezed.dart';
 
@@ -15,5 +15,5 @@ abstract class SignInState with _$SignInState {
   const factory SignInState.success({
     @required FirebaseUser user,
   }) = Success;
-  const factory SignInState.error({@required Failure failure}) = Error;
+  const factory SignInState.error({@required AuthFailure failure}) = Error;
 }

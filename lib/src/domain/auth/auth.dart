@@ -1,3 +1,3 @@
 export 'data_providers.dart';
 export 'repositories.dart';
-export 'exceptions.dart';
+export 'entities/entities.dart';
