@@ -4,6 +4,12 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import 'package:smarty_duelist/generated/l10n.dart';
+import 'package:smarty_duelist/src/presentation/presentation.dart'
+    show
+        cupertinoPrimaryColor,
+        cupertinoPrimaryColorDark,
+        darkMaterialTheme,
+        lightMaterialTheme;
 
 class FormTextField extends StatelessWidget {
   final TextEditingController controller;
@@ -41,75 +47,61 @@ class FormTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FormBuilderCustomField(
-      validators: [
-        if (isRequired)
-          FormBuilderValidators.required(
-            errorText: S.of(context).errorRequired,
-          ),
-        ...validatorsList,
-      ],
-      attribute: attribute,
-      formField: FormField(
-        builder: (FormFieldState<dynamic> field) {
-          return Container(
-            constraints: BoxConstraints(
-              minHeight: isMaterial(context) ? 80 : 61,
+    return Container(
+      constraints: const BoxConstraints(
+        minHeight: 80,
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: Theme(
+          data: _getPlatformBrightness(context),
+          child: FormBuilderTextField(
+            attribute: attribute,
+            controller: controller,
+            autocorrect: false,
+            focusNode: focusNode,
+            keyboardType: keyboardType,
+            textInputAction: textInputAction,
+            onFieldSubmitted: onFiledSubmitted,
+            obscureText: obscureText,
+            maxLines: obscureText ? 1 : null,
+            decoration: InputDecoration(
+              contentPadding: const EdgeInsets.all(0),
+              labelText: label,
+              icon: icon,
             ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                PlatformTextField(
-                  android: (_) => MaterialTextFieldData(
-                    decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.all(0),
-                      labelText: label,
-                      icon: icon,
-                      errorText: field.errorText,
-                    ),
-                  ),
-                  ios: (_) => CupertinoTextFieldData(
-                      prefix: icon,
-                      placeholder: label,
-                      clearButtonMode: OverlayVisibilityMode.editing,
-                      decoration: BoxDecoration(
-                        color:
-                            CupertinoTheme.of(context).scaffoldBackgroundColor,
-                        border: Border(
-                          bottom: BorderSide(
-                            width: 1,
-                            color: field?.errorText != null
-                                ? CupertinoColors.destructiveRed
-                                : CupertinoColors.inactiveGray,
-                          ),
-                        ),
-                      )),
-                  controller: controller,
-                  autocorrect: false,
-                  focusNode: focusNode,
-                  keyboardType: keyboardType,
-                  textInputAction: textInputAction,
-                  onSubmitted: onFiledSubmitted,
-                  obscureText: obscureText,
-                  maxLines: obscureText ? 1 : null,
+            validators: [
+              if (isRequired)
+                FormBuilderValidators.required(
+                  errorText: S.of(context).errorRequired,
                 ),
-                if (isCupertino(context))
-                  Container(
-                    height: 22,
-                    alignment: Alignment.centerRight,
-                    child: Text(
-                      field?.errorText ?? '',
-                      style: CupertinoTheme.of(context)
-                          .textTheme
-                          .tabLabelTextStyle
-                          .copyWith(color: CupertinoColors.destructiveRed),
-                    ),
-                  ),
-              ],
-            ),
-          );
-        },
+              ...validatorsList,
+            ],
+          ),
+        ),
       ),
     );
+  }
+
+  ThemeData _getPlatformBrightness(BuildContext context) {
+    if (isCupertino(context)) {
+      if (CupertinoTheme.of(context).brightness == Brightness.light) {
+        return lightMaterialTheme.copyWith(
+          accentColor: cupertinoPrimaryColor,
+          errorColor: CupertinoColors.destructiveRed,
+        );
+      } else {
+        return darkMaterialTheme.copyWith(
+          accentColor: cupertinoPrimaryColorDark,
+          errorColor: CupertinoColors.destructiveRed,
+        );
+      }
+    }
+
+    if (Theme.of(context).brightness == Brightness.dark) {
+      return darkMaterialTheme;
+    }
+
+    return lightMaterialTheme;
   }
 }
