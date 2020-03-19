@@ -11,6 +11,7 @@ import 'package:smarty_duelist/src/presentation/shared_widgets/shared_widgets.da
     show Button, FormTextField, NativeScaffold, TextButton;
 
 import 'blocs/blocs.dart';
+import 'widgets/widgets.dart';
 
 enum SignInFormData { email, password }
 
@@ -28,41 +29,43 @@ class SignInPage extends StatelessWidget
     final signInBloc = BlocProvider.of<SignInBloc>(context);
     void _toRegistrationScreen() {}
 
-    return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
-      excludeFromSemantics: true,
-      child: NativeScaffold(
-        title: Text(S.of(context).loginGreetings),
-        body: SafeArea(
-          child: Center(
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  BlocBuilder<SignInBloc, SignInState>(
-                    condition: (prev, cur) =>
-                        prev is ValidationShowed || cur is ValidationShowed,
-                    builder: (context, state) {
-                      return FormBuilder(
-                        key: signInBloc.fbKey,
-                        autovalidate: state is ValidationShowed,
-                        child: Column(
-                          children: <Widget>[
-                            _buildFormInputs(context),
-                            _buildSubmitButtons(context),
-                            TextButton(
-                              beforeLabel: S.of(context).notRegisteredYet,
-                              label: S.of(context).createAccount,
-                              onPress: _toRegistrationScreen,
-                            ),
-                          ],
-                        ),
-                      );
-                    },
-                  ),
-                ],
+    return SignInBlocListener(
+      child: GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        excludeFromSemantics: true,
+        child: NativeScaffold(
+          title: Text(S.of(context).loginGreetings),
+          body: SafeArea(
+            child: Center(
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    BlocBuilder<SignInBloc, SignInState>(
+//                      condition: (prev, cur) =>
+//                          prev is ValidationShowed || cur is ValidationShowed,
+                      builder: (context, state) {
+                        return FormBuilder(
+                          key: signInBloc.fbKey,
+                          autovalidate: state is ValidationShowed,
+                          child: Column(
+                            children: <Widget>[
+                              _buildFormInputs(context),
+                              _buildSubmitButtons(context),
+                              TextButton(
+                                beforeLabel: S.of(context).notRegisteredYet,
+                                label: S.of(context).createAccount,
+                                onPress: _toRegistrationScreen,
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -105,7 +108,7 @@ class SignInPage extends StatelessWidget
               keyboardType: TextInputType.emailAddress,
               validatorsList: [
                 FormBuilderValidators.email(
-                  errorText: S.of(context).errorEmail,
+                  errorText: S.of(context).errorEmailIncorrect,
                 ),
               ],
             ),
