@@ -9,24 +9,24 @@ part 'auth_failures.freezed.dart';
 abstract class AuthFailure with _$AuthFailure {
   const factory AuthFailure.cancelledByUser() = CancelledByUser;
   const factory AuthFailure.sendResetPassword(
-    AuthException exp,
+    PlatformException exp,
   ) = SendResetPasswordFailure;
   const factory AuthFailure.confirmResetPassword(
-    AuthException exp,
+    PlatformException exp,
   ) = ConfirmResetPasswordFailure;
   const factory AuthFailure.signUpWithEmail(
-    AuthException exp,
+    PlatformException exp,
   ) = SignUpWithEmailFailure;
   const factory AuthFailure.signInWithGoogle(
-    AuthException exp,
+    PlatformException exp,
   ) = SignInWithGoogleFailure;
   const factory AuthFailure.googleAuth(
     PlatformException exp,
   ) = GoogleAuthFailure;
   const factory AuthFailure.signInWithEmail(
-    AuthException exp,
+    PlatformException exp,
   ) = SignInWithEmailFailure;
   const factory AuthFailure.unexpected(
-    AuthException exp,
+    PlatformException exp,
   ) = UnexpectedAuthFailure;
 }
