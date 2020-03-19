@@ -54,7 +54,7 @@ class AuthDataProvider implements IAuthDataProvider {
       await auth.sendPasswordResetEmail(email: email);
 
       return Right(unit);
-    } on AuthException catch (exp) {
+    } on PlatformException catch (exp) {
       return Left(SendResetPasswordFailure(exp));
     }
   }
@@ -68,7 +68,7 @@ class AuthDataProvider implements IAuthDataProvider {
       await auth.confirmPasswordReset(code, newPassword);
 
       return Right(unit);
-    } on AuthException catch (exp) {
+    } on PlatformException catch (exp) {
       return Left(ConfirmResetPasswordFailure(exp));
     }
   }
@@ -85,7 +85,7 @@ class AuthDataProvider implements IAuthDataProvider {
       );
 
       return Right(result);
-    } on AuthException catch (exp) {
+    } on PlatformException catch (exp) {
       return Left(SignUpWithEmailFailure(exp));
     }
   }
@@ -107,7 +107,7 @@ class AuthDataProvider implements IAuthDataProvider {
       );
 
       return Right(result);
-    } on AuthException catch (exp) {
+    } on PlatformException catch (exp) {
       return Left(SignInWithEmailFailure(exp));
     }
   }
@@ -128,10 +128,13 @@ class AuthDataProvider implements IAuthDataProvider {
       final result = await auth.signInWithCredential(credential);
 
       return Right(result);
-    } on AuthException catch (exp) {
-      return Left(SignInWithGoogleFailure(exp));
     } on PlatformException catch (exp) {
-      return Left(GoogleAuthFailure(exp));
+      if (exp.code == GoogleSignInAccount.kFailedToRecoverAuthError ||
+          exp.code == GoogleSignInAccount.kUserRecoverableAuthError) {
+        return Left(GoogleAuthFailure(exp));
+      }
+
+      return Left(SignInWithGoogleFailure(exp));
     }
   }
 

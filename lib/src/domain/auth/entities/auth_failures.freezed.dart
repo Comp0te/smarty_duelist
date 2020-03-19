@@ -11,25 +11,25 @@ mixin _$AuthFailure {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result cancelledByUser(),
-    @required Result sendResetPassword(AuthException exp),
-    @required Result confirmResetPassword(AuthException exp),
-    @required Result signUpWithEmail(AuthException exp),
-    @required Result signInWithGoogle(AuthException exp),
+    @required Result sendResetPassword(PlatformException exp),
+    @required Result confirmResetPassword(PlatformException exp),
+    @required Result signUpWithEmail(PlatformException exp),
+    @required Result signInWithGoogle(PlatformException exp),
     @required Result googleAuth(PlatformException exp),
-    @required Result signInWithEmail(AuthException exp),
-    @required Result unexpected(AuthException exp),
+    @required Result signInWithEmail(PlatformException exp),
+    @required Result unexpected(PlatformException exp),
   });
 
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result cancelledByUser(),
-    Result sendResetPassword(AuthException exp),
-    Result confirmResetPassword(AuthException exp),
-    Result signUpWithEmail(AuthException exp),
-    Result signInWithGoogle(AuthException exp),
+    Result sendResetPassword(PlatformException exp),
+    Result confirmResetPassword(PlatformException exp),
+    Result signUpWithEmail(PlatformException exp),
+    Result signInWithGoogle(PlatformException exp),
     Result googleAuth(PlatformException exp),
-    Result signInWithEmail(AuthException exp),
-    Result unexpected(AuthException exp),
+    Result signInWithEmail(PlatformException exp),
+    Result unexpected(PlatformException exp),
     @required Result orElse(),
   });
 
@@ -66,25 +66,25 @@ class _$AuthFailureTearOff {
     return const CancelledByUser();
   }
 
-  SendResetPasswordFailure sendResetPassword(AuthException exp) {
+  SendResetPasswordFailure sendResetPassword(PlatformException exp) {
     return SendResetPasswordFailure(
       exp,
     );
   }
 
-  ConfirmResetPasswordFailure confirmResetPassword(AuthException exp) {
+  ConfirmResetPasswordFailure confirmResetPassword(PlatformException exp) {
     return ConfirmResetPasswordFailure(
       exp,
     );
   }
 
-  SignUpWithEmailFailure signUpWithEmail(AuthException exp) {
+  SignUpWithEmailFailure signUpWithEmail(PlatformException exp) {
     return SignUpWithEmailFailure(
       exp,
     );
   }
 
-  SignInWithGoogleFailure signInWithGoogle(AuthException exp) {
+  SignInWithGoogleFailure signInWithGoogle(PlatformException exp) {
     return SignInWithGoogleFailure(
       exp,
     );
@@ -96,13 +96,13 @@ class _$AuthFailureTearOff {
     );
   }
 
-  SignInWithEmailFailure signInWithEmail(AuthException exp) {
+  SignInWithEmailFailure signInWithEmail(PlatformException exp) {
     return SignInWithEmailFailure(
       exp,
     );
   }
 
-  UnexpectedAuthFailure unexpected(AuthException exp) {
+  UnexpectedAuthFailure unexpected(PlatformException exp) {
     return UnexpectedAuthFailure(
       exp,
     );
@@ -139,13 +139,13 @@ class _$CancelledByUser
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result cancelledByUser(),
-    @required Result sendResetPassword(AuthException exp),
-    @required Result confirmResetPassword(AuthException exp),
-    @required Result signUpWithEmail(AuthException exp),
-    @required Result signInWithGoogle(AuthException exp),
+    @required Result sendResetPassword(PlatformException exp),
+    @required Result confirmResetPassword(PlatformException exp),
+    @required Result signUpWithEmail(PlatformException exp),
+    @required Result signInWithGoogle(PlatformException exp),
     @required Result googleAuth(PlatformException exp),
-    @required Result signInWithEmail(AuthException exp),
-    @required Result unexpected(AuthException exp),
+    @required Result signInWithEmail(PlatformException exp),
+    @required Result unexpected(PlatformException exp),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
@@ -162,13 +162,13 @@ class _$CancelledByUser
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result cancelledByUser(),
-    Result sendResetPassword(AuthException exp),
-    Result confirmResetPassword(AuthException exp),
-    Result signUpWithEmail(AuthException exp),
-    Result signInWithGoogle(AuthException exp),
+    Result sendResetPassword(PlatformException exp),
+    Result confirmResetPassword(PlatformException exp),
+    Result signUpWithEmail(PlatformException exp),
+    Result signInWithGoogle(PlatformException exp),
     Result googleAuth(PlatformException exp),
-    Result signInWithEmail(AuthException exp),
-    Result unexpected(AuthException exp),
+    Result signInWithEmail(PlatformException exp),
+    Result unexpected(PlatformException exp),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -232,7 +232,7 @@ class _$SendResetPasswordFailure
   const _$SendResetPasswordFailure(this.exp) : assert(exp != null);
 
   @override
-  final AuthException exp;
+  final PlatformException exp;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -264,7 +264,7 @@ class _$SendResetPasswordFailure
     Object exp = freezed,
   }) {
     return _$SendResetPasswordFailure(
-      exp == freezed ? this.exp : exp as AuthException,
+      exp == freezed ? this.exp : exp as PlatformException,
     );
   }
 
@@ -272,13 +272,13 @@ class _$SendResetPasswordFailure
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result cancelledByUser(),
-    @required Result sendResetPassword(AuthException exp),
-    @required Result confirmResetPassword(AuthException exp),
-    @required Result signUpWithEmail(AuthException exp),
-    @required Result signInWithGoogle(AuthException exp),
+    @required Result sendResetPassword(PlatformException exp),
+    @required Result confirmResetPassword(PlatformException exp),
+    @required Result signUpWithEmail(PlatformException exp),
+    @required Result signInWithGoogle(PlatformException exp),
     @required Result googleAuth(PlatformException exp),
-    @required Result signInWithEmail(AuthException exp),
-    @required Result unexpected(AuthException exp),
+    @required Result signInWithEmail(PlatformException exp),
+    @required Result unexpected(PlatformException exp),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
@@ -295,13 +295,13 @@ class _$SendResetPasswordFailure
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result cancelledByUser(),
-    Result sendResetPassword(AuthException exp),
-    Result confirmResetPassword(AuthException exp),
-    Result signUpWithEmail(AuthException exp),
-    Result signInWithGoogle(AuthException exp),
+    Result sendResetPassword(PlatformException exp),
+    Result confirmResetPassword(PlatformException exp),
+    Result signUpWithEmail(PlatformException exp),
+    Result signInWithGoogle(PlatformException exp),
     Result googleAuth(PlatformException exp),
-    Result signInWithEmail(AuthException exp),
-    Result unexpected(AuthException exp),
+    Result signInWithEmail(PlatformException exp),
+    Result unexpected(PlatformException exp),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -356,12 +356,12 @@ class _$SendResetPasswordFailure
 }
 
 abstract class SendResetPasswordFailure implements AuthFailure {
-  const factory SendResetPasswordFailure(AuthException exp) =
+  const factory SendResetPasswordFailure(PlatformException exp) =
       _$SendResetPasswordFailure;
 
-  AuthException get exp;
+  PlatformException get exp;
 
-  SendResetPasswordFailure copyWith({AuthException exp});
+  SendResetPasswordFailure copyWith({PlatformException exp});
 }
 
 class _$ConfirmResetPasswordFailure
@@ -370,7 +370,7 @@ class _$ConfirmResetPasswordFailure
   const _$ConfirmResetPasswordFailure(this.exp) : assert(exp != null);
 
   @override
-  final AuthException exp;
+  final PlatformException exp;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -402,7 +402,7 @@ class _$ConfirmResetPasswordFailure
     Object exp = freezed,
   }) {
     return _$ConfirmResetPasswordFailure(
-      exp == freezed ? this.exp : exp as AuthException,
+      exp == freezed ? this.exp : exp as PlatformException,
     );
   }
 
@@ -410,13 +410,13 @@ class _$ConfirmResetPasswordFailure
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result cancelledByUser(),
-    @required Result sendResetPassword(AuthException exp),
-    @required Result confirmResetPassword(AuthException exp),
-    @required Result signUpWithEmail(AuthException exp),
-    @required Result signInWithGoogle(AuthException exp),
+    @required Result sendResetPassword(PlatformException exp),
+    @required Result confirmResetPassword(PlatformException exp),
+    @required Result signUpWithEmail(PlatformException exp),
+    @required Result signInWithGoogle(PlatformException exp),
     @required Result googleAuth(PlatformException exp),
-    @required Result signInWithEmail(AuthException exp),
-    @required Result unexpected(AuthException exp),
+    @required Result signInWithEmail(PlatformException exp),
+    @required Result unexpected(PlatformException exp),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
@@ -433,13 +433,13 @@ class _$ConfirmResetPasswordFailure
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result cancelledByUser(),
-    Result sendResetPassword(AuthException exp),
-    Result confirmResetPassword(AuthException exp),
-    Result signUpWithEmail(AuthException exp),
-    Result signInWithGoogle(AuthException exp),
+    Result sendResetPassword(PlatformException exp),
+    Result confirmResetPassword(PlatformException exp),
+    Result signUpWithEmail(PlatformException exp),
+    Result signInWithGoogle(PlatformException exp),
     Result googleAuth(PlatformException exp),
-    Result signInWithEmail(AuthException exp),
-    Result unexpected(AuthException exp),
+    Result signInWithEmail(PlatformException exp),
+    Result unexpected(PlatformException exp),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -494,12 +494,12 @@ class _$ConfirmResetPasswordFailure
 }
 
 abstract class ConfirmResetPasswordFailure implements AuthFailure {
-  const factory ConfirmResetPasswordFailure(AuthException exp) =
+  const factory ConfirmResetPasswordFailure(PlatformException exp) =
       _$ConfirmResetPasswordFailure;
 
-  AuthException get exp;
+  PlatformException get exp;
 
-  ConfirmResetPasswordFailure copyWith({AuthException exp});
+  ConfirmResetPasswordFailure copyWith({PlatformException exp});
 }
 
 class _$SignUpWithEmailFailure
@@ -508,7 +508,7 @@ class _$SignUpWithEmailFailure
   const _$SignUpWithEmailFailure(this.exp) : assert(exp != null);
 
   @override
-  final AuthException exp;
+  final PlatformException exp;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -540,7 +540,7 @@ class _$SignUpWithEmailFailure
     Object exp = freezed,
   }) {
     return _$SignUpWithEmailFailure(
-      exp == freezed ? this.exp : exp as AuthException,
+      exp == freezed ? this.exp : exp as PlatformException,
     );
   }
 
@@ -548,13 +548,13 @@ class _$SignUpWithEmailFailure
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result cancelledByUser(),
-    @required Result sendResetPassword(AuthException exp),
-    @required Result confirmResetPassword(AuthException exp),
-    @required Result signUpWithEmail(AuthException exp),
-    @required Result signInWithGoogle(AuthException exp),
+    @required Result sendResetPassword(PlatformException exp),
+    @required Result confirmResetPassword(PlatformException exp),
+    @required Result signUpWithEmail(PlatformException exp),
+    @required Result signInWithGoogle(PlatformException exp),
     @required Result googleAuth(PlatformException exp),
-    @required Result signInWithEmail(AuthException exp),
-    @required Result unexpected(AuthException exp),
+    @required Result signInWithEmail(PlatformException exp),
+    @required Result unexpected(PlatformException exp),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
@@ -571,13 +571,13 @@ class _$SignUpWithEmailFailure
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result cancelledByUser(),
-    Result sendResetPassword(AuthException exp),
-    Result confirmResetPassword(AuthException exp),
-    Result signUpWithEmail(AuthException exp),
-    Result signInWithGoogle(AuthException exp),
+    Result sendResetPassword(PlatformException exp),
+    Result confirmResetPassword(PlatformException exp),
+    Result signUpWithEmail(PlatformException exp),
+    Result signInWithGoogle(PlatformException exp),
     Result googleAuth(PlatformException exp),
-    Result signInWithEmail(AuthException exp),
-    Result unexpected(AuthException exp),
+    Result signInWithEmail(PlatformException exp),
+    Result unexpected(PlatformException exp),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -632,12 +632,12 @@ class _$SignUpWithEmailFailure
 }
 
 abstract class SignUpWithEmailFailure implements AuthFailure {
-  const factory SignUpWithEmailFailure(AuthException exp) =
+  const factory SignUpWithEmailFailure(PlatformException exp) =
       _$SignUpWithEmailFailure;
 
-  AuthException get exp;
+  PlatformException get exp;
 
-  SignUpWithEmailFailure copyWith({AuthException exp});
+  SignUpWithEmailFailure copyWith({PlatformException exp});
 }
 
 class _$SignInWithGoogleFailure
@@ -646,7 +646,7 @@ class _$SignInWithGoogleFailure
   const _$SignInWithGoogleFailure(this.exp) : assert(exp != null);
 
   @override
-  final AuthException exp;
+  final PlatformException exp;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -678,7 +678,7 @@ class _$SignInWithGoogleFailure
     Object exp = freezed,
   }) {
     return _$SignInWithGoogleFailure(
-      exp == freezed ? this.exp : exp as AuthException,
+      exp == freezed ? this.exp : exp as PlatformException,
     );
   }
 
@@ -686,13 +686,13 @@ class _$SignInWithGoogleFailure
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result cancelledByUser(),
-    @required Result sendResetPassword(AuthException exp),
-    @required Result confirmResetPassword(AuthException exp),
-    @required Result signUpWithEmail(AuthException exp),
-    @required Result signInWithGoogle(AuthException exp),
+    @required Result sendResetPassword(PlatformException exp),
+    @required Result confirmResetPassword(PlatformException exp),
+    @required Result signUpWithEmail(PlatformException exp),
+    @required Result signInWithGoogle(PlatformException exp),
     @required Result googleAuth(PlatformException exp),
-    @required Result signInWithEmail(AuthException exp),
-    @required Result unexpected(AuthException exp),
+    @required Result signInWithEmail(PlatformException exp),
+    @required Result unexpected(PlatformException exp),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
@@ -709,13 +709,13 @@ class _$SignInWithGoogleFailure
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result cancelledByUser(),
-    Result sendResetPassword(AuthException exp),
-    Result confirmResetPassword(AuthException exp),
-    Result signUpWithEmail(AuthException exp),
-    Result signInWithGoogle(AuthException exp),
+    Result sendResetPassword(PlatformException exp),
+    Result confirmResetPassword(PlatformException exp),
+    Result signUpWithEmail(PlatformException exp),
+    Result signInWithGoogle(PlatformException exp),
     Result googleAuth(PlatformException exp),
-    Result signInWithEmail(AuthException exp),
-    Result unexpected(AuthException exp),
+    Result signInWithEmail(PlatformException exp),
+    Result unexpected(PlatformException exp),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -770,12 +770,12 @@ class _$SignInWithGoogleFailure
 }
 
 abstract class SignInWithGoogleFailure implements AuthFailure {
-  const factory SignInWithGoogleFailure(AuthException exp) =
+  const factory SignInWithGoogleFailure(PlatformException exp) =
       _$SignInWithGoogleFailure;
 
-  AuthException get exp;
+  PlatformException get exp;
 
-  SignInWithGoogleFailure copyWith({AuthException exp});
+  SignInWithGoogleFailure copyWith({PlatformException exp});
 }
 
 class _$GoogleAuthFailure
@@ -824,13 +824,13 @@ class _$GoogleAuthFailure
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result cancelledByUser(),
-    @required Result sendResetPassword(AuthException exp),
-    @required Result confirmResetPassword(AuthException exp),
-    @required Result signUpWithEmail(AuthException exp),
-    @required Result signInWithGoogle(AuthException exp),
+    @required Result sendResetPassword(PlatformException exp),
+    @required Result confirmResetPassword(PlatformException exp),
+    @required Result signUpWithEmail(PlatformException exp),
+    @required Result signInWithGoogle(PlatformException exp),
     @required Result googleAuth(PlatformException exp),
-    @required Result signInWithEmail(AuthException exp),
-    @required Result unexpected(AuthException exp),
+    @required Result signInWithEmail(PlatformException exp),
+    @required Result unexpected(PlatformException exp),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
@@ -847,13 +847,13 @@ class _$GoogleAuthFailure
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result cancelledByUser(),
-    Result sendResetPassword(AuthException exp),
-    Result confirmResetPassword(AuthException exp),
-    Result signUpWithEmail(AuthException exp),
-    Result signInWithGoogle(AuthException exp),
+    Result sendResetPassword(PlatformException exp),
+    Result confirmResetPassword(PlatformException exp),
+    Result signUpWithEmail(PlatformException exp),
+    Result signInWithGoogle(PlatformException exp),
     Result googleAuth(PlatformException exp),
-    Result signInWithEmail(AuthException exp),
-    Result unexpected(AuthException exp),
+    Result signInWithEmail(PlatformException exp),
+    Result unexpected(PlatformException exp),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -921,7 +921,7 @@ class _$SignInWithEmailFailure
   const _$SignInWithEmailFailure(this.exp) : assert(exp != null);
 
   @override
-  final AuthException exp;
+  final PlatformException exp;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -953,7 +953,7 @@ class _$SignInWithEmailFailure
     Object exp = freezed,
   }) {
     return _$SignInWithEmailFailure(
-      exp == freezed ? this.exp : exp as AuthException,
+      exp == freezed ? this.exp : exp as PlatformException,
     );
   }
 
@@ -961,13 +961,13 @@ class _$SignInWithEmailFailure
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result cancelledByUser(),
-    @required Result sendResetPassword(AuthException exp),
-    @required Result confirmResetPassword(AuthException exp),
-    @required Result signUpWithEmail(AuthException exp),
-    @required Result signInWithGoogle(AuthException exp),
+    @required Result sendResetPassword(PlatformException exp),
+    @required Result confirmResetPassword(PlatformException exp),
+    @required Result signUpWithEmail(PlatformException exp),
+    @required Result signInWithGoogle(PlatformException exp),
     @required Result googleAuth(PlatformException exp),
-    @required Result signInWithEmail(AuthException exp),
-    @required Result unexpected(AuthException exp),
+    @required Result signInWithEmail(PlatformException exp),
+    @required Result unexpected(PlatformException exp),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
@@ -984,13 +984,13 @@ class _$SignInWithEmailFailure
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result cancelledByUser(),
-    Result sendResetPassword(AuthException exp),
-    Result confirmResetPassword(AuthException exp),
-    Result signUpWithEmail(AuthException exp),
-    Result signInWithGoogle(AuthException exp),
+    Result sendResetPassword(PlatformException exp),
+    Result confirmResetPassword(PlatformException exp),
+    Result signUpWithEmail(PlatformException exp),
+    Result signInWithGoogle(PlatformException exp),
     Result googleAuth(PlatformException exp),
-    Result signInWithEmail(AuthException exp),
-    Result unexpected(AuthException exp),
+    Result signInWithEmail(PlatformException exp),
+    Result unexpected(PlatformException exp),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1045,12 +1045,12 @@ class _$SignInWithEmailFailure
 }
 
 abstract class SignInWithEmailFailure implements AuthFailure {
-  const factory SignInWithEmailFailure(AuthException exp) =
+  const factory SignInWithEmailFailure(PlatformException exp) =
       _$SignInWithEmailFailure;
 
-  AuthException get exp;
+  PlatformException get exp;
 
-  SignInWithEmailFailure copyWith({AuthException exp});
+  SignInWithEmailFailure copyWith({PlatformException exp});
 }
 
 class _$UnexpectedAuthFailure
@@ -1059,7 +1059,7 @@ class _$UnexpectedAuthFailure
   const _$UnexpectedAuthFailure(this.exp) : assert(exp != null);
 
   @override
-  final AuthException exp;
+  final PlatformException exp;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -1091,7 +1091,7 @@ class _$UnexpectedAuthFailure
     Object exp = freezed,
   }) {
     return _$UnexpectedAuthFailure(
-      exp == freezed ? this.exp : exp as AuthException,
+      exp == freezed ? this.exp : exp as PlatformException,
     );
   }
 
@@ -1099,13 +1099,13 @@ class _$UnexpectedAuthFailure
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result cancelledByUser(),
-    @required Result sendResetPassword(AuthException exp),
-    @required Result confirmResetPassword(AuthException exp),
-    @required Result signUpWithEmail(AuthException exp),
-    @required Result signInWithGoogle(AuthException exp),
+    @required Result sendResetPassword(PlatformException exp),
+    @required Result confirmResetPassword(PlatformException exp),
+    @required Result signUpWithEmail(PlatformException exp),
+    @required Result signInWithGoogle(PlatformException exp),
     @required Result googleAuth(PlatformException exp),
-    @required Result signInWithEmail(AuthException exp),
-    @required Result unexpected(AuthException exp),
+    @required Result signInWithEmail(PlatformException exp),
+    @required Result unexpected(PlatformException exp),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
@@ -1122,13 +1122,13 @@ class _$UnexpectedAuthFailure
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result cancelledByUser(),
-    Result sendResetPassword(AuthException exp),
-    Result confirmResetPassword(AuthException exp),
-    Result signUpWithEmail(AuthException exp),
-    Result signInWithGoogle(AuthException exp),
+    Result sendResetPassword(PlatformException exp),
+    Result confirmResetPassword(PlatformException exp),
+    Result signUpWithEmail(PlatformException exp),
+    Result signInWithGoogle(PlatformException exp),
     Result googleAuth(PlatformException exp),
-    Result signInWithEmail(AuthException exp),
-    Result unexpected(AuthException exp),
+    Result signInWithEmail(PlatformException exp),
+    Result unexpected(PlatformException exp),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1183,10 +1183,10 @@ class _$UnexpectedAuthFailure
 }
 
 abstract class UnexpectedAuthFailure implements AuthFailure {
-  const factory UnexpectedAuthFailure(AuthException exp) =
+  const factory UnexpectedAuthFailure(PlatformException exp) =
       _$UnexpectedAuthFailure;
 
-  AuthException get exp;
+  PlatformException get exp;
 
-  UnexpectedAuthFailure copyWith({AuthException exp});
+  UnexpectedAuthFailure copyWith({PlatformException exp});
 }
