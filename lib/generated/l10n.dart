@@ -10,19 +10,18 @@ import 'intl/messages_all.dart';
 
 class S {
   S(this.localeName);
-
-  static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
+  
+  static const AppLocalizationDelegate delegate =
+    AppLocalizationDelegate();
 
   static Future<S> load(Locale locale) {
-    final String name = (locale.countryCode?.isEmpty ?? false)
-        ? locale.languageCode
-        : locale.toString();
+    final String name = (locale.countryCode?.isEmpty ?? false) ? locale.languageCode : locale.toString();
     final String localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
       return S(localeName);
     });
-  }
+  } 
 
   static S of(BuildContext context) {
     return Localizations.of<S>(context, S);
@@ -48,6 +47,15 @@ class S {
     );
   }
 
+  String get error {
+    return Intl.message(
+      'Error',
+      name: 'error',
+      desc: '',
+      args: [],
+    );
+  }
+
   String get errorRequired {
     return Intl.message(
       'Required',
@@ -66,10 +74,82 @@ class S {
     );
   }
 
-  String get errorEmail {
+  String get errorEmailIncorrect {
     return Intl.message(
       'Incorrect email address',
-      name: 'errorEmail',
+      name: 'errorEmailIncorrect',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get errorEmailMalformed {
+    return Intl.message(
+      'Email address is malformed',
+      name: 'errorEmailMalformed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get errorWrongEmailOrPassword {
+    return Intl.message(
+      'Email or password is wrong',
+      name: 'errorWrongEmailOrPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get errorUserDisabled {
+    return Intl.message(
+      'User disabled',
+      name: 'errorUserDisabled',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get errorToManySignIn {
+    return Intl.message(
+      'You made too many attempts to sign in',
+      name: 'errorToManySignIn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get errorGoogleAuth {
+    return Intl.message(
+      'Something went wrong during authentication via Google',
+      name: 'errorGoogleAuth',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get errorCredentialMalformed {
+    return Intl.message(
+      'Credential data is malformed or has expired',
+      name: 'errorCredentialMalformed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get errorUnexpected {
+    return Intl.message(
+      'Something went wrong. We are sorry.',
+      name: 'errorUnexpected',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get errorSignInCanceled {
+    return Intl.message(
+      'Sign in process was aborted',
+      name: 'errorSignInCanceled',
       desc: '',
       args: [],
     );
