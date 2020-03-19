@@ -12,6 +12,7 @@ import 'package:smarty_duelist/src/domain/domain.dart'
         AuthFailure,
         CancelledByUser,
         ConfirmResetPasswordFailure,
+        FetchSignInMethodsForEmailFailure,
         GoogleAuthFailure,
         IAuthDataProvider,
         SendResetPasswordFailure,
@@ -135,6 +136,19 @@ class AuthDataProvider implements IAuthDataProvider {
       }
 
       return Left(SignInWithGoogleFailure(exp));
+    }
+  }
+
+  @override
+  Future<Either<AuthFailure, List<String>>> fetchSignInMethodsForEmail(
+    String email,
+  ) async {
+    try {
+      final methods = await auth.fetchSignInMethodsForEmail(email: email);
+
+      return Right(methods);
+    } on PlatformException catch (_) {
+      return Left(const FetchSignInMethodsForEmailFailure());
     }
   }
 

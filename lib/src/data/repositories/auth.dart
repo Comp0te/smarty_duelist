@@ -94,4 +94,11 @@ class AuthRepository implements IAuthRepository {
       password: password,
     );
   }
+
+  @override
+  Future<Either<AuthFailure, List<String>>> fetchSignInMethodsForEmail(
+    String email,
+  ) {
+    return authDataProvider.fetchSignInMethodsForEmail(email);
+  }
 }

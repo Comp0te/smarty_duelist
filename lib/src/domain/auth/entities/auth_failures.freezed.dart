@@ -18,6 +18,7 @@ mixin _$AuthFailure {
     @required Result googleAuth(PlatformException exp),
     @required Result signInWithEmail(PlatformException exp),
     @required Result unexpected(PlatformException exp),
+    @required Result fetchSignInMethodsForEmail(),
   });
 
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$AuthFailure {
     Result googleAuth(PlatformException exp),
     Result signInWithEmail(PlatformException exp),
     Result unexpected(PlatformException exp),
+    Result fetchSignInMethodsForEmail(),
     @required Result orElse(),
   });
 
@@ -43,6 +45,9 @@ mixin _$AuthFailure {
     @required Result googleAuth(GoogleAuthFailure value),
     @required Result signInWithEmail(SignInWithEmailFailure value),
     @required Result unexpected(UnexpectedAuthFailure value),
+    @required
+        Result fetchSignInMethodsForEmail(
+            FetchSignInMethodsForEmailFailure value),
   });
 
   @optionalTypeArgs
@@ -55,6 +60,7 @@ mixin _$AuthFailure {
     Result googleAuth(GoogleAuthFailure value),
     Result signInWithEmail(SignInWithEmailFailure value),
     Result unexpected(UnexpectedAuthFailure value),
+    Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
     @required Result orElse(),
   });
 }
@@ -107,6 +113,10 @@ class _$AuthFailureTearOff {
       exp,
     );
   }
+
+  FetchSignInMethodsForEmailFailure fetchSignInMethodsForEmail() {
+    return const FetchSignInMethodsForEmailFailure();
+  }
 }
 
 const $AuthFailure = _$AuthFailureTearOff();
@@ -146,6 +156,7 @@ class _$CancelledByUser
     @required Result googleAuth(PlatformException exp),
     @required Result signInWithEmail(PlatformException exp),
     @required Result unexpected(PlatformException exp),
+    @required Result fetchSignInMethodsForEmail(),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
@@ -155,6 +166,7 @@ class _$CancelledByUser
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
+    assert(fetchSignInMethodsForEmail != null);
     return cancelledByUser();
   }
 
@@ -169,6 +181,7 @@ class _$CancelledByUser
     Result googleAuth(PlatformException exp),
     Result signInWithEmail(PlatformException exp),
     Result unexpected(PlatformException exp),
+    Result fetchSignInMethodsForEmail(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -189,6 +202,9 @@ class _$CancelledByUser
     @required Result googleAuth(GoogleAuthFailure value),
     @required Result signInWithEmail(SignInWithEmailFailure value),
     @required Result unexpected(UnexpectedAuthFailure value),
+    @required
+        Result fetchSignInMethodsForEmail(
+            FetchSignInMethodsForEmailFailure value),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
@@ -198,6 +214,7 @@ class _$CancelledByUser
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
+    assert(fetchSignInMethodsForEmail != null);
     return cancelledByUser(this);
   }
 
@@ -212,6 +229,7 @@ class _$CancelledByUser
     Result googleAuth(GoogleAuthFailure value),
     Result signInWithEmail(SignInWithEmailFailure value),
     Result unexpected(UnexpectedAuthFailure value),
+    Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -279,6 +297,7 @@ class _$SendResetPasswordFailure
     @required Result googleAuth(PlatformException exp),
     @required Result signInWithEmail(PlatformException exp),
     @required Result unexpected(PlatformException exp),
+    @required Result fetchSignInMethodsForEmail(),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
@@ -288,6 +307,7 @@ class _$SendResetPasswordFailure
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
+    assert(fetchSignInMethodsForEmail != null);
     return sendResetPassword(exp);
   }
 
@@ -302,6 +322,7 @@ class _$SendResetPasswordFailure
     Result googleAuth(PlatformException exp),
     Result signInWithEmail(PlatformException exp),
     Result unexpected(PlatformException exp),
+    Result fetchSignInMethodsForEmail(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -322,6 +343,9 @@ class _$SendResetPasswordFailure
     @required Result googleAuth(GoogleAuthFailure value),
     @required Result signInWithEmail(SignInWithEmailFailure value),
     @required Result unexpected(UnexpectedAuthFailure value),
+    @required
+        Result fetchSignInMethodsForEmail(
+            FetchSignInMethodsForEmailFailure value),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
@@ -331,6 +355,7 @@ class _$SendResetPasswordFailure
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
+    assert(fetchSignInMethodsForEmail != null);
     return sendResetPassword(this);
   }
 
@@ -345,6 +370,7 @@ class _$SendResetPasswordFailure
     Result googleAuth(GoogleAuthFailure value),
     Result signInWithEmail(SignInWithEmailFailure value),
     Result unexpected(UnexpectedAuthFailure value),
+    Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -417,6 +443,7 @@ class _$ConfirmResetPasswordFailure
     @required Result googleAuth(PlatformException exp),
     @required Result signInWithEmail(PlatformException exp),
     @required Result unexpected(PlatformException exp),
+    @required Result fetchSignInMethodsForEmail(),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
@@ -426,6 +453,7 @@ class _$ConfirmResetPasswordFailure
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
+    assert(fetchSignInMethodsForEmail != null);
     return confirmResetPassword(exp);
   }
 
@@ -440,6 +468,7 @@ class _$ConfirmResetPasswordFailure
     Result googleAuth(PlatformException exp),
     Result signInWithEmail(PlatformException exp),
     Result unexpected(PlatformException exp),
+    Result fetchSignInMethodsForEmail(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -460,6 +489,9 @@ class _$ConfirmResetPasswordFailure
     @required Result googleAuth(GoogleAuthFailure value),
     @required Result signInWithEmail(SignInWithEmailFailure value),
     @required Result unexpected(UnexpectedAuthFailure value),
+    @required
+        Result fetchSignInMethodsForEmail(
+            FetchSignInMethodsForEmailFailure value),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
@@ -469,6 +501,7 @@ class _$ConfirmResetPasswordFailure
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
+    assert(fetchSignInMethodsForEmail != null);
     return confirmResetPassword(this);
   }
 
@@ -483,6 +516,7 @@ class _$ConfirmResetPasswordFailure
     Result googleAuth(GoogleAuthFailure value),
     Result signInWithEmail(SignInWithEmailFailure value),
     Result unexpected(UnexpectedAuthFailure value),
+    Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -555,6 +589,7 @@ class _$SignUpWithEmailFailure
     @required Result googleAuth(PlatformException exp),
     @required Result signInWithEmail(PlatformException exp),
     @required Result unexpected(PlatformException exp),
+    @required Result fetchSignInMethodsForEmail(),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
@@ -564,6 +599,7 @@ class _$SignUpWithEmailFailure
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
+    assert(fetchSignInMethodsForEmail != null);
     return signUpWithEmail(exp);
   }
 
@@ -578,6 +614,7 @@ class _$SignUpWithEmailFailure
     Result googleAuth(PlatformException exp),
     Result signInWithEmail(PlatformException exp),
     Result unexpected(PlatformException exp),
+    Result fetchSignInMethodsForEmail(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -598,6 +635,9 @@ class _$SignUpWithEmailFailure
     @required Result googleAuth(GoogleAuthFailure value),
     @required Result signInWithEmail(SignInWithEmailFailure value),
     @required Result unexpected(UnexpectedAuthFailure value),
+    @required
+        Result fetchSignInMethodsForEmail(
+            FetchSignInMethodsForEmailFailure value),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
@@ -607,6 +647,7 @@ class _$SignUpWithEmailFailure
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
+    assert(fetchSignInMethodsForEmail != null);
     return signUpWithEmail(this);
   }
 
@@ -621,6 +662,7 @@ class _$SignUpWithEmailFailure
     Result googleAuth(GoogleAuthFailure value),
     Result signInWithEmail(SignInWithEmailFailure value),
     Result unexpected(UnexpectedAuthFailure value),
+    Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -693,6 +735,7 @@ class _$SignInWithGoogleFailure
     @required Result googleAuth(PlatformException exp),
     @required Result signInWithEmail(PlatformException exp),
     @required Result unexpected(PlatformException exp),
+    @required Result fetchSignInMethodsForEmail(),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
@@ -702,6 +745,7 @@ class _$SignInWithGoogleFailure
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
+    assert(fetchSignInMethodsForEmail != null);
     return signInWithGoogle(exp);
   }
 
@@ -716,6 +760,7 @@ class _$SignInWithGoogleFailure
     Result googleAuth(PlatformException exp),
     Result signInWithEmail(PlatformException exp),
     Result unexpected(PlatformException exp),
+    Result fetchSignInMethodsForEmail(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -736,6 +781,9 @@ class _$SignInWithGoogleFailure
     @required Result googleAuth(GoogleAuthFailure value),
     @required Result signInWithEmail(SignInWithEmailFailure value),
     @required Result unexpected(UnexpectedAuthFailure value),
+    @required
+        Result fetchSignInMethodsForEmail(
+            FetchSignInMethodsForEmailFailure value),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
@@ -745,6 +793,7 @@ class _$SignInWithGoogleFailure
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
+    assert(fetchSignInMethodsForEmail != null);
     return signInWithGoogle(this);
   }
 
@@ -759,6 +808,7 @@ class _$SignInWithGoogleFailure
     Result googleAuth(GoogleAuthFailure value),
     Result signInWithEmail(SignInWithEmailFailure value),
     Result unexpected(UnexpectedAuthFailure value),
+    Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -831,6 +881,7 @@ class _$GoogleAuthFailure
     @required Result googleAuth(PlatformException exp),
     @required Result signInWithEmail(PlatformException exp),
     @required Result unexpected(PlatformException exp),
+    @required Result fetchSignInMethodsForEmail(),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
@@ -840,6 +891,7 @@ class _$GoogleAuthFailure
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
+    assert(fetchSignInMethodsForEmail != null);
     return googleAuth(exp);
   }
 
@@ -854,6 +906,7 @@ class _$GoogleAuthFailure
     Result googleAuth(PlatformException exp),
     Result signInWithEmail(PlatformException exp),
     Result unexpected(PlatformException exp),
+    Result fetchSignInMethodsForEmail(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -874,6 +927,9 @@ class _$GoogleAuthFailure
     @required Result googleAuth(GoogleAuthFailure value),
     @required Result signInWithEmail(SignInWithEmailFailure value),
     @required Result unexpected(UnexpectedAuthFailure value),
+    @required
+        Result fetchSignInMethodsForEmail(
+            FetchSignInMethodsForEmailFailure value),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
@@ -883,6 +939,7 @@ class _$GoogleAuthFailure
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
+    assert(fetchSignInMethodsForEmail != null);
     return googleAuth(this);
   }
 
@@ -897,6 +954,7 @@ class _$GoogleAuthFailure
     Result googleAuth(GoogleAuthFailure value),
     Result signInWithEmail(SignInWithEmailFailure value),
     Result unexpected(UnexpectedAuthFailure value),
+    Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -968,6 +1026,7 @@ class _$SignInWithEmailFailure
     @required Result googleAuth(PlatformException exp),
     @required Result signInWithEmail(PlatformException exp),
     @required Result unexpected(PlatformException exp),
+    @required Result fetchSignInMethodsForEmail(),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
@@ -977,6 +1036,7 @@ class _$SignInWithEmailFailure
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
+    assert(fetchSignInMethodsForEmail != null);
     return signInWithEmail(exp);
   }
 
@@ -991,6 +1051,7 @@ class _$SignInWithEmailFailure
     Result googleAuth(PlatformException exp),
     Result signInWithEmail(PlatformException exp),
     Result unexpected(PlatformException exp),
+    Result fetchSignInMethodsForEmail(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1011,6 +1072,9 @@ class _$SignInWithEmailFailure
     @required Result googleAuth(GoogleAuthFailure value),
     @required Result signInWithEmail(SignInWithEmailFailure value),
     @required Result unexpected(UnexpectedAuthFailure value),
+    @required
+        Result fetchSignInMethodsForEmail(
+            FetchSignInMethodsForEmailFailure value),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
@@ -1020,6 +1084,7 @@ class _$SignInWithEmailFailure
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
+    assert(fetchSignInMethodsForEmail != null);
     return signInWithEmail(this);
   }
 
@@ -1034,6 +1099,7 @@ class _$SignInWithEmailFailure
     Result googleAuth(GoogleAuthFailure value),
     Result signInWithEmail(SignInWithEmailFailure value),
     Result unexpected(UnexpectedAuthFailure value),
+    Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1106,6 +1172,7 @@ class _$UnexpectedAuthFailure
     @required Result googleAuth(PlatformException exp),
     @required Result signInWithEmail(PlatformException exp),
     @required Result unexpected(PlatformException exp),
+    @required Result fetchSignInMethodsForEmail(),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
@@ -1115,6 +1182,7 @@ class _$UnexpectedAuthFailure
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
+    assert(fetchSignInMethodsForEmail != null);
     return unexpected(exp);
   }
 
@@ -1129,6 +1197,7 @@ class _$UnexpectedAuthFailure
     Result googleAuth(PlatformException exp),
     Result signInWithEmail(PlatformException exp),
     Result unexpected(PlatformException exp),
+    Result fetchSignInMethodsForEmail(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1149,6 +1218,9 @@ class _$UnexpectedAuthFailure
     @required Result googleAuth(GoogleAuthFailure value),
     @required Result signInWithEmail(SignInWithEmailFailure value),
     @required Result unexpected(UnexpectedAuthFailure value),
+    @required
+        Result fetchSignInMethodsForEmail(
+            FetchSignInMethodsForEmailFailure value),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
@@ -1158,6 +1230,7 @@ class _$UnexpectedAuthFailure
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
+    assert(fetchSignInMethodsForEmail != null);
     return unexpected(this);
   }
 
@@ -1172,6 +1245,7 @@ class _$UnexpectedAuthFailure
     Result googleAuth(GoogleAuthFailure value),
     Result signInWithEmail(SignInWithEmailFailure value),
     Result unexpected(UnexpectedAuthFailure value),
+    Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1189,4 +1263,131 @@ abstract class UnexpectedAuthFailure implements AuthFailure {
   PlatformException get exp;
 
   UnexpectedAuthFailure copyWith({PlatformException exp});
+}
+
+class _$FetchSignInMethodsForEmailFailure
+    with DiagnosticableTreeMixin
+    implements FetchSignInMethodsForEmailFailure {
+  const _$FetchSignInMethodsForEmailFailure();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AuthFailure.fetchSignInMethodsForEmail()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'AuthFailure.fetchSignInMethodsForEmail'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is FetchSignInMethodsForEmailFailure);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result cancelledByUser(),
+    @required Result sendResetPassword(PlatformException exp),
+    @required Result confirmResetPassword(PlatformException exp),
+    @required Result signUpWithEmail(PlatformException exp),
+    @required Result signInWithGoogle(PlatformException exp),
+    @required Result googleAuth(PlatformException exp),
+    @required Result signInWithEmail(PlatformException exp),
+    @required Result unexpected(PlatformException exp),
+    @required Result fetchSignInMethodsForEmail(),
+  }) {
+    assert(cancelledByUser != null);
+    assert(sendResetPassword != null);
+    assert(confirmResetPassword != null);
+    assert(signUpWithEmail != null);
+    assert(signInWithGoogle != null);
+    assert(googleAuth != null);
+    assert(signInWithEmail != null);
+    assert(unexpected != null);
+    assert(fetchSignInMethodsForEmail != null);
+    return fetchSignInMethodsForEmail();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result cancelledByUser(),
+    Result sendResetPassword(PlatformException exp),
+    Result confirmResetPassword(PlatformException exp),
+    Result signUpWithEmail(PlatformException exp),
+    Result signInWithGoogle(PlatformException exp),
+    Result googleAuth(PlatformException exp),
+    Result signInWithEmail(PlatformException exp),
+    Result unexpected(PlatformException exp),
+    Result fetchSignInMethodsForEmail(),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fetchSignInMethodsForEmail != null) {
+      return fetchSignInMethodsForEmail();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result cancelledByUser(CancelledByUser value),
+    @required Result sendResetPassword(SendResetPasswordFailure value),
+    @required Result confirmResetPassword(ConfirmResetPasswordFailure value),
+    @required Result signUpWithEmail(SignUpWithEmailFailure value),
+    @required Result signInWithGoogle(SignInWithGoogleFailure value),
+    @required Result googleAuth(GoogleAuthFailure value),
+    @required Result signInWithEmail(SignInWithEmailFailure value),
+    @required Result unexpected(UnexpectedAuthFailure value),
+    @required
+        Result fetchSignInMethodsForEmail(
+            FetchSignInMethodsForEmailFailure value),
+  }) {
+    assert(cancelledByUser != null);
+    assert(sendResetPassword != null);
+    assert(confirmResetPassword != null);
+    assert(signUpWithEmail != null);
+    assert(signInWithGoogle != null);
+    assert(googleAuth != null);
+    assert(signInWithEmail != null);
+    assert(unexpected != null);
+    assert(fetchSignInMethodsForEmail != null);
+    return fetchSignInMethodsForEmail(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result cancelledByUser(CancelledByUser value),
+    Result sendResetPassword(SendResetPasswordFailure value),
+    Result confirmResetPassword(ConfirmResetPasswordFailure value),
+    Result signUpWithEmail(SignUpWithEmailFailure value),
+    Result signInWithGoogle(SignInWithGoogleFailure value),
+    Result googleAuth(GoogleAuthFailure value),
+    Result signInWithEmail(SignInWithEmailFailure value),
+    Result unexpected(UnexpectedAuthFailure value),
+    Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (fetchSignInMethodsForEmail != null) {
+      return fetchSignInMethodsForEmail(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FetchSignInMethodsForEmailFailure implements AuthFailure {
+  const factory FetchSignInMethodsForEmailFailure() =
+      _$FetchSignInMethodsForEmailFailure;
 }
