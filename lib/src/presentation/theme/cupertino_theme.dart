@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 
+const cupertinoPrimaryColor = Color(0xFFad1457);
+const cupertinoPrimaryColorDark = Color(0xFFe35183);
+
 const _background = CupertinoDynamicColor(
   color: Color(0xffeceff1),
   darkColor: Color(0xff263238),
@@ -12,8 +15,8 @@ const _background = CupertinoDynamicColor(
 );
 
 const _primaryColor = CupertinoDynamicColor.withBrightnessAndContrast(
-  color: Color(0xFFad1457),
-  darkColor: Color(0xFFe35183),
+  color: cupertinoPrimaryColor,
+  darkColor: cupertinoPrimaryColorDark,
   highContrastColor: Color(0xFF810047),
   darkHighContrastColor: Color(0xFFE37EA6),
 );
