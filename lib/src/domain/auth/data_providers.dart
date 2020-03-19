@@ -27,4 +27,7 @@ abstract class IAuthDataProvider {
     @required String newPassword,
   });
   Future<void> configureAuthLanguage(SupportedLanguages languageTag);
+  Future<Either<AuthFailure, List<String>>> fetchSignInMethodsForEmail(
+    String email,
+  );
 }

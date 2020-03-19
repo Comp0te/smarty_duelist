@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
@@ -29,4 +28,6 @@ abstract class AuthFailure with _$AuthFailure {
   const factory AuthFailure.unexpected(
     PlatformException exp,
   ) = UnexpectedAuthFailure;
+  const factory AuthFailure.fetchSignInMethodsForEmail() =
+      FetchSignInMethodsForEmailFailure;
 }
