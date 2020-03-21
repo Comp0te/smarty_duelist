@@ -29,7 +29,7 @@ class SignInPage extends StatelessWidget
   Widget build(BuildContext context) {
     final signInBloc = BlocProvider.of<SignInBloc>(context);
     void _toRegistrationScreen() {
-      Navigator.of(context).pushNamed(Routes.signUpPage);
+      ExtendedNavigator.of(context).pushNamed(Routes.signUpPage);
     }
 
     return SignInBlocListener(
