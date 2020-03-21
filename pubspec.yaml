@@ -34,10 +34,10 @@ dependencies:
   freezed_annotation: ^0.7.1
   flushbar: ^1.9.1
   injectable: ^0.3.0
-  get_it: ^4.0.0
+  get_it: ^4.0.1
   auto_route: ^0.3.1
   dartz: ^0.8.9
-  firebase_auth: ^0.15.5+2
+  firebase_auth: ^0.15.5+3
   google_sign_in: ^4.1.4
   rxdart: ^0.23.1
 
