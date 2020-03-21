@@ -47,7 +47,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
 
   @override
   Future<void> close() {
-    fbKey.currentState.dispose();
+    fbKey.currentState?.dispose();
     emailController.dispose();
     passwordController.dispose();
     passwordFocusNode.dispose();
