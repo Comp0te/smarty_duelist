@@ -13,6 +13,7 @@ import 'package:smarty_duelist/src/data/repositories/auth.dart';
 import 'package:smarty_duelist/src/domain/auth/repositories.dart';
 import 'package:smarty_duelist/src/presentation/core_blocs/auth/auth_bloc.dart';
 import 'package:smarty_duelist/src/presentation/pages/sign_in_page/blocs/sign_in/sign_in_bloc.dart';
+import 'package:smarty_duelist/src/presentation/pages/sign_up_page/blocs/sign_up/sign_up_bloc.dart';
 import 'package:get_it/get_it.dart';
 
 void $initGetIt(GetIt g, {String environment}) {
@@ -22,6 +23,8 @@ void $initGetIt(GetIt g, {String environment}) {
       () => AuthBloc(authRepository: g<IAuthRepository>()));
   g.registerFactory<SignInBloc>(
       () => SignInBloc(authRepository: g<IAuthRepository>()));
+  g.registerFactory<SignUpBloc>(
+      () => SignUpBloc(authRepository: g<IAuthRepository>()));
 
   //Eager singletons must be registered in the right order
   g.registerSingleton<FirebaseAuth>(registerModule.auth);
