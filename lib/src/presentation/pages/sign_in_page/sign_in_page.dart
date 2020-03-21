@@ -7,7 +7,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:smarty_duelist/generated/l10n.dart';
 import 'package:smarty_duelist/src/core/core.dart' show OrientationMixin;
 import 'package:smarty_duelist/src/injector/injector.dart' show getIt;
-import 'package:smarty_duelist/src/presentation/presentation.dart';
+import 'package:smarty_duelist/src/presentation/presentation.dart' show Routes;
 import 'package:smarty_duelist/src/presentation/shared_widgets/shared_widgets.dart'
     show Button, FormTextField, NativeScaffold, TextButton;
 
@@ -29,7 +29,7 @@ class SignInPage extends StatelessWidget
   Widget build(BuildContext context) {
     final signInBloc = BlocProvider.of<SignInBloc>(context);
     void _toRegistrationScreen() {
-      Navigator.of(context).pushNamed(MainRouter.signUpPage);
+      Navigator.of(context).pushNamed(Routes.signUpPage);
     }
 
     return SignInBlocListener(
