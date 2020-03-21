@@ -7,6 +7,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:smarty_duelist/generated/l10n.dart';
 import 'package:smarty_duelist/src/core/core.dart' show OrientationMixin;
 import 'package:smarty_duelist/src/injector/injector.dart' show getIt;
+import 'package:smarty_duelist/src/presentation/presentation.dart';
 import 'package:smarty_duelist/src/presentation/shared_widgets/shared_widgets.dart'
     show Button, FormTextField, NativeScaffold, TextButton;
 
@@ -27,14 +28,16 @@ class SignInPage extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     final signInBloc = BlocProvider.of<SignInBloc>(context);
-    void _toRegistrationScreen() {}
+    void _toRegistrationScreen() {
+      Navigator.of(context).pushNamed(MainRouter.signUpPage);
+    }
 
     return SignInBlocListener(
       child: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         excludeFromSemantics: true,
         child: NativeScaffold(
-          title: Text(S.of(context).loginGreetings),
+          title: Text(S.of(context).signInTitle),
           body: SafeArea(
             child: Center(
               child: SingleChildScrollView(
@@ -44,8 +47,8 @@ class SignInPage extends StatelessWidget
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     BlocBuilder<SignInBloc, SignInState>(
-//                      condition: (prev, cur) =>
-//                          prev is ValidationShowed || cur is ValidationShowed,
+                      condition: (prev, cur) =>
+                          prev is ValidationShowed || cur is ValidationShowed,
                       builder: (context, state) {
                         return FormBuilder(
                           key: signInBloc.fbKey,

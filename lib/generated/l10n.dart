@@ -47,6 +47,24 @@ class S {
     );
   }
 
+  String get confirmPassword {
+    return Intl.message(
+      'Confirm password',
+      name: 'confirmPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get submit {
+    return Intl.message(
+      'Submit',
+      name: 'submit',
+      desc: '',
+      args: [],
+    );
+  }
+
   String get error {
     return Intl.message(
       'Error',
@@ -155,10 +173,28 @@ class S {
     );
   }
 
-  String get loginGreetings {
+  String get errorWeakPassword {
+    return Intl.message(
+      'The password is not strong enough',
+      name: 'errorWeakPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get errorEmailAlreadyInUse {
+    return Intl.message(
+      'The email is already in use by a different account.',
+      name: 'errorEmailAlreadyInUse',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get signInTitle {
     return Intl.message(
       'Greetings!',
-      name: 'loginGreetings',
+      name: 'signInTitle',
       desc: '',
       args: [],
     );
@@ -200,10 +236,10 @@ class S {
     );
   }
 
-  String get confirmPassword {
+  String get signUpTitle {
     return Intl.message(
-      'Confirm password',
-      name: 'confirmPassword',
+      'Registration',
+      name: 'signUpTitle',
       desc: '',
       args: [],
     );
