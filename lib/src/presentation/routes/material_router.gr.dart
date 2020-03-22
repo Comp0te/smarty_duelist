@@ -55,7 +55,8 @@ class MaterialRouter extends RouterBase {
         );
       case Routes.homePage:
         return PageRouteBuilder<dynamic>(
-          pageBuilder: (ctx, animation, secondaryAnimation) => HomePage(),
+          pageBuilder: (ctx, animation, secondaryAnimation) =>
+              HomePage().wrappedRoute,
           settings: settings,
           transitionsBuilder: TransitionsBuilders.fadeIn,
           transitionDuration: const Duration(milliseconds: 500),
