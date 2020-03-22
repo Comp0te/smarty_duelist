@@ -7,7 +7,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:smarty_duelist/generated/l10n.dart';
 import 'package:smarty_duelist/src/core/core.dart' show OrientationMixin;
 import 'package:smarty_duelist/src/injector/injector.dart' show getIt;
-import 'package:smarty_duelist/src/presentation/presentation.dart' show Routes;
+import 'package:smarty_duelist/src/presentation/routes/routes.dart' show Routes;
 import 'package:smarty_duelist/src/presentation/shared_widgets/shared_widgets.dart'
     show Button, FormTextField, NativeScaffold, TextButton;
 
