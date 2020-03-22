@@ -1,3 +1,4 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 
 final textTypography = Typography(
@@ -56,6 +57,11 @@ final lightMaterialTheme = ThemeData.from(
     colorScheme: lightColorScheme,
     textTheme: ButtonTextTheme.primary,
   ),
+  pageTransitionsTheme: const PageTransitionsTheme(
+    builders: {
+      TargetPlatform.android: FadeThroughPageTransitionsBuilder(),
+    },
+  ),
 );
 
 final darkMaterialTheme = ThemeData.from(
@@ -67,5 +73,10 @@ final darkMaterialTheme = ThemeData.from(
   buttonTheme: const ButtonThemeData(
     colorScheme: darkColorScheme,
     textTheme: ButtonTextTheme.accent,
+  ),
+  pageTransitionsTheme: const PageTransitionsTheme(
+    builders: {
+      TargetPlatform.android: FadeThroughPageTransitionsBuilder(),
+    },
   ),
 );
