@@ -14,7 +14,6 @@ mixin _$AuthState {
     @required Result authAuthenticated(@required FirebaseUser user),
     @required Result authUnauthenticated(),
     @required Result authLoading(),
-    @required Result authError(@required AuthFailure failure),
   });
 
   @optionalTypeArgs
@@ -23,7 +22,6 @@ mixin _$AuthState {
     Result authAuthenticated(@required FirebaseUser user),
     Result authUnauthenticated(),
     Result authLoading(),
-    Result authError(@required AuthFailure failure),
     @required Result orElse(),
   });
 
@@ -33,7 +31,6 @@ mixin _$AuthState {
     @required Result authAuthenticated(AuthAuthenticated value),
     @required Result authUnauthenticated(AuthUnauthenticated value),
     @required Result authLoading(AuthLoading value),
-    @required Result authError(AuthError value),
   });
 
   @optionalTypeArgs
@@ -42,7 +39,6 @@ mixin _$AuthState {
     Result authAuthenticated(AuthAuthenticated value),
     Result authUnauthenticated(AuthUnauthenticated value),
     Result authLoading(AuthLoading value),
-    Result authError(AuthError value),
     @required Result orElse(),
   });
 }
@@ -66,12 +62,6 @@ class _$AuthStateTearOff {
 
   AuthLoading authLoading() {
     return const AuthLoading();
-  }
-
-  AuthError authError({@required AuthFailure failure}) {
-    return AuthError(
-      failure: failure,
-    );
   }
 }
 
@@ -106,13 +96,11 @@ class _$AuthInit with DiagnosticableTreeMixin implements AuthInit {
     @required Result authAuthenticated(@required FirebaseUser user),
     @required Result authUnauthenticated(),
     @required Result authLoading(),
-    @required Result authError(@required AuthFailure failure),
   }) {
     assert(authInit != null);
     assert(authAuthenticated != null);
     assert(authUnauthenticated != null);
     assert(authLoading != null);
-    assert(authError != null);
     return authInit();
   }
 
@@ -123,7 +111,6 @@ class _$AuthInit with DiagnosticableTreeMixin implements AuthInit {
     Result authAuthenticated(@required FirebaseUser user),
     Result authUnauthenticated(),
     Result authLoading(),
-    Result authError(@required AuthFailure failure),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -140,13 +127,11 @@ class _$AuthInit with DiagnosticableTreeMixin implements AuthInit {
     @required Result authAuthenticated(AuthAuthenticated value),
     @required Result authUnauthenticated(AuthUnauthenticated value),
     @required Result authLoading(AuthLoading value),
-    @required Result authError(AuthError value),
   }) {
     assert(authInit != null);
     assert(authAuthenticated != null);
     assert(authUnauthenticated != null);
     assert(authLoading != null);
-    assert(authError != null);
     return authInit(this);
   }
 
@@ -157,7 +142,6 @@ class _$AuthInit with DiagnosticableTreeMixin implements AuthInit {
     Result authAuthenticated(AuthAuthenticated value),
     Result authUnauthenticated(AuthUnauthenticated value),
     Result authLoading(AuthLoading value),
-    Result authError(AuthError value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -221,13 +205,11 @@ class _$AuthAuthenticated
     @required Result authAuthenticated(@required FirebaseUser user),
     @required Result authUnauthenticated(),
     @required Result authLoading(),
-    @required Result authError(@required AuthFailure failure),
   }) {
     assert(authInit != null);
     assert(authAuthenticated != null);
     assert(authUnauthenticated != null);
     assert(authLoading != null);
-    assert(authError != null);
     return authAuthenticated(user);
   }
 
@@ -238,7 +220,6 @@ class _$AuthAuthenticated
     Result authAuthenticated(@required FirebaseUser user),
     Result authUnauthenticated(),
     Result authLoading(),
-    Result authError(@required AuthFailure failure),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -255,13 +236,11 @@ class _$AuthAuthenticated
     @required Result authAuthenticated(AuthAuthenticated value),
     @required Result authUnauthenticated(AuthUnauthenticated value),
     @required Result authLoading(AuthLoading value),
-    @required Result authError(AuthError value),
   }) {
     assert(authInit != null);
     assert(authAuthenticated != null);
     assert(authUnauthenticated != null);
     assert(authLoading != null);
-    assert(authError != null);
     return authAuthenticated(this);
   }
 
@@ -272,7 +251,6 @@ class _$AuthAuthenticated
     Result authAuthenticated(AuthAuthenticated value),
     Result authUnauthenticated(AuthUnauthenticated value),
     Result authLoading(AuthLoading value),
-    Result authError(AuthError value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -324,13 +302,11 @@ class _$AuthUnauthenticated
     @required Result authAuthenticated(@required FirebaseUser user),
     @required Result authUnauthenticated(),
     @required Result authLoading(),
-    @required Result authError(@required AuthFailure failure),
   }) {
     assert(authInit != null);
     assert(authAuthenticated != null);
     assert(authUnauthenticated != null);
     assert(authLoading != null);
-    assert(authError != null);
     return authUnauthenticated();
   }
 
@@ -341,7 +317,6 @@ class _$AuthUnauthenticated
     Result authAuthenticated(@required FirebaseUser user),
     Result authUnauthenticated(),
     Result authLoading(),
-    Result authError(@required AuthFailure failure),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -358,13 +333,11 @@ class _$AuthUnauthenticated
     @required Result authAuthenticated(AuthAuthenticated value),
     @required Result authUnauthenticated(AuthUnauthenticated value),
     @required Result authLoading(AuthLoading value),
-    @required Result authError(AuthError value),
   }) {
     assert(authInit != null);
     assert(authAuthenticated != null);
     assert(authUnauthenticated != null);
     assert(authLoading != null);
-    assert(authError != null);
     return authUnauthenticated(this);
   }
 
@@ -375,7 +348,6 @@ class _$AuthUnauthenticated
     Result authAuthenticated(AuthAuthenticated value),
     Result authUnauthenticated(AuthUnauthenticated value),
     Result authLoading(AuthLoading value),
-    Result authError(AuthError value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -419,13 +391,11 @@ class _$AuthLoading with DiagnosticableTreeMixin implements AuthLoading {
     @required Result authAuthenticated(@required FirebaseUser user),
     @required Result authUnauthenticated(),
     @required Result authLoading(),
-    @required Result authError(@required AuthFailure failure),
   }) {
     assert(authInit != null);
     assert(authAuthenticated != null);
     assert(authUnauthenticated != null);
     assert(authLoading != null);
-    assert(authError != null);
     return authLoading();
   }
 
@@ -436,7 +406,6 @@ class _$AuthLoading with DiagnosticableTreeMixin implements AuthLoading {
     Result authAuthenticated(@required FirebaseUser user),
     Result authUnauthenticated(),
     Result authLoading(),
-    Result authError(@required AuthFailure failure),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -453,13 +422,11 @@ class _$AuthLoading with DiagnosticableTreeMixin implements AuthLoading {
     @required Result authAuthenticated(AuthAuthenticated value),
     @required Result authUnauthenticated(AuthUnauthenticated value),
     @required Result authLoading(AuthLoading value),
-    @required Result authError(AuthError value),
   }) {
     assert(authInit != null);
     assert(authAuthenticated != null);
     assert(authUnauthenticated != null);
     assert(authLoading != null);
-    assert(authError != null);
     return authLoading(this);
   }
 
@@ -470,7 +437,6 @@ class _$AuthLoading with DiagnosticableTreeMixin implements AuthLoading {
     Result authAuthenticated(AuthAuthenticated value),
     Result authUnauthenticated(AuthUnauthenticated value),
     Result authLoading(AuthLoading value),
-    Result authError(AuthError value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -483,121 +449,4 @@ class _$AuthLoading with DiagnosticableTreeMixin implements AuthLoading {
 
 abstract class AuthLoading implements AuthState {
   const factory AuthLoading() = _$AuthLoading;
-}
-
-class _$AuthError with DiagnosticableTreeMixin implements AuthError {
-  const _$AuthError({@required this.failure}) : assert(failure != null);
-
-  @override
-  final AuthFailure failure;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthState.authError(failure: $failure)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'AuthState.authError'))
-      ..add(DiagnosticsProperty('failure', failure));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is AuthError &&
-            (identical(other.failure, failure) ||
-                const DeepCollectionEquality().equals(other.failure, failure)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failure);
-
-  @override
-  _$AuthError copyWith({
-    Object failure = freezed,
-  }) {
-    return _$AuthError(
-      failure: failure == freezed ? this.failure : failure as AuthFailure,
-    );
-  }
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result authInit(),
-    @required Result authAuthenticated(@required FirebaseUser user),
-    @required Result authUnauthenticated(),
-    @required Result authLoading(),
-    @required Result authError(@required AuthFailure failure),
-  }) {
-    assert(authInit != null);
-    assert(authAuthenticated != null);
-    assert(authUnauthenticated != null);
-    assert(authLoading != null);
-    assert(authError != null);
-    return authError(failure);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result authInit(),
-    Result authAuthenticated(@required FirebaseUser user),
-    Result authUnauthenticated(),
-    Result authLoading(),
-    Result authError(@required AuthFailure failure),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (authError != null) {
-      return authError(failure);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result authInit(AuthInit value),
-    @required Result authAuthenticated(AuthAuthenticated value),
-    @required Result authUnauthenticated(AuthUnauthenticated value),
-    @required Result authLoading(AuthLoading value),
-    @required Result authError(AuthError value),
-  }) {
-    assert(authInit != null);
-    assert(authAuthenticated != null);
-    assert(authUnauthenticated != null);
-    assert(authLoading != null);
-    assert(authError != null);
-    return authError(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result authInit(AuthInit value),
-    Result authAuthenticated(AuthAuthenticated value),
-    Result authUnauthenticated(AuthUnauthenticated value),
-    Result authLoading(AuthLoading value),
-    Result authError(AuthError value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (authError != null) {
-      return authError(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class AuthError implements AuthState {
-  const factory AuthError({@required AuthFailure failure}) = _$AuthError;
-
-  AuthFailure get failure;
-
-  AuthError copyWith({AuthFailure failure});
 }

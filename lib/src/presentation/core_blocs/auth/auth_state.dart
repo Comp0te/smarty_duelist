@@ -15,7 +15,4 @@ abstract class AuthState with _$AuthState {
   }) = AuthAuthenticated;
   const factory AuthState.authUnauthenticated() = AuthUnauthenticated;
   const factory AuthState.authLoading() = AuthLoading;
-  const factory AuthState.authError({
-    @required AuthFailure failure,
-  }) = AuthError;
 }
