@@ -1,2 +1,2 @@
-export 'app.dart';
-export 'bloc_delegate.dart';
+export 'app/app.dart';
+export 'core_blocs/bloc_delegate.dart';
