@@ -3,8 +3,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:flutter/foundation.dart';
 
-import 'package:smarty_duelist/src/domain/domain.dart' show AuthFailure;
-
 part 'auth_state.freezed.dart';
 
 @freezed
