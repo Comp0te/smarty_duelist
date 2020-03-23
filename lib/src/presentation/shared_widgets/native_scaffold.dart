@@ -4,6 +4,7 @@ import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 class NativeScaffold extends StatelessWidget {
   final Widget title;
+  final String previousPageTitle;
   final Widget leading;
   final List<Widget> trailingActions;
   final Widget body;
@@ -14,6 +15,7 @@ class NativeScaffold extends StatelessWidget {
   const NativeScaffold({
     @required this.body,
     this.title,
+    this.previousPageTitle = '',
     this.leading,
     this.trailingActions,
     this.currentTabBarIndex,
@@ -40,6 +42,7 @@ class NativeScaffold extends StatelessWidget {
       android: (_) => MaterialAppBarData(),
       ios: (_) => CupertinoNavigationBarData(
         transitionBetweenRoutes: true,
+        previousPageTitle: previousPageTitle,
       ),
     );
   }
