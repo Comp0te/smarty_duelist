@@ -19,6 +19,7 @@
   "errorWeakPassword": "The password is not strong enough",
   "errorEmailAlreadyInUse": "The email is already in use by a different account.",
   "errorUserNotFound": "There is no user corresponding to the given email address.",
+  "errorPasswordsDoNotMatch": "Passwords don't match",
 
   "signInTitle": "Greetings!",
   "singInEmail": "Sign in with Email",
