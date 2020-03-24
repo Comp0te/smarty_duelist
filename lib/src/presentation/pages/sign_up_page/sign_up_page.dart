@@ -29,6 +29,7 @@ class SignUpPage extends StatelessWidget
         onTap: () => FocusScope.of(context).unfocus(),
         excludeFromSemantics: true,
         child: NativeScaffold(
+          previousPageTitle: S.of(context).signInTitle,
           title: Text(S.of(context).signUpTitle),
           body: SafeArea(
             child: Center(
@@ -155,9 +156,9 @@ class SignUpPage extends StatelessWidget
           constraints: getMaxWidthConstraints(context, 0.25),
           margin: const EdgeInsets.only(bottom: 15),
           child: BlocBuilder<SignUpBloc, SignUpState>(
-            builder: (context, signInState) {
+            builder: (context, state) {
               return Button(
-                isLoading: signInState is Loading,
+                isLoading: state is Loading,
                 title: S.of(context).submit,
                 onPress: () => _submitForm(context),
               );
