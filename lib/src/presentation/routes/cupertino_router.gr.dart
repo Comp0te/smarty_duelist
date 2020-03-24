@@ -10,6 +10,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:smarty_duelist/src/presentation/pages/splash_page/splash_page.dart';
 import 'package:smarty_duelist/src/presentation/pages/sign_in_page/sign_in_page.dart';
 import 'package:smarty_duelist/src/presentation/pages/sign_up_page/sign_up_page.dart';
+import 'package:smarty_duelist/src/presentation/pages/forgot_password_page/forgot_password_page.dart';
 import 'package:smarty_duelist/src/presentation/pages/home-page/home_page.dart';
 import 'package:smarty_duelist/src/presentation/routes/guards/aurh_guard.dart';
 
@@ -17,6 +18,7 @@ abstract class Routes {
   static const splashPage = '/';
   static const signInPage = '/sign-in-page';
   static const signUpPage = '/sign-up-page';
+  static const forgotPasswordPage = '/forgot-password-page';
   static const homePage = '/home-page';
 }
 
@@ -53,6 +55,11 @@ class CupertinoRouter extends RouterBase {
           builder: (_) => SignUpPage().wrappedRoute,
           settings: settings,
         );
+      case Routes.forgotPasswordPage:
+        return CupertinoPageRoute<dynamic>(
+          builder: (_) => ForgotPasswordPage().wrappedRoute,
+          settings: settings,
+        );
       case Routes.homePage:
         return PageRouteBuilder<dynamic>(
           pageBuilder: (ctx, animation, secondaryAnimation) =>
@@ -75,5 +82,6 @@ extension CupertinoRouterNavigationHelperMethods on ExtendedNavigatorState {
   Future pushSplashPage() => pushNamed(Routes.splashPage);
   Future pushSignInPage() => pushNamed(Routes.signInPage);
   Future pushSignUpPage() => pushNamed(Routes.signUpPage);
+  Future pushForgotPasswordPage() => pushNamed(Routes.forgotPasswordPage);
   Future pushHomePage() => pushNamed(Routes.homePage);
 }

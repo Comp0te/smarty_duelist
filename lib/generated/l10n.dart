@@ -191,6 +191,15 @@ class S {
     );
   }
 
+  String get errorUserNotFound {
+    return Intl.message(
+      'There is no user corresponding to the given email address.',
+      name: 'errorUserNotFound',
+      desc: '',
+      args: [],
+    );
+  }
+
   String get signInTitle {
     return Intl.message(
       'Greetings!',
@@ -218,19 +227,28 @@ class S {
     );
   }
 
-  String get createAccount {
+  String get signInCreateAccount {
     return Intl.message(
       'Create an account',
-      name: 'createAccount',
+      name: 'signInCreateAccount',
       desc: '',
       args: [],
     );
   }
 
-  String get notRegisteredYet {
+  String get signInNotRegisteredYet {
     return Intl.message(
       'Not registered yet?',
-      name: 'notRegisteredYet',
+      name: 'signInNotRegisteredYet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get signInForgotPassword {
+    return Intl.message(
+      'Forgot password?',
+      name: 'signInForgotPassword',
       desc: '',
       args: [],
     );
@@ -240,6 +258,15 @@ class S {
     return Intl.message(
       'Registration',
       name: 'signUpTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get forgotPasswordTitle {
+    return Intl.message(
+      'Forgot password',
+      name: 'forgotPasswordTitle',
       desc: '',
       args: [],
     );
