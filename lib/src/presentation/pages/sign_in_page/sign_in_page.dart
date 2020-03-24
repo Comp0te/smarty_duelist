@@ -32,6 +32,10 @@ class SignInPage extends StatelessWidget
       ExtendedNavigator.of(context).pushNamed(Routes.signUpPage);
     }
 
+    void _toForgotPasswordScreen() {
+      ExtendedNavigator.of(context).pushNamed(Routes.forgotPasswordPage);
+    }
+
     return SignInBlocListener(
       child: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
@@ -58,9 +62,14 @@ class SignInPage extends StatelessWidget
                               _buildFormInputs(context),
                               _buildSubmitButtons(context),
                               TextButton(
-                                beforeLabel: S.of(context).notRegisteredYet,
-                                label: S.of(context).createAccount,
+                                beforeLabel:
+                                    S.of(context).signInNotRegisteredYet,
+                                label: S.of(context).signInCreateAccount,
                                 onPress: _toRegistrationScreen,
+                              ),
+                              TextButton(
+                                label: S.of(context).signInForgotPassword,
+                                onPress: _toForgotPasswordScreen,
                               ),
                             ],
                           ),
