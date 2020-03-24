@@ -25,6 +25,7 @@ class FormTextField extends StatelessWidget {
   final bool isRequired;
   final bool obscureText;
   final int maxLines;
+  final bool autofocus;
 
   const FormTextField({
     Key key,
@@ -41,6 +42,7 @@ class FormTextField extends StatelessWidget {
     this.isRequired = true,
     this.obscureText = false,
     this.maxLines = 1,
+    this.autofocus = false,
   })  : assert(controller != null),
         assert(attribute != null),
         super(key: key);
@@ -56,6 +58,7 @@ class FormTextField extends StatelessWidget {
         child: Theme(
           data: _getPlatformBrightness(context),
           child: FormBuilderTextField(
+            autofocus: autofocus,
             attribute: attribute,
             controller: controller,
             autocorrect: false,
