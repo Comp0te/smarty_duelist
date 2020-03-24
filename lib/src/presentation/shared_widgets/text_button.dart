@@ -29,22 +29,25 @@ class TextButton extends StatelessWidget {
             children: <Widget>[
               if (beforeLabel != null)
                 Flexible(
-                  child: Text(
-                    beforeLabel,
-                    softWrap: false,
-                    overflow: TextOverflow.fade,
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 4),
+                    child: Text(
+                      beforeLabel,
+                      softWrap: false,
+                      overflow: TextOverflow.fade,
+                    ),
                   ),
                 ),
               PlatformButton(
                 onPressed: onPress,
                 androidFlat: (_) => MaterialFlatButtonData(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 4,
+                    horizontal: 0,
                   ),
                 ),
                 ios: (_) => CupertinoButtonData(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 4,
+                    horizontal: 0,
                   ),
                 ),
                 child: Text(label),
