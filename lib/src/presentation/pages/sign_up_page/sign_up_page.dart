@@ -5,7 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 import 'package:smarty_duelist/generated/l10n.dart';
-import 'package:smarty_duelist/src/core/core.dart' show OrientationMixin;
+import 'package:smarty_duelist/src/core/core.dart'
+    show OrientationMixin, makeConfirmPasswordValidator;
 import 'package:smarty_duelist/src/injector/injector.dart' show getIt;
 import 'package:smarty_duelist/src/presentation/shared_widgets/shared_widgets.dart'
     show Button, FormTextField, NativeScaffold;
@@ -136,8 +137,10 @@ class SignUpPage extends StatelessWidget
               icon: Icon(Icons.lock_outline),
               obscureText: true,
               validatorsList: [
-                FormBuilderValidators.minLength(8,
-                    errorText: S.of(context).errorMinLength(8)),
+                makeConfirmPasswordValidator(
+                  context: context,
+                  passwordController: signUpBloc.passwordController,
+                )
               ],
             ),
           ),

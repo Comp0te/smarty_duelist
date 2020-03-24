@@ -200,6 +200,15 @@ class S {
     );
   }
 
+  String get errorPasswordsDoNotMatch {
+    return Intl.message(
+      'Passwords don\'t match',
+      name: 'errorPasswordsDoNotMatch',
+      desc: '',
+      args: [],
+    );
+  }
+
   String get signInTitle {
     return Intl.message(
       'Greetings!',

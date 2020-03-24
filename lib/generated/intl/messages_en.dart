@@ -34,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "errorEmailMalformed" : MessageLookupByLibrary.simpleMessage("Email address is malformed"),
     "errorGoogleAuth" : MessageLookupByLibrary.simpleMessage("Something went wrong during authentication via Google"),
     "errorMinLength" : m0,
+    "errorPasswordsDoNotMatch" : MessageLookupByLibrary.simpleMessage("Passwords don\'t match"),
     "errorRequired" : MessageLookupByLibrary.simpleMessage("Required"),
     "errorSignInCanceled" : MessageLookupByLibrary.simpleMessage("Sign in process was aborted"),
     "errorToManySignIn" : MessageLookupByLibrary.simpleMessage("You made too many attempts to sign in"),
