@@ -26,7 +26,6 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "confirmPassword" : MessageLookupByLibrary.simpleMessage("Confirm password"),
-    "createAccount" : MessageLookupByLibrary.simpleMessage("Create an account"),
     "email" : MessageLookupByLibrary.simpleMessage("Email"),
     "error" : MessageLookupByLibrary.simpleMessage("Error"),
     "errorCredentialMalformed" : MessageLookupByLibrary.simpleMessage("Credential data is malformed or has expired"),
@@ -40,10 +39,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "errorToManySignIn" : MessageLookupByLibrary.simpleMessage("You made too many attempts to sign in"),
     "errorUnexpected" : MessageLookupByLibrary.simpleMessage("Something went wrong. We are sorry."),
     "errorUserDisabled" : MessageLookupByLibrary.simpleMessage("User disabled"),
+    "errorUserNotFound" : MessageLookupByLibrary.simpleMessage("There is no user corresponding to the given email address."),
     "errorWeakPassword" : MessageLookupByLibrary.simpleMessage("The password is not strong enough"),
     "errorWrongEmailOrPassword" : MessageLookupByLibrary.simpleMessage("Email or password is wrong"),
-    "notRegisteredYet" : MessageLookupByLibrary.simpleMessage("Not registered yet?"),
+    "forgotPasswordTitle" : MessageLookupByLibrary.simpleMessage("Forgot password"),
     "password" : MessageLookupByLibrary.simpleMessage("Password"),
+    "signInCreateAccount" : MessageLookupByLibrary.simpleMessage("Create an account"),
+    "signInForgotPassword" : MessageLookupByLibrary.simpleMessage("Forgot password?"),
+    "signInNotRegisteredYet" : MessageLookupByLibrary.simpleMessage("Not registered yet?"),
     "signInProvider" : m1,
     "signInTitle" : MessageLookupByLibrary.simpleMessage("Greetings!"),
     "signUpTitle" : MessageLookupByLibrary.simpleMessage("Registration"),
