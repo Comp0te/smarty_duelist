@@ -1,4 +1,5 @@
 import 'package:animations/animations.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 final textTypography = Typography(
@@ -14,14 +15,13 @@ const _primaryVariantColor = Color(0xFF78002e);
 const _secondaryColor = Color(0xFFb39ddb);
 const _lightBackgroundColor = Color(0xffeceff1);
 const _darkBackgroundColor = Color(0xff263238);
-const _errorColor = Color(0xffcf6679);
 
 const lightColorScheme = ColorScheme.light(
   primary: _primaryColor,
   primaryVariant: _primaryVariantColor,
   secondary: _secondaryColor,
   secondaryVariant: Color(0xFF836fa9),
-  error: _errorColor,
+  error: Color.fromARGB(255, 255, 59, 48), // like CupertinoColors.systemRed
   surface: _lightBackgroundColor,
   background: _lightBackgroundColor,
   onPrimary: _lightBackgroundColor,
@@ -38,7 +38,7 @@ const darkColorScheme = ColorScheme.dark(
   secondaryVariant: Color(0xFFb39ddb),
   surface: _darkBackgroundColor,
   background: _darkBackgroundColor,
-  error: _errorColor,
+  error: Color.fromARGB(255, 255, 69, 58), // like CupertinoColors.systemRed
   onPrimary: _darkBackgroundColor,
   onSecondary: _darkBackgroundColor,
   onSurface: _lightBackgroundColor,
