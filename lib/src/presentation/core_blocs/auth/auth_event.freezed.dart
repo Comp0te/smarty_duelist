@@ -7,37 +7,7 @@ part of 'auth_event.dart';
 // FreezedGenerator
 // **************************************************************************
 
-mixin _$AuthEvent {
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result appStarted(),
-    @required Result signedIn(@required FirebaseUser user),
-    @required Result signedOut(),
-  });
-
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result appStarted(),
-    Result signedIn(@required FirebaseUser user),
-    Result signedOut(),
-    @required Result orElse(),
-  });
-
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result appStarted(AppStarted value),
-    @required Result signedIn(SignedIn value),
-    @required Result signedOut(SignedOut value),
-  });
-
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result appStarted(AppStarted value),
-    Result signedIn(SignedIn value),
-    Result signedOut(SignedOut value),
-    @required Result orElse(),
-  });
-}
+T _$identity<T>(T value) => value;
 
 class _$AuthEventTearOff {
   const _$AuthEventTearOff();
@@ -57,7 +27,65 @@ class _$AuthEventTearOff {
   }
 }
 
+// ignore: unused_element
 const $AuthEvent = _$AuthEventTearOff();
+
+mixin _$AuthEvent {
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result appStarted(),
+    @required Result signedIn(@required FirebaseUser user),
+    @required Result signedOut(),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result appStarted(),
+    Result signedIn(@required FirebaseUser user),
+    Result signedOut(),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result appStarted(AppStarted value),
+    @required Result signedIn(SignedIn value),
+    @required Result signedOut(SignedOut value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result appStarted(AppStarted value),
+    Result signedIn(SignedIn value),
+    Result signedOut(SignedOut value),
+    @required Result orElse(),
+  });
+}
+
+abstract class $AuthEventCopyWith<$Res> {
+  factory $AuthEventCopyWith(AuthEvent value, $Res Function(AuthEvent) then) =
+      _$AuthEventCopyWithImpl<$Res>;
+}
+
+class _$AuthEventCopyWithImpl<$Res> implements $AuthEventCopyWith<$Res> {
+  _$AuthEventCopyWithImpl(this._value, this._then);
+
+  final AuthEvent _value;
+  // ignore: unused_field
+  final $Res Function(AuthEvent) _then;
+}
+
+abstract class $AppStartedCopyWith<$Res> {
+  factory $AppStartedCopyWith(
+          AppStarted value, $Res Function(AppStarted) then) =
+      _$AppStartedCopyWithImpl<$Res>;
+}
+
+class _$AppStartedCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
+    implements $AppStartedCopyWith<$Res> {
+  _$AppStartedCopyWithImpl(AppStarted _value, $Res Function(AppStarted) _then)
+      : super(_value, (v) => _then(v as AppStarted));
+
+  @override
+  AppStarted get _value => super._value as AppStarted;
+}
 
 class _$AppStarted with DiagnosticableTreeMixin implements AppStarted {
   const _$AppStarted();
@@ -142,6 +170,30 @@ abstract class AppStarted implements AuthEvent {
   const factory AppStarted() = _$AppStarted;
 }
 
+abstract class $SignedInCopyWith<$Res> {
+  factory $SignedInCopyWith(SignedIn value, $Res Function(SignedIn) then) =
+      _$SignedInCopyWithImpl<$Res>;
+  $Res call({FirebaseUser user});
+}
+
+class _$SignedInCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
+    implements $SignedInCopyWith<$Res> {
+  _$SignedInCopyWithImpl(SignedIn _value, $Res Function(SignedIn) _then)
+      : super(_value, (v) => _then(v as SignedIn));
+
+  @override
+  SignedIn get _value => super._value as SignedIn;
+
+  @override
+  $Res call({
+    Object user = freezed,
+  }) {
+    return _then(SignedIn(
+      user: user == freezed ? _value.user : user as FirebaseUser,
+    ));
+  }
+}
+
 class _$SignedIn with DiagnosticableTreeMixin implements SignedIn {
   const _$SignedIn({@required this.user}) : assert(user != null);
 
@@ -174,13 +226,8 @@ class _$SignedIn with DiagnosticableTreeMixin implements SignedIn {
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(user);
 
   @override
-  _$SignedIn copyWith({
-    Object user = freezed,
-  }) {
-    return _$SignedIn(
-      user: user == freezed ? this.user : user as FirebaseUser,
-    );
-  }
+  $SignedInCopyWith<SignedIn> get copyWith =>
+      _$SignedInCopyWithImpl<SignedIn>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -243,8 +290,21 @@ abstract class SignedIn implements AuthEvent {
   const factory SignedIn({@required FirebaseUser user}) = _$SignedIn;
 
   FirebaseUser get user;
+  $SignedInCopyWith<SignedIn> get copyWith;
+}
 
-  SignedIn copyWith({FirebaseUser user});
+abstract class $SignedOutCopyWith<$Res> {
+  factory $SignedOutCopyWith(SignedOut value, $Res Function(SignedOut) then) =
+      _$SignedOutCopyWithImpl<$Res>;
+}
+
+class _$SignedOutCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
+    implements $SignedOutCopyWith<$Res> {
+  _$SignedOutCopyWithImpl(SignedOut _value, $Res Function(SignedOut) _then)
+      : super(_value, (v) => _then(v as SignedOut));
+
+  @override
+  SignedOut get _value => super._value as SignedOut;
 }
 
 class _$SignedOut with DiagnosticableTreeMixin implements SignedOut {

@@ -7,7 +7,7 @@ part of 'sign_out_event.dart';
 // FreezedGenerator
 // **************************************************************************
 
-mixin _$SignOutEvent {}
+T _$identity<T>(T value) => value;
 
 class _$SignOutEventTearOff {
   const _$SignOutEventTearOff();
@@ -17,7 +17,38 @@ class _$SignOutEventTearOff {
   }
 }
 
+// ignore: unused_element
 const $SignOutEvent = _$SignOutEventTearOff();
+
+mixin _$SignOutEvent {}
+
+abstract class $SignOutEventCopyWith<$Res> {
+  factory $SignOutEventCopyWith(
+          SignOutEvent value, $Res Function(SignOutEvent) then) =
+      _$SignOutEventCopyWithImpl<$Res>;
+}
+
+class _$SignOutEventCopyWithImpl<$Res> implements $SignOutEventCopyWith<$Res> {
+  _$SignOutEventCopyWithImpl(this._value, this._then);
+
+  final SignOutEvent _value;
+  // ignore: unused_field
+  final $Res Function(SignOutEvent) _then;
+}
+
+abstract class $SignOutCopyWith<$Res> {
+  factory $SignOutCopyWith(SignOut value, $Res Function(SignOut) then) =
+      _$SignOutCopyWithImpl<$Res>;
+}
+
+class _$SignOutCopyWithImpl<$Res> extends _$SignOutEventCopyWithImpl<$Res>
+    implements $SignOutCopyWith<$Res> {
+  _$SignOutCopyWithImpl(SignOut _value, $Res Function(SignOut) _then)
+      : super(_value, (v) => _then(v as SignOut));
+
+  @override
+  SignOut get _value => super._value as SignOut;
+}
 
 class _$SignOut with DiagnosticableTreeMixin implements SignOut {
   const _$SignOut();

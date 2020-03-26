@@ -7,7 +7,7 @@ part of 'sign_up_event.dart';
 // FreezedGenerator
 // **************************************************************************
 
-mixin _$SignUpEvent {}
+T _$identity<T>(T value) => value;
 
 class _$SignUpEventTearOff {
   const _$SignUpEventTearOff();
@@ -17,7 +17,38 @@ class _$SignUpEventTearOff {
   }
 }
 
+// ignore: unused_element
 const $SignUpEvent = _$SignUpEventTearOff();
+
+mixin _$SignUpEvent {}
+
+abstract class $SignUpEventCopyWith<$Res> {
+  factory $SignUpEventCopyWith(
+          SignUpEvent value, $Res Function(SignUpEvent) then) =
+      _$SignUpEventCopyWithImpl<$Res>;
+}
+
+class _$SignUpEventCopyWithImpl<$Res> implements $SignUpEventCopyWith<$Res> {
+  _$SignUpEventCopyWithImpl(this._value, this._then);
+
+  final SignUpEvent _value;
+  // ignore: unused_field
+  final $Res Function(SignUpEvent) _then;
+}
+
+abstract class $SignUpCopyWith<$Res> {
+  factory $SignUpCopyWith(SignUp value, $Res Function(SignUp) then) =
+      _$SignUpCopyWithImpl<$Res>;
+}
+
+class _$SignUpCopyWithImpl<$Res> extends _$SignUpEventCopyWithImpl<$Res>
+    implements $SignUpCopyWith<$Res> {
+  _$SignUpCopyWithImpl(SignUp _value, $Res Function(SignUp) _then)
+      : super(_value, (v) => _then(v as SignUp));
+
+  @override
+  SignUp get _value => super._value as SignUp;
+}
 
 class _$SignUp with DiagnosticableTreeMixin implements SignUp {
   const _$SignUp();
