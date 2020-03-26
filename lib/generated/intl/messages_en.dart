@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "cancel" : MessageLookupByLibrary.simpleMessage("Cancel"),
     "confirmPassword" : MessageLookupByLibrary.simpleMessage("Confirm password"),
     "email" : MessageLookupByLibrary.simpleMessage("Email"),
     "error" : MessageLookupByLibrary.simpleMessage("Error"),
@@ -43,7 +44,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "errorUserNotFound" : MessageLookupByLibrary.simpleMessage("There is no user corresponding to the given email address."),
     "errorWeakPassword" : MessageLookupByLibrary.simpleMessage("The password is not strong enough"),
     "errorWrongEmailOrPassword" : MessageLookupByLibrary.simpleMessage("Email or password is wrong"),
+    "forgotPasswordSuccess" : MessageLookupByLibrary.simpleMessage("We sent the password reset instructions to your email. Change password and login"),
     "forgotPasswordTitle" : MessageLookupByLibrary.simpleMessage("Forgot password"),
+    "ok" : MessageLookupByLibrary.simpleMessage("Ok"),
     "password" : MessageLookupByLibrary.simpleMessage("Password"),
     "signInCreateAccount" : MessageLookupByLibrary.simpleMessage("Create an account"),
     "signInForgotPassword" : MessageLookupByLibrary.simpleMessage("Forgot password?"),
@@ -52,6 +55,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "signInTitle" : MessageLookupByLibrary.simpleMessage("Greetings!"),
     "signUpTitle" : MessageLookupByLibrary.simpleMessage("Registration"),
     "singInEmail" : MessageLookupByLibrary.simpleMessage("Sign in with Email"),
-    "submit" : MessageLookupByLibrary.simpleMessage("Submit")
+    "submit" : MessageLookupByLibrary.simpleMessage("Submit"),
+    "success" : MessageLookupByLibrary.simpleMessage("Success")
   };
 }

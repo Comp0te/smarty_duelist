@@ -3,6 +3,9 @@
   "password": "Password",
   "confirmPassword": "Confirm password",
   "submit": "Submit",
+  "success": "Success",
+  "ok": "Ok",
+  "cancel": "Cancel",
 
   "error": "Error",
   "errorRequired": "Required",
@@ -30,5 +33,6 @@
 
   "signUpTitle": "Registration",
 
-  "forgotPasswordTitle": "Forgot password"
+  "forgotPasswordTitle": "Forgot password",
+  "forgotPasswordSuccess": "We sent the password reset instructions to your email. Change password and login"
 }
