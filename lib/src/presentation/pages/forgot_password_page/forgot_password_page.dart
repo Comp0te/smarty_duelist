@@ -69,7 +69,6 @@ class ForgotPasswordPage extends StatelessWidget
   Widget _buildFormInputs(BuildContext context) {
     void onDoneActionSubmitted(_) {
       _submitForm(context);
-      FocusScope.of(context).unfocus();
     }
 
     return Container(
@@ -128,5 +127,6 @@ class ForgotPasswordPage extends StatelessWidget
 
   void _submitForm(BuildContext context) {
     BlocProvider.of<ForgotPasswordBloc>(context).add(const ForgotPassword());
+    FocusScope.of(context).unfocus();
   }
 }
