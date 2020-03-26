@@ -1,9 +1,13 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import 'package:smarty_duelist/generated/l10n.dart';
+import 'package:smarty_duelist/src/presentation/shared_widgets/shared_widgets.dart'
+    show NativeAlert, NativeDialogAction;
 
 import '../blocs/blocs.dart';
 
@@ -21,10 +25,28 @@ class ForgotPasswordBlocListener extends StatelessWidget {
     return BlocListener<ForgotPasswordBloc, ForgotPasswordState>(
       listener: (context, state) {
         state.maybeWhen(
+          success: () => showPlatformDialog(
+            context: context,
+            builder: (_) => NativeAlert(
+              title: S.of(context).success,
+              content: Text(S.of(context).forgotPasswordSuccess),
+              actions: <NativeDialogAction>[
+                NativeDialogAction(
+                  title: S.of(context).ok,
+                  onPress: () {
+                    ExtendedNavigator.of(context).popUntil(
+                      (route) => route.isFirst,
+                    );
+                  },
+                )
+              ],
+            ),
+          ),
           error: (failure) => FlushbarHelper.createError(
               title: S.of(context).error,
               message: failure.maybeWhen(
-                sendResetPassword: (exp) => _getErrorMessageByCode(context, exp),
+                sendResetPassword: (exp) =>
+                    _getErrorMessageByCode(context, exp),
                 orElse: () => S.of(context).errorUnexpected,
               ),
               duration: failure.maybeWhen(

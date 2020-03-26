@@ -65,6 +65,33 @@ class S {
     );
   }
 
+  String get success {
+    return Intl.message(
+      'Success',
+      name: 'success',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get ok {
+    return Intl.message(
+      'Ok',
+      name: 'ok',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
   String get error {
     return Intl.message(
       'Error',
@@ -276,6 +303,15 @@ class S {
     return Intl.message(
       'Forgot password',
       name: 'forgotPasswordTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get forgotPasswordSuccess {
+    return Intl.message(
+      'We sent the password reset instructions to your email. Change password and login',
+      name: 'forgotPasswordSuccess',
       desc: '',
       args: [],
     );
