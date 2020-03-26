@@ -84,7 +84,6 @@ class ForgotPasswordPage extends StatelessWidget
             constraints: getMaxWidthConstraints(context, 0.4),
             margin: const EdgeInsets.only(bottom: 0),
             child: FormTextField(
-              autofocus: true,
               controller:
                   BlocProvider.of<ForgotPasswordBloc>(context).emailController,
               attribute: describeEnum(ForgotPasswordFormData.email),
