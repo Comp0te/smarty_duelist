@@ -7,63 +7,7 @@ part of 'auth_failures.dart';
 // FreezedGenerator
 // **************************************************************************
 
-mixin _$AuthFailure {
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result cancelledByUser(),
-    @required Result sendResetPassword(PlatformException exp),
-    @required Result confirmResetPassword(PlatformException exp),
-    @required Result signUpWithEmail(PlatformException exp),
-    @required Result signInWithGoogle(PlatformException exp),
-    @required Result googleAuth(PlatformException exp),
-    @required Result signInWithEmail(PlatformException exp),
-    @required Result unexpected(PlatformException exp),
-    @required Result fetchSignInMethodsForEmail(),
-  });
-
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result cancelledByUser(),
-    Result sendResetPassword(PlatformException exp),
-    Result confirmResetPassword(PlatformException exp),
-    Result signUpWithEmail(PlatformException exp),
-    Result signInWithGoogle(PlatformException exp),
-    Result googleAuth(PlatformException exp),
-    Result signInWithEmail(PlatformException exp),
-    Result unexpected(PlatformException exp),
-    Result fetchSignInMethodsForEmail(),
-    @required Result orElse(),
-  });
-
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result cancelledByUser(CancelledByUser value),
-    @required Result sendResetPassword(SendResetPasswordFailure value),
-    @required Result confirmResetPassword(ConfirmResetPasswordFailure value),
-    @required Result signUpWithEmail(SignUpWithEmailFailure value),
-    @required Result signInWithGoogle(SignInWithGoogleFailure value),
-    @required Result googleAuth(GoogleAuthFailure value),
-    @required Result signInWithEmail(SignInWithEmailFailure value),
-    @required Result unexpected(UnexpectedAuthFailure value),
-    @required
-        Result fetchSignInMethodsForEmail(
-            FetchSignInMethodsForEmailFailure value),
-  });
-
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result cancelledByUser(CancelledByUser value),
-    Result sendResetPassword(SendResetPasswordFailure value),
-    Result confirmResetPassword(ConfirmResetPasswordFailure value),
-    Result signUpWithEmail(SignUpWithEmailFailure value),
-    Result signInWithGoogle(SignInWithGoogleFailure value),
-    Result googleAuth(GoogleAuthFailure value),
-    Result signInWithEmail(SignInWithEmailFailure value),
-    Result unexpected(UnexpectedAuthFailure value),
-    Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
-    @required Result orElse(),
-  });
-}
+T _$identity<T>(T value) => value;
 
 class _$AuthFailureTearOff {
   const _$AuthFailureTearOff();
@@ -119,7 +63,94 @@ class _$AuthFailureTearOff {
   }
 }
 
+// ignore: unused_element
 const $AuthFailure = _$AuthFailureTearOff();
+
+mixin _$AuthFailure {
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result cancelledByUser(),
+    @required Result sendResetPassword(PlatformException exp),
+    @required Result confirmResetPassword(PlatformException exp),
+    @required Result signUpWithEmail(PlatformException exp),
+    @required Result signInWithGoogle(PlatformException exp),
+    @required Result googleAuth(PlatformException exp),
+    @required Result signInWithEmail(PlatformException exp),
+    @required Result unexpected(PlatformException exp),
+    @required Result fetchSignInMethodsForEmail(),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result cancelledByUser(),
+    Result sendResetPassword(PlatformException exp),
+    Result confirmResetPassword(PlatformException exp),
+    Result signUpWithEmail(PlatformException exp),
+    Result signInWithGoogle(PlatformException exp),
+    Result googleAuth(PlatformException exp),
+    Result signInWithEmail(PlatformException exp),
+    Result unexpected(PlatformException exp),
+    Result fetchSignInMethodsForEmail(),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result cancelledByUser(CancelledByUser value),
+    @required Result sendResetPassword(SendResetPasswordFailure value),
+    @required Result confirmResetPassword(ConfirmResetPasswordFailure value),
+    @required Result signUpWithEmail(SignUpWithEmailFailure value),
+    @required Result signInWithGoogle(SignInWithGoogleFailure value),
+    @required Result googleAuth(GoogleAuthFailure value),
+    @required Result signInWithEmail(SignInWithEmailFailure value),
+    @required Result unexpected(UnexpectedAuthFailure value),
+    @required
+        Result fetchSignInMethodsForEmail(
+            FetchSignInMethodsForEmailFailure value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result cancelledByUser(CancelledByUser value),
+    Result sendResetPassword(SendResetPasswordFailure value),
+    Result confirmResetPassword(ConfirmResetPasswordFailure value),
+    Result signUpWithEmail(SignUpWithEmailFailure value),
+    Result signInWithGoogle(SignInWithGoogleFailure value),
+    Result googleAuth(GoogleAuthFailure value),
+    Result signInWithEmail(SignInWithEmailFailure value),
+    Result unexpected(UnexpectedAuthFailure value),
+    Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
+    @required Result orElse(),
+  });
+}
+
+abstract class $AuthFailureCopyWith<$Res> {
+  factory $AuthFailureCopyWith(
+          AuthFailure value, $Res Function(AuthFailure) then) =
+      _$AuthFailureCopyWithImpl<$Res>;
+}
+
+class _$AuthFailureCopyWithImpl<$Res> implements $AuthFailureCopyWith<$Res> {
+  _$AuthFailureCopyWithImpl(this._value, this._then);
+
+  final AuthFailure _value;
+  // ignore: unused_field
+  final $Res Function(AuthFailure) _then;
+}
+
+abstract class $CancelledByUserCopyWith<$Res> {
+  factory $CancelledByUserCopyWith(
+          CancelledByUser value, $Res Function(CancelledByUser) then) =
+      _$CancelledByUserCopyWithImpl<$Res>;
+}
+
+class _$CancelledByUserCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res>
+    implements $CancelledByUserCopyWith<$Res> {
+  _$CancelledByUserCopyWithImpl(
+      CancelledByUser _value, $Res Function(CancelledByUser) _then)
+      : super(_value, (v) => _then(v as CancelledByUser));
+
+  @override
+  CancelledByUser get _value => super._value as CancelledByUser;
+}
 
 class _$CancelledByUser
     with DiagnosticableTreeMixin
@@ -244,6 +275,34 @@ abstract class CancelledByUser implements AuthFailure {
   const factory CancelledByUser() = _$CancelledByUser;
 }
 
+abstract class $SendResetPasswordFailureCopyWith<$Res> {
+  factory $SendResetPasswordFailureCopyWith(SendResetPasswordFailure value,
+          $Res Function(SendResetPasswordFailure) then) =
+      _$SendResetPasswordFailureCopyWithImpl<$Res>;
+  $Res call({PlatformException exp});
+}
+
+class _$SendResetPasswordFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res>
+    implements $SendResetPasswordFailureCopyWith<$Res> {
+  _$SendResetPasswordFailureCopyWithImpl(SendResetPasswordFailure _value,
+      $Res Function(SendResetPasswordFailure) _then)
+      : super(_value, (v) => _then(v as SendResetPasswordFailure));
+
+  @override
+  SendResetPasswordFailure get _value =>
+      super._value as SendResetPasswordFailure;
+
+  @override
+  $Res call({
+    Object exp = freezed,
+  }) {
+    return _then(SendResetPasswordFailure(
+      exp == freezed ? _value.exp : exp as PlatformException,
+    ));
+  }
+}
+
 class _$SendResetPasswordFailure
     with DiagnosticableTreeMixin
     implements SendResetPasswordFailure {
@@ -278,13 +337,9 @@ class _$SendResetPasswordFailure
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(exp);
 
   @override
-  _$SendResetPasswordFailure copyWith({
-    Object exp = freezed,
-  }) {
-    return _$SendResetPasswordFailure(
-      exp == freezed ? this.exp : exp as PlatformException,
-    );
-  }
+  $SendResetPasswordFailureCopyWith<SendResetPasswordFailure> get copyWith =>
+      _$SendResetPasswordFailureCopyWithImpl<SendResetPasswordFailure>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -386,8 +441,36 @@ abstract class SendResetPasswordFailure implements AuthFailure {
       _$SendResetPasswordFailure;
 
   PlatformException get exp;
+  $SendResetPasswordFailureCopyWith<SendResetPasswordFailure> get copyWith;
+}
 
-  SendResetPasswordFailure copyWith({PlatformException exp});
+abstract class $ConfirmResetPasswordFailureCopyWith<$Res> {
+  factory $ConfirmResetPasswordFailureCopyWith(
+          ConfirmResetPasswordFailure value,
+          $Res Function(ConfirmResetPasswordFailure) then) =
+      _$ConfirmResetPasswordFailureCopyWithImpl<$Res>;
+  $Res call({PlatformException exp});
+}
+
+class _$ConfirmResetPasswordFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res>
+    implements $ConfirmResetPasswordFailureCopyWith<$Res> {
+  _$ConfirmResetPasswordFailureCopyWithImpl(ConfirmResetPasswordFailure _value,
+      $Res Function(ConfirmResetPasswordFailure) _then)
+      : super(_value, (v) => _then(v as ConfirmResetPasswordFailure));
+
+  @override
+  ConfirmResetPasswordFailure get _value =>
+      super._value as ConfirmResetPasswordFailure;
+
+  @override
+  $Res call({
+    Object exp = freezed,
+  }) {
+    return _then(ConfirmResetPasswordFailure(
+      exp == freezed ? _value.exp : exp as PlatformException,
+    ));
+  }
 }
 
 class _$ConfirmResetPasswordFailure
@@ -424,13 +507,9 @@ class _$ConfirmResetPasswordFailure
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(exp);
 
   @override
-  _$ConfirmResetPasswordFailure copyWith({
-    Object exp = freezed,
-  }) {
-    return _$ConfirmResetPasswordFailure(
-      exp == freezed ? this.exp : exp as PlatformException,
-    );
-  }
+  $ConfirmResetPasswordFailureCopyWith<ConfirmResetPasswordFailure>
+      get copyWith => _$ConfirmResetPasswordFailureCopyWithImpl<
+          ConfirmResetPasswordFailure>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -532,8 +611,35 @@ abstract class ConfirmResetPasswordFailure implements AuthFailure {
       _$ConfirmResetPasswordFailure;
 
   PlatformException get exp;
+  $ConfirmResetPasswordFailureCopyWith<ConfirmResetPasswordFailure>
+      get copyWith;
+}
 
-  ConfirmResetPasswordFailure copyWith({PlatformException exp});
+abstract class $SignUpWithEmailFailureCopyWith<$Res> {
+  factory $SignUpWithEmailFailureCopyWith(SignUpWithEmailFailure value,
+          $Res Function(SignUpWithEmailFailure) then) =
+      _$SignUpWithEmailFailureCopyWithImpl<$Res>;
+  $Res call({PlatformException exp});
+}
+
+class _$SignUpWithEmailFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res>
+    implements $SignUpWithEmailFailureCopyWith<$Res> {
+  _$SignUpWithEmailFailureCopyWithImpl(SignUpWithEmailFailure _value,
+      $Res Function(SignUpWithEmailFailure) _then)
+      : super(_value, (v) => _then(v as SignUpWithEmailFailure));
+
+  @override
+  SignUpWithEmailFailure get _value => super._value as SignUpWithEmailFailure;
+
+  @override
+  $Res call({
+    Object exp = freezed,
+  }) {
+    return _then(SignUpWithEmailFailure(
+      exp == freezed ? _value.exp : exp as PlatformException,
+    ));
+  }
 }
 
 class _$SignUpWithEmailFailure
@@ -570,13 +676,9 @@ class _$SignUpWithEmailFailure
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(exp);
 
   @override
-  _$SignUpWithEmailFailure copyWith({
-    Object exp = freezed,
-  }) {
-    return _$SignUpWithEmailFailure(
-      exp == freezed ? this.exp : exp as PlatformException,
-    );
-  }
+  $SignUpWithEmailFailureCopyWith<SignUpWithEmailFailure> get copyWith =>
+      _$SignUpWithEmailFailureCopyWithImpl<SignUpWithEmailFailure>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -678,8 +780,34 @@ abstract class SignUpWithEmailFailure implements AuthFailure {
       _$SignUpWithEmailFailure;
 
   PlatformException get exp;
+  $SignUpWithEmailFailureCopyWith<SignUpWithEmailFailure> get copyWith;
+}
 
-  SignUpWithEmailFailure copyWith({PlatformException exp});
+abstract class $SignInWithGoogleFailureCopyWith<$Res> {
+  factory $SignInWithGoogleFailureCopyWith(SignInWithGoogleFailure value,
+          $Res Function(SignInWithGoogleFailure) then) =
+      _$SignInWithGoogleFailureCopyWithImpl<$Res>;
+  $Res call({PlatformException exp});
+}
+
+class _$SignInWithGoogleFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res>
+    implements $SignInWithGoogleFailureCopyWith<$Res> {
+  _$SignInWithGoogleFailureCopyWithImpl(SignInWithGoogleFailure _value,
+      $Res Function(SignInWithGoogleFailure) _then)
+      : super(_value, (v) => _then(v as SignInWithGoogleFailure));
+
+  @override
+  SignInWithGoogleFailure get _value => super._value as SignInWithGoogleFailure;
+
+  @override
+  $Res call({
+    Object exp = freezed,
+  }) {
+    return _then(SignInWithGoogleFailure(
+      exp == freezed ? _value.exp : exp as PlatformException,
+    ));
+  }
 }
 
 class _$SignInWithGoogleFailure
@@ -716,13 +844,9 @@ class _$SignInWithGoogleFailure
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(exp);
 
   @override
-  _$SignInWithGoogleFailure copyWith({
-    Object exp = freezed,
-  }) {
-    return _$SignInWithGoogleFailure(
-      exp == freezed ? this.exp : exp as PlatformException,
-    );
-  }
+  $SignInWithGoogleFailureCopyWith<SignInWithGoogleFailure> get copyWith =>
+      _$SignInWithGoogleFailureCopyWithImpl<SignInWithGoogleFailure>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -824,8 +948,34 @@ abstract class SignInWithGoogleFailure implements AuthFailure {
       _$SignInWithGoogleFailure;
 
   PlatformException get exp;
+  $SignInWithGoogleFailureCopyWith<SignInWithGoogleFailure> get copyWith;
+}
 
-  SignInWithGoogleFailure copyWith({PlatformException exp});
+abstract class $GoogleAuthFailureCopyWith<$Res> {
+  factory $GoogleAuthFailureCopyWith(
+          GoogleAuthFailure value, $Res Function(GoogleAuthFailure) then) =
+      _$GoogleAuthFailureCopyWithImpl<$Res>;
+  $Res call({PlatformException exp});
+}
+
+class _$GoogleAuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res>
+    implements $GoogleAuthFailureCopyWith<$Res> {
+  _$GoogleAuthFailureCopyWithImpl(
+      GoogleAuthFailure _value, $Res Function(GoogleAuthFailure) _then)
+      : super(_value, (v) => _then(v as GoogleAuthFailure));
+
+  @override
+  GoogleAuthFailure get _value => super._value as GoogleAuthFailure;
+
+  @override
+  $Res call({
+    Object exp = freezed,
+  }) {
+    return _then(GoogleAuthFailure(
+      exp == freezed ? _value.exp : exp as PlatformException,
+    ));
+  }
 }
 
 class _$GoogleAuthFailure
@@ -862,13 +1012,8 @@ class _$GoogleAuthFailure
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(exp);
 
   @override
-  _$GoogleAuthFailure copyWith({
-    Object exp = freezed,
-  }) {
-    return _$GoogleAuthFailure(
-      exp == freezed ? this.exp : exp as PlatformException,
-    );
-  }
+  $GoogleAuthFailureCopyWith<GoogleAuthFailure> get copyWith =>
+      _$GoogleAuthFailureCopyWithImpl<GoogleAuthFailure>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -969,8 +1114,34 @@ abstract class GoogleAuthFailure implements AuthFailure {
   const factory GoogleAuthFailure(PlatformException exp) = _$GoogleAuthFailure;
 
   PlatformException get exp;
+  $GoogleAuthFailureCopyWith<GoogleAuthFailure> get copyWith;
+}
 
-  GoogleAuthFailure copyWith({PlatformException exp});
+abstract class $SignInWithEmailFailureCopyWith<$Res> {
+  factory $SignInWithEmailFailureCopyWith(SignInWithEmailFailure value,
+          $Res Function(SignInWithEmailFailure) then) =
+      _$SignInWithEmailFailureCopyWithImpl<$Res>;
+  $Res call({PlatformException exp});
+}
+
+class _$SignInWithEmailFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res>
+    implements $SignInWithEmailFailureCopyWith<$Res> {
+  _$SignInWithEmailFailureCopyWithImpl(SignInWithEmailFailure _value,
+      $Res Function(SignInWithEmailFailure) _then)
+      : super(_value, (v) => _then(v as SignInWithEmailFailure));
+
+  @override
+  SignInWithEmailFailure get _value => super._value as SignInWithEmailFailure;
+
+  @override
+  $Res call({
+    Object exp = freezed,
+  }) {
+    return _then(SignInWithEmailFailure(
+      exp == freezed ? _value.exp : exp as PlatformException,
+    ));
+  }
 }
 
 class _$SignInWithEmailFailure
@@ -1007,13 +1178,9 @@ class _$SignInWithEmailFailure
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(exp);
 
   @override
-  _$SignInWithEmailFailure copyWith({
-    Object exp = freezed,
-  }) {
-    return _$SignInWithEmailFailure(
-      exp == freezed ? this.exp : exp as PlatformException,
-    );
-  }
+  $SignInWithEmailFailureCopyWith<SignInWithEmailFailure> get copyWith =>
+      _$SignInWithEmailFailureCopyWithImpl<SignInWithEmailFailure>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1115,8 +1282,34 @@ abstract class SignInWithEmailFailure implements AuthFailure {
       _$SignInWithEmailFailure;
 
   PlatformException get exp;
+  $SignInWithEmailFailureCopyWith<SignInWithEmailFailure> get copyWith;
+}
 
-  SignInWithEmailFailure copyWith({PlatformException exp});
+abstract class $UnexpectedAuthFailureCopyWith<$Res> {
+  factory $UnexpectedAuthFailureCopyWith(UnexpectedAuthFailure value,
+          $Res Function(UnexpectedAuthFailure) then) =
+      _$UnexpectedAuthFailureCopyWithImpl<$Res>;
+  $Res call({PlatformException exp});
+}
+
+class _$UnexpectedAuthFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res>
+    implements $UnexpectedAuthFailureCopyWith<$Res> {
+  _$UnexpectedAuthFailureCopyWithImpl(
+      UnexpectedAuthFailure _value, $Res Function(UnexpectedAuthFailure) _then)
+      : super(_value, (v) => _then(v as UnexpectedAuthFailure));
+
+  @override
+  UnexpectedAuthFailure get _value => super._value as UnexpectedAuthFailure;
+
+  @override
+  $Res call({
+    Object exp = freezed,
+  }) {
+    return _then(UnexpectedAuthFailure(
+      exp == freezed ? _value.exp : exp as PlatformException,
+    ));
+  }
 }
 
 class _$UnexpectedAuthFailure
@@ -1153,13 +1346,9 @@ class _$UnexpectedAuthFailure
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(exp);
 
   @override
-  _$UnexpectedAuthFailure copyWith({
-    Object exp = freezed,
-  }) {
-    return _$UnexpectedAuthFailure(
-      exp == freezed ? this.exp : exp as PlatformException,
-    );
-  }
+  $UnexpectedAuthFailureCopyWith<UnexpectedAuthFailure> get copyWith =>
+      _$UnexpectedAuthFailureCopyWithImpl<UnexpectedAuthFailure>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1261,8 +1450,27 @@ abstract class UnexpectedAuthFailure implements AuthFailure {
       _$UnexpectedAuthFailure;
 
   PlatformException get exp;
+  $UnexpectedAuthFailureCopyWith<UnexpectedAuthFailure> get copyWith;
+}
 
-  UnexpectedAuthFailure copyWith({PlatformException exp});
+abstract class $FetchSignInMethodsForEmailFailureCopyWith<$Res> {
+  factory $FetchSignInMethodsForEmailFailureCopyWith(
+          FetchSignInMethodsForEmailFailure value,
+          $Res Function(FetchSignInMethodsForEmailFailure) then) =
+      _$FetchSignInMethodsForEmailFailureCopyWithImpl<$Res>;
+}
+
+class _$FetchSignInMethodsForEmailFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res>
+    implements $FetchSignInMethodsForEmailFailureCopyWith<$Res> {
+  _$FetchSignInMethodsForEmailFailureCopyWithImpl(
+      FetchSignInMethodsForEmailFailure _value,
+      $Res Function(FetchSignInMethodsForEmailFailure) _then)
+      : super(_value, (v) => _then(v as FetchSignInMethodsForEmailFailure));
+
+  @override
+  FetchSignInMethodsForEmailFailure get _value =>
+      super._value as FetchSignInMethodsForEmailFailure;
 }
 
 class _$FetchSignInMethodsForEmailFailure

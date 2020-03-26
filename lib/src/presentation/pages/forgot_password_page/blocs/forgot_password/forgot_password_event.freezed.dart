@@ -7,7 +7,7 @@ part of 'forgot_password_event.dart';
 // FreezedGenerator
 // **************************************************************************
 
-mixin _$ForgotPasswordEvent {}
+T _$identity<T>(T value) => value;
 
 class _$ForgotPasswordEventTearOff {
   const _$ForgotPasswordEventTearOff();
@@ -17,7 +17,42 @@ class _$ForgotPasswordEventTearOff {
   }
 }
 
+// ignore: unused_element
 const $ForgotPasswordEvent = _$ForgotPasswordEventTearOff();
+
+mixin _$ForgotPasswordEvent {}
+
+abstract class $ForgotPasswordEventCopyWith<$Res> {
+  factory $ForgotPasswordEventCopyWith(
+          ForgotPasswordEvent value, $Res Function(ForgotPasswordEvent) then) =
+      _$ForgotPasswordEventCopyWithImpl<$Res>;
+}
+
+class _$ForgotPasswordEventCopyWithImpl<$Res>
+    implements $ForgotPasswordEventCopyWith<$Res> {
+  _$ForgotPasswordEventCopyWithImpl(this._value, this._then);
+
+  final ForgotPasswordEvent _value;
+  // ignore: unused_field
+  final $Res Function(ForgotPasswordEvent) _then;
+}
+
+abstract class $ForgotPasswordCopyWith<$Res> {
+  factory $ForgotPasswordCopyWith(
+          ForgotPassword value, $Res Function(ForgotPassword) then) =
+      _$ForgotPasswordCopyWithImpl<$Res>;
+}
+
+class _$ForgotPasswordCopyWithImpl<$Res>
+    extends _$ForgotPasswordEventCopyWithImpl<$Res>
+    implements $ForgotPasswordCopyWith<$Res> {
+  _$ForgotPasswordCopyWithImpl(
+      ForgotPassword _value, $Res Function(ForgotPassword) _then)
+      : super(_value, (v) => _then(v as ForgotPassword));
+
+  @override
+  ForgotPassword get _value => super._value as ForgotPassword;
+}
 
 class _$ForgotPassword with DiagnosticableTreeMixin implements ForgotPassword {
   const _$ForgotPassword();
