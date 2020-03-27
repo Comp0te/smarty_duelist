@@ -16,7 +16,7 @@ class _$AuthEventTearOff {
     return const AppStarted();
   }
 
-  SignedIn signedIn({@required FirebaseUser user}) {
+  SignedIn signedIn({@required User user}) {
     return SignedIn(
       user: user,
     );
@@ -34,13 +34,13 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result appStarted(),
-    @required Result signedIn(@required FirebaseUser user),
+    @required Result signedIn(@required User user),
     @required Result signedOut(),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result appStarted(),
-    Result signedIn(@required FirebaseUser user),
+    Result signedIn(@required User user),
     Result signedOut(),
     @required Result orElse(),
   });
@@ -113,7 +113,7 @@ class _$AppStarted with DiagnosticableTreeMixin implements AppStarted {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result appStarted(),
-    @required Result signedIn(@required FirebaseUser user),
+    @required Result signedIn(@required User user),
     @required Result signedOut(),
   }) {
     assert(appStarted != null);
@@ -126,7 +126,7 @@ class _$AppStarted with DiagnosticableTreeMixin implements AppStarted {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result appStarted(),
-    Result signedIn(@required FirebaseUser user),
+    Result signedIn(@required User user),
     Result signedOut(),
     @required Result orElse(),
   }) {
@@ -173,7 +173,9 @@ abstract class AppStarted implements AuthEvent {
 abstract class $SignedInCopyWith<$Res> {
   factory $SignedInCopyWith(SignedIn value, $Res Function(SignedIn) then) =
       _$SignedInCopyWithImpl<$Res>;
-  $Res call({FirebaseUser user});
+  $Res call({User user});
+
+  $UserCopyWith<$Res> get user;
 }
 
 class _$SignedInCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
@@ -189,8 +191,18 @@ class _$SignedInCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
     Object user = freezed,
   }) {
     return _then(SignedIn(
-      user: user == freezed ? _value.user : user as FirebaseUser,
+      user: user == freezed ? _value.user : user as User,
     ));
+  }
+
+  @override
+  $UserCopyWith<$Res> get user {
+    if (_value.user == null) {
+      return null;
+    }
+    return $UserCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value));
+    });
   }
 }
 
@@ -198,7 +210,7 @@ class _$SignedIn with DiagnosticableTreeMixin implements SignedIn {
   const _$SignedIn({@required this.user}) : assert(user != null);
 
   @override
-  final FirebaseUser user;
+  final User user;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -233,7 +245,7 @@ class _$SignedIn with DiagnosticableTreeMixin implements SignedIn {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result appStarted(),
-    @required Result signedIn(@required FirebaseUser user),
+    @required Result signedIn(@required User user),
     @required Result signedOut(),
   }) {
     assert(appStarted != null);
@@ -246,7 +258,7 @@ class _$SignedIn with DiagnosticableTreeMixin implements SignedIn {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result appStarted(),
-    Result signedIn(@required FirebaseUser user),
+    Result signedIn(@required User user),
     Result signedOut(),
     @required Result orElse(),
   }) {
@@ -287,9 +299,9 @@ class _$SignedIn with DiagnosticableTreeMixin implements SignedIn {
 }
 
 abstract class SignedIn implements AuthEvent {
-  const factory SignedIn({@required FirebaseUser user}) = _$SignedIn;
+  const factory SignedIn({@required User user}) = _$SignedIn;
 
-  FirebaseUser get user;
+  User get user;
   $SignedInCopyWith<SignedIn> get copyWith;
 }
 
@@ -333,7 +345,7 @@ class _$SignedOut with DiagnosticableTreeMixin implements SignedOut {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result appStarted(),
-    @required Result signedIn(@required FirebaseUser user),
+    @required Result signedIn(@required User user),
     @required Result signedOut(),
   }) {
     assert(appStarted != null);
@@ -346,7 +358,7 @@ class _$SignedOut with DiagnosticableTreeMixin implements SignedOut {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result appStarted(),
-    Result signedIn(@required FirebaseUser user),
+    Result signedIn(@required User user),
     Result signedOut(),
     @required Result orElse(),
   }) {

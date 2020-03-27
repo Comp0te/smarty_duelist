@@ -18,7 +18,10 @@ import 'package:smarty_duelist/src/domain/domain.dart'
         SendResetPasswordFailure,
         SignInWithEmailFailure,
         SignInWithGoogleFailure,
-        SignUpWithEmailFailure;
+        SignUpWithEmailFailure,
+        User;
+
+import '../dto/dto.dart';
 
 @RegisterAs(IAuthDataProvider)
 @singleton
@@ -33,19 +36,20 @@ class AuthDataProvider implements IAuthDataProvider {
   });
 
   @override
-  Future<Option<FirebaseUser>> getCurrentUser() async {
+  Future<Option<User>> getCurrentUser() async {
     final user = await auth.currentUser();
 
     if (user == null) return None();
 
-    return Some(user);
+    return Some(user.toDomainUser());
   }
 
   @override
   Future<void> signOut() => auth.signOut();
 
   @override
-  Stream<FirebaseUser> onAuthStateChanged() => auth.onAuthStateChanged;
+  Stream<User> onAuthStateChanged() =>
+      auth.onAuthStateChanged.map((user) => user.toDomainUser());
 
   @override
   Future<Either<AuthFailure, Unit>> sendResetPassword({
@@ -75,7 +79,7 @@ class AuthDataProvider implements IAuthDataProvider {
   }
 
   @override
-  Future<Either<AuthFailure, AuthResult>> signUpWithEmail({
+  Future<Either<AuthFailure, User>> signUpWithEmail({
     @required String email,
     @required String password,
   }) async {
@@ -85,7 +89,7 @@ class AuthDataProvider implements IAuthDataProvider {
         password: password,
       );
 
-      return Right(result);
+      return Right(result.user.toDomainUser());
     } on PlatformException catch (exp) {
       return Left(SignUpWithEmailFailure(exp));
     }
@@ -97,7 +101,7 @@ class AuthDataProvider implements IAuthDataProvider {
   }
 
   @override
-  Future<Either<AuthFailure, AuthResult>> signInWithEmail({
+  Future<Either<AuthFailure, User>> signInWithEmail({
     @required String email,
     @required String password,
   }) async {
@@ -107,14 +111,14 @@ class AuthDataProvider implements IAuthDataProvider {
         password: password,
       );
 
-      return Right(result);
+      return Right(result.user.toDomainUser());
     } on PlatformException catch (exp) {
       return Left(SignInWithEmailFailure(exp));
     }
   }
 
   @override
-  Future<Either<AuthFailure, AuthResult>> signInWithGoogle() async {
+  Future<Either<AuthFailure, User>> signInWithGoogle() async {
     try {
       final googleUser = await googleSignIn.signIn();
 
@@ -128,7 +132,7 @@ class AuthDataProvider implements IAuthDataProvider {
 
       final result = await auth.signInWithCredential(credential);
 
-      return Right(result);
+      return Right(result.user.toDomainUser());
     } on PlatformException catch (exp) {
       if (exp.code == GoogleSignInAccount.kFailedToRecoverAuthError ||
           exp.code == GoogleSignInAccount.kUserRecoverableAuthError) {
@@ -154,13 +158,13 @@ class AuthDataProvider implements IAuthDataProvider {
 
   @override
   // ignore: missing_return
-  Future<Either<AuthFailure, AuthResult>> signInWithApple() async {
+  Future<Either<AuthFailure, User>> signInWithApple() async {
     // TODO: implement signInWithApple
   }
 
   @override
   // ignore: missing_return
-  Future<Either<AuthFailure, AuthResult>> signInWithFacebook() async {
+  Future<Either<AuthFailure, User>> signInWithFacebook() async {
     // TODO: implement signInWithFacebook
   }
 }
