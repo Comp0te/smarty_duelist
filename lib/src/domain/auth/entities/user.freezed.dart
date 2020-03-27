@@ -14,12 +14,18 @@ class _$UserTearOff {
 
   _User call(
       {@required String id,
+      @required String email,
       @required String name,
-      @required String emailAddress}) {
+      String photoUrl,
+      DateTime creationTimestamp,
+      DateTime lastSignInTimestamp}) {
     return _User(
       id: id,
+      email: email,
       name: name,
-      emailAddress: emailAddress,
+      photoUrl: photoUrl,
+      creationTimestamp: creationTimestamp,
+      lastSignInTimestamp: lastSignInTimestamp,
     );
   }
 }
@@ -29,8 +35,11 @@ const $User = _$UserTearOff();
 
 mixin _$User {
   String get id;
+  String get email;
   String get name;
-  String get emailAddress;
+  String get photoUrl;
+  DateTime get creationTimestamp;
+  DateTime get lastSignInTimestamp;
 
   $UserCopyWith<User> get copyWith;
 }
@@ -38,7 +47,13 @@ mixin _$User {
 abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res>;
-  $Res call({String id, String name, String emailAddress});
+  $Res call(
+      {String id,
+      String email,
+      String name,
+      String photoUrl,
+      DateTime creationTimestamp,
+      DateTime lastSignInTimestamp});
 }
 
 class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
@@ -51,15 +66,23 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
   @override
   $Res call({
     Object id = freezed,
+    Object email = freezed,
     Object name = freezed,
-    Object emailAddress = freezed,
+    Object photoUrl = freezed,
+    Object creationTimestamp = freezed,
+    Object lastSignInTimestamp = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
+      email: email == freezed ? _value.email : email as String,
       name: name == freezed ? _value.name : name as String,
-      emailAddress: emailAddress == freezed
-          ? _value.emailAddress
-          : emailAddress as String,
+      photoUrl: photoUrl == freezed ? _value.photoUrl : photoUrl as String,
+      creationTimestamp: creationTimestamp == freezed
+          ? _value.creationTimestamp
+          : creationTimestamp as DateTime,
+      lastSignInTimestamp: lastSignInTimestamp == freezed
+          ? _value.lastSignInTimestamp
+          : lastSignInTimestamp as DateTime,
     ));
   }
 }
@@ -68,7 +91,13 @@ abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   factory _$UserCopyWith(_User value, $Res Function(_User) then) =
       __$UserCopyWithImpl<$Res>;
   @override
-  $Res call({String id, String name, String emailAddress});
+  $Res call(
+      {String id,
+      String email,
+      String name,
+      String photoUrl,
+      DateTime creationTimestamp,
+      DateTime lastSignInTimestamp});
 }
 
 class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
@@ -82,36 +111,55 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
   @override
   $Res call({
     Object id = freezed,
+    Object email = freezed,
     Object name = freezed,
-    Object emailAddress = freezed,
+    Object photoUrl = freezed,
+    Object creationTimestamp = freezed,
+    Object lastSignInTimestamp = freezed,
   }) {
     return _then(_User(
       id: id == freezed ? _value.id : id as String,
+      email: email == freezed ? _value.email : email as String,
       name: name == freezed ? _value.name : name as String,
-      emailAddress: emailAddress == freezed
-          ? _value.emailAddress
-          : emailAddress as String,
+      photoUrl: photoUrl == freezed ? _value.photoUrl : photoUrl as String,
+      creationTimestamp: creationTimestamp == freezed
+          ? _value.creationTimestamp
+          : creationTimestamp as DateTime,
+      lastSignInTimestamp: lastSignInTimestamp == freezed
+          ? _value.lastSignInTimestamp
+          : lastSignInTimestamp as DateTime,
     ));
   }
 }
 
 class _$_User with DiagnosticableTreeMixin implements _User {
   const _$_User(
-      {@required this.id, @required this.name, @required this.emailAddress})
+      {@required this.id,
+      @required this.email,
+      @required this.name,
+      this.photoUrl,
+      this.creationTimestamp,
+      this.lastSignInTimestamp})
       : assert(id != null),
-        assert(name != null),
-        assert(emailAddress != null);
+        assert(email != null),
+        assert(name != null);
 
   @override
   final String id;
   @override
+  final String email;
+  @override
   final String name;
   @override
-  final String emailAddress;
+  final String photoUrl;
+  @override
+  final DateTime creationTimestamp;
+  @override
+  final DateTime lastSignInTimestamp;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'User(id: $id, name: $name, emailAddress: $emailAddress)';
+    return 'User(id: $id, email: $email, name: $name, photoUrl: $photoUrl, creationTimestamp: $creationTimestamp, lastSignInTimestamp: $lastSignInTimestamp)';
   }
 
   @override
@@ -120,8 +168,11 @@ class _$_User with DiagnosticableTreeMixin implements _User {
     properties
       ..add(DiagnosticsProperty('type', 'User'))
       ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('email', email))
       ..add(DiagnosticsProperty('name', name))
-      ..add(DiagnosticsProperty('emailAddress', emailAddress));
+      ..add(DiagnosticsProperty('photoUrl', photoUrl))
+      ..add(DiagnosticsProperty('creationTimestamp', creationTimestamp))
+      ..add(DiagnosticsProperty('lastSignInTimestamp', lastSignInTimestamp));
   }
 
   @override
@@ -130,19 +181,30 @@ class _$_User with DiagnosticableTreeMixin implements _User {
         (other is _User &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
+            (identical(other.email, email) ||
+                const DeepCollectionEquality().equals(other.email, email)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.emailAddress, emailAddress) ||
+            (identical(other.photoUrl, photoUrl) ||
                 const DeepCollectionEquality()
-                    .equals(other.emailAddress, emailAddress)));
+                    .equals(other.photoUrl, photoUrl)) &&
+            (identical(other.creationTimestamp, creationTimestamp) ||
+                const DeepCollectionEquality()
+                    .equals(other.creationTimestamp, creationTimestamp)) &&
+            (identical(other.lastSignInTimestamp, lastSignInTimestamp) ||
+                const DeepCollectionEquality()
+                    .equals(other.lastSignInTimestamp, lastSignInTimestamp)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(email) ^
       const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(emailAddress);
+      const DeepCollectionEquality().hash(photoUrl) ^
+      const DeepCollectionEquality().hash(creationTimestamp) ^
+      const DeepCollectionEquality().hash(lastSignInTimestamp);
 
   @override
   _$UserCopyWith<_User> get copyWith =>
@@ -152,15 +214,24 @@ class _$_User with DiagnosticableTreeMixin implements _User {
 abstract class _User implements User {
   const factory _User(
       {@required String id,
+      @required String email,
       @required String name,
-      @required String emailAddress}) = _$_User;
+      String photoUrl,
+      DateTime creationTimestamp,
+      DateTime lastSignInTimestamp}) = _$_User;
 
   @override
   String get id;
   @override
+  String get email;
+  @override
   String get name;
   @override
-  String get emailAddress;
+  String get photoUrl;
+  @override
+  DateTime get creationTimestamp;
+  @override
+  DateTime get lastSignInTimestamp;
   @override
   _$UserCopyWith<_User> get copyWith;
 }
