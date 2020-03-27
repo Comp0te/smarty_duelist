@@ -31,33 +31,32 @@ class ForgotPasswordPage extends StatelessWidget
         child: NativeScaffold(
           title: Text(S.of(context).forgotPasswordTitle),
           previousPageTitle: S.of(context).signInTitle,
-          body: SafeArea(
-            child: Center(
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    BlocBuilder<ForgotPasswordBloc, ForgotPasswordState>(
-                      condition: (prev, cur) =>
-                          prev is ValidationShowed || cur is ValidationShowed,
-                      builder: (context, state) {
-                        return FormBuilder(
-                          key: BlocProvider.of<ForgotPasswordBloc>(context)
-                              .fbKey,
-                          autovalidate: state is ValidationShowed,
-                          child: Column(
-                            children: <Widget>[
-                              _buildFormInputs(context),
-                              _buildSubmitButton(context),
-                            ],
-                          ),
-                        );
-                      },
-                    ),
-                  ],
-                ),
+          withKeyboardAnimation: true,
+          body: Center(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  BlocBuilder<ForgotPasswordBloc, ForgotPasswordState>(
+                    condition: (prev, cur) =>
+                        prev is ValidationShowed || cur is ValidationShowed,
+                    builder: (context, state) {
+                      return FormBuilder(
+                        key: BlocProvider.of<ForgotPasswordBloc>(context)
+                            .fbKey,
+                        autovalidate: state is ValidationShowed,
+                        child: Column(
+                          children: <Widget>[
+                            _buildFormInputs(context),
+                            _buildSubmitButton(context),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+                ],
               ),
             ),
           ),

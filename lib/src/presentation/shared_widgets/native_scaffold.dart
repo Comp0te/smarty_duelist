@@ -11,6 +11,7 @@ class NativeScaffold extends StatelessWidget {
   final int currentTabBarIndex;
   final List<BottomNavigationBarItem> bottomNavBatItems;
   final ValueChanged<int> bottomNavBatItemChanged;
+  final bool withKeyboardAnimation;
 
   const NativeScaffold({
     @required this.body,
@@ -21,16 +22,40 @@ class NativeScaffold extends StatelessWidget {
     this.currentTabBarIndex,
     this.bottomNavBatItems,
     this.bottomNavBatItemChanged,
+    this.withKeyboardAnimation = false,
   });
 
   @override
   Widget build(BuildContext context) {
     return PlatformScaffold(
-      ios: (_) => CupertinoPageScaffoldData(),
-      android: (_) => MaterialScaffoldData(),
-      body: body,
+      ios: (_) => CupertinoPageScaffoldData(
+        resizeToAvoidBottomInset: !withKeyboardAnimation,
+      ),
+      android: (_) => MaterialScaffoldData(
+        resizeToAvoidBottomInset: !withKeyboardAnimation,
+      ),
+      body: _getBody(context),
       appBar: _buildAppBar(),
       bottomNavBar: _buildBottomNavBar(),
+    );
+  }
+
+  Widget _getBody(BuildContext context) {
+    final mq = MediaQuery.of(context);
+    final bottomOffset = mq.viewInsets.bottom + mq.padding.bottom;
+
+    if (!withKeyboardAnimation) {
+      return SafeArea(child: body);
+    }
+
+    return SafeArea(
+      bottom: false,
+      child: AnimatedContainer(
+        curve: Curves.easeOutQuad,
+        duration: const Duration(milliseconds: 375),
+        padding: EdgeInsets.only(bottom: bottomOffset),
+        child: body,
+      ),
     );
   }
 
