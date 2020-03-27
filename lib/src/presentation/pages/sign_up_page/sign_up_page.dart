@@ -32,32 +32,31 @@ class SignUpPage extends StatelessWidget
         child: NativeScaffold(
           previousPageTitle: S.of(context).signInTitle,
           title: Text(S.of(context).signUpTitle),
-          body: SafeArea(
-            child: Center(
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    BlocBuilder<SignUpBloc, SignUpState>(
-                      condition: (prev, cur) =>
-                          prev is ValidationShowed || cur is ValidationShowed,
-                      builder: (context, state) {
-                        return FormBuilder(
-                          key: BlocProvider.of<SignUpBloc>(context).fbKey,
-                          autovalidate: state is ValidationShowed,
-                          child: Column(
-                            children: <Widget>[
-                              _buildFormInputs(context),
-                              _buildSubmitButton(context),
-                            ],
-                          ),
-                        );
-                      },
-                    ),
-                  ],
-                ),
+          withKeyboardAnimation: true,
+          body: Center(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  BlocBuilder<SignUpBloc, SignUpState>(
+                    condition: (prev, cur) =>
+                        prev is ValidationShowed || cur is ValidationShowed,
+                    builder: (context, state) {
+                      return FormBuilder(
+                        key: BlocProvider.of<SignUpBloc>(context).fbKey,
+                        autovalidate: state is ValidationShowed,
+                        child: Column(
+                          children: <Widget>[
+                            _buildFormInputs(context),
+                            _buildSubmitButton(context),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+                ],
               ),
             ),
           ),
