@@ -4,14 +4,14 @@ import 'package:meta/meta.dart';
 
 part 'user.freezed.dart';
 
-abstract class IEntity {
-}
-
 @freezed
-abstract class User with _$User implements IEntity {
+abstract class User with _$User {
   const factory User({
     @required String id,
+    @required String email,
     @required String name,
-    @required String emailAddress,
+    String photoUrl,
+    DateTime creationTimestamp, // 1584627891822
+    DateTime lastSignInTimestamp, // 1585321727664
   }) = _User;
 }
