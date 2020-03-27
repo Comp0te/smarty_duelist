@@ -24,7 +24,7 @@ class _$SignUpStateTearOff {
     return const Loading();
   }
 
-  Success success({@required FirebaseUser user}) {
+  Success success({@required User user}) {
     return Success(
       user: user,
     );
@@ -46,7 +46,7 @@ mixin _$SignUpState {
     @required Result init(),
     @required Result validationShowed(),
     @required Result loading(),
-    @required Result success(@required FirebaseUser user),
+    @required Result success(@required User user),
     @required Result error(@required AuthFailure failure),
   });
   @optionalTypeArgs
@@ -54,7 +54,7 @@ mixin _$SignUpState {
     Result init(),
     Result validationShowed(),
     Result loading(),
-    Result success(@required FirebaseUser user),
+    Result success(@required User user),
     Result error(@required AuthFailure failure),
     @required Result orElse(),
   });
@@ -133,7 +133,7 @@ class _$Init with DiagnosticableTreeMixin implements Init {
     @required Result init(),
     @required Result validationShowed(),
     @required Result loading(),
-    @required Result success(@required FirebaseUser user),
+    @required Result success(@required User user),
     @required Result error(@required AuthFailure failure),
   }) {
     assert(init != null);
@@ -150,7 +150,7 @@ class _$Init with DiagnosticableTreeMixin implements Init {
     Result init(),
     Result validationShowed(),
     Result loading(),
-    Result success(@required FirebaseUser user),
+    Result success(@required User user),
     Result error(@required AuthFailure failure),
     @required Result orElse(),
   }) {
@@ -248,7 +248,7 @@ class _$ValidationShowed
     @required Result init(),
     @required Result validationShowed(),
     @required Result loading(),
-    @required Result success(@required FirebaseUser user),
+    @required Result success(@required User user),
     @required Result error(@required AuthFailure failure),
   }) {
     assert(init != null);
@@ -265,7 +265,7 @@ class _$ValidationShowed
     Result init(),
     Result validationShowed(),
     Result loading(),
-    Result success(@required FirebaseUser user),
+    Result success(@required User user),
     Result error(@required AuthFailure failure),
     @required Result orElse(),
   }) {
@@ -357,7 +357,7 @@ class _$Loading with DiagnosticableTreeMixin implements Loading {
     @required Result init(),
     @required Result validationShowed(),
     @required Result loading(),
-    @required Result success(@required FirebaseUser user),
+    @required Result success(@required User user),
     @required Result error(@required AuthFailure failure),
   }) {
     assert(init != null);
@@ -374,7 +374,7 @@ class _$Loading with DiagnosticableTreeMixin implements Loading {
     Result init(),
     Result validationShowed(),
     Result loading(),
-    Result success(@required FirebaseUser user),
+    Result success(@required User user),
     Result error(@required AuthFailure failure),
     @required Result orElse(),
   }) {
@@ -427,7 +427,9 @@ abstract class Loading implements SignUpState {
 abstract class $SuccessCopyWith<$Res> {
   factory $SuccessCopyWith(Success value, $Res Function(Success) then) =
       _$SuccessCopyWithImpl<$Res>;
-  $Res call({FirebaseUser user});
+  $Res call({User user});
+
+  $UserCopyWith<$Res> get user;
 }
 
 class _$SuccessCopyWithImpl<$Res> extends _$SignUpStateCopyWithImpl<$Res>
@@ -443,8 +445,18 @@ class _$SuccessCopyWithImpl<$Res> extends _$SignUpStateCopyWithImpl<$Res>
     Object user = freezed,
   }) {
     return _then(Success(
-      user: user == freezed ? _value.user : user as FirebaseUser,
+      user: user == freezed ? _value.user : user as User,
     ));
+  }
+
+  @override
+  $UserCopyWith<$Res> get user {
+    if (_value.user == null) {
+      return null;
+    }
+    return $UserCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value));
+    });
   }
 }
 
@@ -452,7 +464,7 @@ class _$Success with DiagnosticableTreeMixin implements Success {
   const _$Success({@required this.user}) : assert(user != null);
 
   @override
-  final FirebaseUser user;
+  final User user;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -489,7 +501,7 @@ class _$Success with DiagnosticableTreeMixin implements Success {
     @required Result init(),
     @required Result validationShowed(),
     @required Result loading(),
-    @required Result success(@required FirebaseUser user),
+    @required Result success(@required User user),
     @required Result error(@required AuthFailure failure),
   }) {
     assert(init != null);
@@ -506,7 +518,7 @@ class _$Success with DiagnosticableTreeMixin implements Success {
     Result init(),
     Result validationShowed(),
     Result loading(),
-    Result success(@required FirebaseUser user),
+    Result success(@required User user),
     Result error(@required AuthFailure failure),
     @required Result orElse(),
   }) {
@@ -553,9 +565,9 @@ class _$Success with DiagnosticableTreeMixin implements Success {
 }
 
 abstract class Success implements SignUpState {
-  const factory Success({@required FirebaseUser user}) = _$Success;
+  const factory Success({@required User user}) = _$Success;
 
-  FirebaseUser get user;
+  User get user;
   $SuccessCopyWith<Success> get copyWith;
 }
 
@@ -636,7 +648,7 @@ class _$Error with DiagnosticableTreeMixin implements Error {
     @required Result init(),
     @required Result validationShowed(),
     @required Result loading(),
-    @required Result success(@required FirebaseUser user),
+    @required Result success(@required User user),
     @required Result error(@required AuthFailure failure),
   }) {
     assert(init != null);
@@ -653,7 +665,7 @@ class _$Error with DiagnosticableTreeMixin implements Error {
     Result init(),
     Result validationShowed(),
     Result loading(),
-    Result success(@required FirebaseUser user),
+    Result success(@required User user),
     Result error(@required AuthFailure failure),
     @required Result orElse(),
   }) {

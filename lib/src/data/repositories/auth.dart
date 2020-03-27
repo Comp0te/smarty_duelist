@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 
@@ -10,7 +9,8 @@ import 'package:smarty_duelist/src/domain/domain.dart'
         AuthCredentialsProviders,
         AuthFailure,
         IAuthDataProvider,
-        IAuthRepository;
+        IAuthRepository,
+        User;
 
 @RegisterAs(IAuthRepository)
 @singleton
@@ -23,7 +23,7 @@ class AuthRepository implements IAuthRepository {
   });
 
   @override
-  Future<Either<AuthFailure, AuthResult>> signInWithEmail({
+  Future<Either<AuthFailure, User>> signInWithEmail({
     @required String email,
     @required String password,
   }) {
@@ -34,7 +34,7 @@ class AuthRepository implements IAuthRepository {
   }
 
   @override
-  Future<Either<AuthFailure, AuthResult>> signInWithCredentials({
+  Future<Either<AuthFailure, User>> signInWithCredentials({
     @required AuthCredentialsProviders provider,
   }) async {
     switch (provider) {
@@ -61,11 +61,10 @@ class AuthRepository implements IAuthRepository {
   }
 
   @override
-  Future<Option<FirebaseUser>> getCurrentUser() =>
-      authDataProvider.getCurrentUser();
+  Future<Option<User>> getCurrentUser() => authDataProvider.getCurrentUser();
 
   @override
-  Stream<FirebaseUser> onAuthStateChanged() {
+  Stream<User> onAuthStateChanged() {
     return authDataProvider.onAuthStateChanged();
   }
 
@@ -85,7 +84,7 @@ class AuthRepository implements IAuthRepository {
   }
 
   @override
-  Future<Either<AuthFailure, AuthResult>> signUpWithEmail({
+  Future<Either<AuthFailure, User>> signUpWithEmail({
     @required String email,
     @required String password,
   }) {

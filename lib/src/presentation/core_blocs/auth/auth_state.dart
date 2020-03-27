@@ -1,7 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:flutter/foundation.dart';
+
+import 'package:smarty_duelist/src/domain/auth/auth.dart';
 
 part 'auth_state.freezed.dart';
 
@@ -9,7 +10,7 @@ part 'auth_state.freezed.dart';
 abstract class AuthState with _$AuthState {
   const factory AuthState.authInit() = AuthInit;
   const factory AuthState.authAuthenticated({
-    @required FirebaseUser user,
+    @required User user,
   }) = AuthAuthenticated;
   const factory AuthState.authUnauthenticated() = AuthUnauthenticated;
   const factory AuthState.authLoading() = AuthLoading;

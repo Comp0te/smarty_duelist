@@ -1,17 +1,18 @@
 import 'dart:async';
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 import 'package:bloc/bloc.dart';
 
-import 'package:smarty_duelist/src/domain/domain.dart' show IAuthRepository;
+import 'package:smarty_duelist/src/domain/domain.dart'
+    show IAuthRepository, User;
+
 import 'bloc.dart';
 
 @injectable
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final IAuthRepository authRepository;
-  StreamSubscription<FirebaseUser> _onAuthStateChanged;
+  StreamSubscription<User> _onAuthStateChanged;
 
   AuthBloc({
     @required this.authRepository,

@@ -16,7 +16,7 @@ class _$AuthStateTearOff {
     return const AuthInit();
   }
 
-  AuthAuthenticated authAuthenticated({@required FirebaseUser user}) {
+  AuthAuthenticated authAuthenticated({@required User user}) {
     return AuthAuthenticated(
       user: user,
     );
@@ -38,14 +38,14 @@ mixin _$AuthState {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result authInit(),
-    @required Result authAuthenticated(@required FirebaseUser user),
+    @required Result authAuthenticated(@required User user),
     @required Result authUnauthenticated(),
     @required Result authLoading(),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result authInit(),
-    Result authAuthenticated(@required FirebaseUser user),
+    Result authAuthenticated(@required User user),
     Result authUnauthenticated(),
     Result authLoading(),
     @required Result orElse(),
@@ -120,7 +120,7 @@ class _$AuthInit with DiagnosticableTreeMixin implements AuthInit {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result authInit(),
-    @required Result authAuthenticated(@required FirebaseUser user),
+    @required Result authAuthenticated(@required User user),
     @required Result authUnauthenticated(),
     @required Result authLoading(),
   }) {
@@ -135,7 +135,7 @@ class _$AuthInit with DiagnosticableTreeMixin implements AuthInit {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result authInit(),
-    Result authAuthenticated(@required FirebaseUser user),
+    Result authAuthenticated(@required User user),
     Result authUnauthenticated(),
     Result authLoading(),
     @required Result orElse(),
@@ -187,7 +187,9 @@ abstract class $AuthAuthenticatedCopyWith<$Res> {
   factory $AuthAuthenticatedCopyWith(
           AuthAuthenticated value, $Res Function(AuthAuthenticated) then) =
       _$AuthAuthenticatedCopyWithImpl<$Res>;
-  $Res call({FirebaseUser user});
+  $Res call({User user});
+
+  $UserCopyWith<$Res> get user;
 }
 
 class _$AuthAuthenticatedCopyWithImpl<$Res>
@@ -205,8 +207,18 @@ class _$AuthAuthenticatedCopyWithImpl<$Res>
     Object user = freezed,
   }) {
     return _then(AuthAuthenticated(
-      user: user == freezed ? _value.user : user as FirebaseUser,
+      user: user == freezed ? _value.user : user as User,
     ));
+  }
+
+  @override
+  $UserCopyWith<$Res> get user {
+    if (_value.user == null) {
+      return null;
+    }
+    return $UserCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value));
+    });
   }
 }
 
@@ -216,7 +228,7 @@ class _$AuthAuthenticated
   const _$AuthAuthenticated({@required this.user}) : assert(user != null);
 
   @override
-  final FirebaseUser user;
+  final User user;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -251,7 +263,7 @@ class _$AuthAuthenticated
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result authInit(),
-    @required Result authAuthenticated(@required FirebaseUser user),
+    @required Result authAuthenticated(@required User user),
     @required Result authUnauthenticated(),
     @required Result authLoading(),
   }) {
@@ -266,7 +278,7 @@ class _$AuthAuthenticated
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result authInit(),
-    Result authAuthenticated(@required FirebaseUser user),
+    Result authAuthenticated(@required User user),
     Result authUnauthenticated(),
     Result authLoading(),
     @required Result orElse(),
@@ -311,10 +323,9 @@ class _$AuthAuthenticated
 }
 
 abstract class AuthAuthenticated implements AuthState {
-  const factory AuthAuthenticated({@required FirebaseUser user}) =
-      _$AuthAuthenticated;
+  const factory AuthAuthenticated({@required User user}) = _$AuthAuthenticated;
 
-  FirebaseUser get user;
+  User get user;
   $AuthAuthenticatedCopyWith<AuthAuthenticated> get copyWith;
 }
 
@@ -364,7 +375,7 @@ class _$AuthUnauthenticated
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result authInit(),
-    @required Result authAuthenticated(@required FirebaseUser user),
+    @required Result authAuthenticated(@required User user),
     @required Result authUnauthenticated(),
     @required Result authLoading(),
   }) {
@@ -379,7 +390,7 @@ class _$AuthUnauthenticated
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result authInit(),
-    Result authAuthenticated(@required FirebaseUser user),
+    Result authAuthenticated(@required User user),
     Result authUnauthenticated(),
     Result authLoading(),
     @required Result orElse(),
@@ -469,7 +480,7 @@ class _$AuthLoading with DiagnosticableTreeMixin implements AuthLoading {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result authInit(),
-    @required Result authAuthenticated(@required FirebaseUser user),
+    @required Result authAuthenticated(@required User user),
     @required Result authUnauthenticated(),
     @required Result authLoading(),
   }) {
@@ -484,7 +495,7 @@ class _$AuthLoading with DiagnosticableTreeMixin implements AuthLoading {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result authInit(),
-    Result authAuthenticated(@required FirebaseUser user),
+    Result authAuthenticated(@required User user),
     Result authUnauthenticated(),
     Result authLoading(),
     @required Result orElse(),

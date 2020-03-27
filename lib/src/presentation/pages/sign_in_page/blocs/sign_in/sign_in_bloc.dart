@@ -54,7 +54,7 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
 
     yield failureOrSignIn.fold(
       (failure) => Error(failure: failure),
-      (auth) => Success(user: auth.user),
+      (user) => Success(user: user),
     );
   }
 
@@ -69,7 +69,7 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
 
       yield failureOrSignIn.fold(
         (failure) => Error(failure: failure),
-        (auth) => Success(user: auth.user),
+        (user) => Success(user: user),
       );
     } else if (state is! ValidationShowed) {
       yield const ValidationShowed();

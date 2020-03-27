@@ -38,7 +38,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
 
       yield failureOrSignUp.fold(
         (failure) => Error(failure: failure),
-        (auth) => Success(user: auth.user),
+        (user) => Success(user: user),
       );
     } else if (state is! ValidationShowed) {
       yield const ValidationShowed();
