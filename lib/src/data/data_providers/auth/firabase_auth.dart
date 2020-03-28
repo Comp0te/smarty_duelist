@@ -127,11 +127,14 @@ class FirebaseAuthProvider implements IAuthDataProvider {
       (failure) => Left(failure),
       (googleAuth) async {
         final credential = GoogleAuthProvider.getCredential(
-          idToken: googleAuth.idToken,
-          accessToken: googleAuth.accessToken,
+          idToken: googleAuth.value1.idToken,
+          accessToken: googleAuth.value1.accessToken,
         );
 
-        final eitherResult = await _signInWithCredential(credential);
+        final eitherResult = await _signInWithCredential(
+          credential,
+          googleAuth.value2,
+        );
 
         return eitherResult.fold(
           (failure) => Left(failure),
@@ -143,12 +146,22 @@ class FirebaseAuthProvider implements IAuthDataProvider {
 
   Future<Either<AuthFailure, User>> _signInWithCredential(
     AuthCredential credential,
+    String email,
   ) async {
     try {
       final result = await auth.signInWithCredential(credential);
 
       return Right(result.user.toDomainUser());
     } on PlatformException catch (exp) {
+      if (exp.code == 'ERROR_ACCOUNT_EXISTS_WITH_DIFFERENT_CREDENTIAL') {
+        (await fetchSignInMethodsForEmail(email)).fold(
+          (failure) => Left(failure),
+          (methods) {
+            return Left(AccountExistsWithDifferentCredentialFailure(methods));
+          },
+        );
+      }
+
       return Left(SignInWithCredentialFailure(exp));
     }
   }

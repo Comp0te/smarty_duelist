@@ -22,20 +22,26 @@ class SignInBlocListener extends StatelessWidget {
     return BlocListener<SignInBloc, SignInState>(
       listener: (context, state) {
         state.maybeWhen(
-          error: (failure) => FlushbarHelper.createError(
+          error: (failure) => failure.maybeWhen(
+            cancelledByUser: () => FlushbarHelper.createInformation(
+              message: S.of(context).errorSignInCanceled,
+            ).show(context),
+            orElse: () => FlushbarHelper.createError(
               title: S.of(context).error,
               message: failure.maybeWhen(
                 signInWithEmail: (exp) => _getErrorMessageByCode(context, exp),
-                signInWithCredential: (exp) => _getErrorMessageByCode(context, exp),
-                cancelledByUser: () => S.of(context).errorSignInCanceled,
+                signInWithCredential: (exp) =>
+                    _getErrorMessageByCode(context, exp),
+                accountExistsWithDifferentCredential: (signInMethods) =>
+                    S.of(context).signAccountExistsWithDifferentCredential(
+                          signInMethods.join(', '),
+                        ),
                 googleAuth: (exp) => _getGoogleAuthErrorMessage(context, exp),
                 orElse: () => S.of(context).errorUnexpected,
               ),
-              duration: failure.maybeWhen(
-                cancelledByUser: () => const Duration(seconds: 2),
-                orElse: () => const Duration(seconds: 4),
-              ))
-            ..show(context),
+              duration: const Duration(seconds: 4),
+            )..show(context),
+          ),
           orElse: () {},
         );
       },
@@ -57,9 +63,6 @@ class SignInBlocListener extends StatelessWidget {
 
       case 'ERROR_INVALID_CREDENTIAL':
         return S.of(context).errorCredentialMalformed;
-//    case 'ERROR_ACCOUNT_EXISTS_WITH_DIFFERENT_CREDENTIAL' - If there already exists an account with the email address asserted by Google. // TODO
-//       Resolve this case by calling [fetchSignInMethodsForEmail] and then asking the user to sign in using one of them.
-//       This error will only be thrown if the "One account per email address" setting is enabled in the Firebase console (recommended).
       default:
         return S.of(context).errorUnexpected;
     }

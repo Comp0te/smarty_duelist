@@ -6,10 +6,7 @@ import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 
 import 'package:smarty_duelist/src/domain/domain.dart'
-    show
-        AuthFailure,
-        CancelledByUser,
-        GoogleAuthFailure;
+    show AuthFailure, CancelledByUser, GoogleAuthFailure;
 
 @lazySingleton
 @immutable
@@ -31,7 +28,9 @@ class GoogleAuth {
   Stream<GoogleSignInAccount> onAuthStateChanged() =>
       googleSignIn.onCurrentUserChanged;
 
-  Future<Either<AuthFailure, GoogleSignInAuthentication>> signIn() async {
+  /// Tuple of [GoogleSignInAuthentication] and email
+  Future<Either<AuthFailure, Tuple2<GoogleSignInAuthentication, String>>>
+      signIn() async {
     try {
       final googleUser = await googleSignIn.signIn();
 
@@ -39,7 +38,7 @@ class GoogleAuth {
 
       final googleAuth = await googleUser.authentication;
 
-      return Right(googleAuth);
+      return Right(tuple2(googleAuth, googleUser.email));
     } on PlatformException catch (exp) {
       return Left(GoogleAuthFailure(exp));
     }

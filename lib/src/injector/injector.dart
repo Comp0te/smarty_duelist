@@ -18,7 +18,6 @@ abstract class RegisterModule {
   GoogleSignIn get googleSignIn => GoogleSignIn(
         scopes: [
           'email',
-          'https://www.googleapis.com/auth/contacts.readonly',
         ],
       );
 }

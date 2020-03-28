@@ -21,7 +21,9 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static m0(digit) => "Min ${digit} characters";
 
-  static m1(provider) => "Sign in with ${provider}";
+  static m1(methods) => "You have already created an account for this email. Try logging in with: ${methods}";
+
+  static m2(provider) => "Sign in with ${provider}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
@@ -48,10 +50,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "forgotPasswordTitle" : MessageLookupByLibrary.simpleMessage("Forgot password"),
     "ok" : MessageLookupByLibrary.simpleMessage("Ok"),
     "password" : MessageLookupByLibrary.simpleMessage("Password"),
+    "signAccountExistsWithDifferentCredential" : m1,
     "signInCreateAccount" : MessageLookupByLibrary.simpleMessage("Create an account"),
     "signInForgotPassword" : MessageLookupByLibrary.simpleMessage("Forgot password?"),
     "signInNotRegisteredYet" : MessageLookupByLibrary.simpleMessage("Not registered yet?"),
-    "signInProvider" : m1,
+    "signInProvider" : m2,
     "signInTitle" : MessageLookupByLibrary.simpleMessage("Greetings!"),
     "signUpTitle" : MessageLookupByLibrary.simpleMessage("Registration"),
     "singInEmail" : MessageLookupByLibrary.simpleMessage("Sign in with Email"),

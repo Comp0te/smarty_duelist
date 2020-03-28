@@ -30,6 +30,7 @@
   "signInCreateAccount": "Create an account",
   "signInNotRegisteredYet": "Not registered yet?",
   "signInForgotPassword": "Forgot password?",
+  "signAccountExistsWithDifferentCredential": "You have already created an account for this email. Try logging in with: {methods}",
 
   "signUpTitle": "Registration",
 
