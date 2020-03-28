@@ -62,8 +62,7 @@ class SignInPage extends StatelessWidget
                             _buildFormInputs(context),
                             _buildSubmitButtons(context),
                             TextButton(
-                              beforeLabel:
-                                  S.of(context).signInNotRegisteredYet,
+                              beforeLabel: S.of(context).signInNotRegisteredYet,
                               label: S.of(context).signInCreateAccount,
                               onPress: _toRegistrationScreen,
                             ),
@@ -92,7 +91,6 @@ class SignInPage extends StatelessWidget
 
     void onDoneActionSubmitted(_) {
       _submitForm(context);
-      FocusScope.of(context).unfocus();
     }
 
     final signInBloc = BlocProvider.of<SignInBloc>(context);
@@ -190,5 +188,6 @@ class SignInPage extends StatelessWidget
 
   void _submitForm(BuildContext context) {
     BlocProvider.of<SignInBloc>(context).add(const SignInWithEmail());
+    FocusScope.of(context).unfocus();
   }
 }
