@@ -72,7 +72,6 @@ class SignUpPage extends StatelessWidget
 
     void onDoneActionSubmitted(_) {
       _submitForm(context);
-      FocusScope.of(context).unfocus();
     }
 
     final signUpBloc = BlocProvider.of<SignUpBloc>(context);
@@ -173,5 +172,6 @@ class SignUpPage extends StatelessWidget
 
   void _submitForm(BuildContext context) {
     BlocProvider.of<SignUpBloc>(context).add(const SignUp());
+    FocusScope.of(context).unfocus();
   }
 }
