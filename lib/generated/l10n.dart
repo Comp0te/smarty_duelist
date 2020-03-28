@@ -290,6 +290,15 @@ class S {
     );
   }
 
+  String signAccountExistsWithDifferentCredential(dynamic methods) {
+    return Intl.message(
+      'You have already created an account for this email. Try logging in with: $methods',
+      name: 'signAccountExistsWithDifferentCredential',
+      desc: '',
+      args: [methods],
+    );
+  }
+
   String get signUpTitle {
     return Intl.message(
       'Registration',
