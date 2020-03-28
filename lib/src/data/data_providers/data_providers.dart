@@ -1,1 +1,1 @@
-export 'auth.dart';
+export 'auth/auth.dart';
