@@ -16,9 +16,9 @@ abstract class AuthFailure with _$AuthFailure {
   const factory AuthFailure.signUpWithEmail(
     PlatformException exp,
   ) = SignUpWithEmailFailure;
-  const factory AuthFailure.signInWithGoogle(
+  const factory AuthFailure.signInWithCredential(
     PlatformException exp,
-  ) = SignInWithGoogleFailure;
+  ) = SignInWithCredentialFailure;
   const factory AuthFailure.googleAuth(
     PlatformException exp,
   ) = GoogleAuthFailure;
@@ -30,4 +30,7 @@ abstract class AuthFailure with _$AuthFailure {
   ) = UnexpectedAuthFailure;
   const factory AuthFailure.fetchSignInMethodsForEmail() =
       FetchSignInMethodsForEmailFailure;
+  const factory AuthFailure.accountExistsWithDifferentCredential(
+    List<String> possibleAuthMethods,
+  ) = AccountExistsWithDifferentCredentialFailure;
 }

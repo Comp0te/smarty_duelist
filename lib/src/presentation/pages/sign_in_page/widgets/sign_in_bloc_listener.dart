@@ -26,7 +26,7 @@ class SignInBlocListener extends StatelessWidget {
               title: S.of(context).error,
               message: failure.maybeWhen(
                 signInWithEmail: (exp) => _getErrorMessageByCode(context, exp),
-                signInWithGoogle: (exp) => _getErrorMessageByCode(context, exp),
+                signInWithCredential: (exp) => _getErrorMessageByCode(context, exp),
                 cancelledByUser: () => S.of(context).errorSignInCanceled,
                 googleAuth: (exp) => _getGoogleAuthErrorMessage(context, exp),
                 orElse: () => S.of(context).errorUnexpected,

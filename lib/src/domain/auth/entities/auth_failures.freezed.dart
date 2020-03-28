@@ -34,8 +34,8 @@ class _$AuthFailureTearOff {
     );
   }
 
-  SignInWithGoogleFailure signInWithGoogle(PlatformException exp) {
-    return SignInWithGoogleFailure(
+  SignInWithCredentialFailure signInWithCredential(PlatformException exp) {
+    return SignInWithCredentialFailure(
       exp,
     );
   }
@@ -61,6 +61,13 @@ class _$AuthFailureTearOff {
   FetchSignInMethodsForEmailFailure fetchSignInMethodsForEmail() {
     return const FetchSignInMethodsForEmailFailure();
   }
+
+  AccountExistsWithDifferentCredentialFailure
+      accountExistsWithDifferentCredential(List<String> possibleAuthMethods) {
+    return AccountExistsWithDifferentCredentialFailure(
+      possibleAuthMethods,
+    );
+  }
 }
 
 // ignore: unused_element
@@ -73,11 +80,14 @@ mixin _$AuthFailure {
     @required Result sendResetPassword(PlatformException exp),
     @required Result confirmResetPassword(PlatformException exp),
     @required Result signUpWithEmail(PlatformException exp),
-    @required Result signInWithGoogle(PlatformException exp),
+    @required Result signInWithCredential(PlatformException exp),
     @required Result googleAuth(PlatformException exp),
     @required Result signInWithEmail(PlatformException exp),
     @required Result unexpected(PlatformException exp),
     @required Result fetchSignInMethodsForEmail(),
+    @required
+        Result accountExistsWithDifferentCredential(
+            List<String> possibleAuthMethods),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
@@ -85,11 +95,13 @@ mixin _$AuthFailure {
     Result sendResetPassword(PlatformException exp),
     Result confirmResetPassword(PlatformException exp),
     Result signUpWithEmail(PlatformException exp),
-    Result signInWithGoogle(PlatformException exp),
+    Result signInWithCredential(PlatformException exp),
     Result googleAuth(PlatformException exp),
     Result signInWithEmail(PlatformException exp),
     Result unexpected(PlatformException exp),
     Result fetchSignInMethodsForEmail(),
+    Result accountExistsWithDifferentCredential(
+        List<String> possibleAuthMethods),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -98,13 +110,16 @@ mixin _$AuthFailure {
     @required Result sendResetPassword(SendResetPasswordFailure value),
     @required Result confirmResetPassword(ConfirmResetPasswordFailure value),
     @required Result signUpWithEmail(SignUpWithEmailFailure value),
-    @required Result signInWithGoogle(SignInWithGoogleFailure value),
+    @required Result signInWithCredential(SignInWithCredentialFailure value),
     @required Result googleAuth(GoogleAuthFailure value),
     @required Result signInWithEmail(SignInWithEmailFailure value),
     @required Result unexpected(UnexpectedAuthFailure value),
     @required
         Result fetchSignInMethodsForEmail(
             FetchSignInMethodsForEmailFailure value),
+    @required
+        Result accountExistsWithDifferentCredential(
+            AccountExistsWithDifferentCredentialFailure value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
@@ -112,11 +127,13 @@ mixin _$AuthFailure {
     Result sendResetPassword(SendResetPasswordFailure value),
     Result confirmResetPassword(ConfirmResetPasswordFailure value),
     Result signUpWithEmail(SignUpWithEmailFailure value),
-    Result signInWithGoogle(SignInWithGoogleFailure value),
+    Result signInWithCredential(SignInWithCredentialFailure value),
     Result googleAuth(GoogleAuthFailure value),
     Result signInWithEmail(SignInWithEmailFailure value),
     Result unexpected(UnexpectedAuthFailure value),
     Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
+    Result accountExistsWithDifferentCredential(
+        AccountExistsWithDifferentCredentialFailure value),
     @required Result orElse(),
   });
 }
@@ -183,21 +200,25 @@ class _$CancelledByUser
     @required Result sendResetPassword(PlatformException exp),
     @required Result confirmResetPassword(PlatformException exp),
     @required Result signUpWithEmail(PlatformException exp),
-    @required Result signInWithGoogle(PlatformException exp),
+    @required Result signInWithCredential(PlatformException exp),
     @required Result googleAuth(PlatformException exp),
     @required Result signInWithEmail(PlatformException exp),
     @required Result unexpected(PlatformException exp),
     @required Result fetchSignInMethodsForEmail(),
+    @required
+        Result accountExistsWithDifferentCredential(
+            List<String> possibleAuthMethods),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
     assert(confirmResetPassword != null);
     assert(signUpWithEmail != null);
-    assert(signInWithGoogle != null);
+    assert(signInWithCredential != null);
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
+    assert(accountExistsWithDifferentCredential != null);
     return cancelledByUser();
   }
 
@@ -208,11 +229,13 @@ class _$CancelledByUser
     Result sendResetPassword(PlatformException exp),
     Result confirmResetPassword(PlatformException exp),
     Result signUpWithEmail(PlatformException exp),
-    Result signInWithGoogle(PlatformException exp),
+    Result signInWithCredential(PlatformException exp),
     Result googleAuth(PlatformException exp),
     Result signInWithEmail(PlatformException exp),
     Result unexpected(PlatformException exp),
     Result fetchSignInMethodsForEmail(),
+    Result accountExistsWithDifferentCredential(
+        List<String> possibleAuthMethods),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -229,23 +252,27 @@ class _$CancelledByUser
     @required Result sendResetPassword(SendResetPasswordFailure value),
     @required Result confirmResetPassword(ConfirmResetPasswordFailure value),
     @required Result signUpWithEmail(SignUpWithEmailFailure value),
-    @required Result signInWithGoogle(SignInWithGoogleFailure value),
+    @required Result signInWithCredential(SignInWithCredentialFailure value),
     @required Result googleAuth(GoogleAuthFailure value),
     @required Result signInWithEmail(SignInWithEmailFailure value),
     @required Result unexpected(UnexpectedAuthFailure value),
     @required
         Result fetchSignInMethodsForEmail(
             FetchSignInMethodsForEmailFailure value),
+    @required
+        Result accountExistsWithDifferentCredential(
+            AccountExistsWithDifferentCredentialFailure value),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
     assert(confirmResetPassword != null);
     assert(signUpWithEmail != null);
-    assert(signInWithGoogle != null);
+    assert(signInWithCredential != null);
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
+    assert(accountExistsWithDifferentCredential != null);
     return cancelledByUser(this);
   }
 
@@ -256,11 +283,13 @@ class _$CancelledByUser
     Result sendResetPassword(SendResetPasswordFailure value),
     Result confirmResetPassword(ConfirmResetPasswordFailure value),
     Result signUpWithEmail(SignUpWithEmailFailure value),
-    Result signInWithGoogle(SignInWithGoogleFailure value),
+    Result signInWithCredential(SignInWithCredentialFailure value),
     Result googleAuth(GoogleAuthFailure value),
     Result signInWithEmail(SignInWithEmailFailure value),
     Result unexpected(UnexpectedAuthFailure value),
     Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
+    Result accountExistsWithDifferentCredential(
+        AccountExistsWithDifferentCredentialFailure value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -348,21 +377,25 @@ class _$SendResetPasswordFailure
     @required Result sendResetPassword(PlatformException exp),
     @required Result confirmResetPassword(PlatformException exp),
     @required Result signUpWithEmail(PlatformException exp),
-    @required Result signInWithGoogle(PlatformException exp),
+    @required Result signInWithCredential(PlatformException exp),
     @required Result googleAuth(PlatformException exp),
     @required Result signInWithEmail(PlatformException exp),
     @required Result unexpected(PlatformException exp),
     @required Result fetchSignInMethodsForEmail(),
+    @required
+        Result accountExistsWithDifferentCredential(
+            List<String> possibleAuthMethods),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
     assert(confirmResetPassword != null);
     assert(signUpWithEmail != null);
-    assert(signInWithGoogle != null);
+    assert(signInWithCredential != null);
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
+    assert(accountExistsWithDifferentCredential != null);
     return sendResetPassword(exp);
   }
 
@@ -373,11 +406,13 @@ class _$SendResetPasswordFailure
     Result sendResetPassword(PlatformException exp),
     Result confirmResetPassword(PlatformException exp),
     Result signUpWithEmail(PlatformException exp),
-    Result signInWithGoogle(PlatformException exp),
+    Result signInWithCredential(PlatformException exp),
     Result googleAuth(PlatformException exp),
     Result signInWithEmail(PlatformException exp),
     Result unexpected(PlatformException exp),
     Result fetchSignInMethodsForEmail(),
+    Result accountExistsWithDifferentCredential(
+        List<String> possibleAuthMethods),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -394,23 +429,27 @@ class _$SendResetPasswordFailure
     @required Result sendResetPassword(SendResetPasswordFailure value),
     @required Result confirmResetPassword(ConfirmResetPasswordFailure value),
     @required Result signUpWithEmail(SignUpWithEmailFailure value),
-    @required Result signInWithGoogle(SignInWithGoogleFailure value),
+    @required Result signInWithCredential(SignInWithCredentialFailure value),
     @required Result googleAuth(GoogleAuthFailure value),
     @required Result signInWithEmail(SignInWithEmailFailure value),
     @required Result unexpected(UnexpectedAuthFailure value),
     @required
         Result fetchSignInMethodsForEmail(
             FetchSignInMethodsForEmailFailure value),
+    @required
+        Result accountExistsWithDifferentCredential(
+            AccountExistsWithDifferentCredentialFailure value),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
     assert(confirmResetPassword != null);
     assert(signUpWithEmail != null);
-    assert(signInWithGoogle != null);
+    assert(signInWithCredential != null);
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
+    assert(accountExistsWithDifferentCredential != null);
     return sendResetPassword(this);
   }
 
@@ -421,11 +460,13 @@ class _$SendResetPasswordFailure
     Result sendResetPassword(SendResetPasswordFailure value),
     Result confirmResetPassword(ConfirmResetPasswordFailure value),
     Result signUpWithEmail(SignUpWithEmailFailure value),
-    Result signInWithGoogle(SignInWithGoogleFailure value),
+    Result signInWithCredential(SignInWithCredentialFailure value),
     Result googleAuth(GoogleAuthFailure value),
     Result signInWithEmail(SignInWithEmailFailure value),
     Result unexpected(UnexpectedAuthFailure value),
     Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
+    Result accountExistsWithDifferentCredential(
+        AccountExistsWithDifferentCredentialFailure value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -518,21 +559,25 @@ class _$ConfirmResetPasswordFailure
     @required Result sendResetPassword(PlatformException exp),
     @required Result confirmResetPassword(PlatformException exp),
     @required Result signUpWithEmail(PlatformException exp),
-    @required Result signInWithGoogle(PlatformException exp),
+    @required Result signInWithCredential(PlatformException exp),
     @required Result googleAuth(PlatformException exp),
     @required Result signInWithEmail(PlatformException exp),
     @required Result unexpected(PlatformException exp),
     @required Result fetchSignInMethodsForEmail(),
+    @required
+        Result accountExistsWithDifferentCredential(
+            List<String> possibleAuthMethods),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
     assert(confirmResetPassword != null);
     assert(signUpWithEmail != null);
-    assert(signInWithGoogle != null);
+    assert(signInWithCredential != null);
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
+    assert(accountExistsWithDifferentCredential != null);
     return confirmResetPassword(exp);
   }
 
@@ -543,11 +588,13 @@ class _$ConfirmResetPasswordFailure
     Result sendResetPassword(PlatformException exp),
     Result confirmResetPassword(PlatformException exp),
     Result signUpWithEmail(PlatformException exp),
-    Result signInWithGoogle(PlatformException exp),
+    Result signInWithCredential(PlatformException exp),
     Result googleAuth(PlatformException exp),
     Result signInWithEmail(PlatformException exp),
     Result unexpected(PlatformException exp),
     Result fetchSignInMethodsForEmail(),
+    Result accountExistsWithDifferentCredential(
+        List<String> possibleAuthMethods),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -564,23 +611,27 @@ class _$ConfirmResetPasswordFailure
     @required Result sendResetPassword(SendResetPasswordFailure value),
     @required Result confirmResetPassword(ConfirmResetPasswordFailure value),
     @required Result signUpWithEmail(SignUpWithEmailFailure value),
-    @required Result signInWithGoogle(SignInWithGoogleFailure value),
+    @required Result signInWithCredential(SignInWithCredentialFailure value),
     @required Result googleAuth(GoogleAuthFailure value),
     @required Result signInWithEmail(SignInWithEmailFailure value),
     @required Result unexpected(UnexpectedAuthFailure value),
     @required
         Result fetchSignInMethodsForEmail(
             FetchSignInMethodsForEmailFailure value),
+    @required
+        Result accountExistsWithDifferentCredential(
+            AccountExistsWithDifferentCredentialFailure value),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
     assert(confirmResetPassword != null);
     assert(signUpWithEmail != null);
-    assert(signInWithGoogle != null);
+    assert(signInWithCredential != null);
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
+    assert(accountExistsWithDifferentCredential != null);
     return confirmResetPassword(this);
   }
 
@@ -591,11 +642,13 @@ class _$ConfirmResetPasswordFailure
     Result sendResetPassword(SendResetPasswordFailure value),
     Result confirmResetPassword(ConfirmResetPasswordFailure value),
     Result signUpWithEmail(SignUpWithEmailFailure value),
-    Result signInWithGoogle(SignInWithGoogleFailure value),
+    Result signInWithCredential(SignInWithCredentialFailure value),
     Result googleAuth(GoogleAuthFailure value),
     Result signInWithEmail(SignInWithEmailFailure value),
     Result unexpected(UnexpectedAuthFailure value),
     Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
+    Result accountExistsWithDifferentCredential(
+        AccountExistsWithDifferentCredentialFailure value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -687,21 +740,25 @@ class _$SignUpWithEmailFailure
     @required Result sendResetPassword(PlatformException exp),
     @required Result confirmResetPassword(PlatformException exp),
     @required Result signUpWithEmail(PlatformException exp),
-    @required Result signInWithGoogle(PlatformException exp),
+    @required Result signInWithCredential(PlatformException exp),
     @required Result googleAuth(PlatformException exp),
     @required Result signInWithEmail(PlatformException exp),
     @required Result unexpected(PlatformException exp),
     @required Result fetchSignInMethodsForEmail(),
+    @required
+        Result accountExistsWithDifferentCredential(
+            List<String> possibleAuthMethods),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
     assert(confirmResetPassword != null);
     assert(signUpWithEmail != null);
-    assert(signInWithGoogle != null);
+    assert(signInWithCredential != null);
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
+    assert(accountExistsWithDifferentCredential != null);
     return signUpWithEmail(exp);
   }
 
@@ -712,11 +769,13 @@ class _$SignUpWithEmailFailure
     Result sendResetPassword(PlatformException exp),
     Result confirmResetPassword(PlatformException exp),
     Result signUpWithEmail(PlatformException exp),
-    Result signInWithGoogle(PlatformException exp),
+    Result signInWithCredential(PlatformException exp),
     Result googleAuth(PlatformException exp),
     Result signInWithEmail(PlatformException exp),
     Result unexpected(PlatformException exp),
     Result fetchSignInMethodsForEmail(),
+    Result accountExistsWithDifferentCredential(
+        List<String> possibleAuthMethods),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -733,23 +792,27 @@ class _$SignUpWithEmailFailure
     @required Result sendResetPassword(SendResetPasswordFailure value),
     @required Result confirmResetPassword(ConfirmResetPasswordFailure value),
     @required Result signUpWithEmail(SignUpWithEmailFailure value),
-    @required Result signInWithGoogle(SignInWithGoogleFailure value),
+    @required Result signInWithCredential(SignInWithCredentialFailure value),
     @required Result googleAuth(GoogleAuthFailure value),
     @required Result signInWithEmail(SignInWithEmailFailure value),
     @required Result unexpected(UnexpectedAuthFailure value),
     @required
         Result fetchSignInMethodsForEmail(
             FetchSignInMethodsForEmailFailure value),
+    @required
+        Result accountExistsWithDifferentCredential(
+            AccountExistsWithDifferentCredentialFailure value),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
     assert(confirmResetPassword != null);
     assert(signUpWithEmail != null);
-    assert(signInWithGoogle != null);
+    assert(signInWithCredential != null);
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
+    assert(accountExistsWithDifferentCredential != null);
     return signUpWithEmail(this);
   }
 
@@ -760,11 +823,13 @@ class _$SignUpWithEmailFailure
     Result sendResetPassword(SendResetPasswordFailure value),
     Result confirmResetPassword(ConfirmResetPasswordFailure value),
     Result signUpWithEmail(SignUpWithEmailFailure value),
-    Result signInWithGoogle(SignInWithGoogleFailure value),
+    Result signInWithCredential(SignInWithCredentialFailure value),
     Result googleAuth(GoogleAuthFailure value),
     Result signInWithEmail(SignInWithEmailFailure value),
     Result unexpected(UnexpectedAuthFailure value),
     Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
+    Result accountExistsWithDifferentCredential(
+        AccountExistsWithDifferentCredentialFailure value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -783,58 +848,60 @@ abstract class SignUpWithEmailFailure implements AuthFailure {
   $SignUpWithEmailFailureCopyWith<SignUpWithEmailFailure> get copyWith;
 }
 
-abstract class $SignInWithGoogleFailureCopyWith<$Res> {
-  factory $SignInWithGoogleFailureCopyWith(SignInWithGoogleFailure value,
-          $Res Function(SignInWithGoogleFailure) then) =
-      _$SignInWithGoogleFailureCopyWithImpl<$Res>;
+abstract class $SignInWithCredentialFailureCopyWith<$Res> {
+  factory $SignInWithCredentialFailureCopyWith(
+          SignInWithCredentialFailure value,
+          $Res Function(SignInWithCredentialFailure) then) =
+      _$SignInWithCredentialFailureCopyWithImpl<$Res>;
   $Res call({PlatformException exp});
 }
 
-class _$SignInWithGoogleFailureCopyWithImpl<$Res>
+class _$SignInWithCredentialFailureCopyWithImpl<$Res>
     extends _$AuthFailureCopyWithImpl<$Res>
-    implements $SignInWithGoogleFailureCopyWith<$Res> {
-  _$SignInWithGoogleFailureCopyWithImpl(SignInWithGoogleFailure _value,
-      $Res Function(SignInWithGoogleFailure) _then)
-      : super(_value, (v) => _then(v as SignInWithGoogleFailure));
+    implements $SignInWithCredentialFailureCopyWith<$Res> {
+  _$SignInWithCredentialFailureCopyWithImpl(SignInWithCredentialFailure _value,
+      $Res Function(SignInWithCredentialFailure) _then)
+      : super(_value, (v) => _then(v as SignInWithCredentialFailure));
 
   @override
-  SignInWithGoogleFailure get _value => super._value as SignInWithGoogleFailure;
+  SignInWithCredentialFailure get _value =>
+      super._value as SignInWithCredentialFailure;
 
   @override
   $Res call({
     Object exp = freezed,
   }) {
-    return _then(SignInWithGoogleFailure(
+    return _then(SignInWithCredentialFailure(
       exp == freezed ? _value.exp : exp as PlatformException,
     ));
   }
 }
 
-class _$SignInWithGoogleFailure
+class _$SignInWithCredentialFailure
     with DiagnosticableTreeMixin
-    implements SignInWithGoogleFailure {
-  const _$SignInWithGoogleFailure(this.exp) : assert(exp != null);
+    implements SignInWithCredentialFailure {
+  const _$SignInWithCredentialFailure(this.exp) : assert(exp != null);
 
   @override
   final PlatformException exp;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthFailure.signInWithGoogle(exp: $exp)';
+    return 'AuthFailure.signInWithCredential(exp: $exp)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'AuthFailure.signInWithGoogle'))
+      ..add(DiagnosticsProperty('type', 'AuthFailure.signInWithCredential'))
       ..add(DiagnosticsProperty('exp', exp));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is SignInWithGoogleFailure &&
+        (other is SignInWithCredentialFailure &&
             (identical(other.exp, exp) ||
                 const DeepCollectionEquality().equals(other.exp, exp)));
   }
@@ -844,9 +911,9 @@ class _$SignInWithGoogleFailure
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(exp);
 
   @override
-  $SignInWithGoogleFailureCopyWith<SignInWithGoogleFailure> get copyWith =>
-      _$SignInWithGoogleFailureCopyWithImpl<SignInWithGoogleFailure>(
-          this, _$identity);
+  $SignInWithCredentialFailureCopyWith<SignInWithCredentialFailure>
+      get copyWith => _$SignInWithCredentialFailureCopyWithImpl<
+          SignInWithCredentialFailure>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -855,22 +922,26 @@ class _$SignInWithGoogleFailure
     @required Result sendResetPassword(PlatformException exp),
     @required Result confirmResetPassword(PlatformException exp),
     @required Result signUpWithEmail(PlatformException exp),
-    @required Result signInWithGoogle(PlatformException exp),
+    @required Result signInWithCredential(PlatformException exp),
     @required Result googleAuth(PlatformException exp),
     @required Result signInWithEmail(PlatformException exp),
     @required Result unexpected(PlatformException exp),
     @required Result fetchSignInMethodsForEmail(),
+    @required
+        Result accountExistsWithDifferentCredential(
+            List<String> possibleAuthMethods),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
     assert(confirmResetPassword != null);
     assert(signUpWithEmail != null);
-    assert(signInWithGoogle != null);
+    assert(signInWithCredential != null);
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
-    return signInWithGoogle(exp);
+    assert(accountExistsWithDifferentCredential != null);
+    return signInWithCredential(exp);
   }
 
   @override
@@ -880,16 +951,18 @@ class _$SignInWithGoogleFailure
     Result sendResetPassword(PlatformException exp),
     Result confirmResetPassword(PlatformException exp),
     Result signUpWithEmail(PlatformException exp),
-    Result signInWithGoogle(PlatformException exp),
+    Result signInWithCredential(PlatformException exp),
     Result googleAuth(PlatformException exp),
     Result signInWithEmail(PlatformException exp),
     Result unexpected(PlatformException exp),
     Result fetchSignInMethodsForEmail(),
+    Result accountExistsWithDifferentCredential(
+        List<String> possibleAuthMethods),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (signInWithGoogle != null) {
-      return signInWithGoogle(exp);
+    if (signInWithCredential != null) {
+      return signInWithCredential(exp);
     }
     return orElse();
   }
@@ -901,24 +974,28 @@ class _$SignInWithGoogleFailure
     @required Result sendResetPassword(SendResetPasswordFailure value),
     @required Result confirmResetPassword(ConfirmResetPasswordFailure value),
     @required Result signUpWithEmail(SignUpWithEmailFailure value),
-    @required Result signInWithGoogle(SignInWithGoogleFailure value),
+    @required Result signInWithCredential(SignInWithCredentialFailure value),
     @required Result googleAuth(GoogleAuthFailure value),
     @required Result signInWithEmail(SignInWithEmailFailure value),
     @required Result unexpected(UnexpectedAuthFailure value),
     @required
         Result fetchSignInMethodsForEmail(
             FetchSignInMethodsForEmailFailure value),
+    @required
+        Result accountExistsWithDifferentCredential(
+            AccountExistsWithDifferentCredentialFailure value),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
     assert(confirmResetPassword != null);
     assert(signUpWithEmail != null);
-    assert(signInWithGoogle != null);
+    assert(signInWithCredential != null);
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
-    return signInWithGoogle(this);
+    assert(accountExistsWithDifferentCredential != null);
+    return signInWithCredential(this);
   }
 
   @override
@@ -928,27 +1005,30 @@ class _$SignInWithGoogleFailure
     Result sendResetPassword(SendResetPasswordFailure value),
     Result confirmResetPassword(ConfirmResetPasswordFailure value),
     Result signUpWithEmail(SignUpWithEmailFailure value),
-    Result signInWithGoogle(SignInWithGoogleFailure value),
+    Result signInWithCredential(SignInWithCredentialFailure value),
     Result googleAuth(GoogleAuthFailure value),
     Result signInWithEmail(SignInWithEmailFailure value),
     Result unexpected(UnexpectedAuthFailure value),
     Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
+    Result accountExistsWithDifferentCredential(
+        AccountExistsWithDifferentCredentialFailure value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (signInWithGoogle != null) {
-      return signInWithGoogle(this);
+    if (signInWithCredential != null) {
+      return signInWithCredential(this);
     }
     return orElse();
   }
 }
 
-abstract class SignInWithGoogleFailure implements AuthFailure {
-  const factory SignInWithGoogleFailure(PlatformException exp) =
-      _$SignInWithGoogleFailure;
+abstract class SignInWithCredentialFailure implements AuthFailure {
+  const factory SignInWithCredentialFailure(PlatformException exp) =
+      _$SignInWithCredentialFailure;
 
   PlatformException get exp;
-  $SignInWithGoogleFailureCopyWith<SignInWithGoogleFailure> get copyWith;
+  $SignInWithCredentialFailureCopyWith<SignInWithCredentialFailure>
+      get copyWith;
 }
 
 abstract class $GoogleAuthFailureCopyWith<$Res> {
@@ -1022,21 +1102,25 @@ class _$GoogleAuthFailure
     @required Result sendResetPassword(PlatformException exp),
     @required Result confirmResetPassword(PlatformException exp),
     @required Result signUpWithEmail(PlatformException exp),
-    @required Result signInWithGoogle(PlatformException exp),
+    @required Result signInWithCredential(PlatformException exp),
     @required Result googleAuth(PlatformException exp),
     @required Result signInWithEmail(PlatformException exp),
     @required Result unexpected(PlatformException exp),
     @required Result fetchSignInMethodsForEmail(),
+    @required
+        Result accountExistsWithDifferentCredential(
+            List<String> possibleAuthMethods),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
     assert(confirmResetPassword != null);
     assert(signUpWithEmail != null);
-    assert(signInWithGoogle != null);
+    assert(signInWithCredential != null);
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
+    assert(accountExistsWithDifferentCredential != null);
     return googleAuth(exp);
   }
 
@@ -1047,11 +1131,13 @@ class _$GoogleAuthFailure
     Result sendResetPassword(PlatformException exp),
     Result confirmResetPassword(PlatformException exp),
     Result signUpWithEmail(PlatformException exp),
-    Result signInWithGoogle(PlatformException exp),
+    Result signInWithCredential(PlatformException exp),
     Result googleAuth(PlatformException exp),
     Result signInWithEmail(PlatformException exp),
     Result unexpected(PlatformException exp),
     Result fetchSignInMethodsForEmail(),
+    Result accountExistsWithDifferentCredential(
+        List<String> possibleAuthMethods),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1068,23 +1154,27 @@ class _$GoogleAuthFailure
     @required Result sendResetPassword(SendResetPasswordFailure value),
     @required Result confirmResetPassword(ConfirmResetPasswordFailure value),
     @required Result signUpWithEmail(SignUpWithEmailFailure value),
-    @required Result signInWithGoogle(SignInWithGoogleFailure value),
+    @required Result signInWithCredential(SignInWithCredentialFailure value),
     @required Result googleAuth(GoogleAuthFailure value),
     @required Result signInWithEmail(SignInWithEmailFailure value),
     @required Result unexpected(UnexpectedAuthFailure value),
     @required
         Result fetchSignInMethodsForEmail(
             FetchSignInMethodsForEmailFailure value),
+    @required
+        Result accountExistsWithDifferentCredential(
+            AccountExistsWithDifferentCredentialFailure value),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
     assert(confirmResetPassword != null);
     assert(signUpWithEmail != null);
-    assert(signInWithGoogle != null);
+    assert(signInWithCredential != null);
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
+    assert(accountExistsWithDifferentCredential != null);
     return googleAuth(this);
   }
 
@@ -1095,11 +1185,13 @@ class _$GoogleAuthFailure
     Result sendResetPassword(SendResetPasswordFailure value),
     Result confirmResetPassword(ConfirmResetPasswordFailure value),
     Result signUpWithEmail(SignUpWithEmailFailure value),
-    Result signInWithGoogle(SignInWithGoogleFailure value),
+    Result signInWithCredential(SignInWithCredentialFailure value),
     Result googleAuth(GoogleAuthFailure value),
     Result signInWithEmail(SignInWithEmailFailure value),
     Result unexpected(UnexpectedAuthFailure value),
     Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
+    Result accountExistsWithDifferentCredential(
+        AccountExistsWithDifferentCredentialFailure value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1189,21 +1281,25 @@ class _$SignInWithEmailFailure
     @required Result sendResetPassword(PlatformException exp),
     @required Result confirmResetPassword(PlatformException exp),
     @required Result signUpWithEmail(PlatformException exp),
-    @required Result signInWithGoogle(PlatformException exp),
+    @required Result signInWithCredential(PlatformException exp),
     @required Result googleAuth(PlatformException exp),
     @required Result signInWithEmail(PlatformException exp),
     @required Result unexpected(PlatformException exp),
     @required Result fetchSignInMethodsForEmail(),
+    @required
+        Result accountExistsWithDifferentCredential(
+            List<String> possibleAuthMethods),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
     assert(confirmResetPassword != null);
     assert(signUpWithEmail != null);
-    assert(signInWithGoogle != null);
+    assert(signInWithCredential != null);
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
+    assert(accountExistsWithDifferentCredential != null);
     return signInWithEmail(exp);
   }
 
@@ -1214,11 +1310,13 @@ class _$SignInWithEmailFailure
     Result sendResetPassword(PlatformException exp),
     Result confirmResetPassword(PlatformException exp),
     Result signUpWithEmail(PlatformException exp),
-    Result signInWithGoogle(PlatformException exp),
+    Result signInWithCredential(PlatformException exp),
     Result googleAuth(PlatformException exp),
     Result signInWithEmail(PlatformException exp),
     Result unexpected(PlatformException exp),
     Result fetchSignInMethodsForEmail(),
+    Result accountExistsWithDifferentCredential(
+        List<String> possibleAuthMethods),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1235,23 +1333,27 @@ class _$SignInWithEmailFailure
     @required Result sendResetPassword(SendResetPasswordFailure value),
     @required Result confirmResetPassword(ConfirmResetPasswordFailure value),
     @required Result signUpWithEmail(SignUpWithEmailFailure value),
-    @required Result signInWithGoogle(SignInWithGoogleFailure value),
+    @required Result signInWithCredential(SignInWithCredentialFailure value),
     @required Result googleAuth(GoogleAuthFailure value),
     @required Result signInWithEmail(SignInWithEmailFailure value),
     @required Result unexpected(UnexpectedAuthFailure value),
     @required
         Result fetchSignInMethodsForEmail(
             FetchSignInMethodsForEmailFailure value),
+    @required
+        Result accountExistsWithDifferentCredential(
+            AccountExistsWithDifferentCredentialFailure value),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
     assert(confirmResetPassword != null);
     assert(signUpWithEmail != null);
-    assert(signInWithGoogle != null);
+    assert(signInWithCredential != null);
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
+    assert(accountExistsWithDifferentCredential != null);
     return signInWithEmail(this);
   }
 
@@ -1262,11 +1364,13 @@ class _$SignInWithEmailFailure
     Result sendResetPassword(SendResetPasswordFailure value),
     Result confirmResetPassword(ConfirmResetPasswordFailure value),
     Result signUpWithEmail(SignUpWithEmailFailure value),
-    Result signInWithGoogle(SignInWithGoogleFailure value),
+    Result signInWithCredential(SignInWithCredentialFailure value),
     Result googleAuth(GoogleAuthFailure value),
     Result signInWithEmail(SignInWithEmailFailure value),
     Result unexpected(UnexpectedAuthFailure value),
     Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
+    Result accountExistsWithDifferentCredential(
+        AccountExistsWithDifferentCredentialFailure value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1357,21 +1461,25 @@ class _$UnexpectedAuthFailure
     @required Result sendResetPassword(PlatformException exp),
     @required Result confirmResetPassword(PlatformException exp),
     @required Result signUpWithEmail(PlatformException exp),
-    @required Result signInWithGoogle(PlatformException exp),
+    @required Result signInWithCredential(PlatformException exp),
     @required Result googleAuth(PlatformException exp),
     @required Result signInWithEmail(PlatformException exp),
     @required Result unexpected(PlatformException exp),
     @required Result fetchSignInMethodsForEmail(),
+    @required
+        Result accountExistsWithDifferentCredential(
+            List<String> possibleAuthMethods),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
     assert(confirmResetPassword != null);
     assert(signUpWithEmail != null);
-    assert(signInWithGoogle != null);
+    assert(signInWithCredential != null);
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
+    assert(accountExistsWithDifferentCredential != null);
     return unexpected(exp);
   }
 
@@ -1382,11 +1490,13 @@ class _$UnexpectedAuthFailure
     Result sendResetPassword(PlatformException exp),
     Result confirmResetPassword(PlatformException exp),
     Result signUpWithEmail(PlatformException exp),
-    Result signInWithGoogle(PlatformException exp),
+    Result signInWithCredential(PlatformException exp),
     Result googleAuth(PlatformException exp),
     Result signInWithEmail(PlatformException exp),
     Result unexpected(PlatformException exp),
     Result fetchSignInMethodsForEmail(),
+    Result accountExistsWithDifferentCredential(
+        List<String> possibleAuthMethods),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1403,23 +1513,27 @@ class _$UnexpectedAuthFailure
     @required Result sendResetPassword(SendResetPasswordFailure value),
     @required Result confirmResetPassword(ConfirmResetPasswordFailure value),
     @required Result signUpWithEmail(SignUpWithEmailFailure value),
-    @required Result signInWithGoogle(SignInWithGoogleFailure value),
+    @required Result signInWithCredential(SignInWithCredentialFailure value),
     @required Result googleAuth(GoogleAuthFailure value),
     @required Result signInWithEmail(SignInWithEmailFailure value),
     @required Result unexpected(UnexpectedAuthFailure value),
     @required
         Result fetchSignInMethodsForEmail(
             FetchSignInMethodsForEmailFailure value),
+    @required
+        Result accountExistsWithDifferentCredential(
+            AccountExistsWithDifferentCredentialFailure value),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
     assert(confirmResetPassword != null);
     assert(signUpWithEmail != null);
-    assert(signInWithGoogle != null);
+    assert(signInWithCredential != null);
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
+    assert(accountExistsWithDifferentCredential != null);
     return unexpected(this);
   }
 
@@ -1430,11 +1544,13 @@ class _$UnexpectedAuthFailure
     Result sendResetPassword(SendResetPasswordFailure value),
     Result confirmResetPassword(ConfirmResetPasswordFailure value),
     Result signUpWithEmail(SignUpWithEmailFailure value),
-    Result signInWithGoogle(SignInWithGoogleFailure value),
+    Result signInWithCredential(SignInWithCredentialFailure value),
     Result googleAuth(GoogleAuthFailure value),
     Result signInWithEmail(SignInWithEmailFailure value),
     Result unexpected(UnexpectedAuthFailure value),
     Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
+    Result accountExistsWithDifferentCredential(
+        AccountExistsWithDifferentCredentialFailure value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1507,21 +1623,25 @@ class _$FetchSignInMethodsForEmailFailure
     @required Result sendResetPassword(PlatformException exp),
     @required Result confirmResetPassword(PlatformException exp),
     @required Result signUpWithEmail(PlatformException exp),
-    @required Result signInWithGoogle(PlatformException exp),
+    @required Result signInWithCredential(PlatformException exp),
     @required Result googleAuth(PlatformException exp),
     @required Result signInWithEmail(PlatformException exp),
     @required Result unexpected(PlatformException exp),
     @required Result fetchSignInMethodsForEmail(),
+    @required
+        Result accountExistsWithDifferentCredential(
+            List<String> possibleAuthMethods),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
     assert(confirmResetPassword != null);
     assert(signUpWithEmail != null);
-    assert(signInWithGoogle != null);
+    assert(signInWithCredential != null);
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
+    assert(accountExistsWithDifferentCredential != null);
     return fetchSignInMethodsForEmail();
   }
 
@@ -1532,11 +1652,13 @@ class _$FetchSignInMethodsForEmailFailure
     Result sendResetPassword(PlatformException exp),
     Result confirmResetPassword(PlatformException exp),
     Result signUpWithEmail(PlatformException exp),
-    Result signInWithGoogle(PlatformException exp),
+    Result signInWithCredential(PlatformException exp),
     Result googleAuth(PlatformException exp),
     Result signInWithEmail(PlatformException exp),
     Result unexpected(PlatformException exp),
     Result fetchSignInMethodsForEmail(),
+    Result accountExistsWithDifferentCredential(
+        List<String> possibleAuthMethods),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1553,23 +1675,27 @@ class _$FetchSignInMethodsForEmailFailure
     @required Result sendResetPassword(SendResetPasswordFailure value),
     @required Result confirmResetPassword(ConfirmResetPasswordFailure value),
     @required Result signUpWithEmail(SignUpWithEmailFailure value),
-    @required Result signInWithGoogle(SignInWithGoogleFailure value),
+    @required Result signInWithCredential(SignInWithCredentialFailure value),
     @required Result googleAuth(GoogleAuthFailure value),
     @required Result signInWithEmail(SignInWithEmailFailure value),
     @required Result unexpected(UnexpectedAuthFailure value),
     @required
         Result fetchSignInMethodsForEmail(
             FetchSignInMethodsForEmailFailure value),
+    @required
+        Result accountExistsWithDifferentCredential(
+            AccountExistsWithDifferentCredentialFailure value),
   }) {
     assert(cancelledByUser != null);
     assert(sendResetPassword != null);
     assert(confirmResetPassword != null);
     assert(signUpWithEmail != null);
-    assert(signInWithGoogle != null);
+    assert(signInWithCredential != null);
     assert(googleAuth != null);
     assert(signInWithEmail != null);
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
+    assert(accountExistsWithDifferentCredential != null);
     return fetchSignInMethodsForEmail(this);
   }
 
@@ -1580,11 +1706,13 @@ class _$FetchSignInMethodsForEmailFailure
     Result sendResetPassword(SendResetPasswordFailure value),
     Result confirmResetPassword(ConfirmResetPasswordFailure value),
     Result signUpWithEmail(SignUpWithEmailFailure value),
-    Result signInWithGoogle(SignInWithGoogleFailure value),
+    Result signInWithCredential(SignInWithCredentialFailure value),
     Result googleAuth(GoogleAuthFailure value),
     Result signInWithEmail(SignInWithEmailFailure value),
     Result unexpected(UnexpectedAuthFailure value),
     Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
+    Result accountExistsWithDifferentCredential(
+        AccountExistsWithDifferentCredentialFailure value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1598,4 +1726,198 @@ class _$FetchSignInMethodsForEmailFailure
 abstract class FetchSignInMethodsForEmailFailure implements AuthFailure {
   const factory FetchSignInMethodsForEmailFailure() =
       _$FetchSignInMethodsForEmailFailure;
+}
+
+abstract class $AccountExistsWithDifferentCredentialFailureCopyWith<$Res> {
+  factory $AccountExistsWithDifferentCredentialFailureCopyWith(
+          AccountExistsWithDifferentCredentialFailure value,
+          $Res Function(AccountExistsWithDifferentCredentialFailure) then) =
+      _$AccountExistsWithDifferentCredentialFailureCopyWithImpl<$Res>;
+  $Res call({List<String> possibleAuthMethods});
+}
+
+class _$AccountExistsWithDifferentCredentialFailureCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res>
+    implements $AccountExistsWithDifferentCredentialFailureCopyWith<$Res> {
+  _$AccountExistsWithDifferentCredentialFailureCopyWithImpl(
+      AccountExistsWithDifferentCredentialFailure _value,
+      $Res Function(AccountExistsWithDifferentCredentialFailure) _then)
+      : super(_value,
+            (v) => _then(v as AccountExistsWithDifferentCredentialFailure));
+
+  @override
+  AccountExistsWithDifferentCredentialFailure get _value =>
+      super._value as AccountExistsWithDifferentCredentialFailure;
+
+  @override
+  $Res call({
+    Object possibleAuthMethods = freezed,
+  }) {
+    return _then(AccountExistsWithDifferentCredentialFailure(
+      possibleAuthMethods == freezed
+          ? _value.possibleAuthMethods
+          : possibleAuthMethods as List<String>,
+    ));
+  }
+}
+
+class _$AccountExistsWithDifferentCredentialFailure
+    with DiagnosticableTreeMixin
+    implements AccountExistsWithDifferentCredentialFailure {
+  const _$AccountExistsWithDifferentCredentialFailure(this.possibleAuthMethods)
+      : assert(possibleAuthMethods != null);
+
+  @override
+  final List<String> possibleAuthMethods;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AuthFailure.accountExistsWithDifferentCredential(possibleAuthMethods: $possibleAuthMethods)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'AuthFailure.accountExistsWithDifferentCredential'))
+      ..add(DiagnosticsProperty('possibleAuthMethods', possibleAuthMethods));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is AccountExistsWithDifferentCredentialFailure &&
+            (identical(other.possibleAuthMethods, possibleAuthMethods) ||
+                const DeepCollectionEquality()
+                    .equals(other.possibleAuthMethods, possibleAuthMethods)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(possibleAuthMethods);
+
+  @override
+  $AccountExistsWithDifferentCredentialFailureCopyWith<
+          AccountExistsWithDifferentCredentialFailure>
+      get copyWith => _$AccountExistsWithDifferentCredentialFailureCopyWithImpl<
+          AccountExistsWithDifferentCredentialFailure>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result cancelledByUser(),
+    @required Result sendResetPassword(PlatformException exp),
+    @required Result confirmResetPassword(PlatformException exp),
+    @required Result signUpWithEmail(PlatformException exp),
+    @required Result signInWithCredential(PlatformException exp),
+    @required Result googleAuth(PlatformException exp),
+    @required Result signInWithEmail(PlatformException exp),
+    @required Result unexpected(PlatformException exp),
+    @required Result fetchSignInMethodsForEmail(),
+    @required
+        Result accountExistsWithDifferentCredential(
+            List<String> possibleAuthMethods),
+  }) {
+    assert(cancelledByUser != null);
+    assert(sendResetPassword != null);
+    assert(confirmResetPassword != null);
+    assert(signUpWithEmail != null);
+    assert(signInWithCredential != null);
+    assert(googleAuth != null);
+    assert(signInWithEmail != null);
+    assert(unexpected != null);
+    assert(fetchSignInMethodsForEmail != null);
+    assert(accountExistsWithDifferentCredential != null);
+    return accountExistsWithDifferentCredential(possibleAuthMethods);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result cancelledByUser(),
+    Result sendResetPassword(PlatformException exp),
+    Result confirmResetPassword(PlatformException exp),
+    Result signUpWithEmail(PlatformException exp),
+    Result signInWithCredential(PlatformException exp),
+    Result googleAuth(PlatformException exp),
+    Result signInWithEmail(PlatformException exp),
+    Result unexpected(PlatformException exp),
+    Result fetchSignInMethodsForEmail(),
+    Result accountExistsWithDifferentCredential(
+        List<String> possibleAuthMethods),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (accountExistsWithDifferentCredential != null) {
+      return accountExistsWithDifferentCredential(possibleAuthMethods);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result cancelledByUser(CancelledByUser value),
+    @required Result sendResetPassword(SendResetPasswordFailure value),
+    @required Result confirmResetPassword(ConfirmResetPasswordFailure value),
+    @required Result signUpWithEmail(SignUpWithEmailFailure value),
+    @required Result signInWithCredential(SignInWithCredentialFailure value),
+    @required Result googleAuth(GoogleAuthFailure value),
+    @required Result signInWithEmail(SignInWithEmailFailure value),
+    @required Result unexpected(UnexpectedAuthFailure value),
+    @required
+        Result fetchSignInMethodsForEmail(
+            FetchSignInMethodsForEmailFailure value),
+    @required
+        Result accountExistsWithDifferentCredential(
+            AccountExistsWithDifferentCredentialFailure value),
+  }) {
+    assert(cancelledByUser != null);
+    assert(sendResetPassword != null);
+    assert(confirmResetPassword != null);
+    assert(signUpWithEmail != null);
+    assert(signInWithCredential != null);
+    assert(googleAuth != null);
+    assert(signInWithEmail != null);
+    assert(unexpected != null);
+    assert(fetchSignInMethodsForEmail != null);
+    assert(accountExistsWithDifferentCredential != null);
+    return accountExistsWithDifferentCredential(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result cancelledByUser(CancelledByUser value),
+    Result sendResetPassword(SendResetPasswordFailure value),
+    Result confirmResetPassword(ConfirmResetPasswordFailure value),
+    Result signUpWithEmail(SignUpWithEmailFailure value),
+    Result signInWithCredential(SignInWithCredentialFailure value),
+    Result googleAuth(GoogleAuthFailure value),
+    Result signInWithEmail(SignInWithEmailFailure value),
+    Result unexpected(UnexpectedAuthFailure value),
+    Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
+    Result accountExistsWithDifferentCredential(
+        AccountExistsWithDifferentCredentialFailure value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (accountExistsWithDifferentCredential != null) {
+      return accountExistsWithDifferentCredential(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AccountExistsWithDifferentCredentialFailure
+    implements AuthFailure {
+  const factory AccountExistsWithDifferentCredentialFailure(
+          List<String> possibleAuthMethods) =
+      _$AccountExistsWithDifferentCredentialFailure;
+
+  List<String> get possibleAuthMethods;
+  $AccountExistsWithDifferentCredentialFailureCopyWith<
+      AccountExistsWithDifferentCredentialFailure> get copyWith;
 }

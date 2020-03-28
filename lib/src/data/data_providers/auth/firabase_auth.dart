@@ -2,36 +2,34 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 
 import 'package:smarty_duelist/src/core/core.dart' show SupportedLanguages;
+import 'package:smarty_duelist/src/domain/auth/auth.dart';
 import 'package:smarty_duelist/src/domain/domain.dart'
     show
         AuthFailure,
-        CancelledByUser,
         ConfirmResetPasswordFailure,
         FetchSignInMethodsForEmailFailure,
-        GoogleAuthFailure,
         IAuthDataProvider,
         SendResetPasswordFailure,
         SignInWithEmailFailure,
-        SignInWithGoogleFailure,
         SignUpWithEmailFailure,
         User;
 
-import '../dto/dto.dart';
+import '../../dto/dto.dart';
+import 'google_auth.dart';
 
 @RegisterAs(IAuthDataProvider)
 @singleton
 @immutable
-class AuthDataProvider implements IAuthDataProvider {
-  final GoogleSignIn googleSignIn;
+class FirebaseAuthProvider implements IAuthDataProvider {
+  final GoogleAuth googleAuth;
   final FirebaseAuth auth;
 
-  const AuthDataProvider({
-    @required this.googleSignIn,
+  const FirebaseAuthProvider({
+    @required this.googleAuth,
     @required this.auth,
   });
 
@@ -119,27 +117,35 @@ class AuthDataProvider implements IAuthDataProvider {
 
   @override
   Future<Either<AuthFailure, User>> signInWithGoogle() async {
+    final eitherGoogleAuth = await googleAuth.signIn();
+
+    return eitherGoogleAuth.fold(
+      (failure) => Left(failure),
+      (googleAuth) async {
+        final credential = GoogleAuthProvider.getCredential(
+          idToken: googleAuth.idToken,
+          accessToken: googleAuth.accessToken,
+        );
+
+        final eitherResult = await _signInWithCredential(credential);
+
+        return eitherResult.fold(
+          (failure) => Left(failure),
+          (user) => Right(user),
+        );
+      },
+    );
+  }
+
+  Future<Either<AuthFailure, User>> _signInWithCredential(
+    AuthCredential credential,
+  ) async {
     try {
-      final googleUser = await googleSignIn.signIn();
-
-      if (googleUser == null) return Left(const CancelledByUser());
-
-      final googleAuth = await googleUser.authentication;
-      final credential = GoogleAuthProvider.getCredential(
-        accessToken: googleAuth.accessToken,
-        idToken: googleAuth.idToken,
-      );
-
       final result = await auth.signInWithCredential(credential);
 
       return Right(result.user.toDomainUser());
     } on PlatformException catch (exp) {
-      if (exp.code == GoogleSignInAccount.kFailedToRecoverAuthError ||
-          exp.code == GoogleSignInAccount.kUserRecoverableAuthError) {
-        return Left(GoogleAuthFailure(exp));
-      }
-
-      return Left(SignInWithGoogleFailure(exp));
+      return Left(SignInWithCredentialFailure(exp));
     }
   }
 
