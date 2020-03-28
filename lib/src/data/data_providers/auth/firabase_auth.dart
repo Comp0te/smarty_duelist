@@ -43,7 +43,11 @@ class FirebaseAuthProvider implements IAuthDataProvider {
   }
 
   @override
-  Future<void> signOut() => auth.signOut();
+  Future<void> signOut() async {
+    await googleAuth.signOut();
+
+    return auth.signOut();
+  }
 
   @override
   Stream<User> onAuthStateChanged() =>
