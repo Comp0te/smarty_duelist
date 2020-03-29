@@ -93,4 +93,19 @@ class AuthRepository implements IAuthRepository {
       password: password,
     );
   }
+
+  @override
+  Future<Either<AuthFailure, Unit>> changeEmail(String email) {
+    return authDataProvider.changeEmail(email);
+  }
+
+  @override
+  Future<Either<AuthFailure, Unit>> changePassword(String password) {
+    return authDataProvider.changePassword(password);
+  }
+
+  @override
+  Future<Either<AuthFailure, Unit>> deleteUser() {
+    return authDataProvider.deleteUser();
+  }
 }

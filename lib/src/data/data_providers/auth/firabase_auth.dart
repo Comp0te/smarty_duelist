@@ -99,6 +99,9 @@ class FirebaseAuthProvider implements IAuthDataProvider {
     }
   }
 
+  // TODO reauthenticateWithCredential
+  // TODO updateProfile - display name and photoUrl
+
   @override
   Future<void> configureAuthLanguage(SupportedLanguages languageTag) {
     return auth.setLanguageCode(describeEnum(languageTag));
@@ -144,6 +147,45 @@ class FirebaseAuthProvider implements IAuthDataProvider {
         );
       },
     );
+  }
+
+  @override
+  Future<Either<AuthFailure, Unit>> changeEmail(String email) async {
+    try {
+      final user = await auth.currentUser();
+
+      await user?.updateEmail(email);
+
+      return Right(unit);
+    } on PlatformException catch (exp) {
+      return Left(ChangeEmailFailure(exp));
+    }
+  }
+
+  @override
+  Future<Either<AuthFailure, Unit>> changePassword(String password) async {
+    try {
+      final user = await auth.currentUser();
+
+      await user?.updatePassword(password);
+
+      return Right(unit);
+    } on PlatformException catch (exp) {
+      return Left(ChangePasswordFailure(exp));
+    }
+  }
+
+  @override
+  Future<Either<AuthFailure, Unit>> deleteUser() async {
+    try {
+      final user = await auth.currentUser();
+
+      await user?.delete();
+
+      return Right(unit);
+    } on PlatformException catch (exp) {
+      return Left(DeleteUserFailure(exp));
+    }
   }
 
   @override

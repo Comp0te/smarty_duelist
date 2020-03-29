@@ -26,4 +26,7 @@ abstract class IAuthDataProvider {
     @required String newPassword,
   });
   Future<void> configureAuthLanguage(SupportedLanguages languageTag);
+  Future<Either<AuthFailure, Unit>> changeEmail(String email);
+  Future<Either<AuthFailure, Unit>> changePassword(String password);
+  Future<Either<AuthFailure, Unit>> deleteUser();
 }
