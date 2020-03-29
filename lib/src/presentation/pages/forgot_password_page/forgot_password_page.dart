@@ -44,8 +44,7 @@ class ForgotPasswordPage extends StatelessWidget
                         prev is ValidationShowed || cur is ValidationShowed,
                     builder: (context, state) {
                       return FormBuilder(
-                        key: BlocProvider.of<ForgotPasswordBloc>(context)
-                            .fbKey,
+                        key: BlocProvider.of<ForgotPasswordBloc>(context).fbKey,
                         autovalidate: state is ValidationShowed,
                         child: Column(
                           children: <Widget>[
