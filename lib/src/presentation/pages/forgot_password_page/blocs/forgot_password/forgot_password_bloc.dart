@@ -11,7 +11,8 @@ import 'bloc.dart';
 enum ForgotPasswordFormData { email, password, confirmPassword }
 
 @injectable
-class ForgotPasswordBloc extends Bloc<ForgotPasswordEvent, ForgotPasswordState> {
+class ForgotPasswordBloc
+    extends Bloc<ForgotPasswordEvent, ForgotPasswordState> {
   final IAuthRepository _authRepository;
   final fbKey = GlobalKey<FormBuilderState>();
   final emailController = TextEditingController();
@@ -24,7 +25,8 @@ class ForgotPasswordBloc extends Bloc<ForgotPasswordEvent, ForgotPasswordState> 
   ForgotPasswordState get initialState => const Init();
 
   @override
-  Stream<ForgotPasswordState> mapEventToState(ForgotPasswordEvent event) async* {
+  Stream<ForgotPasswordState> mapEventToState(
+      ForgotPasswordEvent event) async* {
     if (fbKey.currentState.validate()) {
       yield const Loading();
 
