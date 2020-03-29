@@ -91,6 +91,8 @@ class FirebaseAuthProvider implements IAuthDataProvider {
         password: password,
       );
 
+      await result.user.sendEmailVerification();
+
       return Right(result.user.toDomainUser());
     } on PlatformException catch (exp) {
       return Left(SignUpWithEmailFailure(exp));
