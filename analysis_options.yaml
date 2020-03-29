@@ -1,8 +1,12 @@
 include: package:lint/analysis_options.yaml
 
 analyzer:
-  exclude:
-    - lib/generated/**/*.dart
+  exclude: [
+    "lib/generated/**",
+    "**/*.freezed.dart",
+    "**/*.g.dart",
+    "**/*.gr.dart",
+  ]
 
   errors:
     # Ignore errors like
@@ -14,9 +18,9 @@ linter:
   rules:
     # Rules overridden by me
     # - always_specify_types
-#    - omit_local_variable_types # opposite of always_specify_types
-#    - avoid_returning_null # not yet tested
-    # - directives_ordering # doesn't sort automatically
+    omit_local_variable_types: true # opposite of always_specify_types
+    avoid_returning_null: true # not yet tested
+    directives_ordering: false # doesn't sort automatically
     # - sort_constructors_first
 #    - parameter_assignments # we do this commonly
-#    type_annotate_public_apis: false
+    type_annotate_public_apis: false

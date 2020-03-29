@@ -1,3 +1,39 @@
 {
-  "one": "one"
+  "email": "Email",
+  "password": "Password",
+  "confirmPassword": "Confirm password",
+  "submit": "Submit",
+  "success": "Success",
+  "ok": "Ok",
+  "cancel": "Cancel",
+
+  "error": "Error",
+  "errorRequired": "Required",
+  "errorMinLength": "Min {digit} characters",
+  "errorEmailIncorrect": "Incorrect email address",
+  "errorEmailMalformed": "Email address is malformed",
+  "errorWrongEmailOrPassword": "Email or password is wrong",
+  "errorUserDisabled": "User disabled",
+  "errorToManySignIn": "You made too many attempts to sign in",
+  "errorGoogleAuth": "Something went wrong during authentication via Google",
+  "errorCredentialMalformed": "Credential data is malformed or has expired",
+  "errorUnexpected": "Something went wrong. We are sorry.",
+  "errorSignInCanceled": "Sign in process was aborted",
+  "errorWeakPassword": "The password is not strong enough",
+  "errorEmailAlreadyInUse": "The email is already in use by a different account.",
+  "errorUserNotFound": "There is no user corresponding to the given email address.",
+  "errorPasswordsDoNotMatch": "Passwords don't match",
+
+  "signInTitle": "Greetings!",
+  "singInEmail": "Sign in with Email",
+  "signInProvider": "Sign in with {provider}",
+  "signInCreateAccount": "Create an account",
+  "signInNotRegisteredYet": "Not registered yet?",
+  "signInForgotPassword": "Forgot password?",
+  "signAccountExistsWithDifferentCredential": "You have already created an account for this email. Try logging in with: {methods}",
+
+  "signUpTitle": "Registration",
+
+  "forgotPasswordTitle": "Forgot password",
+  "forgotPasswordSuccess": "We sent the password reset instructions to your email. Change password and login"
 }
