@@ -3,7 +3,8 @@
 # Make executable with `chmod +x`
 
 declare -a filesToFormat="$(\
-    git diff --cached --name-only --diff-filter=ACMR -z -- '*.dart'\
+    git diff --cached --name-only --diff-filter=ACMR -z -- \
+    'lib/main.dart' 'lib/src/**/*.dart' \
     | xargs -0 flutter format -n \
 )"
 
