@@ -4,6 +4,7 @@
 // InjectableConfigGenerator
 // **************************************************************************
 
+import 'package:smarty_duelist/src/presentation/core_blocs/preferences/preferences_bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:smarty_duelist/src/injector/injector.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -21,6 +22,7 @@ import 'package:get_it/get_it.dart';
 
 void $initGetIt(GetIt g, {String environment}) {
   final registerModule = _$RegisterModule();
+  g.registerFactory<PreferencesBloc>(() => PreferencesBloc());
   g.registerLazySingleton<GoogleSignIn>(() => registerModule.googleSignIn);
   g.registerLazySingleton<GoogleAuth>(
       () => GoogleAuth(googleSignIn: g<GoogleSignIn>()));
