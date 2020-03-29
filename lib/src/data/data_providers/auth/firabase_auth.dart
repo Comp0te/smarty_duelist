@@ -144,30 +144,19 @@ class FirebaseAuthProvider implements IAuthDataProvider {
     );
   }
 
-  Future<Either<AuthFailure, User>> _signInWithCredential(
-    AuthCredential credential,
-    String email,
-  ) async {
-    try {
-      final result = await auth.signInWithCredential(credential);
-
-      return Right(result.user.toDomainUser());
-    } on PlatformException catch (exp) {
-      if (exp.code == 'ERROR_ACCOUNT_EXISTS_WITH_DIFFERENT_CREDENTIAL') {
-        (await fetchSignInMethodsForEmail(email)).fold(
-          (failure) => Left(failure),
-          (methods) {
-            return Left(AccountExistsWithDifferentCredentialFailure(methods));
-          },
-        );
-      }
-
-      return Left(SignInWithCredentialFailure(exp));
-    }
+  @override
+  // ignore: missing_return
+  Future<Either<AuthFailure, User>> signInWithApple() async {
+    // TODO: implement signInWithApple
   }
 
   @override
-  Future<Either<AuthFailure, List<String>>> fetchSignInMethodsForEmail(
+  // ignore: missing_return
+  Future<Either<AuthFailure, User>> signInWithFacebook() async {
+    // TODO: implement signInWithFacebook
+  }
+
+  Future<Either<AuthFailure, List<String>>> _fetchSignInMethodsForEmail(
     String email,
   ) async {
     try {
@@ -179,15 +168,25 @@ class FirebaseAuthProvider implements IAuthDataProvider {
     }
   }
 
-  @override
-  // ignore: missing_return
-  Future<Either<AuthFailure, User>> signInWithApple() async {
-    // TODO: implement signInWithApple
-  }
+  Future<Either<AuthFailure, User>> _signInWithCredential(
+    AuthCredential credential,
+    String email,
+  ) async {
+    try {
+      final result = await auth.signInWithCredential(credential);
 
-  @override
-  // ignore: missing_return
-  Future<Either<AuthFailure, User>> signInWithFacebook() async {
-    // TODO: implement signInWithFacebook
+      return Right(result.user.toDomainUser());
+    } on PlatformException catch (exp) {
+      if (exp.code == 'ERROR_ACCOUNT_EXISTS_WITH_DIFFERENT_CREDENTIAL') {
+        (await _fetchSignInMethodsForEmail(email)).fold(
+          (failure) => Left(failure),
+          (methods) {
+            return Left(AccountExistsWithDifferentCredentialFailure(methods));
+          },
+        );
+      }
+
+      return Left(SignInWithCredentialFailure(exp));
+    }
   }
 }

@@ -34,9 +34,6 @@ abstract class IAuthRepository {
     String code,
     String newPassword,
   });
-  Future<Either<AuthFailure, List<String>>> fetchSignInMethodsForEmail(
-    String email,
-  );
 }
 
 enum AuthCredentialsProviders { google, facebook, apple }
