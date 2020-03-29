@@ -9,7 +9,7 @@ import 'package:smarty_duelist/src/injector/injector.dart' show getIt;
 import 'auth_bloc_listener.dart';
 import '../theme/theme.dart'
     show darkMaterialTheme, getCupertinoThemeData, lightMaterialTheme;
-import '../core_blocs/core_blocs.dart' show AppStarted, AuthBloc;
+import '../core_blocs/core_blocs.dart';
 import '../routes/routes.dart' show AuthGuard, CupertinoRouter, MaterialRouter;
 
 class App extends StatelessWidget {
@@ -20,26 +20,32 @@ class App extends StatelessWidget {
         BlocProvider<AuthBloc>(
           create: (_) => getIt<AuthBloc>()..add(const AppStarted()),
         ),
+        BlocProvider<PreferencesBloc>(
+          create: (_) => getIt<PreferencesBloc>(),
+        ),
       ],
       child: AuthBlocListener(
-        child: PlatformApp(
-          localizationsDelegates: [S.delegate],
-          supportedLocales: S.delegate.supportedLocales,
-          ios: (_) => CupertinoAppData(
-            theme: getCupertinoThemeData(Brightness.light),
-            builder: ExtendedNavigator<CupertinoRouter>(
-              router: CupertinoRouter(),
-              guards: [AuthGuard()],
+        child: BlocBuilder<PreferencesBloc, PreferencesState>(
+          builder: (context, prefs) => PlatformApp(
+            locale: prefs.locale,
+            localizationsDelegates: [S.delegate],
+            supportedLocales: S.delegate.supportedLocales,
+            ios: (_) => CupertinoAppData(
+              theme: getCupertinoThemeData(prefs.brightness),
+              builder: ExtendedNavigator<CupertinoRouter>(
+                router: CupertinoRouter(),
+                guards: [AuthGuard()],
+              ),
             ),
-          ),
-          android: (_) => MaterialAppData(
-            builder: ExtendedNavigator<MaterialRouter>(
-              router: MaterialRouter(),
-              guards: [AuthGuard()],
+            android: (_) => MaterialAppData(
+              builder: ExtendedNavigator<MaterialRouter>(
+                router: MaterialRouter(),
+                guards: [AuthGuard()],
+              ),
+              theme: lightMaterialTheme,
+              darkTheme: darkMaterialTheme,
+              themeMode: prefs.themeMode,
             ),
-            theme: lightMaterialTheme,
-            darkTheme: darkMaterialTheme,
-            themeMode: ThemeMode.dark,
           ),
         ),
       ),
