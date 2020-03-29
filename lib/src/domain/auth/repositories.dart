@@ -34,6 +34,12 @@ abstract class IAuthRepository {
     String code,
     String newPassword,
   });
+
+  Future<Either<AuthFailure, Unit>> changeEmail(String email);
+
+  Future<Either<AuthFailure, Unit>> changePassword(String password);
+
+  Future<Either<AuthFailure, Unit>> deleteUser();
 }
 
 enum AuthCredentialsProviders { google, facebook, apple }
