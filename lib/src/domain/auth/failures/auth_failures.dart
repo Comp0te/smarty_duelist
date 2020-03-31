@@ -2,10 +2,12 @@ import 'package:flutter/services.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 
+import '../../core/core.dart';
+
 part 'auth_failures.freezed.dart';
 
 @freezed
-abstract class AuthFailure with _$AuthFailure {
+abstract class AuthFailure with _$AuthFailure implements IFailure {
   const factory AuthFailure.cancelledByUser() = CancelledByUser;
   const factory AuthFailure.sendResetPassword(
     PlatformException exp,
