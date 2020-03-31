@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:smarty_duelist/src/core/core.dart' show SupportedLanguages;
 
 import 'entities/entities.dart';
+import 'failures/failures.dart';
 
 abstract class IAuthRepository {
   Future<Either<AuthFailure, User>> signInWithEmail({

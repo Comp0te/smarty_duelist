@@ -4,6 +4,7 @@ import 'package:meta/meta.dart';
 import 'package:smarty_duelist/src/core/core.dart' show SupportedLanguages;
 
 import 'entities/entities.dart';
+import 'failures/failures.dart';
 
 abstract class IAuthDataProvider {
   Future<Either<AuthFailure, User>> signInWithGoogle();
