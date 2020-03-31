@@ -30,6 +30,7 @@ class App extends StatelessWidget {
             locale: prefs.locale,
             localizationsDelegates: [S.delegate],
             supportedLocales: S.delegate.supportedLocales,
+            debugShowCheckedModeBanner: false,
             ios: (_) => CupertinoAppData(
               theme: getCupertinoThemeData(prefs.brightness),
               builder: ExtendedNavigator<CupertinoRouter>(
