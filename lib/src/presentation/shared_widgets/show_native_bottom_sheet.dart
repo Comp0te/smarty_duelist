@@ -35,8 +35,9 @@ Future<SelectorItem<T>> showNativeBottomSheet<T>(
   String message,
 }) {
   Widget _buildChild(BuildContext context, SelectorItem<T> item) {
-    if (actionContentBuilder != null)
+    if (actionContentBuilder != null) {
       return actionContentBuilder(context, item);
+    }
 
     return Text(item.label);
   }
