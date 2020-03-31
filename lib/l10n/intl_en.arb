@@ -35,5 +35,16 @@
   "signUpTitle": "Registration",
 
   "forgotPasswordTitle": "Forgot password",
-  "forgotPasswordSuccess": "We sent the password reset instructions to your email. Change password and login"
+  "forgotPasswordSuccess": "We sent the password reset instructions to your email. Change password and login",
+
+  "bottomSheetSelectLanguage": "Select Language",
+  "bottomSheetSelectTheme": "Select Theme",
+
+  "languageEnglish": "English",
+  "languageRussian": "Русский",
+  "languageUkrainian": "Українська",
+
+  "themeLight": "Light",
+  "themeDark": "Dark",
+  "themeSystem": "Inherit from system"
 }

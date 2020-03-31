@@ -27,6 +27,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "bottomSheetSelectLanguage" : MessageLookupByLibrary.simpleMessage("Select Language"),
+    "bottomSheetSelectTheme" : MessageLookupByLibrary.simpleMessage("Select Theme"),
     "cancel" : MessageLookupByLibrary.simpleMessage("Cancel"),
     "confirmPassword" : MessageLookupByLibrary.simpleMessage("Confirm password"),
     "email" : MessageLookupByLibrary.simpleMessage("Email"),
@@ -48,6 +50,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "errorWrongEmailOrPassword" : MessageLookupByLibrary.simpleMessage("Email or password is wrong"),
     "forgotPasswordSuccess" : MessageLookupByLibrary.simpleMessage("We sent the password reset instructions to your email. Change password and login"),
     "forgotPasswordTitle" : MessageLookupByLibrary.simpleMessage("Forgot password"),
+    "languageEnglish" : MessageLookupByLibrary.simpleMessage("English"),
+    "languageRussian" : MessageLookupByLibrary.simpleMessage("Русский"),
+    "languageUkrainian" : MessageLookupByLibrary.simpleMessage("Українська"),
     "ok" : MessageLookupByLibrary.simpleMessage("Ok"),
     "password" : MessageLookupByLibrary.simpleMessage("Password"),
     "signAccountExistsWithDifferentCredential" : m1,
@@ -59,6 +64,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "signUpTitle" : MessageLookupByLibrary.simpleMessage("Registration"),
     "singInEmail" : MessageLookupByLibrary.simpleMessage("Sign in with Email"),
     "submit" : MessageLookupByLibrary.simpleMessage("Submit"),
-    "success" : MessageLookupByLibrary.simpleMessage("Success")
+    "success" : MessageLookupByLibrary.simpleMessage("Success"),
+    "themeDark" : MessageLookupByLibrary.simpleMessage("Dark"),
+    "themeLight" : MessageLookupByLibrary.simpleMessage("Light"),
+    "themeSystem" : MessageLookupByLibrary.simpleMessage("Inherit from system")
   };
 }

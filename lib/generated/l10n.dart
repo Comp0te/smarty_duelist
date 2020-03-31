@@ -325,6 +325,78 @@ class S {
       args: [],
     );
   }
+
+  String get bottomSheetSelectLanguage {
+    return Intl.message(
+      'Select Language',
+      name: 'bottomSheetSelectLanguage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get bottomSheetSelectTheme {
+    return Intl.message(
+      'Select Theme',
+      name: 'bottomSheetSelectTheme',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get languageEnglish {
+    return Intl.message(
+      'English',
+      name: 'languageEnglish',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get languageRussian {
+    return Intl.message(
+      'Русский',
+      name: 'languageRussian',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get languageUkrainian {
+    return Intl.message(
+      'Українська',
+      name: 'languageUkrainian',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get themeLight {
+    return Intl.message(
+      'Light',
+      name: 'themeLight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get themeDark {
+    return Intl.message(
+      'Dark',
+      name: 'themeDark',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get themeSystem {
+    return Intl.message(
+      'Inherit from system',
+      name: 'themeSystem',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
