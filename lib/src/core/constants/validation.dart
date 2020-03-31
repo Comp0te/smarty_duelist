@@ -1,0 +1,1 @@
+const kMinPasswordLength = 8;

@@ -3,10 +3,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import 'package:smarty_duelist/generated/l10n.dart';
 import 'package:smarty_duelist/src/core/core.dart'
-    show OrientationMixin, makeConfirmPasswordValidator;
+    show OrientationMixin;
 import 'package:smarty_duelist/src/injector/injector.dart' show getIt;
 import 'package:smarty_duelist/src/presentation/shared_widgets/shared_widgets.dart'
     show Button, FormTextField, NativeScaffold;
@@ -96,11 +97,7 @@ class SignUpPage extends StatelessWidget
               icon: Icon(Icons.alternate_email),
               label: S.of(context).email,
               keyboardType: TextInputType.emailAddress,
-              validatorsList: [
-                FormBuilderValidators.email(
-                  errorText: S.of(context).errorEmailIncorrect,
-                ),
-              ],
+              validatorsList: signUpBloc.getEmailValidators(context),
             ),
           ),
           Container(
@@ -116,10 +113,7 @@ class SignUpPage extends StatelessWidget
               focusNode: signUpBloc.passwordFocusNode,
               icon: Icon(Icons.lock_outline),
               obscureText: true,
-              validatorsList: [
-                FormBuilderValidators.minLength(8,
-                    errorText: S.of(context).errorMinLength(8)),
-              ],
+              validatorsList: signUpBloc.getPasswordValidators(context),
             ),
           ),
           Container(
@@ -134,12 +128,7 @@ class SignUpPage extends StatelessWidget
               textInputAction: TextInputAction.done,
               icon: Icon(Icons.lock_outline),
               obscureText: true,
-              validatorsList: [
-                makeConfirmPasswordValidator(
-                  context: context,
-                  passwordController: signUpBloc.passwordController,
-                )
-              ],
+              validatorsList: signUpBloc.getConfirmPasswordValidators(context),
             ),
           ),
         ],

@@ -69,6 +69,8 @@ class ForgotPasswordPage extends StatelessWidget
       _submitForm(context);
     }
 
+    final forgotPasswordBloc = BlocProvider.of<ForgotPasswordBloc>(context);
+
     return Container(
       margin: const EdgeInsets.only(bottom: 20),
       child: Flex(
@@ -81,18 +83,13 @@ class ForgotPasswordPage extends StatelessWidget
             constraints: getMaxWidthConstraints(context, 0.4),
             margin: const EdgeInsets.only(bottom: 0),
             child: FormTextField(
-              controller:
-                  BlocProvider.of<ForgotPasswordBloc>(context).emailController,
+              controller: forgotPasswordBloc.emailController,
               attribute: describeEnum(ForgotPasswordFormData.email),
               onFiledSubmitted: onDoneActionSubmitted,
               icon: Icon(Icons.alternate_email),
               label: S.of(context).email,
               keyboardType: TextInputType.emailAddress,
-              validatorsList: [
-                FormBuilderValidators.email(
-                  errorText: S.of(context).errorEmailIncorrect,
-                ),
-              ],
+              validatorsList: forgotPasswordBloc.getEmailValidators(context),
             ),
           ),
         ],
