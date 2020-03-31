@@ -130,7 +130,7 @@ class SignInPage extends StatelessWidget
               focusNode: signInBloc.passwordFocusNode,
               onFiledSubmitted: onDoneActionSubmitted,
               textInputAction: TextInputAction.done,
-              icon: Icon(Icons.lock_outline),
+              icon: Icon(PlatformIcons(context).padlockSolid),
               obscureText: true,
               validatorsList: signInBloc.getPasswordValidators(context),
             ),
