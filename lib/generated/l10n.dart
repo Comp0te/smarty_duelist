@@ -9,7 +9,7 @@ import 'intl/messages_all.dart';
 // **************************************************************************
 
 class S {
-  S(this.localeName);
+  S();
   
   static const AppLocalizationDelegate delegate =
     AppLocalizationDelegate();
@@ -19,15 +19,13 @@ class S {
     final String localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
-      return S(localeName);
+      return S();
     });
   } 
 
   static S of(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
-
-  final String localeName;
 
   String get email {
     return Intl.message(
@@ -110,7 +108,7 @@ class S {
     );
   }
 
-  String errorMinLength(dynamic digit) {
+  String errorMinLength(Object digit) {
     return Intl.message(
       'Min $digit characters',
       name: 'errorMinLength',
@@ -254,7 +252,7 @@ class S {
     );
   }
 
-  String signInProvider(dynamic provider) {
+  String signInProvider(Object provider) {
     return Intl.message(
       'Sign in with $provider',
       name: 'signInProvider',
@@ -290,7 +288,7 @@ class S {
     );
   }
 
-  String signAccountExistsWithDifferentCredential(dynamic methods) {
+  String signAccountExistsWithDifferentCredential(Object methods) {
     return Intl.message(
       'You have already created an account for this email. Try logging in with: $methods',
       name: 'signAccountExistsWithDifferentCredential',

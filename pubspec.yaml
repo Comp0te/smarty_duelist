@@ -39,7 +39,7 @@ dependencies:
   dartz: ^0.8.9
   firebase_auth: ^0.15.5+3
   firebase_core: ^0.4.4+3
-  google_sign_in: ^4.3.0
+  google_sign_in: ^4.4.0
   rxdart: ^0.23.1
   animations: ^1.0.0+5
   json_serializable: ^3.3.0
@@ -50,7 +50,7 @@ dev_dependencies:
     sdk: flutter
   lint: ^1.1.1
   freezed: ^0.10.4
-  build_runner: ^1.8.0
+  build_runner: ^1.8.1
   injectable_generator: ^0.3.3
   auto_route_generator: ^0.4.0
 
