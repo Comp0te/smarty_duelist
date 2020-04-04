@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 import 'package:bloc/bloc.dart';
@@ -9,6 +10,8 @@ import 'bloc.dart';
 @injectable
 class SignOutBloc extends Bloc<SignOutEvent, SignOutState> {
   final IAuthRepository _authRepository;
+
+  final tabController = PlatformTabController();
 
   SignOutBloc({@required IAuthRepository authRepository})
       : assert(authRepository != null),
@@ -25,4 +28,11 @@ class SignOutBloc extends Bloc<SignOutEvent, SignOutState> {
 
     yield const Success();
   }
+
+  @override
+  Future<void> close() {
+    tabController.dispose();
+    return super.close();
+  }
+
 }
