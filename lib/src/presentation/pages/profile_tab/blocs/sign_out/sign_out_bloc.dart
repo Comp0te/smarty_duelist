@@ -34,5 +34,4 @@ class SignOutBloc extends Bloc<SignOutEvent, SignOutState> {
     tabController.dispose();
     return super.close();
   }
-
 }
