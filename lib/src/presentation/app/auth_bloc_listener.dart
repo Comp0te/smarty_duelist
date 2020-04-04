@@ -22,7 +22,7 @@ class AuthBlocListener extends StatelessWidget {
         state.maybeMap(
           authAuthenticated: (_) {
             ExtendedNavigator.rootNavigator
-                .pushReplacementNamed(Routes.homePage);
+                .pushReplacementNamed(Routes.mainBottomTabsPage);
           },
           authUnauthenticated: (_) {
             ExtendedNavigator.rootNavigator
