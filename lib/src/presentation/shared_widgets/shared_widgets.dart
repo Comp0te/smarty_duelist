@@ -6,3 +6,5 @@ export 'native_scaffold.dart';
 export 'native_alert.dart';
 export 'native_dialog_action.dart';
 export 'show_native_bottom_sheet.dart';
+export 'native_tab_scaffold.dart';
+export 'native_app_bar.dart';
