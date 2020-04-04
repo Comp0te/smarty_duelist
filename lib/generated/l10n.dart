@@ -90,6 +90,15 @@ class S {
     );
   }
 
+  String get logout {
+    return Intl.message(
+      'Logout',
+      name: 'logout',
+      desc: '',
+      args: [],
+    );
+  }
+
   String get error {
     return Intl.message(
       'Error',
@@ -391,6 +400,51 @@ class S {
     return Intl.message(
       'Inherit from system',
       name: 'themeSystem',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get bottomTabHome {
+    return Intl.message(
+      'Home',
+      name: 'bottomTabHome',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get bottomTabMessages {
+    return Intl.message(
+      'Messages',
+      name: 'bottomTabMessages',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get bottomTabGame {
+    return Intl.message(
+      'Game',
+      name: 'bottomTabGame',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get bottomTabShop {
+    return Intl.message(
+      'Shop',
+      name: 'bottomTabShop',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get bottomTabProfile {
+    return Intl.message(
+      'Profile',
+      name: 'bottomTabProfile',
       desc: '',
       args: [],
     );
