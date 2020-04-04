@@ -9,7 +9,12 @@ import 'package:smarty_duelist/src/presentation/routes/routes.dart';
 
 import '../profile_tab/profile_tab.dart';
 import '../../shared_widgets/shared_widgets.dart'
-    show NativeTabData, NativeTabScaffold, NativeAppBar;
+    show
+        LanguageButton,
+        NativeAppBar,
+        NativeTabData,
+        NativeTabScaffold,
+        ThemeButton;
 import 'blocs/blocs.dart';
 import '../../localisation/localisation.dart';
 
@@ -88,6 +93,10 @@ class MainBottomTabsPage extends StatelessWidget
           body: const ProfileTab(),
           appBar: NativeAppBar(
             title: Text(MainBottomTabs.profile.getLabel(context)),
+            trailingActions: const <Widget>[
+              LanguageButton(),
+              ThemeButton(),
+            ],
           ),
         ),
       ],
