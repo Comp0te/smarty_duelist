@@ -6,6 +6,7 @@
   "success": "Success",
   "ok": "Ok",
   "cancel": "Cancel",
+  "logout": "Logout",
 
   "error": "Error",
   "errorRequired": "Required",
@@ -46,5 +47,11 @@
 
   "themeLight": "Light",
   "themeDark": "Dark",
-  "themeSystem": "Inherit from system"
+  "themeSystem": "Inherit from system",
+
+  "bottomTabHome": "Home",
+  "bottomTabMessages": "Messages",
+  "bottomTabGame": "Game",
+  "bottomTabShop": "Shop",
+  "bottomTabProfile": "Profile"
 }
