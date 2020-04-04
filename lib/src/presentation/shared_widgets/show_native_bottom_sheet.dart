@@ -47,7 +47,7 @@ Future<SelectorItem<T>> showNativeBottomSheet<T>(
     builder: (context) => PlatformWidget(
       ios: (_) => CupertinoActionSheet(
         title: Text(title),
-        message: Text(message),
+        message: message != null ? Text(message) : null,
         actions: actions.map((item) {
           return CupertinoActionSheetAction(
             isDestructiveAction: item.isDestructive,
