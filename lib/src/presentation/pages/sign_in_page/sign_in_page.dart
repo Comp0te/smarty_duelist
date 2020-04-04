@@ -10,7 +10,13 @@ import 'package:smarty_duelist/src/core/core.dart' show OrientationMixin;
 import 'package:smarty_duelist/src/injector/injector.dart' show getIt;
 import 'package:smarty_duelist/src/presentation/routes/routes.dart' show Routes;
 import 'package:smarty_duelist/src/presentation/shared_widgets/shared_widgets.dart'
-    show Button, FormTextField, NativeScaffold, TextButton;
+    show
+        Button,
+        FormTextField,
+        LanguageButton,
+        NativeScaffold,
+        TextButton,
+        ThemeButton;
 
 import 'blocs/blocs.dart';
 import 'widgets/widgets.dart';
