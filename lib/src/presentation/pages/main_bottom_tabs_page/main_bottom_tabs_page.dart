@@ -31,6 +31,11 @@ class MainBottomTabsPage extends StatelessWidget
   Widget build(BuildContext context) {
     return NativeTabScaffold(
       tabController: BlocProvider.of<MainBottomTabsBloc>(context).tabController,
+      bottomNavBatItemChanged: (index) {
+        BlocProvider.of<MainBottomTabsBloc>(context).add(
+          NavigateToTab(MainBottomTabs.values[index]),
+        );
+      },
       tabsData: <NativeTabData>[
         NativeTabData(
           bottomNavBarItem: BottomNavigationBarItem(
