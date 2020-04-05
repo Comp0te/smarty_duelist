@@ -6,14 +6,18 @@ import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 
 import 'package:smarty_duelist/src/core/core.dart' show SupportedLanguages;
-import 'package:smarty_duelist/src/domain/auth/auth.dart';
 import 'package:smarty_duelist/src/domain/domain.dart'
     show
+        AccountExistsWithDifferentCredentialFailure,
         AuthFailure,
+        ChangeEmailFailure,
+        ChangePasswordFailure,
         ConfirmResetPasswordFailure,
+        DeleteUserFailure,
         FetchSignInMethodsForEmailFailure,
         IAuthDataProvider,
         SendResetPasswordFailure,
+        SignInWithCredentialFailure,
         SignInWithEmailFailure,
         SignUpWithEmailFailure,
         User;
