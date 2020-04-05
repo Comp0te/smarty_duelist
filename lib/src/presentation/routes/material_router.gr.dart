@@ -63,7 +63,7 @@ class MaterialRouter extends RouterBase {
       case Routes.mainBottomTabsPage:
         return PageRouteBuilder<dynamic>(
           pageBuilder: (ctx, animation, secondaryAnimation) =>
-              MainBottomTabsPage(),
+              MainBottomTabsPage().wrappedRoute,
           settings: settings,
           transitionsBuilder: TransitionsBuilders.fadeIn,
           transitionDuration: const Duration(milliseconds: 500),
