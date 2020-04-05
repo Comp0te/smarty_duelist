@@ -5,6 +5,7 @@ import 'package:meta/meta.dart';
 import 'package:bloc/bloc.dart';
 
 import 'package:smarty_duelist/src/domain/domain.dart' show IAuthRepository;
+
 import 'bloc.dart';
 
 enum SignUpFormData { email, password, confirmPassword }

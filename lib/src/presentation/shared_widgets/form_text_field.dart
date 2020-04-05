@@ -4,7 +4,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import 'package:smarty_duelist/generated/l10n.dart';
-import 'package:smarty_duelist/src/presentation/theme/theme.dart'
+import '../theme/theme.dart'
     show
         cupertinoPrimaryColor,
         cupertinoPrimaryColorDark,

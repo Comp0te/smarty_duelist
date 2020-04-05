@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
-import 'package:smarty_duelist/src/core/core.dart' show OrientationMixin;
 import 'package:smarty_duelist/src/injector/injector.dart' show getIt;
-import 'package:smarty_duelist/src/presentation/routes/routes.dart';
 
+import '../../routes/routes.dart';
 import '../profile_tab/profile_tab.dart';
+import '../../localisation/localisation.dart';
 import '../../shared_widgets/shared_widgets.dart'
     show
         LanguageButton,
@@ -16,11 +16,8 @@ import '../../shared_widgets/shared_widgets.dart'
         NativeTabScaffold,
         ThemeButton;
 import 'blocs/blocs.dart';
-import '../../localisation/localisation.dart';
 
-class MainBottomTabsPage extends StatelessWidget
-    with OrientationMixin
-    implements AutoRouteWrapper {
+class MainBottomTabsPage extends StatelessWidget implements AutoRouteWrapper {
   @override
   Widget get wrappedRoute => BlocProvider<MainBottomTabsBloc>(
         create: (_) => getIt<MainBottomTabsBloc>(),

@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
-import 'shared_widgets.dart' show Spinner;
+import 'spinner.dart' show Spinner;
 
 class Button extends StatelessWidget {
   final VoidCallback onPress;

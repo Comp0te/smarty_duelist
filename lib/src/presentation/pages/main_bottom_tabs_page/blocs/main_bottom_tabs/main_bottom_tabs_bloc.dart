@@ -2,9 +2,7 @@ import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:injectable/injectable.dart';
 import 'package:bloc/bloc.dart';
 
-import 'package:smarty_duelist/src/presentation/routes/routes.dart'
-    show MainBottomTabs;
-
+import '../../../../routes/routes.dart' show MainBottomTabs;
 import 'bloc.dart';
 
 @injectable

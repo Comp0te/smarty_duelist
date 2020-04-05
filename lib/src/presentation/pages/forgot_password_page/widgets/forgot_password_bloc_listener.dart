@@ -6,9 +6,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import 'package:smarty_duelist/generated/l10n.dart';
-import 'package:smarty_duelist/src/presentation/shared_widgets/shared_widgets.dart'
-    show NativeAlert, NativeDialogAction;
 
+import '../../../shared_widgets/shared_widgets.dart'
+    show NativeAlert, NativeDialogAction;
 import '../blocs/blocs.dart';
 
 class ForgotPasswordBlocListener extends StatelessWidget {

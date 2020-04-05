@@ -3,8 +3,8 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 import 'package:bloc/bloc.dart';
-import 'package:smarty_duelist/src/core/constants/constants.dart';
 
+import 'package:smarty_duelist/src/core/constants/constants.dart';
 import 'package:smarty_duelist/src/domain/domain.dart' show IAuthRepository;
 import 'bloc.dart';
 
