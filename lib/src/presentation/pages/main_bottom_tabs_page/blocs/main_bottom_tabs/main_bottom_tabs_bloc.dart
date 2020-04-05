@@ -8,8 +8,7 @@ import 'package:smarty_duelist/src/presentation/routes/routes.dart'
 import 'bloc.dart';
 
 @injectable
-class MainBottomTabsBloc
-    extends Bloc<MainBottomTabsEvent, MainBottomTabsState> {
+class MainBottomTabsBloc extends Bloc<MainBottomTabsEvent, MainBottomTabs> {
   final tabController = PlatformTabController(
     initialIndex: MainBottomTabs.home.index,
   );
@@ -17,14 +16,12 @@ class MainBottomTabsBloc
   MainBottomTabsBloc();
 
   @override
-  MainBottomTabsState get initialState => const MainBottomTabsState(
-        MainBottomTabs.home,
-      );
+  MainBottomTabs get initialState => MainBottomTabs.home;
 
   @override
-  Stream<MainBottomTabsState> mapEventToState(
-      MainBottomTabsEvent event) async* {
-    yield MainBottomTabsState(event.tab);
+  Stream<MainBottomTabs> mapEventToState(MainBottomTabsEvent event) async* {
+//    tabController.setIndex(event.tab.index); // TODO Added PR to package
+    yield event.tab;
   }
 
   @override
