@@ -1,11 +1,13 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
+import 'package:smarty_duelist/src/core/core.dart' show OrientationMixin;
+import 'package:smarty_duelist/src/injector/injector.dart' show getIt;
+import 'package:smarty_duelist/src/presentation/routes/routes.dart';
+
 import '../profile_tab/profile_tab.dart';
-import '../../routes/routes.dart';
-import '../../hooks/hooks.dart';
-import '../../localisation/localisation.dart';
 import '../../shared_widgets/shared_widgets.dart'
     show
         LanguageButton,
@@ -13,14 +15,27 @@ import '../../shared_widgets/shared_widgets.dart'
         NativeTabData,
         NativeTabScaffold,
         ThemeButton;
+import 'blocs/blocs.dart';
+import '../../localisation/localisation.dart';
 
-class MainBottomTabsPage extends HookWidget {
+class MainBottomTabsPage extends StatelessWidget
+    with OrientationMixin
+    implements AutoRouteWrapper {
+  @override
+  Widget get wrappedRoute => BlocProvider<MainBottomTabsBloc>(
+        create: (_) => getIt<MainBottomTabsBloc>(),
+        child: this,
+      );
+
   @override
   Widget build(BuildContext context) {
-    final tabController = usePlatformTabController(MainBottomTabs.home.index);
-
     return NativeTabScaffold(
-      tabController: tabController,
+      tabController: BlocProvider.of<MainBottomTabsBloc>(context).tabController,
+      bottomNavBatItemChanged: (index) {
+        BlocProvider.of<MainBottomTabsBloc>(context).add(
+          NavigateToTab(MainBottomTabs.values[index]),
+        );
+      },
       tabsData: <NativeTabData>[
         NativeTabData(
           bottomNavBarItem: BottomNavigationBarItem(
