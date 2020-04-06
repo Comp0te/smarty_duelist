@@ -41,6 +41,8 @@ dependencies:
   # API
   google_sign_in: ^4.4.0
   image_picker: ^0.6.4
+  extended_image: ^0.7.2
+  image_editor: ^0.1.6
 
 dev_dependencies:
   flutter_test:
