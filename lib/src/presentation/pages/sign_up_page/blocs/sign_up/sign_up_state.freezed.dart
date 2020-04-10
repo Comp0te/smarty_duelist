@@ -24,15 +24,15 @@ class _$SignUpStateTearOff {
     return const Loading();
   }
 
-  Success success({@required User user}) {
+  Success success(User user) {
     return Success(
-      user: user,
+      user,
     );
   }
 
-  Error error({@required AuthFailure failure}) {
+  Error error(AuthFailure failure) {
     return Error(
-      failure: failure,
+      failure,
     );
   }
 }
@@ -46,16 +46,16 @@ mixin _$SignUpState {
     @required Result init(),
     @required Result validationShowed(),
     @required Result loading(),
-    @required Result success(@required User user),
-    @required Result error(@required AuthFailure failure),
+    @required Result success(User user),
+    @required Result error(AuthFailure failure),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result init(),
     Result validationShowed(),
     Result loading(),
-    Result success(@required User user),
-    Result error(@required AuthFailure failure),
+    Result success(User user),
+    Result error(AuthFailure failure),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -133,8 +133,8 @@ class _$Init with DiagnosticableTreeMixin implements Init {
     @required Result init(),
     @required Result validationShowed(),
     @required Result loading(),
-    @required Result success(@required User user),
-    @required Result error(@required AuthFailure failure),
+    @required Result success(User user),
+    @required Result error(AuthFailure failure),
   }) {
     assert(init != null);
     assert(validationShowed != null);
@@ -150,8 +150,8 @@ class _$Init with DiagnosticableTreeMixin implements Init {
     Result init(),
     Result validationShowed(),
     Result loading(),
-    Result success(@required User user),
-    Result error(@required AuthFailure failure),
+    Result success(User user),
+    Result error(AuthFailure failure),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -248,8 +248,8 @@ class _$ValidationShowed
     @required Result init(),
     @required Result validationShowed(),
     @required Result loading(),
-    @required Result success(@required User user),
-    @required Result error(@required AuthFailure failure),
+    @required Result success(User user),
+    @required Result error(AuthFailure failure),
   }) {
     assert(init != null);
     assert(validationShowed != null);
@@ -265,8 +265,8 @@ class _$ValidationShowed
     Result init(),
     Result validationShowed(),
     Result loading(),
-    Result success(@required User user),
-    Result error(@required AuthFailure failure),
+    Result success(User user),
+    Result error(AuthFailure failure),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -357,8 +357,8 @@ class _$Loading with DiagnosticableTreeMixin implements Loading {
     @required Result init(),
     @required Result validationShowed(),
     @required Result loading(),
-    @required Result success(@required User user),
-    @required Result error(@required AuthFailure failure),
+    @required Result success(User user),
+    @required Result error(AuthFailure failure),
   }) {
     assert(init != null);
     assert(validationShowed != null);
@@ -374,8 +374,8 @@ class _$Loading with DiagnosticableTreeMixin implements Loading {
     Result init(),
     Result validationShowed(),
     Result loading(),
-    Result success(@required User user),
-    Result error(@required AuthFailure failure),
+    Result success(User user),
+    Result error(AuthFailure failure),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -445,7 +445,7 @@ class _$SuccessCopyWithImpl<$Res> extends _$SignUpStateCopyWithImpl<$Res>
     Object user = freezed,
   }) {
     return _then(Success(
-      user: user == freezed ? _value.user : user as User,
+      user == freezed ? _value.user : user as User,
     ));
   }
 
@@ -461,7 +461,7 @@ class _$SuccessCopyWithImpl<$Res> extends _$SignUpStateCopyWithImpl<$Res>
 }
 
 class _$Success with DiagnosticableTreeMixin implements Success {
-  const _$Success({@required this.user}) : assert(user != null);
+  const _$Success(this.user) : assert(user != null);
 
   @override
   final User user;
@@ -501,8 +501,8 @@ class _$Success with DiagnosticableTreeMixin implements Success {
     @required Result init(),
     @required Result validationShowed(),
     @required Result loading(),
-    @required Result success(@required User user),
-    @required Result error(@required AuthFailure failure),
+    @required Result success(User user),
+    @required Result error(AuthFailure failure),
   }) {
     assert(init != null);
     assert(validationShowed != null);
@@ -518,8 +518,8 @@ class _$Success with DiagnosticableTreeMixin implements Success {
     Result init(),
     Result validationShowed(),
     Result loading(),
-    Result success(@required User user),
-    Result error(@required AuthFailure failure),
+    Result success(User user),
+    Result error(AuthFailure failure),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -565,7 +565,7 @@ class _$Success with DiagnosticableTreeMixin implements Success {
 }
 
 abstract class Success implements SignUpState {
-  const factory Success({@required User user}) = _$Success;
+  const factory Success(User user) = _$Success;
 
   User get user;
   $SuccessCopyWith<Success> get copyWith;
@@ -592,7 +592,7 @@ class _$ErrorCopyWithImpl<$Res> extends _$SignUpStateCopyWithImpl<$Res>
     Object failure = freezed,
   }) {
     return _then(Error(
-      failure: failure == freezed ? _value.failure : failure as AuthFailure,
+      failure == freezed ? _value.failure : failure as AuthFailure,
     ));
   }
 
@@ -608,7 +608,7 @@ class _$ErrorCopyWithImpl<$Res> extends _$SignUpStateCopyWithImpl<$Res>
 }
 
 class _$Error with DiagnosticableTreeMixin implements Error {
-  const _$Error({@required this.failure}) : assert(failure != null);
+  const _$Error(this.failure) : assert(failure != null);
 
   @override
   final AuthFailure failure;
@@ -648,8 +648,8 @@ class _$Error with DiagnosticableTreeMixin implements Error {
     @required Result init(),
     @required Result validationShowed(),
     @required Result loading(),
-    @required Result success(@required User user),
-    @required Result error(@required AuthFailure failure),
+    @required Result success(User user),
+    @required Result error(AuthFailure failure),
   }) {
     assert(init != null);
     assert(validationShowed != null);
@@ -665,8 +665,8 @@ class _$Error with DiagnosticableTreeMixin implements Error {
     Result init(),
     Result validationShowed(),
     Result loading(),
-    Result success(@required User user),
-    Result error(@required AuthFailure failure),
+    Result success(User user),
+    Result error(AuthFailure failure),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -712,7 +712,7 @@ class _$Error with DiagnosticableTreeMixin implements Error {
 }
 
 abstract class Error implements SignUpState {
-  const factory Error({@required AuthFailure failure}) = _$Error;
+  const factory Error(AuthFailure failure) = _$Error;
 
   AuthFailure get failure;
   $ErrorCopyWith<Error> get copyWith;

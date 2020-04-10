@@ -24,9 +24,9 @@ class _$SignOutStateTearOff {
     return const Success();
   }
 
-  Error error({@required AuthFailure failure}) {
+  Error error(AuthFailure failure) {
     return Error(
-      failure: failure,
+      failure,
     );
   }
 }
@@ -40,14 +40,14 @@ mixin _$SignOutState {
     @required Result init(),
     @required Result loading(),
     @required Result success(),
-    @required Result error(@required AuthFailure failure),
+    @required Result error(AuthFailure failure),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result init(),
     Result loading(),
     Result success(),
-    Result error(@required AuthFailure failure),
+    Result error(AuthFailure failure),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -123,7 +123,7 @@ class _$Init with DiagnosticableTreeMixin implements Init {
     @required Result init(),
     @required Result loading(),
     @required Result success(),
-    @required Result error(@required AuthFailure failure),
+    @required Result error(AuthFailure failure),
   }) {
     assert(init != null);
     assert(loading != null);
@@ -138,7 +138,7 @@ class _$Init with DiagnosticableTreeMixin implements Init {
     Result init(),
     Result loading(),
     Result success(),
-    Result error(@required AuthFailure failure),
+    Result error(AuthFailure failure),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -226,7 +226,7 @@ class _$Loading with DiagnosticableTreeMixin implements Loading {
     @required Result init(),
     @required Result loading(),
     @required Result success(),
-    @required Result error(@required AuthFailure failure),
+    @required Result error(AuthFailure failure),
   }) {
     assert(init != null);
     assert(loading != null);
@@ -241,7 +241,7 @@ class _$Loading with DiagnosticableTreeMixin implements Loading {
     Result init(),
     Result loading(),
     Result success(),
-    Result error(@required AuthFailure failure),
+    Result error(AuthFailure failure),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -329,7 +329,7 @@ class _$Success with DiagnosticableTreeMixin implements Success {
     @required Result init(),
     @required Result loading(),
     @required Result success(),
-    @required Result error(@required AuthFailure failure),
+    @required Result error(AuthFailure failure),
   }) {
     assert(init != null);
     assert(loading != null);
@@ -344,7 +344,7 @@ class _$Success with DiagnosticableTreeMixin implements Success {
     Result init(),
     Result loading(),
     Result success(),
-    Result error(@required AuthFailure failure),
+    Result error(AuthFailure failure),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -411,7 +411,7 @@ class _$ErrorCopyWithImpl<$Res> extends _$SignOutStateCopyWithImpl<$Res>
     Object failure = freezed,
   }) {
     return _then(Error(
-      failure: failure == freezed ? _value.failure : failure as AuthFailure,
+      failure == freezed ? _value.failure : failure as AuthFailure,
     ));
   }
 
@@ -427,7 +427,7 @@ class _$ErrorCopyWithImpl<$Res> extends _$SignOutStateCopyWithImpl<$Res>
 }
 
 class _$Error with DiagnosticableTreeMixin implements Error {
-  const _$Error({@required this.failure}) : assert(failure != null);
+  const _$Error(this.failure) : assert(failure != null);
 
   @override
   final AuthFailure failure;
@@ -467,7 +467,7 @@ class _$Error with DiagnosticableTreeMixin implements Error {
     @required Result init(),
     @required Result loading(),
     @required Result success(),
-    @required Result error(@required AuthFailure failure),
+    @required Result error(AuthFailure failure),
   }) {
     assert(init != null);
     assert(loading != null);
@@ -482,7 +482,7 @@ class _$Error with DiagnosticableTreeMixin implements Error {
     Result init(),
     Result loading(),
     Result success(),
-    Result error(@required AuthFailure failure),
+    Result error(AuthFailure failure),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -525,7 +525,7 @@ class _$Error with DiagnosticableTreeMixin implements Error {
 }
 
 abstract class Error implements SignOutState {
-  const factory Error({@required AuthFailure failure}) = _$Error;
+  const factory Error(AuthFailure failure) = _$Error;
 
   AuthFailure get failure;
   $ErrorCopyWith<Error> get copyWith;
