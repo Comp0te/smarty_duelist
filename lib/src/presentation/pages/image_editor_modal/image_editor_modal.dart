@@ -74,7 +74,7 @@ class _ImageEditorModalState extends State<ImageEditorModal> {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Button(
             title: S.of(context).confirm,
-            onPress: () => imageEditorBloc.add(const Crop()),
+            onPress: () => imageEditorBloc.add(const Edit()),
           ),
         ),
       ],

@@ -20,8 +20,8 @@ class _$ImageEditorEventTearOff {
     return const SelectFromCamera();
   }
 
-  Crop crop() {
-    return const Crop();
+  Edit edit() {
+    return const Edit();
   }
 
   RotateLeft rotateLeft() {
@@ -49,7 +49,7 @@ mixin _$ImageEditorEvent {
   Result when<Result extends Object>({
     @required Result selectFromLibrary(),
     @required Result selectFromCamera(),
-    @required Result crop(),
+    @required Result edit(),
     @required Result rotateLeft(),
     @required Result rotateRight(),
     @required Result flip(),
@@ -59,7 +59,7 @@ mixin _$ImageEditorEvent {
   Result maybeWhen<Result extends Object>({
     Result selectFromLibrary(),
     Result selectFromCamera(),
-    Result crop(),
+    Result edit(),
     Result rotateLeft(),
     Result rotateRight(),
     Result flip(),
@@ -70,7 +70,7 @@ mixin _$ImageEditorEvent {
   Result map<Result extends Object>({
     @required Result selectFromLibrary(SelectFromLibrary value),
     @required Result selectFromCamera(SelectFromCamera value),
-    @required Result crop(Crop value),
+    @required Result edit(Edit value),
     @required Result rotateLeft(RotateLeft value),
     @required Result rotateRight(RotateRight value),
     @required Result flip(Flip value),
@@ -80,7 +80,7 @@ mixin _$ImageEditorEvent {
   Result maybeMap<Result extends Object>({
     Result selectFromLibrary(SelectFromLibrary value),
     Result selectFromCamera(SelectFromCamera value),
-    Result crop(Crop value),
+    Result edit(Edit value),
     Result rotateLeft(RotateLeft value),
     Result rotateRight(RotateRight value),
     Result flip(Flip value),
@@ -151,7 +151,7 @@ class _$SelectFromLibrary
   Result when<Result extends Object>({
     @required Result selectFromLibrary(),
     @required Result selectFromCamera(),
-    @required Result crop(),
+    @required Result edit(),
     @required Result rotateLeft(),
     @required Result rotateRight(),
     @required Result flip(),
@@ -159,7 +159,7 @@ class _$SelectFromLibrary
   }) {
     assert(selectFromLibrary != null);
     assert(selectFromCamera != null);
-    assert(crop != null);
+    assert(edit != null);
     assert(rotateLeft != null);
     assert(rotateRight != null);
     assert(flip != null);
@@ -172,7 +172,7 @@ class _$SelectFromLibrary
   Result maybeWhen<Result extends Object>({
     Result selectFromLibrary(),
     Result selectFromCamera(),
-    Result crop(),
+    Result edit(),
     Result rotateLeft(),
     Result rotateRight(),
     Result flip(),
@@ -191,7 +191,7 @@ class _$SelectFromLibrary
   Result map<Result extends Object>({
     @required Result selectFromLibrary(SelectFromLibrary value),
     @required Result selectFromCamera(SelectFromCamera value),
-    @required Result crop(Crop value),
+    @required Result edit(Edit value),
     @required Result rotateLeft(RotateLeft value),
     @required Result rotateRight(RotateRight value),
     @required Result flip(Flip value),
@@ -199,7 +199,7 @@ class _$SelectFromLibrary
   }) {
     assert(selectFromLibrary != null);
     assert(selectFromCamera != null);
-    assert(crop != null);
+    assert(edit != null);
     assert(rotateLeft != null);
     assert(rotateRight != null);
     assert(flip != null);
@@ -212,7 +212,7 @@ class _$SelectFromLibrary
   Result maybeMap<Result extends Object>({
     Result selectFromLibrary(SelectFromLibrary value),
     Result selectFromCamera(SelectFromCamera value),
-    Result crop(Crop value),
+    Result edit(Edit value),
     Result rotateLeft(RotateLeft value),
     Result rotateRight(RotateRight value),
     Result flip(Flip value),
@@ -278,7 +278,7 @@ class _$SelectFromCamera
   Result when<Result extends Object>({
     @required Result selectFromLibrary(),
     @required Result selectFromCamera(),
-    @required Result crop(),
+    @required Result edit(),
     @required Result rotateLeft(),
     @required Result rotateRight(),
     @required Result flip(),
@@ -286,7 +286,7 @@ class _$SelectFromCamera
   }) {
     assert(selectFromLibrary != null);
     assert(selectFromCamera != null);
-    assert(crop != null);
+    assert(edit != null);
     assert(rotateLeft != null);
     assert(rotateRight != null);
     assert(flip != null);
@@ -299,7 +299,7 @@ class _$SelectFromCamera
   Result maybeWhen<Result extends Object>({
     Result selectFromLibrary(),
     Result selectFromCamera(),
-    Result crop(),
+    Result edit(),
     Result rotateLeft(),
     Result rotateRight(),
     Result flip(),
@@ -318,7 +318,7 @@ class _$SelectFromCamera
   Result map<Result extends Object>({
     @required Result selectFromLibrary(SelectFromLibrary value),
     @required Result selectFromCamera(SelectFromCamera value),
-    @required Result crop(Crop value),
+    @required Result edit(Edit value),
     @required Result rotateLeft(RotateLeft value),
     @required Result rotateRight(RotateRight value),
     @required Result flip(Flip value),
@@ -326,7 +326,7 @@ class _$SelectFromCamera
   }) {
     assert(selectFromLibrary != null);
     assert(selectFromCamera != null);
-    assert(crop != null);
+    assert(edit != null);
     assert(rotateLeft != null);
     assert(rotateRight != null);
     assert(flip != null);
@@ -339,7 +339,7 @@ class _$SelectFromCamera
   Result maybeMap<Result extends Object>({
     Result selectFromLibrary(SelectFromLibrary value),
     Result selectFromCamera(SelectFromCamera value),
-    Result crop(Crop value),
+    Result edit(Edit value),
     Result rotateLeft(RotateLeft value),
     Result rotateRight(RotateRight value),
     Result flip(Flip value),
@@ -358,37 +358,37 @@ abstract class SelectFromCamera implements ImageEditorEvent {
   const factory SelectFromCamera() = _$SelectFromCamera;
 }
 
-abstract class $CropCopyWith<$Res> {
-  factory $CropCopyWith(Crop value, $Res Function(Crop) then) =
-      _$CropCopyWithImpl<$Res>;
+abstract class $EditCopyWith<$Res> {
+  factory $EditCopyWith(Edit value, $Res Function(Edit) then) =
+      _$EditCopyWithImpl<$Res>;
 }
 
-class _$CropCopyWithImpl<$Res> extends _$ImageEditorEventCopyWithImpl<$Res>
-    implements $CropCopyWith<$Res> {
-  _$CropCopyWithImpl(Crop _value, $Res Function(Crop) _then)
-      : super(_value, (v) => _then(v as Crop));
+class _$EditCopyWithImpl<$Res> extends _$ImageEditorEventCopyWithImpl<$Res>
+    implements $EditCopyWith<$Res> {
+  _$EditCopyWithImpl(Edit _value, $Res Function(Edit) _then)
+      : super(_value, (v) => _then(v as Edit));
 
   @override
-  Crop get _value => super._value as Crop;
+  Edit get _value => super._value as Edit;
 }
 
-class _$Crop with DiagnosticableTreeMixin implements Crop {
-  const _$Crop();
+class _$Edit with DiagnosticableTreeMixin implements Edit {
+  const _$Edit();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ImageEditorEvent.crop()';
+    return 'ImageEditorEvent.edit()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'ImageEditorEvent.crop'));
+    properties..add(DiagnosticsProperty('type', 'ImageEditorEvent.edit'));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is Crop);
+    return identical(this, other) || (other is Edit);
   }
 
   @override
@@ -399,7 +399,7 @@ class _$Crop with DiagnosticableTreeMixin implements Crop {
   Result when<Result extends Object>({
     @required Result selectFromLibrary(),
     @required Result selectFromCamera(),
-    @required Result crop(),
+    @required Result edit(),
     @required Result rotateLeft(),
     @required Result rotateRight(),
     @required Result flip(),
@@ -407,12 +407,12 @@ class _$Crop with DiagnosticableTreeMixin implements Crop {
   }) {
     assert(selectFromLibrary != null);
     assert(selectFromCamera != null);
-    assert(crop != null);
+    assert(edit != null);
     assert(rotateLeft != null);
     assert(rotateRight != null);
     assert(flip != null);
     assert(restore != null);
-    return crop();
+    return edit();
   }
 
   @override
@@ -420,7 +420,7 @@ class _$Crop with DiagnosticableTreeMixin implements Crop {
   Result maybeWhen<Result extends Object>({
     Result selectFromLibrary(),
     Result selectFromCamera(),
-    Result crop(),
+    Result edit(),
     Result rotateLeft(),
     Result rotateRight(),
     Result flip(),
@@ -428,8 +428,8 @@ class _$Crop with DiagnosticableTreeMixin implements Crop {
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (crop != null) {
-      return crop();
+    if (edit != null) {
+      return edit();
     }
     return orElse();
   }
@@ -439,7 +439,7 @@ class _$Crop with DiagnosticableTreeMixin implements Crop {
   Result map<Result extends Object>({
     @required Result selectFromLibrary(SelectFromLibrary value),
     @required Result selectFromCamera(SelectFromCamera value),
-    @required Result crop(Crop value),
+    @required Result edit(Edit value),
     @required Result rotateLeft(RotateLeft value),
     @required Result rotateRight(RotateRight value),
     @required Result flip(Flip value),
@@ -447,12 +447,12 @@ class _$Crop with DiagnosticableTreeMixin implements Crop {
   }) {
     assert(selectFromLibrary != null);
     assert(selectFromCamera != null);
-    assert(crop != null);
+    assert(edit != null);
     assert(rotateLeft != null);
     assert(rotateRight != null);
     assert(flip != null);
     assert(restore != null);
-    return crop(this);
+    return edit(this);
   }
 
   @override
@@ -460,7 +460,7 @@ class _$Crop with DiagnosticableTreeMixin implements Crop {
   Result maybeMap<Result extends Object>({
     Result selectFromLibrary(SelectFromLibrary value),
     Result selectFromCamera(SelectFromCamera value),
-    Result crop(Crop value),
+    Result edit(Edit value),
     Result rotateLeft(RotateLeft value),
     Result rotateRight(RotateRight value),
     Result flip(Flip value),
@@ -468,15 +468,15 @@ class _$Crop with DiagnosticableTreeMixin implements Crop {
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (crop != null) {
-      return crop(this);
+    if (edit != null) {
+      return edit(this);
     }
     return orElse();
   }
 }
 
-abstract class Crop implements ImageEditorEvent {
-  const factory Crop() = _$Crop;
+abstract class Edit implements ImageEditorEvent {
+  const factory Edit() = _$Edit;
 }
 
 abstract class $RotateLeftCopyWith<$Res> {
@@ -522,7 +522,7 @@ class _$RotateLeft with DiagnosticableTreeMixin implements RotateLeft {
   Result when<Result extends Object>({
     @required Result selectFromLibrary(),
     @required Result selectFromCamera(),
-    @required Result crop(),
+    @required Result edit(),
     @required Result rotateLeft(),
     @required Result rotateRight(),
     @required Result flip(),
@@ -530,7 +530,7 @@ class _$RotateLeft with DiagnosticableTreeMixin implements RotateLeft {
   }) {
     assert(selectFromLibrary != null);
     assert(selectFromCamera != null);
-    assert(crop != null);
+    assert(edit != null);
     assert(rotateLeft != null);
     assert(rotateRight != null);
     assert(flip != null);
@@ -543,7 +543,7 @@ class _$RotateLeft with DiagnosticableTreeMixin implements RotateLeft {
   Result maybeWhen<Result extends Object>({
     Result selectFromLibrary(),
     Result selectFromCamera(),
-    Result crop(),
+    Result edit(),
     Result rotateLeft(),
     Result rotateRight(),
     Result flip(),
@@ -562,7 +562,7 @@ class _$RotateLeft with DiagnosticableTreeMixin implements RotateLeft {
   Result map<Result extends Object>({
     @required Result selectFromLibrary(SelectFromLibrary value),
     @required Result selectFromCamera(SelectFromCamera value),
-    @required Result crop(Crop value),
+    @required Result edit(Edit value),
     @required Result rotateLeft(RotateLeft value),
     @required Result rotateRight(RotateRight value),
     @required Result flip(Flip value),
@@ -570,7 +570,7 @@ class _$RotateLeft with DiagnosticableTreeMixin implements RotateLeft {
   }) {
     assert(selectFromLibrary != null);
     assert(selectFromCamera != null);
-    assert(crop != null);
+    assert(edit != null);
     assert(rotateLeft != null);
     assert(rotateRight != null);
     assert(flip != null);
@@ -583,7 +583,7 @@ class _$RotateLeft with DiagnosticableTreeMixin implements RotateLeft {
   Result maybeMap<Result extends Object>({
     Result selectFromLibrary(SelectFromLibrary value),
     Result selectFromCamera(SelectFromCamera value),
-    Result crop(Crop value),
+    Result edit(Edit value),
     Result rotateLeft(RotateLeft value),
     Result rotateRight(RotateRight value),
     Result flip(Flip value),
@@ -647,7 +647,7 @@ class _$RotateRight with DiagnosticableTreeMixin implements RotateRight {
   Result when<Result extends Object>({
     @required Result selectFromLibrary(),
     @required Result selectFromCamera(),
-    @required Result crop(),
+    @required Result edit(),
     @required Result rotateLeft(),
     @required Result rotateRight(),
     @required Result flip(),
@@ -655,7 +655,7 @@ class _$RotateRight with DiagnosticableTreeMixin implements RotateRight {
   }) {
     assert(selectFromLibrary != null);
     assert(selectFromCamera != null);
-    assert(crop != null);
+    assert(edit != null);
     assert(rotateLeft != null);
     assert(rotateRight != null);
     assert(flip != null);
@@ -668,7 +668,7 @@ class _$RotateRight with DiagnosticableTreeMixin implements RotateRight {
   Result maybeWhen<Result extends Object>({
     Result selectFromLibrary(),
     Result selectFromCamera(),
-    Result crop(),
+    Result edit(),
     Result rotateLeft(),
     Result rotateRight(),
     Result flip(),
@@ -687,7 +687,7 @@ class _$RotateRight with DiagnosticableTreeMixin implements RotateRight {
   Result map<Result extends Object>({
     @required Result selectFromLibrary(SelectFromLibrary value),
     @required Result selectFromCamera(SelectFromCamera value),
-    @required Result crop(Crop value),
+    @required Result edit(Edit value),
     @required Result rotateLeft(RotateLeft value),
     @required Result rotateRight(RotateRight value),
     @required Result flip(Flip value),
@@ -695,7 +695,7 @@ class _$RotateRight with DiagnosticableTreeMixin implements RotateRight {
   }) {
     assert(selectFromLibrary != null);
     assert(selectFromCamera != null);
-    assert(crop != null);
+    assert(edit != null);
     assert(rotateLeft != null);
     assert(rotateRight != null);
     assert(flip != null);
@@ -708,7 +708,7 @@ class _$RotateRight with DiagnosticableTreeMixin implements RotateRight {
   Result maybeMap<Result extends Object>({
     Result selectFromLibrary(SelectFromLibrary value),
     Result selectFromCamera(SelectFromCamera value),
-    Result crop(Crop value),
+    Result edit(Edit value),
     Result rotateLeft(RotateLeft value),
     Result rotateRight(RotateRight value),
     Result flip(Flip value),
@@ -768,7 +768,7 @@ class _$Flip with DiagnosticableTreeMixin implements Flip {
   Result when<Result extends Object>({
     @required Result selectFromLibrary(),
     @required Result selectFromCamera(),
-    @required Result crop(),
+    @required Result edit(),
     @required Result rotateLeft(),
     @required Result rotateRight(),
     @required Result flip(),
@@ -776,7 +776,7 @@ class _$Flip with DiagnosticableTreeMixin implements Flip {
   }) {
     assert(selectFromLibrary != null);
     assert(selectFromCamera != null);
-    assert(crop != null);
+    assert(edit != null);
     assert(rotateLeft != null);
     assert(rotateRight != null);
     assert(flip != null);
@@ -789,7 +789,7 @@ class _$Flip with DiagnosticableTreeMixin implements Flip {
   Result maybeWhen<Result extends Object>({
     Result selectFromLibrary(),
     Result selectFromCamera(),
-    Result crop(),
+    Result edit(),
     Result rotateLeft(),
     Result rotateRight(),
     Result flip(),
@@ -808,7 +808,7 @@ class _$Flip with DiagnosticableTreeMixin implements Flip {
   Result map<Result extends Object>({
     @required Result selectFromLibrary(SelectFromLibrary value),
     @required Result selectFromCamera(SelectFromCamera value),
-    @required Result crop(Crop value),
+    @required Result edit(Edit value),
     @required Result rotateLeft(RotateLeft value),
     @required Result rotateRight(RotateRight value),
     @required Result flip(Flip value),
@@ -816,7 +816,7 @@ class _$Flip with DiagnosticableTreeMixin implements Flip {
   }) {
     assert(selectFromLibrary != null);
     assert(selectFromCamera != null);
-    assert(crop != null);
+    assert(edit != null);
     assert(rotateLeft != null);
     assert(rotateRight != null);
     assert(flip != null);
@@ -829,7 +829,7 @@ class _$Flip with DiagnosticableTreeMixin implements Flip {
   Result maybeMap<Result extends Object>({
     Result selectFromLibrary(SelectFromLibrary value),
     Result selectFromCamera(SelectFromCamera value),
-    Result crop(Crop value),
+    Result edit(Edit value),
     Result rotateLeft(RotateLeft value),
     Result rotateRight(RotateRight value),
     Result flip(Flip value),
@@ -889,7 +889,7 @@ class _$Restore with DiagnosticableTreeMixin implements Restore {
   Result when<Result extends Object>({
     @required Result selectFromLibrary(),
     @required Result selectFromCamera(),
-    @required Result crop(),
+    @required Result edit(),
     @required Result rotateLeft(),
     @required Result rotateRight(),
     @required Result flip(),
@@ -897,7 +897,7 @@ class _$Restore with DiagnosticableTreeMixin implements Restore {
   }) {
     assert(selectFromLibrary != null);
     assert(selectFromCamera != null);
-    assert(crop != null);
+    assert(edit != null);
     assert(rotateLeft != null);
     assert(rotateRight != null);
     assert(flip != null);
@@ -910,7 +910,7 @@ class _$Restore with DiagnosticableTreeMixin implements Restore {
   Result maybeWhen<Result extends Object>({
     Result selectFromLibrary(),
     Result selectFromCamera(),
-    Result crop(),
+    Result edit(),
     Result rotateLeft(),
     Result rotateRight(),
     Result flip(),
@@ -929,7 +929,7 @@ class _$Restore with DiagnosticableTreeMixin implements Restore {
   Result map<Result extends Object>({
     @required Result selectFromLibrary(SelectFromLibrary value),
     @required Result selectFromCamera(SelectFromCamera value),
-    @required Result crop(Crop value),
+    @required Result edit(Edit value),
     @required Result rotateLeft(RotateLeft value),
     @required Result rotateRight(RotateRight value),
     @required Result flip(Flip value),
@@ -937,7 +937,7 @@ class _$Restore with DiagnosticableTreeMixin implements Restore {
   }) {
     assert(selectFromLibrary != null);
     assert(selectFromCamera != null);
-    assert(crop != null);
+    assert(edit != null);
     assert(rotateLeft != null);
     assert(rotateRight != null);
     assert(flip != null);
@@ -950,7 +950,7 @@ class _$Restore with DiagnosticableTreeMixin implements Restore {
   Result maybeMap<Result extends Object>({
     Result selectFromLibrary(SelectFromLibrary value),
     Result selectFromCamera(SelectFromCamera value),
-    Result crop(Crop value),
+    Result edit(Edit value),
     Result rotateLeft(RotateLeft value),
     Result rotateRight(RotateRight value),
     Result flip(Flip value),

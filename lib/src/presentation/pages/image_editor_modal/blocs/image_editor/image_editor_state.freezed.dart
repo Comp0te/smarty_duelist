@@ -26,8 +26,8 @@ class _$ImageEditorStateTearOff {
     );
   }
 
-  ImageCropped imageCropped(Uint8List imageData) {
-    return ImageCropped(
+  ImageEdited imageEdited(Uint8List imageData) {
+    return ImageEdited(
       imageData,
     );
   }
@@ -48,7 +48,7 @@ mixin _$ImageEditorState {
     @required Result init(),
     @required Result loading(),
     @required Result imageSelected(Uint8List imageData),
-    @required Result imageCropped(Uint8List imageData),
+    @required Result imageEdited(Uint8List imageData),
     @required Result error(ImageFailure failure),
   });
   @optionalTypeArgs
@@ -56,7 +56,7 @@ mixin _$ImageEditorState {
     Result init(),
     Result loading(),
     Result imageSelected(Uint8List imageData),
-    Result imageCropped(Uint8List imageData),
+    Result imageEdited(Uint8List imageData),
     Result error(ImageFailure failure),
     @required Result orElse(),
   });
@@ -65,7 +65,7 @@ mixin _$ImageEditorState {
     @required Result init(Init value),
     @required Result loading(Loading value),
     @required Result imageSelected(ImageSelected value),
-    @required Result imageCropped(ImageCropped value),
+    @required Result imageEdited(ImageEdited value),
     @required Result error(Error value),
   });
   @optionalTypeArgs
@@ -73,7 +73,7 @@ mixin _$ImageEditorState {
     Result init(Init value),
     Result loading(Loading value),
     Result imageSelected(ImageSelected value),
-    Result imageCropped(ImageCropped value),
+    Result imageEdited(ImageEdited value),
     Result error(Error value),
     @required Result orElse(),
   });
@@ -136,13 +136,13 @@ class _$Init with DiagnosticableTreeMixin implements Init {
     @required Result init(),
     @required Result loading(),
     @required Result imageSelected(Uint8List imageData),
-    @required Result imageCropped(Uint8List imageData),
+    @required Result imageEdited(Uint8List imageData),
     @required Result error(ImageFailure failure),
   }) {
     assert(init != null);
     assert(loading != null);
     assert(imageSelected != null);
-    assert(imageCropped != null);
+    assert(imageEdited != null);
     assert(error != null);
     return init();
   }
@@ -153,7 +153,7 @@ class _$Init with DiagnosticableTreeMixin implements Init {
     Result init(),
     Result loading(),
     Result imageSelected(Uint8List imageData),
-    Result imageCropped(Uint8List imageData),
+    Result imageEdited(Uint8List imageData),
     Result error(ImageFailure failure),
     @required Result orElse(),
   }) {
@@ -170,13 +170,13 @@ class _$Init with DiagnosticableTreeMixin implements Init {
     @required Result init(Init value),
     @required Result loading(Loading value),
     @required Result imageSelected(ImageSelected value),
-    @required Result imageCropped(ImageCropped value),
+    @required Result imageEdited(ImageEdited value),
     @required Result error(Error value),
   }) {
     assert(init != null);
     assert(loading != null);
     assert(imageSelected != null);
-    assert(imageCropped != null);
+    assert(imageEdited != null);
     assert(error != null);
     return init(this);
   }
@@ -187,7 +187,7 @@ class _$Init with DiagnosticableTreeMixin implements Init {
     Result init(Init value),
     Result loading(Loading value),
     Result imageSelected(ImageSelected value),
-    Result imageCropped(ImageCropped value),
+    Result imageEdited(ImageEdited value),
     Result error(Error value),
     @required Result orElse(),
   }) {
@@ -245,13 +245,13 @@ class _$Loading with DiagnosticableTreeMixin implements Loading {
     @required Result init(),
     @required Result loading(),
     @required Result imageSelected(Uint8List imageData),
-    @required Result imageCropped(Uint8List imageData),
+    @required Result imageEdited(Uint8List imageData),
     @required Result error(ImageFailure failure),
   }) {
     assert(init != null);
     assert(loading != null);
     assert(imageSelected != null);
-    assert(imageCropped != null);
+    assert(imageEdited != null);
     assert(error != null);
     return loading();
   }
@@ -262,7 +262,7 @@ class _$Loading with DiagnosticableTreeMixin implements Loading {
     Result init(),
     Result loading(),
     Result imageSelected(Uint8List imageData),
-    Result imageCropped(Uint8List imageData),
+    Result imageEdited(Uint8List imageData),
     Result error(ImageFailure failure),
     @required Result orElse(),
   }) {
@@ -279,13 +279,13 @@ class _$Loading with DiagnosticableTreeMixin implements Loading {
     @required Result init(Init value),
     @required Result loading(Loading value),
     @required Result imageSelected(ImageSelected value),
-    @required Result imageCropped(ImageCropped value),
+    @required Result imageEdited(ImageEdited value),
     @required Result error(Error value),
   }) {
     assert(init != null);
     assert(loading != null);
     assert(imageSelected != null);
-    assert(imageCropped != null);
+    assert(imageEdited != null);
     assert(error != null);
     return loading(this);
   }
@@ -296,7 +296,7 @@ class _$Loading with DiagnosticableTreeMixin implements Loading {
     Result init(Init value),
     Result loading(Loading value),
     Result imageSelected(ImageSelected value),
-    Result imageCropped(ImageCropped value),
+    Result imageEdited(ImageEdited value),
     Result error(Error value),
     @required Result orElse(),
   }) {
@@ -381,13 +381,13 @@ class _$ImageSelected with DiagnosticableTreeMixin implements ImageSelected {
     @required Result init(),
     @required Result loading(),
     @required Result imageSelected(Uint8List imageData),
-    @required Result imageCropped(Uint8List imageData),
+    @required Result imageEdited(Uint8List imageData),
     @required Result error(ImageFailure failure),
   }) {
     assert(init != null);
     assert(loading != null);
     assert(imageSelected != null);
-    assert(imageCropped != null);
+    assert(imageEdited != null);
     assert(error != null);
     return imageSelected(imageData);
   }
@@ -398,7 +398,7 @@ class _$ImageSelected with DiagnosticableTreeMixin implements ImageSelected {
     Result init(),
     Result loading(),
     Result imageSelected(Uint8List imageData),
-    Result imageCropped(Uint8List imageData),
+    Result imageEdited(Uint8List imageData),
     Result error(ImageFailure failure),
     @required Result orElse(),
   }) {
@@ -415,13 +415,13 @@ class _$ImageSelected with DiagnosticableTreeMixin implements ImageSelected {
     @required Result init(Init value),
     @required Result loading(Loading value),
     @required Result imageSelected(ImageSelected value),
-    @required Result imageCropped(ImageCropped value),
+    @required Result imageEdited(ImageEdited value),
     @required Result error(Error value),
   }) {
     assert(init != null);
     assert(loading != null);
     assert(imageSelected != null);
-    assert(imageCropped != null);
+    assert(imageEdited != null);
     assert(error != null);
     return imageSelected(this);
   }
@@ -432,7 +432,7 @@ class _$ImageSelected with DiagnosticableTreeMixin implements ImageSelected {
     Result init(Init value),
     Result loading(Loading value),
     Result imageSelected(ImageSelected value),
-    Result imageCropped(ImageCropped value),
+    Result imageEdited(ImageEdited value),
     Result error(Error value),
     @required Result orElse(),
   }) {
@@ -451,56 +451,56 @@ abstract class ImageSelected implements ImageEditorState {
   $ImageSelectedCopyWith<ImageSelected> get copyWith;
 }
 
-abstract class $ImageCroppedCopyWith<$Res> {
-  factory $ImageCroppedCopyWith(
-          ImageCropped value, $Res Function(ImageCropped) then) =
-      _$ImageCroppedCopyWithImpl<$Res>;
+abstract class $ImageEditedCopyWith<$Res> {
+  factory $ImageEditedCopyWith(
+          ImageEdited value, $Res Function(ImageEdited) then) =
+      _$ImageEditedCopyWithImpl<$Res>;
   $Res call({Uint8List imageData});
 }
 
-class _$ImageCroppedCopyWithImpl<$Res>
+class _$ImageEditedCopyWithImpl<$Res>
     extends _$ImageEditorStateCopyWithImpl<$Res>
-    implements $ImageCroppedCopyWith<$Res> {
-  _$ImageCroppedCopyWithImpl(
-      ImageCropped _value, $Res Function(ImageCropped) _then)
-      : super(_value, (v) => _then(v as ImageCropped));
+    implements $ImageEditedCopyWith<$Res> {
+  _$ImageEditedCopyWithImpl(
+      ImageEdited _value, $Res Function(ImageEdited) _then)
+      : super(_value, (v) => _then(v as ImageEdited));
 
   @override
-  ImageCropped get _value => super._value as ImageCropped;
+  ImageEdited get _value => super._value as ImageEdited;
 
   @override
   $Res call({
     Object imageData = freezed,
   }) {
-    return _then(ImageCropped(
+    return _then(ImageEdited(
       imageData == freezed ? _value.imageData : imageData as Uint8List,
     ));
   }
 }
 
-class _$ImageCropped with DiagnosticableTreeMixin implements ImageCropped {
-  const _$ImageCropped(this.imageData) : assert(imageData != null);
+class _$ImageEdited with DiagnosticableTreeMixin implements ImageEdited {
+  const _$ImageEdited(this.imageData) : assert(imageData != null);
 
   @override
   final Uint8List imageData;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ImageEditorState.imageCropped(imageData: $imageData)';
+    return 'ImageEditorState.imageEdited(imageData: $imageData)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'ImageEditorState.imageCropped'))
+      ..add(DiagnosticsProperty('type', 'ImageEditorState.imageEdited'))
       ..add(DiagnosticsProperty('imageData', imageData));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is ImageCropped &&
+        (other is ImageEdited &&
             (identical(other.imageData, imageData) ||
                 const DeepCollectionEquality()
                     .equals(other.imageData, imageData)));
@@ -511,8 +511,8 @@ class _$ImageCropped with DiagnosticableTreeMixin implements ImageCropped {
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(imageData);
 
   @override
-  $ImageCroppedCopyWith<ImageCropped> get copyWith =>
-      _$ImageCroppedCopyWithImpl<ImageCropped>(this, _$identity);
+  $ImageEditedCopyWith<ImageEdited> get copyWith =>
+      _$ImageEditedCopyWithImpl<ImageEdited>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -520,15 +520,15 @@ class _$ImageCropped with DiagnosticableTreeMixin implements ImageCropped {
     @required Result init(),
     @required Result loading(),
     @required Result imageSelected(Uint8List imageData),
-    @required Result imageCropped(Uint8List imageData),
+    @required Result imageEdited(Uint8List imageData),
     @required Result error(ImageFailure failure),
   }) {
     assert(init != null);
     assert(loading != null);
     assert(imageSelected != null);
-    assert(imageCropped != null);
+    assert(imageEdited != null);
     assert(error != null);
-    return imageCropped(imageData);
+    return imageEdited(imageData);
   }
 
   @override
@@ -537,13 +537,13 @@ class _$ImageCropped with DiagnosticableTreeMixin implements ImageCropped {
     Result init(),
     Result loading(),
     Result imageSelected(Uint8List imageData),
-    Result imageCropped(Uint8List imageData),
+    Result imageEdited(Uint8List imageData),
     Result error(ImageFailure failure),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (imageCropped != null) {
-      return imageCropped(imageData);
+    if (imageEdited != null) {
+      return imageEdited(imageData);
     }
     return orElse();
   }
@@ -554,15 +554,15 @@ class _$ImageCropped with DiagnosticableTreeMixin implements ImageCropped {
     @required Result init(Init value),
     @required Result loading(Loading value),
     @required Result imageSelected(ImageSelected value),
-    @required Result imageCropped(ImageCropped value),
+    @required Result imageEdited(ImageEdited value),
     @required Result error(Error value),
   }) {
     assert(init != null);
     assert(loading != null);
     assert(imageSelected != null);
-    assert(imageCropped != null);
+    assert(imageEdited != null);
     assert(error != null);
-    return imageCropped(this);
+    return imageEdited(this);
   }
 
   @override
@@ -571,23 +571,23 @@ class _$ImageCropped with DiagnosticableTreeMixin implements ImageCropped {
     Result init(Init value),
     Result loading(Loading value),
     Result imageSelected(ImageSelected value),
-    Result imageCropped(ImageCropped value),
+    Result imageEdited(ImageEdited value),
     Result error(Error value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (imageCropped != null) {
-      return imageCropped(this);
+    if (imageEdited != null) {
+      return imageEdited(this);
     }
     return orElse();
   }
 }
 
-abstract class ImageCropped implements ImageEditorState {
-  const factory ImageCropped(Uint8List imageData) = _$ImageCropped;
+abstract class ImageEdited implements ImageEditorState {
+  const factory ImageEdited(Uint8List imageData) = _$ImageEdited;
 
   Uint8List get imageData;
-  $ImageCroppedCopyWith<ImageCropped> get copyWith;
+  $ImageEditedCopyWith<ImageEdited> get copyWith;
 }
 
 abstract class $ErrorCopyWith<$Res> {
@@ -667,13 +667,13 @@ class _$Error with DiagnosticableTreeMixin implements Error {
     @required Result init(),
     @required Result loading(),
     @required Result imageSelected(Uint8List imageData),
-    @required Result imageCropped(Uint8List imageData),
+    @required Result imageEdited(Uint8List imageData),
     @required Result error(ImageFailure failure),
   }) {
     assert(init != null);
     assert(loading != null);
     assert(imageSelected != null);
-    assert(imageCropped != null);
+    assert(imageEdited != null);
     assert(error != null);
     return error(failure);
   }
@@ -684,7 +684,7 @@ class _$Error with DiagnosticableTreeMixin implements Error {
     Result init(),
     Result loading(),
     Result imageSelected(Uint8List imageData),
-    Result imageCropped(Uint8List imageData),
+    Result imageEdited(Uint8List imageData),
     Result error(ImageFailure failure),
     @required Result orElse(),
   }) {
@@ -701,13 +701,13 @@ class _$Error with DiagnosticableTreeMixin implements Error {
     @required Result init(Init value),
     @required Result loading(Loading value),
     @required Result imageSelected(ImageSelected value),
-    @required Result imageCropped(ImageCropped value),
+    @required Result imageEdited(ImageEdited value),
     @required Result error(Error value),
   }) {
     assert(init != null);
     assert(loading != null);
     assert(imageSelected != null);
-    assert(imageCropped != null);
+    assert(imageEdited != null);
     assert(error != null);
     return error(this);
   }
@@ -718,7 +718,7 @@ class _$Error with DiagnosticableTreeMixin implements Error {
     Result init(Init value),
     Result loading(Loading value),
     Result imageSelected(ImageSelected value),
-    Result imageCropped(ImageCropped value),
+    Result imageEdited(ImageEdited value),
     Result error(Error value),
     @required Result orElse(),
   }) {

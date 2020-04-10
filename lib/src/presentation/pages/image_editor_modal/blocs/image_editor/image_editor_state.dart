@@ -15,8 +15,8 @@ abstract class ImageEditorState with _$ImageEditorState {
   const factory ImageEditorState.imageSelected(
     Uint8List imageData,
   ) = ImageSelected;
-  const factory ImageEditorState.imageCropped(
+  const factory ImageEditorState.imageEdited(
     Uint8List imageData,
-  ) = ImageCropped;
+  ) = ImageEdited;
   const factory ImageEditorState.error(ImageFailure failure) = Error;
 }

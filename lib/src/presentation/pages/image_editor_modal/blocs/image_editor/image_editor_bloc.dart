@@ -37,9 +37,7 @@ class ImageEditorBloc extends Bloc<ImageEditorEvent, ImageEditorState> {
         final imageEither = await _imageRepository.getPhoto(Camera.front);
 
         imageEither.fold(
-          $ImageEditorState.error,
-          $ImageEditorState.imageSelected,
-        );
+            $ImageEditorState.error, $ImageEditorState.imageSelected);
       },
       rotateLeft: (event) async* {
         editorKey.currentState.rotate(right: false);
@@ -53,11 +51,12 @@ class ImageEditorBloc extends Bloc<ImageEditorEvent, ImageEditorState> {
       restore: (event) async* {
         editorKey.currentState.reset();
       },
-      crop: (event) => _mapCropToState(event),
+      edit: (event) => _mapCropToState(event),
     );
   }
 
-  Stream<ImageEditorState> _mapCropToState(Crop event) async* {
+  Stream<ImageEditorState> _mapCropToState(Edit event) async* {
+    yield const Loading();
     final action = editorKey.currentState.editAction;
     final img = editorKey.currentState.rawImageData;
 
@@ -66,22 +65,23 @@ class ImageEditorBloc extends Bloc<ImageEditorEvent, ImageEditorState> {
     final flipHorizontal = action.flipY;
     final flipVertical = action.flipX;
 
-    final options = ImageEditorOption()..addOptions([
-      if (action.needCrop) ClipOption.fromRect(cropRect),
-      if (action.needFlip)
-        FlipOption(
-          horizontal: flipHorizontal,
-          vertical: flipVertical,
-        ),
-      if (action.hasRotateAngle) RotateOption(rotateAngle),
-    ]);
+    final options = ImageEditorOption()
+      ..addOptions([
+        if (action.needCrop) ClipOption.fromRect(cropRect),
+        if (action.needFlip)
+          FlipOption(
+            horizontal: flipHorizontal,
+            vertical: flipVertical,
+          ),
+        if (action.hasRotateAngle) RotateOption(rotateAngle),
+      ]);
 
-    final result = await ImageEditor.editImage(
-      image: img,
-      imageEditorOption: options,
+    final editorEither = await _imageRepository.editImage(img, options);
+
+    yield editorEither.fold(
+      $ImageEditorState.error,
+      $ImageEditorState.imageEdited,
     );
-
-    yield ImageCropped(result);
   }
 
   @override
