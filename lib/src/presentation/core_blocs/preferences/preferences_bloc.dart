@@ -13,17 +13,13 @@ class PreferencesBloc extends HydratedBloc<PreferencesEvent, PreferencesState> {
   @override
   Stream<PreferencesState> mapEventToState(PreferencesEvent event) async* {
     yield* event.map(
-      themeChanged: (event) => _mapSignedOutToState(event),
-      languageChanged: (event) => _mapSignedInToState(event),
+      themeChanged: (event) async* {
+        yield state.copyWith.call(themeMode: event.themeMode);
+      },
+      languageChanged: (event) async* {
+        yield state.copyWith.call(language: event.language);
+      },
     );
-  }
-
-  Stream<PreferencesState> _mapSignedInToState(LanguageChanged event) async* {
-    yield state.copyWith.call(language: event.language);
-  }
-
-  Stream<PreferencesState> _mapSignedOutToState(ThemeChanged event) async* {
-    yield state.copyWith.call(themeMode: event.themeMode);
   }
 
   @override

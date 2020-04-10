@@ -9,9 +9,7 @@ part 'auth_state.freezed.dart';
 @freezed
 abstract class AuthState with _$AuthState {
   const factory AuthState.authInit() = AuthInit;
-  const factory AuthState.authAuthenticated({
-    @required User user,
-  }) = AuthAuthenticated;
+  const factory AuthState.authAuthenticated(User user) = AuthAuthenticated;
   const factory AuthState.authUnauthenticated() = AuthUnauthenticated;
   const factory AuthState.authLoading() = AuthLoading;
 }

@@ -4,7 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
-import 'spinner.dart' show Spinner;
+import 'spinner.dart';
+import '../theme/theme.dart';
 
 class Button extends StatelessWidget {
   final VoidCallback onPress;
@@ -76,7 +77,9 @@ class Button extends StatelessWidget {
       return BoxDecoration(
         borderRadius: borderRadius,
         border: Border.all(
-            width: 1, color: CupertinoTheme.of(context).primaryColor),
+          width: 1,
+          color: context.primaryColor,
+        ),
       );
     }
 

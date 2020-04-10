@@ -12,6 +12,7 @@ abstract class ForgotPasswordState with _$ForgotPasswordState {
   const factory ForgotPasswordState.validationShowed() = ValidationShowed;
   const factory ForgotPasswordState.loading() = Loading;
   const factory ForgotPasswordState.success() = Success;
-  const factory ForgotPasswordState.error({@required AuthFailure failure}) =
-      Error;
+  const factory ForgotPasswordState.error(
+    AuthFailure failure,
+  ) = Error;
 }

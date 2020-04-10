@@ -19,6 +19,7 @@ class MainBottomTabsBloc extends Bloc<MainBottomTabsEvent, MainBottomTabs> {
   @override
   Stream<MainBottomTabs> mapEventToState(MainBottomTabsEvent event) async* {
 //    tabController.setIndex(event.tab.index); // TODO Added PR to package
+    // https://github.com/aqwert/flutter_platform_widgets/pull/156
     yield event.tab;
   }
 

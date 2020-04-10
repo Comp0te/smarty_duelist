@@ -43,16 +43,13 @@ class ForgotPasswordBlocListener extends StatelessWidget {
             ),
           ),
           error: (failure) => FlushbarHelper.createError(
-              title: S.of(context).error,
-              message: failure.maybeWhen(
-                sendResetPassword: (exp) =>
-                    _getErrorMessageByCode(context, exp),
-                orElse: () => S.of(context).errorUnexpected,
-              ),
-              duration: failure.maybeWhen(
-                orElse: () => const Duration(seconds: 4),
-              ))
-            ..show(context),
+            title: S.of(context).error,
+            message: failure.maybeWhen(
+              sendResetPassword: (exp) => _getErrorMessageByCode(context, exp),
+              orElse: () => S.of(context).errorUnexpected,
+            ),
+            duration: const Duration(seconds: 4),
+          )..show(context),
           orElse: () {},
         );
       },

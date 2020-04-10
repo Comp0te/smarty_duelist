@@ -9,6 +9,6 @@ part 'auth_event.freezed.dart';
 @freezed
 abstract class AuthEvent with _$AuthEvent {
   const factory AuthEvent.appStarted() = AppStarted;
-  const factory AuthEvent.signedIn({@required User user}) = SignedIn;
+  const factory AuthEvent.signedIn(User user) = SignedIn;
   const factory AuthEvent.signedOut() = SignedOut;
 }

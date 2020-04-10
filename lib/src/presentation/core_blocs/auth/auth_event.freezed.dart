@@ -16,9 +16,9 @@ class _$AuthEventTearOff {
     return const AppStarted();
   }
 
-  SignedIn signedIn({@required User user}) {
+  SignedIn signedIn(User user) {
     return SignedIn(
-      user: user,
+      user,
     );
   }
 
@@ -34,13 +34,13 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result appStarted(),
-    @required Result signedIn(@required User user),
+    @required Result signedIn(User user),
     @required Result signedOut(),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result appStarted(),
-    Result signedIn(@required User user),
+    Result signedIn(User user),
     Result signedOut(),
     @required Result orElse(),
   });
@@ -113,7 +113,7 @@ class _$AppStarted with DiagnosticableTreeMixin implements AppStarted {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result appStarted(),
-    @required Result signedIn(@required User user),
+    @required Result signedIn(User user),
     @required Result signedOut(),
   }) {
     assert(appStarted != null);
@@ -126,7 +126,7 @@ class _$AppStarted with DiagnosticableTreeMixin implements AppStarted {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result appStarted(),
-    Result signedIn(@required User user),
+    Result signedIn(User user),
     Result signedOut(),
     @required Result orElse(),
   }) {
@@ -191,7 +191,7 @@ class _$SignedInCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
     Object user = freezed,
   }) {
     return _then(SignedIn(
-      user: user == freezed ? _value.user : user as User,
+      user == freezed ? _value.user : user as User,
     ));
   }
 
@@ -207,7 +207,7 @@ class _$SignedInCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
 }
 
 class _$SignedIn with DiagnosticableTreeMixin implements SignedIn {
-  const _$SignedIn({@required this.user}) : assert(user != null);
+  const _$SignedIn(this.user) : assert(user != null);
 
   @override
   final User user;
@@ -245,7 +245,7 @@ class _$SignedIn with DiagnosticableTreeMixin implements SignedIn {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result appStarted(),
-    @required Result signedIn(@required User user),
+    @required Result signedIn(User user),
     @required Result signedOut(),
   }) {
     assert(appStarted != null);
@@ -258,7 +258,7 @@ class _$SignedIn with DiagnosticableTreeMixin implements SignedIn {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result appStarted(),
-    Result signedIn(@required User user),
+    Result signedIn(User user),
     Result signedOut(),
     @required Result orElse(),
   }) {
@@ -299,7 +299,7 @@ class _$SignedIn with DiagnosticableTreeMixin implements SignedIn {
 }
 
 abstract class SignedIn implements AuthEvent {
-  const factory SignedIn({@required User user}) = _$SignedIn;
+  const factory SignedIn(User user) = _$SignedIn;
 
   User get user;
   $SignedInCopyWith<SignedIn> get copyWith;
@@ -345,7 +345,7 @@ class _$SignedOut with DiagnosticableTreeMixin implements SignedOut {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result appStarted(),
-    @required Result signedIn(@required User user),
+    @required Result signedIn(User user),
     @required Result signedOut(),
   }) {
     assert(appStarted != null);
@@ -358,7 +358,7 @@ class _$SignedOut with DiagnosticableTreeMixin implements SignedOut {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result appStarted(),
-    Result signedIn(@required User user),
+    Result signedIn(User user),
     Result signedOut(),
     @required Result orElse(),
   }) {

@@ -48,29 +48,23 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
   ) async* {
     yield const Loading();
 
-    final failureOrSignIn = await _authRepository.signInWithCredentials(
+    final signInEither = await _authRepository.signInWithCredentials(
       provider: provider,
     );
 
-    yield failureOrSignIn.fold(
-      (failure) => Error(failure: failure),
-      (user) => Success(user: user),
-    );
+    yield signInEither.fold($SignInState.error, $SignInState.success);
   }
 
   Stream<SignInState> _mapSignInWithEmailToState(SignInWithEmail event) async* {
     if (fbKey.currentState.validate()) {
       yield const Loading();
 
-      final failureOrSignIn = await _authRepository.signInWithEmail(
+      final signInEither = await _authRepository.signInWithEmail(
         email: emailController.text,
         password: passwordController.text,
       );
 
-      yield failureOrSignIn.fold(
-        (failure) => Error(failure: failure),
-        (user) => Success(user: user),
-      );
+      yield signInEither.fold($SignInState.error, $SignInState.success);
     } else if (state is! ValidationShowed) {
       yield const ValidationShowed();
     }

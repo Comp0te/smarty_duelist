@@ -30,8 +30,6 @@ class $CupertinoRouter {
     durationInMilliseconds: 500,
   )
   MainBottomTabsPage mainBottomTabsPage;
-  @CupertinoRoute(
-    fullscreenDialog: true,
-  )
+  @CupertinoRoute(fullscreenDialog: true)
   ImageEditorModal imageEditorModal;
 }

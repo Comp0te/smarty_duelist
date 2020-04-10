@@ -4,12 +4,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import 'package:smarty_duelist/generated/l10n.dart';
-import '../theme/theme.dart'
-    show
-        cupertinoPrimaryColor,
-        cupertinoPrimaryColorDark,
-        darkMaterialTheme,
-        lightMaterialTheme;
+import '../theme/theme.dart';
 
 class FormTextField extends StatelessWidget {
   final TextEditingController controller;
@@ -56,7 +51,7 @@ class FormTextField extends StatelessWidget {
       child: Material(
         color: Colors.transparent,
         child: Theme(
-          data: _getPlatformBrightness(context),
+          data: _getPlatformTheme(context),
           child: FormBuilderTextField(
             autofocus: autofocus,
             attribute: attribute,
@@ -86,22 +81,20 @@ class FormTextField extends StatelessWidget {
     );
   }
 
-  ThemeData _getPlatformBrightness(BuildContext context) {
+  ThemeData _getPlatformTheme(BuildContext context) {
     if (isCupertino(context)) {
-      if (CupertinoTheme.of(context).brightness == Brightness.light) {
+      if (context.brightness == Brightness.light) {
         return lightMaterialTheme.copyWith(
-          accentColor: cupertinoPrimaryColor,
-          errorColor: CupertinoColors.destructiveRed,
+          accentColor: context.primaryColor,
         );
       } else {
         return darkMaterialTheme.copyWith(
-          accentColor: cupertinoPrimaryColorDark,
-          errorColor: CupertinoColors.destructiveRed,
+          accentColor: context.primaryColor,
         );
       }
     }
 
-    if (Theme.of(context).brightness == Brightness.dark) {
+    if (context.brightness == Brightness.dark) {
       return darkMaterialTheme;
     }
 

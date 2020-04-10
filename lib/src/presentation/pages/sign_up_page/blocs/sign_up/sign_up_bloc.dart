@@ -32,15 +32,12 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     if (fbKey.currentState.validate()) {
       yield const Loading();
 
-      final failureOrSignUp = await _authRepository.signUpWithEmail(
+      final signUpEither = await _authRepository.signUpWithEmail(
         email: emailController.text,
         password: passwordController.text,
       );
 
-      yield failureOrSignUp.fold(
-        (failure) => Error(failure: failure),
-        (user) => Success(user: user),
-      );
+      yield signUpEither.fold($SignUpState.error, $SignUpState.success);
     } else if (state is! ValidationShowed) {
       yield const ValidationShowed();
     }

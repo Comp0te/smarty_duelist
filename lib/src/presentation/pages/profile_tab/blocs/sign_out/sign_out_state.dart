@@ -11,5 +11,5 @@ abstract class SignOutState with _$SignOutState {
   const factory SignOutState.init() = Init;
   const factory SignOutState.loading() = Loading;
   const factory SignOutState.success() = Success;
-  const factory SignOutState.error({@required AuthFailure failure}) = Error;
+  const factory SignOutState.error(AuthFailure failure) = Error;
 }

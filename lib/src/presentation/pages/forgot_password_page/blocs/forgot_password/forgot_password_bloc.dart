@@ -26,7 +26,8 @@ class ForgotPasswordBloc
 
   @override
   Stream<ForgotPasswordState> mapEventToState(
-      ForgotPasswordEvent event) async* {
+    ForgotPasswordEvent event,
+  ) async* {
     if (fbKey.currentState.validate()) {
       yield const Loading();
 
@@ -36,8 +37,8 @@ class ForgotPasswordBloc
       );
 
       yield failureOrForgotPassword.fold(
-        (failure) => Error(failure: failure),
-        (auth) => const Success(),
+        $ForgotPasswordState.error,
+        (unit) => const Success(),
       );
     } else if (state is! ValidationShowed) {
       yield const ValidationShowed();

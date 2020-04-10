@@ -16,9 +16,9 @@ class _$AuthStateTearOff {
     return const AuthInit();
   }
 
-  AuthAuthenticated authAuthenticated({@required User user}) {
+  AuthAuthenticated authAuthenticated(User user) {
     return AuthAuthenticated(
-      user: user,
+      user,
     );
   }
 
@@ -38,14 +38,14 @@ mixin _$AuthState {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result authInit(),
-    @required Result authAuthenticated(@required User user),
+    @required Result authAuthenticated(User user),
     @required Result authUnauthenticated(),
     @required Result authLoading(),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result authInit(),
-    Result authAuthenticated(@required User user),
+    Result authAuthenticated(User user),
     Result authUnauthenticated(),
     Result authLoading(),
     @required Result orElse(),
@@ -120,7 +120,7 @@ class _$AuthInit with DiagnosticableTreeMixin implements AuthInit {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result authInit(),
-    @required Result authAuthenticated(@required User user),
+    @required Result authAuthenticated(User user),
     @required Result authUnauthenticated(),
     @required Result authLoading(),
   }) {
@@ -135,7 +135,7 @@ class _$AuthInit with DiagnosticableTreeMixin implements AuthInit {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result authInit(),
-    Result authAuthenticated(@required User user),
+    Result authAuthenticated(User user),
     Result authUnauthenticated(),
     Result authLoading(),
     @required Result orElse(),
@@ -207,7 +207,7 @@ class _$AuthAuthenticatedCopyWithImpl<$Res>
     Object user = freezed,
   }) {
     return _then(AuthAuthenticated(
-      user: user == freezed ? _value.user : user as User,
+      user == freezed ? _value.user : user as User,
     ));
   }
 
@@ -225,7 +225,7 @@ class _$AuthAuthenticatedCopyWithImpl<$Res>
 class _$AuthAuthenticated
     with DiagnosticableTreeMixin
     implements AuthAuthenticated {
-  const _$AuthAuthenticated({@required this.user}) : assert(user != null);
+  const _$AuthAuthenticated(this.user) : assert(user != null);
 
   @override
   final User user;
@@ -263,7 +263,7 @@ class _$AuthAuthenticated
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result authInit(),
-    @required Result authAuthenticated(@required User user),
+    @required Result authAuthenticated(User user),
     @required Result authUnauthenticated(),
     @required Result authLoading(),
   }) {
@@ -278,7 +278,7 @@ class _$AuthAuthenticated
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result authInit(),
-    Result authAuthenticated(@required User user),
+    Result authAuthenticated(User user),
     Result authUnauthenticated(),
     Result authLoading(),
     @required Result orElse(),
@@ -323,7 +323,7 @@ class _$AuthAuthenticated
 }
 
 abstract class AuthAuthenticated implements AuthState {
-  const factory AuthAuthenticated({@required User user}) = _$AuthAuthenticated;
+  const factory AuthAuthenticated(User user) = _$AuthAuthenticated;
 
   User get user;
   $AuthAuthenticatedCopyWith<AuthAuthenticated> get copyWith;
@@ -375,7 +375,7 @@ class _$AuthUnauthenticated
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result authInit(),
-    @required Result authAuthenticated(@required User user),
+    @required Result authAuthenticated(User user),
     @required Result authUnauthenticated(),
     @required Result authLoading(),
   }) {
@@ -390,7 +390,7 @@ class _$AuthUnauthenticated
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result authInit(),
-    Result authAuthenticated(@required User user),
+    Result authAuthenticated(User user),
     Result authUnauthenticated(),
     Result authLoading(),
     @required Result orElse(),
@@ -480,7 +480,7 @@ class _$AuthLoading with DiagnosticableTreeMixin implements AuthLoading {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result authInit(),
-    @required Result authAuthenticated(@required User user),
+    @required Result authAuthenticated(User user),
     @required Result authUnauthenticated(),
     @required Result authLoading(),
   }) {
@@ -495,7 +495,7 @@ class _$AuthLoading with DiagnosticableTreeMixin implements AuthLoading {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result authInit(),
-    Result authAuthenticated(@required User user),
+    Result authAuthenticated(User user),
     Result authUnauthenticated(),
     Result authLoading(),
     @required Result orElse(),

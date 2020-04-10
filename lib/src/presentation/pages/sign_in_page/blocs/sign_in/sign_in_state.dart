@@ -11,6 +11,6 @@ abstract class SignInState with _$SignInState {
   const factory SignInState.init() = Init;
   const factory SignInState.validationShowed() = ValidationShowed;
   const factory SignInState.loading() = Loading;
-  const factory SignInState.success({@required User user}) = Success;
-  const factory SignInState.error({@required AuthFailure failure}) = Error;
+  const factory SignInState.success(User user) = Success;
+  const factory SignInState.error(AuthFailure failure) = Error;
 }

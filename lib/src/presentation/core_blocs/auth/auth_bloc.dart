@@ -25,8 +25,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   Stream<AuthState> mapEventToState(AuthEvent event) async* {
     yield* event.map(
       appStarted: (event) => _mapAppStartedToState(event),
-      signedOut: (event) => _mapSignedOutToState(event),
-      signedIn: (event) => _mapSignedInToState(event),
+      signedOut: (event) async* {
+        yield const AuthUnauthenticated();
+      },
+      signedIn: (event) async* {
+        yield AuthAuthenticated(event.user);
+      },
     );
   }
 
@@ -37,17 +41,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       if (user == null) {
         add(const SignedOut());
       } else {
-        add(SignedIn(user: user));
+        add(SignedIn(user));
       }
     });
-  }
-
-  Stream<AuthState> _mapSignedInToState(SignedIn event) async* {
-    yield AuthAuthenticated(user: event.user);
-  }
-
-  Stream<AuthState> _mapSignedOutToState(SignedOut event) async* {
-    yield const AuthUnauthenticated();
   }
 
   @override

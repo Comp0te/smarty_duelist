@@ -36,5 +36,7 @@ extension PreferencesStateX on PreferencesState {
     }
   }
 
-  Locale get locale => this != null ? Locale(describeEnum(language)) : null;
+  Locale get locale => this != null
+      ? Locale.fromSubtags(languageCode: describeEnum(language))
+      : null;
 }

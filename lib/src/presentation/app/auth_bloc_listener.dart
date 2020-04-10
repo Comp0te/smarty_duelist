@@ -18,12 +18,12 @@ class AuthBlocListener extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
-        state.maybeMap(
+        state.maybeWhen(
           authAuthenticated: (_) {
             ExtendedNavigator.rootNavigator
                 .pushReplacementNamed(Routes.mainBottomTabsPage);
           },
-          authUnauthenticated: (_) {
+          authUnauthenticated: () {
             ExtendedNavigator.rootNavigator
                 .pushReplacementNamed(Routes.signInPage);
           },
