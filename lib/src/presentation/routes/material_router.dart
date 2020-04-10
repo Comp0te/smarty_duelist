@@ -1,14 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_route/auto_route_annotations.dart';
 
+import 'guards/guards.dart';
 import '../pages/pages.dart'
     show
         ForgotPasswordPage,
+        ImageEditorModal,
         MainBottomTabsPage,
         SignInPage,
         SignUpPage,
         SplashPage;
-import 'guards/guards.dart';
 
 @MaterialAutoRouter(generateNavigationHelperExtension: true)
 class $MaterialRouter {
@@ -29,4 +30,6 @@ class $MaterialRouter {
     durationInMilliseconds: 500,
   )
   MainBottomTabsPage mainBottomTabsPage;
+  @MaterialRoute(fullscreenDialog: true)
+  ImageEditorModal imageEditorModal;
 }

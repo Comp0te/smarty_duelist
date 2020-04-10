@@ -13,6 +13,7 @@ import 'package:smarty_duelist/src/presentation/pages/sign_up_page/sign_up_page.
 import 'package:smarty_duelist/src/presentation/pages/forgot_password_page/forgot_password_page.dart';
 import 'package:smarty_duelist/src/presentation/pages/main_bottom_tabs_page/main_bottom_tabs_page.dart';
 import 'package:smarty_duelist/src/presentation/routes/guards/aurh_guard.dart';
+import 'package:smarty_duelist/src/presentation/pages/image_editor_modal/image_editor_modal.dart';
 
 abstract class Routes {
   static const splashPage = '/';
@@ -20,6 +21,7 @@ abstract class Routes {
   static const signUpPage = '/sign-up-page';
   static const forgotPasswordPage = '/forgot-password-page';
   static const mainBottomTabsPage = '/main-bottom-tabs-page';
+  static const imageEditorModal = '/image-editor-modal';
 }
 
 class MaterialRouter extends RouterBase {
@@ -68,6 +70,12 @@ class MaterialRouter extends RouterBase {
           transitionsBuilder: TransitionsBuilders.fadeIn,
           transitionDuration: const Duration(milliseconds: 500),
         );
+      case Routes.imageEditorModal:
+        return MaterialPageRoute<dynamic>(
+          builder: (_) => ImageEditorModal().wrappedRoute,
+          settings: settings,
+          fullscreenDialog: true,
+        );
       default:
         return unknownRoutePage(settings.name);
     }
@@ -84,4 +92,5 @@ extension MaterialRouterNavigationHelperMethods on ExtendedNavigatorState {
   Future pushSignUpPage() => pushNamed(Routes.signUpPage);
   Future pushForgotPasswordPage() => pushNamed(Routes.forgotPasswordPage);
   Future pushMainBottomTabsPage() => pushNamed(Routes.mainBottomTabsPage);
+  Future pushImageEditorModal() => pushNamed(Routes.imageEditorModal);
 }

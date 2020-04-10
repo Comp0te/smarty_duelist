@@ -1,14 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_route/auto_route_annotations.dart';
 
+import 'guards/guards.dart';
 import '../pages/pages.dart'
     show
         ForgotPasswordPage,
         MainBottomTabsPage,
         SignInPage,
         SignUpPage,
-        SplashPage;
-import 'guards/guards.dart';
+        SplashPage,
+        ImageEditorModal;
 
 @CupertinoAutoRouter(generateNavigationHelperExtension: true)
 class $CupertinoRouter {
@@ -29,4 +30,8 @@ class $CupertinoRouter {
     durationInMilliseconds: 500,
   )
   MainBottomTabsPage mainBottomTabsPage;
+  @CupertinoRoute(
+    fullscreenDialog: true,
+  )
+  ImageEditorModal imageEditorModal;
 }
