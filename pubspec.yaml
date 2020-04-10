@@ -17,7 +17,7 @@ dependencies:
   flushbar: ^1.9.1
   animations: ^1.0.0+5
   flutter_form_builder: ^3.8.2
-  cached_network_image: ^2.0.0
+  cached_network_image: ^2.1.0+1
   # Bloc
   bloc: ^3.0.0
   flutter_bloc: ^3.2.0
