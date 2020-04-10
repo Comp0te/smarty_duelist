@@ -13,3 +13,10 @@ abstract class IImagePickerDataProvider {
 
   Future<Either<ImageFailure, Option<Uint8List>>> retrieveAndroidLostData();
 }
+
+abstract class IImageEditorDataProvider {
+  Future<Either<ImageFailure, Uint8List>> editImage(
+    Uint8List imageData, [
+    Object editorOptions,
+  ]);
+}

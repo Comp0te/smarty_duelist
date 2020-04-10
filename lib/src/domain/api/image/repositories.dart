@@ -11,4 +11,9 @@ abstract class IImageRepository {
   Future<Either<ImageFailure, Uint8List>> getGalleryImage();
 
   Future<Either<ImageFailure, Option<Uint8List>>> retrieveAndroidLostData();
+
+  Future<Either<ImageFailure, Uint8List>> editImage(
+    Uint8List imageData, [
+    Object editorOptions,
+  ]);
 }

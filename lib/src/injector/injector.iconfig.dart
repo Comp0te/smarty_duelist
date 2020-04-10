@@ -4,13 +4,14 @@
 // InjectableConfigGenerator
 // **************************************************************************
 
-import 'package:smarty_duelist/src/data/data_providers/image_picker.dart';
-import 'package:smarty_duelist/src/domain/api/image/data_providers.dart';
 import 'package:smarty_duelist/src/presentation/core_blocs/preferences/preferences_bloc.dart';
 import 'package:smarty_duelist/src/presentation/pages/main_bottom_tabs_page/blocs/main_bottom_tabs/main_bottom_tabs_bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:smarty_duelist/src/injector/injector.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:smarty_duelist/src/data/data_providers/image/image_editor.dart';
+import 'package:smarty_duelist/src/domain/api/image/data_providers.dart';
+import 'package:smarty_duelist/src/data/data_providers/image/image_picker.dart';
 import 'package:smarty_duelist/src/data/repositories/image.dart';
 import 'package:smarty_duelist/src/domain/api/image/repositories.dart';
 import 'package:smarty_duelist/src/data/data_providers/auth/google_auth.dart';
@@ -28,11 +29,13 @@ import 'package:get_it/get_it.dart';
 
 void $initGetIt(GetIt g, {String environment}) {
   final registerModule = _$RegisterModule();
-  g.registerLazySingleton<IImagePickerDataProvider>(
-      () => ImagePickerDataProvider());
   g.registerFactory<PreferencesBloc>(() => PreferencesBloc());
   g.registerFactory<MainBottomTabsBloc>(() => MainBottomTabsBloc());
   g.registerLazySingleton<GoogleSignIn>(() => registerModule.googleSignIn);
+  g.registerLazySingleton<IImageEditorDataProvider>(
+      () => ImageEditorDataProvider());
+  g.registerLazySingleton<IImagePickerDataProvider>(
+      () => ImagePickerDataProvider());
   g.registerLazySingleton<GoogleAuth>(
       () => GoogleAuth(googleSignIn: g<GoogleSignIn>()));
   g.registerFactory<ImageEditorBloc>(
@@ -50,8 +53,9 @@ void $initGetIt(GetIt g, {String environment}) {
 
   //Eager singletons must be registered in the right order
   g.registerSingleton<FirebaseAuth>(registerModule.auth);
-  g.registerSingleton<IImageRepository>(
-      ImageRepository(imagePickerDataProvider: g<IImagePickerDataProvider>()));
+  g.registerSingleton<IImageRepository>(ImageRepository(
+      imagePickerDataProvider: g<IImagePickerDataProvider>(),
+      imageEditorDataProvider: g<IImageEditorDataProvider>()));
   g.registerSingleton<IAuthDataProvider>(FirebaseAuthProvider(
       googleAuth: g<GoogleAuth>(), auth: g<FirebaseAuth>()));
   g.registerSingleton<IAuthRepository>(

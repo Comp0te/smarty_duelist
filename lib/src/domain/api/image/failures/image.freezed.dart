@@ -18,8 +18,8 @@ class _$ImageFailureTearOff {
     );
   }
 
-  ImageCropperFailure cropper(PlatformException exp) {
-    return ImageCropperFailure(
+  ImageEditorFailure editor(PlatformException exp) {
+    return ImageEditorFailure(
       exp,
     );
   }
@@ -34,23 +34,23 @@ mixin _$ImageFailure {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result picker(PlatformException exp),
-    @required Result cropper(PlatformException exp),
+    @required Result editor(PlatformException exp),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result picker(PlatformException exp),
-    Result cropper(PlatformException exp),
+    Result editor(PlatformException exp),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result picker(ImagePickerFailure value),
-    @required Result cropper(ImageCropperFailure value),
+    @required Result editor(ImageEditorFailure value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result picker(ImagePickerFailure value),
-    Result cropper(ImageCropperFailure value),
+    Result editor(ImageEditorFailure value),
     @required Result orElse(),
   });
 
@@ -151,10 +151,10 @@ class _$ImagePickerFailure
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result picker(PlatformException exp),
-    @required Result cropper(PlatformException exp),
+    @required Result editor(PlatformException exp),
   }) {
     assert(picker != null);
-    assert(cropper != null);
+    assert(editor != null);
     return picker(exp);
   }
 
@@ -162,7 +162,7 @@ class _$ImagePickerFailure
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result picker(PlatformException exp),
-    Result cropper(PlatformException exp),
+    Result editor(PlatformException exp),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -176,10 +176,10 @@ class _$ImagePickerFailure
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result picker(ImagePickerFailure value),
-    @required Result cropper(ImageCropperFailure value),
+    @required Result editor(ImageEditorFailure value),
   }) {
     assert(picker != null);
-    assert(cropper != null);
+    assert(editor != null);
     return picker(this);
   }
 
@@ -187,7 +187,7 @@ class _$ImagePickerFailure
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result picker(ImagePickerFailure value),
-    Result cropper(ImageCropperFailure value),
+    Result editor(ImageEditorFailure value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -208,60 +208,60 @@ abstract class ImagePickerFailure implements ImageFailure {
   $ImagePickerFailureCopyWith<ImagePickerFailure> get copyWith;
 }
 
-abstract class $ImageCropperFailureCopyWith<$Res>
+abstract class $ImageEditorFailureCopyWith<$Res>
     implements $ImageFailureCopyWith<$Res> {
-  factory $ImageCropperFailureCopyWith(
-          ImageCropperFailure value, $Res Function(ImageCropperFailure) then) =
-      _$ImageCropperFailureCopyWithImpl<$Res>;
+  factory $ImageEditorFailureCopyWith(
+          ImageEditorFailure value, $Res Function(ImageEditorFailure) then) =
+      _$ImageEditorFailureCopyWithImpl<$Res>;
   @override
   $Res call({PlatformException exp});
 }
 
-class _$ImageCropperFailureCopyWithImpl<$Res>
+class _$ImageEditorFailureCopyWithImpl<$Res>
     extends _$ImageFailureCopyWithImpl<$Res>
-    implements $ImageCropperFailureCopyWith<$Res> {
-  _$ImageCropperFailureCopyWithImpl(
-      ImageCropperFailure _value, $Res Function(ImageCropperFailure) _then)
-      : super(_value, (v) => _then(v as ImageCropperFailure));
+    implements $ImageEditorFailureCopyWith<$Res> {
+  _$ImageEditorFailureCopyWithImpl(
+      ImageEditorFailure _value, $Res Function(ImageEditorFailure) _then)
+      : super(_value, (v) => _then(v as ImageEditorFailure));
 
   @override
-  ImageCropperFailure get _value => super._value as ImageCropperFailure;
+  ImageEditorFailure get _value => super._value as ImageEditorFailure;
 
   @override
   $Res call({
     Object exp = freezed,
   }) {
-    return _then(ImageCropperFailure(
+    return _then(ImageEditorFailure(
       exp == freezed ? _value.exp : exp as PlatformException,
     ));
   }
 }
 
-class _$ImageCropperFailure
+class _$ImageEditorFailure
     with DiagnosticableTreeMixin
-    implements ImageCropperFailure {
-  const _$ImageCropperFailure(this.exp) : assert(exp != null);
+    implements ImageEditorFailure {
+  const _$ImageEditorFailure(this.exp) : assert(exp != null);
 
   @override
   final PlatformException exp;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ImageFailure.cropper(exp: $exp)';
+    return 'ImageFailure.editor(exp: $exp)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'ImageFailure.cropper'))
+      ..add(DiagnosticsProperty('type', 'ImageFailure.editor'))
       ..add(DiagnosticsProperty('exp', exp));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is ImageCropperFailure &&
+        (other is ImageEditorFailure &&
             (identical(other.exp, exp) ||
                 const DeepCollectionEquality().equals(other.exp, exp)));
   }
@@ -271,30 +271,30 @@ class _$ImageCropperFailure
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(exp);
 
   @override
-  $ImageCropperFailureCopyWith<ImageCropperFailure> get copyWith =>
-      _$ImageCropperFailureCopyWithImpl<ImageCropperFailure>(this, _$identity);
+  $ImageEditorFailureCopyWith<ImageEditorFailure> get copyWith =>
+      _$ImageEditorFailureCopyWithImpl<ImageEditorFailure>(this, _$identity);
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result picker(PlatformException exp),
-    @required Result cropper(PlatformException exp),
+    @required Result editor(PlatformException exp),
   }) {
     assert(picker != null);
-    assert(cropper != null);
-    return cropper(exp);
+    assert(editor != null);
+    return editor(exp);
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result picker(PlatformException exp),
-    Result cropper(PlatformException exp),
+    Result editor(PlatformException exp),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (cropper != null) {
-      return cropper(exp);
+    if (editor != null) {
+      return editor(exp);
     }
     return orElse();
   }
@@ -303,34 +303,34 @@ class _$ImageCropperFailure
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result picker(ImagePickerFailure value),
-    @required Result cropper(ImageCropperFailure value),
+    @required Result editor(ImageEditorFailure value),
   }) {
     assert(picker != null);
-    assert(cropper != null);
-    return cropper(this);
+    assert(editor != null);
+    return editor(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result picker(ImagePickerFailure value),
-    Result cropper(ImageCropperFailure value),
+    Result editor(ImageEditorFailure value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (cropper != null) {
-      return cropper(this);
+    if (editor != null) {
+      return editor(this);
     }
     return orElse();
   }
 }
 
-abstract class ImageCropperFailure implements ImageFailure {
-  const factory ImageCropperFailure(PlatformException exp) =
-      _$ImageCropperFailure;
+abstract class ImageEditorFailure implements ImageFailure {
+  const factory ImageEditorFailure(PlatformException exp) =
+      _$ImageEditorFailure;
 
   @override
   PlatformException get exp;
   @override
-  $ImageCropperFailureCopyWith<ImageCropperFailure> get copyWith;
+  $ImageEditorFailureCopyWith<ImageEditorFailure> get copyWith;
 }

@@ -1,2 +1,2 @@
 export 'auth/auth.dart';
-export 'image_picker.dart';
+export 'image/image.dart';

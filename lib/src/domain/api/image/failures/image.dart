@@ -11,7 +11,7 @@ abstract class ImageFailure with _$ImageFailure implements IFailure {
   const factory ImageFailure.picker(
     PlatformException exp,
   ) = ImagePickerFailure;
-  const factory ImageFailure.cropper(
+  const factory ImageFailure.editor(
     PlatformException exp,
-  ) = ImageCropperFailure;
+  ) = ImageEditorFailure;
 }
