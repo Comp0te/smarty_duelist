@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
+import 'package:smarty_duelist/generated/l10n.dart';
 import 'package:smarty_duelist/src/injector/injector.dart' show getIt;
 
 import '../../shared_widgets/shared_widgets.dart' show Button, NativeScaffold;
@@ -27,7 +28,7 @@ class _ImageEditorModalState extends State<ImageEditorModal> {
   @override
   Widget build(BuildContext context) {
     return NativeScaffold(
-      title: const Text("image editor"),
+      title: Text(S.of(context).imageEditorTitle),
       body: Center(
         child: BlocBuilder<ImageEditorBloc, ImageEditorState>(
           builder: (context, state) => state.maybeWhen(
@@ -39,10 +40,7 @@ class _ImageEditorModalState extends State<ImageEditorModal> {
     );
   }
 
-  Widget _buildImageEditor(
-    BuildContext context,
-    Uint8List imageData,
-  ) {
+  Widget _buildImageEditor(BuildContext context, Uint8List imageData) {
     final imageEditorBloc = BlocProvider.of<ImageEditorBloc>(context);
 
     return Column(
@@ -75,10 +73,8 @@ class _ImageEditorModalState extends State<ImageEditorModal> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Button(
-            title: 'Confirm',
-            onPress: () {
-              imageEditorBloc.add(const Crop());
-            },
+            title: S.of(context).confirm,
+            onPress: () => imageEditorBloc.add(const Crop()),
           ),
         ),
       ],
@@ -97,27 +93,19 @@ class _ImageEditorModalState extends State<ImageEditorModal> {
         children: <Widget>[
           PlatformIconButton(
             icon: Icon(Icons.flip),
-            onPressed: () {
-              imageEditorBloc.add(const Flip());
-            },
+            onPressed: () => imageEditorBloc.add(const Flip()),
           ),
           PlatformIconButton(
             icon: Icon(Icons.rotate_left),
-            onPressed: () {
-              imageEditorBloc.add(const RotateLeft());
-            },
+            onPressed: () => imageEditorBloc.add(const RotateLeft()),
           ),
           PlatformIconButton(
             icon: Icon(Icons.rotate_right),
-            onPressed: () {
-              imageEditorBloc.add(const RotateRight());
-            },
+            onPressed: () => imageEditorBloc.add(const RotateRight()),
           ),
           PlatformIconButton(
             icon: Icon(Icons.restore),
-            onPressed: () {
-              imageEditorBloc.add(const Restore());
-            },
+            onPressed: () => imageEditorBloc.add(const Restore()),
           ),
         ],
       ),

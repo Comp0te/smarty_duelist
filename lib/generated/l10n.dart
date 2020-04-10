@@ -99,6 +99,15 @@ class S {
     );
   }
 
+  String get confirm {
+    return Intl.message(
+      'Confirm',
+      name: 'confirm',
+      desc: '',
+      args: [],
+    );
+  }
+
   String get error {
     return Intl.message(
       'Error',
@@ -328,6 +337,15 @@ class S {
     return Intl.message(
       'We sent the password reset instructions to your email. Change password and login',
       name: 'forgotPasswordSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get imageEditorTitle {
+    return Intl.message(
+      'Image editor',
+      name: 'imageEditorTitle',
       desc: '',
       args: [],
     );
