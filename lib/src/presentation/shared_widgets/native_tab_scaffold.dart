@@ -3,18 +3,22 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
-import 'native_app_bar.dart';
-
 @immutable
 class NativeTabData {
+  final String previousPageTitle;
+  final Widget title;
+  final Widget leading;
+  final List<Widget> trailingActions;
   final BottomNavigationBarItem bottomNavBarItem;
-  final NativeAppBar appBar;
   final Widget body;
 
   const NativeTabData({
     @required this.bottomNavBarItem,
     @required this.body,
-    this.appBar,
+    this.previousPageTitle = '',
+    this.title,
+    this.leading,
+    this.trailingActions,
   });
 }
 
@@ -37,7 +41,9 @@ class NativeTabScaffold extends StatelessWidget {
       itemChanged: bottomNavBatItemChanged,
       appBarBuilder: _buildAppBar,
       bodyBuilder: _buildBody,
-      androidTabs: (_) => MaterialNavBarData(),
+      androidTabs: (_) => MaterialNavBarData(
+//        shape: const CircularNotchedRectangle(),
+          ),
       iosTabs: (_) => CupertinoTabBarData(),
       ios: (_) => CupertinoTabScaffoldData(
         useCupertinoTabView: false,
@@ -70,6 +76,15 @@ class NativeTabScaffold extends StatelessWidget {
   }
 
   PlatformAppBar _buildAppBar(BuildContext context, int index) {
-    return tabsData[index].appBar;
+    return PlatformAppBar(
+      title: tabsData[index].title,
+      leading: tabsData[index].leading,
+      trailingActions: tabsData[index].trailingActions,
+      android: (_) => MaterialAppBarData(),
+      ios: (_) => CupertinoNavigationBarData(
+        transitionBetweenRoutes: false,
+        previousPageTitle: tabsData[index].previousPageTitle,
+      ),
+    );
   }
 }

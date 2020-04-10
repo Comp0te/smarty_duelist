@@ -2,8 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
-import 'native_app_bar.dart';
-
 class NativeScaffold extends StatelessWidget {
   final Widget title;
   final String previousPageTitle;
@@ -55,11 +53,17 @@ class NativeScaffold extends StatelessWidget {
   }
 
   PlatformAppBar _buildAppBar() {
-    return NativeAppBar(
+    if (title == null) return null;
+
+    return PlatformAppBar(
       title: title,
       leading: leading,
       trailingActions: trailingActions,
-      previousPageTitle: previousPageTitle,
+      android: (_) => MaterialAppBarData(),
+      ios: (_) => CupertinoNavigationBarData(
+        transitionBetweenRoutes: true,
+        previousPageTitle: previousPageTitle,
+      ),
     );
   }
 }
