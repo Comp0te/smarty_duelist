@@ -13,12 +13,16 @@ class SelectorItem<T> {
   final String label;
   final T value;
   final bool isDestructive;
+  final ValueChanged<T> onSelect;
+  final bool isPopOnSelect;
 
   SelectorItem({
-    @required this.key,
     @required this.label,
-    @required this.value,
+    this.key,
+    this.value,
     this.isDestructive = false,
+    this.onSelect,
+    this.isPopOnSelect = true,
   });
 }
 
@@ -42,6 +46,14 @@ Future<SelectorItem<T>> showNativeBottomSheet<T>(
     return Text(item.label);
   }
 
+  VoidCallback _onPress(BuildContext context, SelectorItem<T> item) {
+    return () {
+      if (item.onSelect != null) item.onSelect(item.value);
+
+      if (item.isPopOnSelect) ExtendedNavigator.of(context).pop(item);
+    };
+  }
+
   return showPlatformModalSheet<SelectorItem<T>>(
     context: context,
     builder: (context) => PlatformWidget(
@@ -51,9 +63,7 @@ Future<SelectorItem<T>> showNativeBottomSheet<T>(
         actions: actions.map((item) {
           return CupertinoActionSheetAction(
             isDestructiveAction: item.isDestructive,
-            onPressed: () {
-              ExtendedNavigator.of(context).pop(item);
-            },
+            onPressed: _onPress(context, item),
             child: _buildChild(context, item),
           );
         }).toList(),
@@ -80,9 +90,7 @@ Future<SelectorItem<T>> showNativeBottomSheet<T>(
           ...actions.map((item) {
             return NativeDialogAction(
               isDestructiveAction: item.isDestructive,
-              onPress: () {
-                ExtendedNavigator.of(context).pop(item);
-              },
+              onPress: _onPress(context, item),
               child: _buildChild(context, item),
             );
           }).toList(),
