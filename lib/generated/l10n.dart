@@ -297,6 +297,15 @@ class S {
     );
   }
 
+  String get errorImageEditor {
+    return Intl.message(
+      'Something went wrong with image editor. Try another image',
+      name: 'errorImageEditor',
+      desc: '',
+      args: [],
+    );
+  }
+
   String get signInTitle {
     return Intl.message(
       'Greetings!',

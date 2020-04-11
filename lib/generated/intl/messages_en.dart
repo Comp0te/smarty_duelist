@@ -48,6 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "errorEmailIncorrect" : MessageLookupByLibrary.simpleMessage("Incorrect email address"),
     "errorEmailMalformed" : MessageLookupByLibrary.simpleMessage("Email address is malformed"),
     "errorGoogleAuth" : MessageLookupByLibrary.simpleMessage("Something went wrong during authentication via Google"),
+    "errorImageEditor" : MessageLookupByLibrary.simpleMessage("Something went wrong with image editor. Try another image"),
     "errorLoading" : MessageLookupByLibrary.simpleMessage("Loading error"),
     "errorMinLength" : m0,
     "errorPasswordsDoNotMatch" : MessageLookupByLibrary.simpleMessage("Passwords don\'t match"),
