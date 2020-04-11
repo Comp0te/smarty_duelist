@@ -71,8 +71,17 @@ class MaterialRouter extends RouterBase {
           transitionDuration: const Duration(milliseconds: 500),
         );
       case Routes.imageEditorModal:
+        if (hasInvalidArgs<ImageEditorModalArguments>(args)) {
+          return misTypedArgsRoute<ImageEditorModalArguments>(args);
+        }
+        final typedArgs =
+            args as ImageEditorModalArguments ?? ImageEditorModalArguments();
         return MaterialPageRoute<dynamic>(
-          builder: (_) => ImageEditorModal().wrappedRoute,
+          builder: (_) => ImageEditorModal(
+                  key: typedArgs.key,
+                  url: typedArgs.url,
+                  imageData: typedArgs.imageData)
+              .wrappedRoute,
           settings: settings,
           fullscreenDialog: true,
         );
@@ -80,6 +89,18 @@ class MaterialRouter extends RouterBase {
         return unknownRoutePage(settings.name);
     }
   }
+}
+
+//**************************************************************************
+// Arguments holder classes
+//***************************************************************************
+
+//ImageEditorModal arguments holder class
+class ImageEditorModalArguments {
+  final Key key;
+  final String url;
+  final Uint8List imageData;
+  ImageEditorModalArguments({this.key, this.url, this.imageData});
 }
 
 //**************************************************************************
@@ -92,5 +113,12 @@ extension MaterialRouterNavigationHelperMethods on ExtendedNavigatorState {
   Future pushSignUpPage() => pushNamed(Routes.signUpPage);
   Future pushForgotPasswordPage() => pushNamed(Routes.forgotPasswordPage);
   Future pushMainBottomTabsPage() => pushNamed(Routes.mainBottomTabsPage);
-  Future pushImageEditorModal() => pushNamed(Routes.imageEditorModal);
+  Future pushImageEditorModal({
+    Key key,
+    String url,
+    Uint8List imageData,
+  }) =>
+      pushNamed(Routes.imageEditorModal,
+          arguments: ImageEditorModalArguments(
+              key: key, url: url, imageData: imageData));
 }

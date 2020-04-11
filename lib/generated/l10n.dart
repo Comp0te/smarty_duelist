@@ -108,6 +108,42 @@ class S {
     );
   }
 
+  String get camera {
+    return Intl.message(
+      'Camera',
+      name: 'camera',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get gallery {
+    return Intl.message(
+      'Gallery',
+      name: 'gallery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get delete {
+    return Intl.message(
+      'Delete',
+      name: 'delete',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get edit {
+    return Intl.message(
+      'edit',
+      name: 'edit',
+      desc: '',
+      args: [],
+    );
+  }
+
   String get error {
     return Intl.message(
       'Error',
@@ -373,6 +409,15 @@ class S {
     return Intl.message(
       'Select Theme',
       name: 'bottomSheetSelectTheme',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get bottomSheetAvatarTitle {
+    return Intl.message(
+      'Avatar actions',
+      name: 'bottomSheetAvatarTitle',
       desc: '',
       args: [],
     );

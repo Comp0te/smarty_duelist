@@ -10,3 +10,4 @@ export 'native_tab_scaffold.dart';
 export 'language_button.dart';
 export 'theme_button.dart';
 export 'avatar.dart';
+export 'show_image_actions.dart';

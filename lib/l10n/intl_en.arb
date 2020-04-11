@@ -8,6 +8,10 @@
   "cancel": "Cancel",
   "logout": "Logout",
   "confirm": "Confirm",
+  "camera": "Camera",
+  "gallery": "Gallery",
+  "delete": "Delete",
+  "edit": "edit",
 
   "error": "Error",
   "errorLoading": "Loading error",
@@ -44,6 +48,7 @@
 
   "bottomSheetSelectLanguage": "Select Language",
   "bottomSheetSelectTheme": "Select Theme",
+  "bottomSheetAvatarTitle": "Avatar actions",
 
   "languageEnglish": "English",
   "languageRussian": "Русский",

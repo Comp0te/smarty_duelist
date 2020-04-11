@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "bottomSheetAvatarTitle" : MessageLookupByLibrary.simpleMessage("Avatar actions"),
     "bottomSheetSelectLanguage" : MessageLookupByLibrary.simpleMessage("Select Language"),
     "bottomSheetSelectTheme" : MessageLookupByLibrary.simpleMessage("Select Theme"),
     "bottomTabGame" : MessageLookupByLibrary.simpleMessage("Game"),
@@ -34,9 +35,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "bottomTabMessages" : MessageLookupByLibrary.simpleMessage("Messages"),
     "bottomTabProfile" : MessageLookupByLibrary.simpleMessage("Profile"),
     "bottomTabShop" : MessageLookupByLibrary.simpleMessage("Shop"),
+    "camera" : MessageLookupByLibrary.simpleMessage("Camera"),
     "cancel" : MessageLookupByLibrary.simpleMessage("Cancel"),
     "confirm" : MessageLookupByLibrary.simpleMessage("Confirm"),
     "confirmPassword" : MessageLookupByLibrary.simpleMessage("Confirm password"),
+    "delete" : MessageLookupByLibrary.simpleMessage("Delete"),
+    "edit" : MessageLookupByLibrary.simpleMessage("edit"),
     "email" : MessageLookupByLibrary.simpleMessage("Email"),
     "error" : MessageLookupByLibrary.simpleMessage("Error"),
     "errorCredentialMalformed" : MessageLookupByLibrary.simpleMessage("Credential data is malformed or has expired"),
@@ -57,6 +61,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "errorWrongEmailOrPassword" : MessageLookupByLibrary.simpleMessage("Email or password is wrong"),
     "forgotPasswordSuccess" : MessageLookupByLibrary.simpleMessage("We sent the password reset instructions to your email. Change password and login"),
     "forgotPasswordTitle" : MessageLookupByLibrary.simpleMessage("Forgot password"),
+    "gallery" : MessageLookupByLibrary.simpleMessage("Gallery"),
     "imageEditorTitle" : MessageLookupByLibrary.simpleMessage("Image editor"),
     "languageEnglish" : MessageLookupByLibrary.simpleMessage("English"),
     "languageRussian" : MessageLookupByLibrary.simpleMessage("Русский"),
