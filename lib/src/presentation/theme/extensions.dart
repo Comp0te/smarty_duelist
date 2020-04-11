@@ -35,4 +35,16 @@ extension BuildContextTheme on BuildContext {
 
     return Theme.of(this).errorColor;
   }
+
+  TextStyle get errorTextStyle {
+    if (Platform.isIOS) {
+      return CupertinoTheme.of(this).textTheme.textStyle.copyWith(
+            color: errorColor,
+          );
+    }
+
+    return Theme.of(this).textTheme.body1.copyWith(
+          color: errorColor,
+        );
+  }
 }

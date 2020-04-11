@@ -10,6 +10,7 @@
   "confirm": "Confirm",
 
   "error": "Error",
+  "errorLoading": "Loading error",
   "errorRequired": "Required",
   "errorMinLength": "Min {digit} characters",
   "errorEmailIncorrect": "Incorrect email address",

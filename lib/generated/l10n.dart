@@ -117,6 +117,15 @@ class S {
     );
   }
 
+  String get errorLoading {
+    return Intl.message(
+      'Loading error',
+      name: 'errorLoading',
+      desc: '',
+      args: [],
+    );
+  }
+
   String get errorRequired {
     return Intl.message(
       'Required',

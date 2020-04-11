@@ -9,3 +9,4 @@ export 'show_native_bottom_sheet.dart';
 export 'native_tab_scaffold.dart';
 export 'language_button.dart';
 export 'theme_button.dart';
+export 'avatar.dart';
