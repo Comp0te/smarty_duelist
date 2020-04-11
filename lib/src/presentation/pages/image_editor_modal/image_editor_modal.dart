@@ -9,31 +9,46 @@ import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:smarty_duelist/generated/l10n.dart';
 import 'package:smarty_duelist/src/injector/injector.dart' show getIt;
 
-import '../../shared_widgets/shared_widgets.dart' show Button, NativeScaffold;
+import '../../shared_widgets/shared_widgets.dart'
+    show Button, NativeScaffold, Spinner, SpinnerMode;
 import '../../theme/theme.dart';
+import 'widgets/widgets.dart';
 import 'blocs/blocs.dart';
 
-class ImageEditorModal extends StatefulWidget implements AutoRouteWrapper {
+class ImageEditorModal extends StatelessWidget implements AutoRouteWrapper {
+  final String url;
+  final Uint8List imageData;
+
+  const ImageEditorModal({
+    Key key,
+    this.url,
+    this.imageData,
+  })  : assert(url != null || imageData != null),
+        super(key: key);
+
   @override
   Widget get wrappedRoute => BlocProvider<ImageEditorBloc>(
         create: (_) => getIt<ImageEditorBloc>(),
         child: this,
       );
 
-  @override
-  _ImageEditorModalState createState() => _ImageEditorModalState();
-}
+  ImageProvider get image {
+    if (imageData != null) return ExtendedMemoryImageProvider(imageData);
 
-class _ImageEditorModalState extends State<ImageEditorModal> {
+    return ExtendedNetworkImageProvider(url, cache: true);
+  }
+
   @override
   Widget build(BuildContext context) {
-    return NativeScaffold(
-      title: Text(S.of(context).imageEditorTitle),
-      body: Center(
-        child: BlocBuilder<ImageEditorBloc, ImageEditorState>(
-          builder: (context, state) => state.maybeWhen(
-            imageSelected: (imageData) => _buildImageEditor(context, imageData),
-            orElse: null,
+    return ImageEditorBlocListener(
+      child: NativeScaffold(
+        title: Text(S.of(context).imageEditorTitle),
+        body: Center(
+          child: BlocBuilder<ImageEditorBloc, ImageEditorState>(
+            builder: (context, state) => state.maybeWhen(
+              loading: () => const Spinner(spinnerMode: SpinnerMode.standalone),
+              orElse: () => _buildImageEditor(context, imageData),
+            ),
           ),
         ),
       ),
@@ -50,8 +65,8 @@ class _ImageEditorModalState extends State<ImageEditorModal> {
         SizedBox(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.width,
-          child: ExtendedImage.memory(
-            imageData,
+          child: ExtendedImage(
+            image: image,
             fit: BoxFit.fitWidth,
             mode: ExtendedImageMode.editor,
             enableLoadState: true,
