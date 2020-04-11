@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -12,55 +14,69 @@ import 'spinner.dart';
 
 class Avatar extends StatelessWidget {
   final String url;
+  final Uint8List imageData;
   final BoxShape boxShape;
   final VoidCallback onTap;
   final double size;
 
   const Avatar({
     this.url,
+    this.imageData,
     this.boxShape = BoxShape.circle,
     this.onTap,
     this.size = kAvatarMaxSize,
     Key key,
   }) : super(key: key);
 
+  ImageProvider get image {
+    if (imageData != null) return ExtendedMemoryImageProvider(imageData);
+    if (url != null) return ExtendedNetworkImageProvider(url, cache: true);
+
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
+    return image == null
+        ? _buildPlaceholder(context)
+        : ExtendedImage(
+            image: image,
+            width: size,
+            height: size,
+            fit: BoxFit.fitWidth,
+            mode: ExtendedImageMode.none,
+            enableLoadState: true,
+            border: Border.all(
+              color: context.primaryColor,
+              width: 1.0,
+            ),
+            shape: boxShape,
+            borderRadius: const BorderRadius.all(
+              Radius.circular(16.0),
+            ),
+            loadStateChanged: (ExtendedImageState state) {
+              return AnimatedCrossFade(
+                duration: const Duration(milliseconds: 300),
+                crossFadeState:
+                    state.extendedImageLoadState == LoadState.loading
+                        ? CrossFadeState.showFirst
+                        : CrossFadeState.showSecond,
+                firstChild: const Spinner(),
+                secondChild: state.extendedImageLoadState == LoadState.completed
+                    ? _buildCompletedWidget(context, state)
+                    : _buildError(context, state),
+              );
+            },
+          );
+  }
+
+  Widget _buildCompletedWidget(
+    BuildContext context,
+    ExtendedImageState state,
+  ) {
     return GestureDetector(
       onTap: onTap,
-      child: url == null
-          ? _buildPlaceholder(context)
-          : ExtendedImage.network(
-              url,
-              width: size,
-              height: size,
-              fit: BoxFit.fitWidth,
-              mode: ExtendedImageMode.none,
-              enableLoadState: true,
-              cache: true,
-              border: Border.all(
-                color: context.primaryColor,
-                width: 1.0,
-              ),
-              shape: boxShape,
-              borderRadius: const BorderRadius.all(
-                Radius.circular(16.0),
-              ),
-              loadStateChanged: (ExtendedImageState state) {
-                return AnimatedCrossFade(
-                  duration: const Duration(milliseconds: 300),
-                  crossFadeState:
-                      state.extendedImageLoadState == LoadState.loading
-                          ? CrossFadeState.showFirst
-                          : CrossFadeState.showSecond,
-                  firstChild: const Spinner(),
-                  secondChild:
-                      state.extendedImageLoadState == LoadState.completed
-                          ? state.completedWidget
-                          : _buildError(context, state),
-                );
-              },
-            ),
+      child: state.completedWidget,
     );
   }
 
