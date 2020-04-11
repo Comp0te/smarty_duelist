@@ -12,9 +12,6 @@ part 'image_editor_state.freezed.dart';
 abstract class ImageEditorState with _$ImageEditorState {
   const factory ImageEditorState.init() = Init;
   const factory ImageEditorState.loading() = Loading;
-  const factory ImageEditorState.imageSelected(
-    Uint8List imageData,
-  ) = ImageSelected;
   const factory ImageEditorState.imageEdited(
     Uint8List imageData,
   ) = ImageEdited;

@@ -5,8 +5,7 @@ import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 import 'package:bloc/bloc.dart';
 
-import 'package:smarty_duelist/src/domain/domain.dart'
-    show Camera, IImageRepository;
+import 'package:smarty_duelist/src/domain/domain.dart' show IImageRepository;
 import 'bloc.dart';
 
 @injectable
@@ -25,20 +24,6 @@ class ImageEditorBloc extends Bloc<ImageEditorEvent, ImageEditorState> {
   @override
   Stream<ImageEditorState> mapEventToState(ImageEditorEvent event) async* {
     yield* event.map(
-      selectFromLibrary: (event) async* {
-        final imageEither = await _imageRepository.getGalleryImage();
-
-        yield imageEither.fold(
-          $ImageEditorState.error,
-          $ImageEditorState.imageSelected,
-        );
-      },
-      selectFromCamera: (event) async* {
-        final imageEither = await _imageRepository.getPhoto(Camera.front);
-
-        imageEither.fold(
-            $ImageEditorState.error, $ImageEditorState.imageSelected);
-      },
       rotateLeft: (event) async* {
         editorKey.currentState.rotate(right: false);
       },
@@ -51,11 +36,11 @@ class ImageEditorBloc extends Bloc<ImageEditorEvent, ImageEditorState> {
       restore: (event) async* {
         editorKey.currentState.reset();
       },
-      edit: (event) => _mapCropToState(event),
+      edit: (event) => _mapEditToState(event),
     );
   }
 
-  Stream<ImageEditorState> _mapCropToState(Edit event) async* {
+  Stream<ImageEditorState> _mapEditToState(Edit event) async* {
     yield const Loading();
     final action = editorKey.currentState.editAction;
     final img = editorKey.currentState.rawImageData;
@@ -87,7 +72,7 @@ class ImageEditorBloc extends Bloc<ImageEditorEvent, ImageEditorState> {
   @override
   Future<void> close() {
     // ignore: invalid_use_of_protected_member
-    editorKey.currentState.dispose();
+    editorKey.currentState?.dispose();
     return super.close();
   }
 }

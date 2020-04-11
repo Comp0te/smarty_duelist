@@ -12,14 +12,6 @@ T _$identity<T>(T value) => value;
 class _$ImageEditorEventTearOff {
   const _$ImageEditorEventTearOff();
 
-  SelectFromLibrary selectFromLibrary() {
-    return const SelectFromLibrary();
-  }
-
-  SelectFromCamera selectFromCamera() {
-    return const SelectFromCamera();
-  }
-
   Edit edit() {
     return const Edit();
   }
@@ -47,8 +39,6 @@ const $ImageEditorEvent = _$ImageEditorEventTearOff();
 mixin _$ImageEditorEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result selectFromLibrary(),
-    @required Result selectFromCamera(),
     @required Result edit(),
     @required Result rotateLeft(),
     @required Result rotateRight(),
@@ -57,8 +47,6 @@ mixin _$ImageEditorEvent {
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result selectFromLibrary(),
-    Result selectFromCamera(),
     Result edit(),
     Result rotateLeft(),
     Result rotateRight(),
@@ -68,8 +56,6 @@ mixin _$ImageEditorEvent {
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result selectFromLibrary(SelectFromLibrary value),
-    @required Result selectFromCamera(SelectFromCamera value),
     @required Result edit(Edit value),
     @required Result rotateLeft(RotateLeft value),
     @required Result rotateRight(RotateRight value),
@@ -78,8 +64,6 @@ mixin _$ImageEditorEvent {
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result selectFromLibrary(SelectFromLibrary value),
-    Result selectFromCamera(SelectFromCamera value),
     Result edit(Edit value),
     Result rotateLeft(RotateLeft value),
     Result rotateRight(RotateRight value),
@@ -102,260 +86,6 @@ class _$ImageEditorEventCopyWithImpl<$Res>
   final ImageEditorEvent _value;
   // ignore: unused_field
   final $Res Function(ImageEditorEvent) _then;
-}
-
-abstract class $SelectFromLibraryCopyWith<$Res> {
-  factory $SelectFromLibraryCopyWith(
-          SelectFromLibrary value, $Res Function(SelectFromLibrary) then) =
-      _$SelectFromLibraryCopyWithImpl<$Res>;
-}
-
-class _$SelectFromLibraryCopyWithImpl<$Res>
-    extends _$ImageEditorEventCopyWithImpl<$Res>
-    implements $SelectFromLibraryCopyWith<$Res> {
-  _$SelectFromLibraryCopyWithImpl(
-      SelectFromLibrary _value, $Res Function(SelectFromLibrary) _then)
-      : super(_value, (v) => _then(v as SelectFromLibrary));
-
-  @override
-  SelectFromLibrary get _value => super._value as SelectFromLibrary;
-}
-
-class _$SelectFromLibrary
-    with DiagnosticableTreeMixin
-    implements SelectFromLibrary {
-  const _$SelectFromLibrary();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ImageEditorEvent.selectFromLibrary()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'ImageEditorEvent.selectFromLibrary'));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is SelectFromLibrary);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result selectFromLibrary(),
-    @required Result selectFromCamera(),
-    @required Result edit(),
-    @required Result rotateLeft(),
-    @required Result rotateRight(),
-    @required Result flip(),
-    @required Result restore(),
-  }) {
-    assert(selectFromLibrary != null);
-    assert(selectFromCamera != null);
-    assert(edit != null);
-    assert(rotateLeft != null);
-    assert(rotateRight != null);
-    assert(flip != null);
-    assert(restore != null);
-    return selectFromLibrary();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result selectFromLibrary(),
-    Result selectFromCamera(),
-    Result edit(),
-    Result rotateLeft(),
-    Result rotateRight(),
-    Result flip(),
-    Result restore(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (selectFromLibrary != null) {
-      return selectFromLibrary();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result selectFromLibrary(SelectFromLibrary value),
-    @required Result selectFromCamera(SelectFromCamera value),
-    @required Result edit(Edit value),
-    @required Result rotateLeft(RotateLeft value),
-    @required Result rotateRight(RotateRight value),
-    @required Result flip(Flip value),
-    @required Result restore(Restore value),
-  }) {
-    assert(selectFromLibrary != null);
-    assert(selectFromCamera != null);
-    assert(edit != null);
-    assert(rotateLeft != null);
-    assert(rotateRight != null);
-    assert(flip != null);
-    assert(restore != null);
-    return selectFromLibrary(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result selectFromLibrary(SelectFromLibrary value),
-    Result selectFromCamera(SelectFromCamera value),
-    Result edit(Edit value),
-    Result rotateLeft(RotateLeft value),
-    Result rotateRight(RotateRight value),
-    Result flip(Flip value),
-    Result restore(Restore value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (selectFromLibrary != null) {
-      return selectFromLibrary(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class SelectFromLibrary implements ImageEditorEvent {
-  const factory SelectFromLibrary() = _$SelectFromLibrary;
-}
-
-abstract class $SelectFromCameraCopyWith<$Res> {
-  factory $SelectFromCameraCopyWith(
-          SelectFromCamera value, $Res Function(SelectFromCamera) then) =
-      _$SelectFromCameraCopyWithImpl<$Res>;
-}
-
-class _$SelectFromCameraCopyWithImpl<$Res>
-    extends _$ImageEditorEventCopyWithImpl<$Res>
-    implements $SelectFromCameraCopyWith<$Res> {
-  _$SelectFromCameraCopyWithImpl(
-      SelectFromCamera _value, $Res Function(SelectFromCamera) _then)
-      : super(_value, (v) => _then(v as SelectFromCamera));
-
-  @override
-  SelectFromCamera get _value => super._value as SelectFromCamera;
-}
-
-class _$SelectFromCamera
-    with DiagnosticableTreeMixin
-    implements SelectFromCamera {
-  const _$SelectFromCamera();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ImageEditorEvent.selectFromCamera()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'ImageEditorEvent.selectFromCamera'));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is SelectFromCamera);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result selectFromLibrary(),
-    @required Result selectFromCamera(),
-    @required Result edit(),
-    @required Result rotateLeft(),
-    @required Result rotateRight(),
-    @required Result flip(),
-    @required Result restore(),
-  }) {
-    assert(selectFromLibrary != null);
-    assert(selectFromCamera != null);
-    assert(edit != null);
-    assert(rotateLeft != null);
-    assert(rotateRight != null);
-    assert(flip != null);
-    assert(restore != null);
-    return selectFromCamera();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result selectFromLibrary(),
-    Result selectFromCamera(),
-    Result edit(),
-    Result rotateLeft(),
-    Result rotateRight(),
-    Result flip(),
-    Result restore(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (selectFromCamera != null) {
-      return selectFromCamera();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result selectFromLibrary(SelectFromLibrary value),
-    @required Result selectFromCamera(SelectFromCamera value),
-    @required Result edit(Edit value),
-    @required Result rotateLeft(RotateLeft value),
-    @required Result rotateRight(RotateRight value),
-    @required Result flip(Flip value),
-    @required Result restore(Restore value),
-  }) {
-    assert(selectFromLibrary != null);
-    assert(selectFromCamera != null);
-    assert(edit != null);
-    assert(rotateLeft != null);
-    assert(rotateRight != null);
-    assert(flip != null);
-    assert(restore != null);
-    return selectFromCamera(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result selectFromLibrary(SelectFromLibrary value),
-    Result selectFromCamera(SelectFromCamera value),
-    Result edit(Edit value),
-    Result rotateLeft(RotateLeft value),
-    Result rotateRight(RotateRight value),
-    Result flip(Flip value),
-    Result restore(Restore value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (selectFromCamera != null) {
-      return selectFromCamera(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class SelectFromCamera implements ImageEditorEvent {
-  const factory SelectFromCamera() = _$SelectFromCamera;
 }
 
 abstract class $EditCopyWith<$Res> {
@@ -397,16 +127,12 @@ class _$Edit with DiagnosticableTreeMixin implements Edit {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result selectFromLibrary(),
-    @required Result selectFromCamera(),
     @required Result edit(),
     @required Result rotateLeft(),
     @required Result rotateRight(),
     @required Result flip(),
     @required Result restore(),
   }) {
-    assert(selectFromLibrary != null);
-    assert(selectFromCamera != null);
     assert(edit != null);
     assert(rotateLeft != null);
     assert(rotateRight != null);
@@ -418,8 +144,6 @@ class _$Edit with DiagnosticableTreeMixin implements Edit {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result selectFromLibrary(),
-    Result selectFromCamera(),
     Result edit(),
     Result rotateLeft(),
     Result rotateRight(),
@@ -437,16 +161,12 @@ class _$Edit with DiagnosticableTreeMixin implements Edit {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result selectFromLibrary(SelectFromLibrary value),
-    @required Result selectFromCamera(SelectFromCamera value),
     @required Result edit(Edit value),
     @required Result rotateLeft(RotateLeft value),
     @required Result rotateRight(RotateRight value),
     @required Result flip(Flip value),
     @required Result restore(Restore value),
   }) {
-    assert(selectFromLibrary != null);
-    assert(selectFromCamera != null);
     assert(edit != null);
     assert(rotateLeft != null);
     assert(rotateRight != null);
@@ -458,8 +178,6 @@ class _$Edit with DiagnosticableTreeMixin implements Edit {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result selectFromLibrary(SelectFromLibrary value),
-    Result selectFromCamera(SelectFromCamera value),
     Result edit(Edit value),
     Result rotateLeft(RotateLeft value),
     Result rotateRight(RotateRight value),
@@ -520,16 +238,12 @@ class _$RotateLeft with DiagnosticableTreeMixin implements RotateLeft {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result selectFromLibrary(),
-    @required Result selectFromCamera(),
     @required Result edit(),
     @required Result rotateLeft(),
     @required Result rotateRight(),
     @required Result flip(),
     @required Result restore(),
   }) {
-    assert(selectFromLibrary != null);
-    assert(selectFromCamera != null);
     assert(edit != null);
     assert(rotateLeft != null);
     assert(rotateRight != null);
@@ -541,8 +255,6 @@ class _$RotateLeft with DiagnosticableTreeMixin implements RotateLeft {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result selectFromLibrary(),
-    Result selectFromCamera(),
     Result edit(),
     Result rotateLeft(),
     Result rotateRight(),
@@ -560,16 +272,12 @@ class _$RotateLeft with DiagnosticableTreeMixin implements RotateLeft {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result selectFromLibrary(SelectFromLibrary value),
-    @required Result selectFromCamera(SelectFromCamera value),
     @required Result edit(Edit value),
     @required Result rotateLeft(RotateLeft value),
     @required Result rotateRight(RotateRight value),
     @required Result flip(Flip value),
     @required Result restore(Restore value),
   }) {
-    assert(selectFromLibrary != null);
-    assert(selectFromCamera != null);
     assert(edit != null);
     assert(rotateLeft != null);
     assert(rotateRight != null);
@@ -581,8 +289,6 @@ class _$RotateLeft with DiagnosticableTreeMixin implements RotateLeft {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result selectFromLibrary(SelectFromLibrary value),
-    Result selectFromCamera(SelectFromCamera value),
     Result edit(Edit value),
     Result rotateLeft(RotateLeft value),
     Result rotateRight(RotateRight value),
@@ -645,16 +351,12 @@ class _$RotateRight with DiagnosticableTreeMixin implements RotateRight {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result selectFromLibrary(),
-    @required Result selectFromCamera(),
     @required Result edit(),
     @required Result rotateLeft(),
     @required Result rotateRight(),
     @required Result flip(),
     @required Result restore(),
   }) {
-    assert(selectFromLibrary != null);
-    assert(selectFromCamera != null);
     assert(edit != null);
     assert(rotateLeft != null);
     assert(rotateRight != null);
@@ -666,8 +368,6 @@ class _$RotateRight with DiagnosticableTreeMixin implements RotateRight {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result selectFromLibrary(),
-    Result selectFromCamera(),
     Result edit(),
     Result rotateLeft(),
     Result rotateRight(),
@@ -685,16 +385,12 @@ class _$RotateRight with DiagnosticableTreeMixin implements RotateRight {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result selectFromLibrary(SelectFromLibrary value),
-    @required Result selectFromCamera(SelectFromCamera value),
     @required Result edit(Edit value),
     @required Result rotateLeft(RotateLeft value),
     @required Result rotateRight(RotateRight value),
     @required Result flip(Flip value),
     @required Result restore(Restore value),
   }) {
-    assert(selectFromLibrary != null);
-    assert(selectFromCamera != null);
     assert(edit != null);
     assert(rotateLeft != null);
     assert(rotateRight != null);
@@ -706,8 +402,6 @@ class _$RotateRight with DiagnosticableTreeMixin implements RotateRight {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result selectFromLibrary(SelectFromLibrary value),
-    Result selectFromCamera(SelectFromCamera value),
     Result edit(Edit value),
     Result rotateLeft(RotateLeft value),
     Result rotateRight(RotateRight value),
@@ -766,16 +460,12 @@ class _$Flip with DiagnosticableTreeMixin implements Flip {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result selectFromLibrary(),
-    @required Result selectFromCamera(),
     @required Result edit(),
     @required Result rotateLeft(),
     @required Result rotateRight(),
     @required Result flip(),
     @required Result restore(),
   }) {
-    assert(selectFromLibrary != null);
-    assert(selectFromCamera != null);
     assert(edit != null);
     assert(rotateLeft != null);
     assert(rotateRight != null);
@@ -787,8 +477,6 @@ class _$Flip with DiagnosticableTreeMixin implements Flip {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result selectFromLibrary(),
-    Result selectFromCamera(),
     Result edit(),
     Result rotateLeft(),
     Result rotateRight(),
@@ -806,16 +494,12 @@ class _$Flip with DiagnosticableTreeMixin implements Flip {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result selectFromLibrary(SelectFromLibrary value),
-    @required Result selectFromCamera(SelectFromCamera value),
     @required Result edit(Edit value),
     @required Result rotateLeft(RotateLeft value),
     @required Result rotateRight(RotateRight value),
     @required Result flip(Flip value),
     @required Result restore(Restore value),
   }) {
-    assert(selectFromLibrary != null);
-    assert(selectFromCamera != null);
     assert(edit != null);
     assert(rotateLeft != null);
     assert(rotateRight != null);
@@ -827,8 +511,6 @@ class _$Flip with DiagnosticableTreeMixin implements Flip {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result selectFromLibrary(SelectFromLibrary value),
-    Result selectFromCamera(SelectFromCamera value),
     Result edit(Edit value),
     Result rotateLeft(RotateLeft value),
     Result rotateRight(RotateRight value),
@@ -887,16 +569,12 @@ class _$Restore with DiagnosticableTreeMixin implements Restore {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result selectFromLibrary(),
-    @required Result selectFromCamera(),
     @required Result edit(),
     @required Result rotateLeft(),
     @required Result rotateRight(),
     @required Result flip(),
     @required Result restore(),
   }) {
-    assert(selectFromLibrary != null);
-    assert(selectFromCamera != null);
     assert(edit != null);
     assert(rotateLeft != null);
     assert(rotateRight != null);
@@ -908,8 +586,6 @@ class _$Restore with DiagnosticableTreeMixin implements Restore {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result selectFromLibrary(),
-    Result selectFromCamera(),
     Result edit(),
     Result rotateLeft(),
     Result rotateRight(),
@@ -927,16 +603,12 @@ class _$Restore with DiagnosticableTreeMixin implements Restore {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result selectFromLibrary(SelectFromLibrary value),
-    @required Result selectFromCamera(SelectFromCamera value),
     @required Result edit(Edit value),
     @required Result rotateLeft(RotateLeft value),
     @required Result rotateRight(RotateRight value),
     @required Result flip(Flip value),
     @required Result restore(Restore value),
   }) {
-    assert(selectFromLibrary != null);
-    assert(selectFromCamera != null);
     assert(edit != null);
     assert(rotateLeft != null);
     assert(rotateRight != null);
@@ -948,8 +620,6 @@ class _$Restore with DiagnosticableTreeMixin implements Restore {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result selectFromLibrary(SelectFromLibrary value),
-    Result selectFromCamera(SelectFromCamera value),
     Result edit(Edit value),
     Result rotateLeft(RotateLeft value),
     Result rotateRight(RotateRight value),
