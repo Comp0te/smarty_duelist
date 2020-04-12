@@ -1,5 +1,3 @@
-import 'dart:typed_data';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +7,7 @@ import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:smarty_duelist/generated/l10n.dart';
 import 'package:smarty_duelist/src/injector/injector.dart' show getIt;
 
+import '../../core_blocs/core_blocs.dart';
 import '../../shared_widgets/shared_widgets.dart'
     show Button, NativeScaffold, Spinner, SpinnerMode;
 import '../../theme/theme.dart';
@@ -17,26 +16,19 @@ import 'blocs/blocs.dart';
 
 class ImageEditorModal extends StatelessWidget implements AutoRouteWrapper {
   final String url;
-  final Uint8List imageData;
+  final ImagePickerBloc imagePickerBloc;
 
   const ImageEditorModal({
     Key key,
     this.url,
-    this.imageData,
-  })  : assert(url != null || imageData != null),
-        super(key: key);
+    this.imagePickerBloc,
+  }) : super(key: key);
 
   @override
   Widget get wrappedRoute => BlocProvider<ImageEditorBloc>(
         create: (_) => getIt<ImageEditorBloc>(),
         child: this,
       );
-
-  ImageProvider get image {
-    if (imageData != null) return ExtendedMemoryImageProvider(imageData);
-
-    return ExtendedNetworkImageProvider(url, cache: true);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +39,7 @@ class ImageEditorModal extends StatelessWidget implements AutoRouteWrapper {
           child: BlocBuilder<ImageEditorBloc, ImageEditorState>(
             builder: (context, state) => state.maybeWhen(
               loading: () => const Spinner(spinnerMode: SpinnerMode.standalone),
-              orElse: () => _buildImageEditor(context, imageData),
+              orElse: () => _buildImageEditor(context),
             ),
           ),
         ),
@@ -55,7 +47,7 @@ class ImageEditorModal extends StatelessWidget implements AutoRouteWrapper {
     );
   }
 
-  Widget _buildImageEditor(BuildContext context, Uint8List imageData) {
+  Widget _buildImageEditor(BuildContext context) {
     final imageEditorBloc = BlocProvider.of<ImageEditorBloc>(context);
 
     return Column(
@@ -66,8 +58,12 @@ class ImageEditorModal extends StatelessWidget implements AutoRouteWrapper {
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.width,
           child: ExtendedImage(
-            image: image,
-            fit: BoxFit.fitWidth,
+            image: imagePickerBloc.state.maybeWhen(
+              imageSelected: (imageData) =>
+                  ExtendedMemoryImageProvider(imageData),
+              orElse: () => ExtendedNetworkImageProvider(url, cache: true),
+            ),
+            fit: BoxFit.contain,
             mode: ExtendedImageMode.editor,
             enableLoadState: true,
             extendedImageEditorKey: imageEditorBloc.editorKey,
