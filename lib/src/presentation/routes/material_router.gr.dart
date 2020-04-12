@@ -14,6 +14,7 @@ import 'package:smarty_duelist/src/presentation/pages/forgot_password_page/forgo
 import 'package:smarty_duelist/src/presentation/pages/main_bottom_tabs_page/main_bottom_tabs_page.dart';
 import 'package:smarty_duelist/src/presentation/routes/guards/aurh_guard.dart';
 import 'package:smarty_duelist/src/presentation/pages/image_editor_modal/image_editor_modal.dart';
+import 'package:smarty_duelist/src/presentation/core_blocs/image_picker/image_picker_bloc.dart';
 
 abstract class Routes {
   static const splashPage = '/';
@@ -77,9 +78,11 @@ class MaterialRouter extends RouterBase {
         final typedArgs =
             args as ImageEditorModalArguments ?? ImageEditorModalArguments();
         return MaterialPageRoute<dynamic>(
-          builder: (_) =>
-              ImageEditorModal(key: typedArgs.key, url: typedArgs.url)
-                  .wrappedRoute,
+          builder: (_) => ImageEditorModal(
+                  key: typedArgs.key,
+                  url: typedArgs.url,
+                  imagePickerBloc: typedArgs.imagePickerBloc)
+              .wrappedRoute,
           settings: settings,
           fullscreenDialog: true,
         );
@@ -97,7 +100,8 @@ class MaterialRouter extends RouterBase {
 class ImageEditorModalArguments {
   final Key key;
   final String url;
-  ImageEditorModalArguments({this.key, this.url});
+  final ImagePickerBloc imagePickerBloc;
+  ImageEditorModalArguments({this.key, this.url, this.imagePickerBloc});
 }
 
 //**************************************************************************
@@ -113,7 +117,9 @@ extension MaterialRouterNavigationHelperMethods on ExtendedNavigatorState {
   Future pushImageEditorModal({
     Key key,
     String url,
+    ImagePickerBloc imagePickerBloc,
   }) =>
       pushNamed(Routes.imageEditorModal,
-          arguments: ImageEditorModalArguments(key: key, url: url));
+          arguments: ImageEditorModalArguments(
+              key: key, url: url, imagePickerBloc: imagePickerBloc));
 }
