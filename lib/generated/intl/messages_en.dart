@@ -40,7 +40,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "confirm" : MessageLookupByLibrary.simpleMessage("Confirm"),
     "confirmPassword" : MessageLookupByLibrary.simpleMessage("Confirm password"),
     "delete" : MessageLookupByLibrary.simpleMessage("Delete"),
-    "edit" : MessageLookupByLibrary.simpleMessage("edit"),
+    "edit" : MessageLookupByLibrary.simpleMessage("Edit"),
     "email" : MessageLookupByLibrary.simpleMessage("Email"),
     "error" : MessageLookupByLibrary.simpleMessage("Error"),
     "errorCredentialMalformed" : MessageLookupByLibrary.simpleMessage("Credential data is malformed or has expired"),

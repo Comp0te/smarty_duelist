@@ -137,7 +137,7 @@ class S {
 
   String get edit {
     return Intl.message(
-      'edit',
+      'Edit',
       name: 'edit',
       desc: '',
       args: [],
