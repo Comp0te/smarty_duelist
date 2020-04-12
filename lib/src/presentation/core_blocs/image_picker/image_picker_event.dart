@@ -7,4 +7,5 @@ part 'image_picker_event.freezed.dart';
 abstract class ImagePickerEvent with _$ImagePickerEvent {
   const factory ImagePickerEvent.selectFromLibrary() = SelectFromLibrary;
   const factory ImagePickerEvent.selectFromCamera() = SelectFromCamera;
+  const factory ImagePickerEvent.clear() = ClearSelected;
 }

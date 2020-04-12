@@ -19,6 +19,10 @@ class _$ImagePickerEventTearOff {
   SelectFromCamera selectFromCamera() {
     return const SelectFromCamera();
   }
+
+  ClearSelected clear() {
+    return const ClearSelected();
+  }
 }
 
 // ignore: unused_element
@@ -29,22 +33,26 @@ mixin _$ImagePickerEvent {
   Result when<Result extends Object>({
     @required Result selectFromLibrary(),
     @required Result selectFromCamera(),
+    @required Result clear(),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result selectFromLibrary(),
     Result selectFromCamera(),
+    Result clear(),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result selectFromLibrary(SelectFromLibrary value),
     @required Result selectFromCamera(SelectFromCamera value),
+    @required Result clear(ClearSelected value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result selectFromLibrary(SelectFromLibrary value),
     Result selectFromCamera(SelectFromCamera value),
+    Result clear(ClearSelected value),
     @required Result orElse(),
   });
 }
@@ -111,9 +119,11 @@ class _$SelectFromLibrary
   Result when<Result extends Object>({
     @required Result selectFromLibrary(),
     @required Result selectFromCamera(),
+    @required Result clear(),
   }) {
     assert(selectFromLibrary != null);
     assert(selectFromCamera != null);
+    assert(clear != null);
     return selectFromLibrary();
   }
 
@@ -122,6 +132,7 @@ class _$SelectFromLibrary
   Result maybeWhen<Result extends Object>({
     Result selectFromLibrary(),
     Result selectFromCamera(),
+    Result clear(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -136,9 +147,11 @@ class _$SelectFromLibrary
   Result map<Result extends Object>({
     @required Result selectFromLibrary(SelectFromLibrary value),
     @required Result selectFromCamera(SelectFromCamera value),
+    @required Result clear(ClearSelected value),
   }) {
     assert(selectFromLibrary != null);
     assert(selectFromCamera != null);
+    assert(clear != null);
     return selectFromLibrary(this);
   }
 
@@ -147,6 +160,7 @@ class _$SelectFromLibrary
   Result maybeMap<Result extends Object>({
     Result selectFromLibrary(SelectFromLibrary value),
     Result selectFromCamera(SelectFromCamera value),
+    Result clear(ClearSelected value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -208,9 +222,11 @@ class _$SelectFromCamera
   Result when<Result extends Object>({
     @required Result selectFromLibrary(),
     @required Result selectFromCamera(),
+    @required Result clear(),
   }) {
     assert(selectFromLibrary != null);
     assert(selectFromCamera != null);
+    assert(clear != null);
     return selectFromCamera();
   }
 
@@ -219,6 +235,7 @@ class _$SelectFromCamera
   Result maybeWhen<Result extends Object>({
     Result selectFromLibrary(),
     Result selectFromCamera(),
+    Result clear(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -233,9 +250,11 @@ class _$SelectFromCamera
   Result map<Result extends Object>({
     @required Result selectFromLibrary(SelectFromLibrary value),
     @required Result selectFromCamera(SelectFromCamera value),
+    @required Result clear(ClearSelected value),
   }) {
     assert(selectFromLibrary != null);
     assert(selectFromCamera != null);
+    assert(clear != null);
     return selectFromCamera(this);
   }
 
@@ -244,6 +263,7 @@ class _$SelectFromCamera
   Result maybeMap<Result extends Object>({
     Result selectFromLibrary(SelectFromLibrary value),
     Result selectFromCamera(SelectFromCamera value),
+    Result clear(ClearSelected value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -256,4 +276,104 @@ class _$SelectFromCamera
 
 abstract class SelectFromCamera implements ImagePickerEvent {
   const factory SelectFromCamera() = _$SelectFromCamera;
+}
+
+abstract class $ClearSelectedCopyWith<$Res> {
+  factory $ClearSelectedCopyWith(
+          ClearSelected value, $Res Function(ClearSelected) then) =
+      _$ClearSelectedCopyWithImpl<$Res>;
+}
+
+class _$ClearSelectedCopyWithImpl<$Res>
+    extends _$ImagePickerEventCopyWithImpl<$Res>
+    implements $ClearSelectedCopyWith<$Res> {
+  _$ClearSelectedCopyWithImpl(
+      ClearSelected _value, $Res Function(ClearSelected) _then)
+      : super(_value, (v) => _then(v as ClearSelected));
+
+  @override
+  ClearSelected get _value => super._value as ClearSelected;
+}
+
+class _$ClearSelected with DiagnosticableTreeMixin implements ClearSelected {
+  const _$ClearSelected();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ImagePickerEvent.clear()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'ImagePickerEvent.clear'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is ClearSelected);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result selectFromLibrary(),
+    @required Result selectFromCamera(),
+    @required Result clear(),
+  }) {
+    assert(selectFromLibrary != null);
+    assert(selectFromCamera != null);
+    assert(clear != null);
+    return clear();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result selectFromLibrary(),
+    Result selectFromCamera(),
+    Result clear(),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (clear != null) {
+      return clear();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result selectFromLibrary(SelectFromLibrary value),
+    @required Result selectFromCamera(SelectFromCamera value),
+    @required Result clear(ClearSelected value),
+  }) {
+    assert(selectFromLibrary != null);
+    assert(selectFromCamera != null);
+    assert(clear != null);
+    return clear(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result selectFromLibrary(SelectFromLibrary value),
+    Result selectFromCamera(SelectFromCamera value),
+    Result clear(ClearSelected value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (clear != null) {
+      return clear(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ClearSelected implements ImagePickerEvent {
+  const factory ClearSelected() = _$ClearSelected;
 }

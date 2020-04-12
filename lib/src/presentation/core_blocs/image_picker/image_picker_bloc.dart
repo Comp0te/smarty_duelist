@@ -32,10 +32,13 @@ class ImagePickerBloc extends Bloc<ImagePickerEvent, ImagePickerState> {
       selectFromCamera: (event) async* {
         final imageEither = await _imageRepository.getPhoto(Camera.front);
 
-        imageEither.fold(
+        yield imageEither.fold(
           $ImagePickerState.error,
           $ImagePickerState.imageSelected,
         );
+      },
+      clear: (_) async* {
+        yield const Init();
       },
     );
   }
