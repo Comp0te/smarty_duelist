@@ -56,12 +56,24 @@ class Avatar extends StatelessWidget {
             ),
             loadStateChanged: (ExtendedImageState state) {
               return AnimatedCrossFade(
+                layoutBuilder:
+                    (topChild, topChildKey, bottomChild, bottomChildKey) {
+                  return Stack(
+                    children: <Widget>[
+                      Center(key: bottomChildKey, child: bottomChild),
+                      Positioned(key: topChildKey, child: topChild),
+                    ],
+                  );
+                },
                 duration: const Duration(milliseconds: 300),
                 crossFadeState:
                     state.extendedImageLoadState == LoadState.loading
                         ? CrossFadeState.showFirst
                         : CrossFadeState.showSecond,
-                firstChild: const Spinner(),
+                firstChild: Spinner(
+                  spinnerMode:
+                      size <= 200 ? SpinnerMode.inner : SpinnerMode.standalone,
+                ),
                 secondChild: state.extendedImageLoadState == LoadState.completed
                     ? _buildCompletedWidget(context, state)
                     : _buildError(context, state),
