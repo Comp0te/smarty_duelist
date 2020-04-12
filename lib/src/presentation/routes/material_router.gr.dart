@@ -77,11 +77,9 @@ class MaterialRouter extends RouterBase {
         final typedArgs =
             args as ImageEditorModalArguments ?? ImageEditorModalArguments();
         return MaterialPageRoute<dynamic>(
-          builder: (_) => ImageEditorModal(
-                  key: typedArgs.key,
-                  url: typedArgs.url,
-                  imageData: typedArgs.imageData)
-              .wrappedRoute,
+          builder: (_) =>
+              ImageEditorModal(key: typedArgs.key, url: typedArgs.url)
+                  .wrappedRoute,
           settings: settings,
           fullscreenDialog: true,
         );
@@ -99,8 +97,7 @@ class MaterialRouter extends RouterBase {
 class ImageEditorModalArguments {
   final Key key;
   final String url;
-  final Uint8List imageData;
-  ImageEditorModalArguments({this.key, this.url, this.imageData});
+  ImageEditorModalArguments({this.key, this.url});
 }
 
 //**************************************************************************
@@ -116,9 +113,7 @@ extension MaterialRouterNavigationHelperMethods on ExtendedNavigatorState {
   Future pushImageEditorModal({
     Key key,
     String url,
-    Uint8List imageData,
   }) =>
       pushNamed(Routes.imageEditorModal,
-          arguments: ImageEditorModalArguments(
-              key: key, url: url, imageData: imageData));
+          arguments: ImageEditorModalArguments(key: key, url: url));
 }
