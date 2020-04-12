@@ -6,6 +6,7 @@ enum SpinnerMode { inner, standalone }
 class Spinner extends StatelessWidget {
   final SpinnerMode spinnerMode;
   final Color color;
+
   const Spinner({
     this.spinnerMode = SpinnerMode.inner,
     this.color,
@@ -19,7 +20,7 @@ class Spinner extends StatelessWidget {
           child: SizedBox(
             height: 50,
             width: 50,
-            child: _buildSpinner(context),
+            child: _buildSpinner(context, 20),
           ),
         );
       case SpinnerMode.inner:
@@ -32,9 +33,9 @@ class Spinner extends StatelessWidget {
     }
   }
 
-  Widget _buildSpinner(BuildContext context) {
+  Widget _buildSpinner(BuildContext context, [double size]) {
     return PlatformCircularProgressIndicator(
-      ios: (_) => CupertinoProgressIndicatorData(),
+      ios: (_) => CupertinoProgressIndicatorData(radius: size),
       android: (_) => MaterialProgressIndicatorData(
         strokeWidth: 2,
         backgroundColor: color ?? Theme.of(context).primaryColor,
