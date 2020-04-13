@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'preferences_state.dart';
+part of 'preferences_bloc.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
