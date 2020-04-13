@@ -19,7 +19,7 @@ class App extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<AuthBloc>(
-          create: (_) => getIt<AuthBloc>()..add(const AppStarted()),
+          create: (_) => getIt<AuthBloc>(),
         ),
         BlocProvider<PreferencesBloc>(
           create: (_) => getIt<PreferencesBloc>(),

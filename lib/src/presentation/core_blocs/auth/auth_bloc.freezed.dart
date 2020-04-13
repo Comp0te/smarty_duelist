@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
 
-part of 'auth_state.dart';
+part of 'auth_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -9,11 +9,286 @@ part of 'auth_state.dart';
 
 T _$identity<T>(T value) => value;
 
+class _$AuthEventTearOff {
+  const _$AuthEventTearOff();
+
+  SignedIn signedIn(User user) {
+    return SignedIn(
+      user,
+    );
+  }
+
+  SignedOut signedOut() {
+    return const SignedOut();
+  }
+}
+
+// ignore: unused_element
+const $AuthEvent = _$AuthEventTearOff();
+
+mixin _$AuthEvent {
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result signedIn(User user),
+    @required Result signedOut(),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result signedIn(User user),
+    Result signedOut(),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result signedIn(SignedIn value),
+    @required Result signedOut(SignedOut value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result signedIn(SignedIn value),
+    Result signedOut(SignedOut value),
+    @required Result orElse(),
+  });
+}
+
+abstract class $AuthEventCopyWith<$Res> {
+  factory $AuthEventCopyWith(AuthEvent value, $Res Function(AuthEvent) then) =
+      _$AuthEventCopyWithImpl<$Res>;
+}
+
+class _$AuthEventCopyWithImpl<$Res> implements $AuthEventCopyWith<$Res> {
+  _$AuthEventCopyWithImpl(this._value, this._then);
+
+  final AuthEvent _value;
+  // ignore: unused_field
+  final $Res Function(AuthEvent) _then;
+}
+
+abstract class $SignedInCopyWith<$Res> {
+  factory $SignedInCopyWith(SignedIn value, $Res Function(SignedIn) then) =
+      _$SignedInCopyWithImpl<$Res>;
+  $Res call({User user});
+
+  $UserCopyWith<$Res> get user;
+}
+
+class _$SignedInCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
+    implements $SignedInCopyWith<$Res> {
+  _$SignedInCopyWithImpl(SignedIn _value, $Res Function(SignedIn) _then)
+      : super(_value, (v) => _then(v as SignedIn));
+
+  @override
+  SignedIn get _value => super._value as SignedIn;
+
+  @override
+  $Res call({
+    Object user = freezed,
+  }) {
+    return _then(SignedIn(
+      user == freezed ? _value.user : user as User,
+    ));
+  }
+
+  @override
+  $UserCopyWith<$Res> get user {
+    if (_value.user == null) {
+      return null;
+    }
+    return $UserCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value));
+    });
+  }
+}
+
+class _$SignedIn with DiagnosticableTreeMixin implements SignedIn {
+  const _$SignedIn(this.user) : assert(user != null);
+
+  @override
+  final User user;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AuthEvent.signedIn(user: $user)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AuthEvent.signedIn'))
+      ..add(DiagnosticsProperty('user', user));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is SignedIn &&
+            (identical(other.user, user) ||
+                const DeepCollectionEquality().equals(other.user, user)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(user);
+
+  @override
+  $SignedInCopyWith<SignedIn> get copyWith =>
+      _$SignedInCopyWithImpl<SignedIn>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result signedIn(User user),
+    @required Result signedOut(),
+  }) {
+    assert(signedIn != null);
+    assert(signedOut != null);
+    return signedIn(user);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result signedIn(User user),
+    Result signedOut(),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (signedIn != null) {
+      return signedIn(user);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result signedIn(SignedIn value),
+    @required Result signedOut(SignedOut value),
+  }) {
+    assert(signedIn != null);
+    assert(signedOut != null);
+    return signedIn(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result signedIn(SignedIn value),
+    Result signedOut(SignedOut value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (signedIn != null) {
+      return signedIn(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SignedIn implements AuthEvent {
+  const factory SignedIn(User user) = _$SignedIn;
+
+  User get user;
+  $SignedInCopyWith<SignedIn> get copyWith;
+}
+
+abstract class $SignedOutCopyWith<$Res> {
+  factory $SignedOutCopyWith(SignedOut value, $Res Function(SignedOut) then) =
+      _$SignedOutCopyWithImpl<$Res>;
+}
+
+class _$SignedOutCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
+    implements $SignedOutCopyWith<$Res> {
+  _$SignedOutCopyWithImpl(SignedOut _value, $Res Function(SignedOut) _then)
+      : super(_value, (v) => _then(v as SignedOut));
+
+  @override
+  SignedOut get _value => super._value as SignedOut;
+}
+
+class _$SignedOut with DiagnosticableTreeMixin implements SignedOut {
+  const _$SignedOut();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AuthEvent.signedOut()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'AuthEvent.signedOut'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is SignedOut);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result signedIn(User user),
+    @required Result signedOut(),
+  }) {
+    assert(signedIn != null);
+    assert(signedOut != null);
+    return signedOut();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result signedIn(User user),
+    Result signedOut(),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (signedOut != null) {
+      return signedOut();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result signedIn(SignedIn value),
+    @required Result signedOut(SignedOut value),
+  }) {
+    assert(signedIn != null);
+    assert(signedOut != null);
+    return signedOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result signedIn(SignedIn value),
+    Result signedOut(SignedOut value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (signedOut != null) {
+      return signedOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SignedOut implements AuthEvent {
+  const factory SignedOut() = _$SignedOut;
+}
+
 class _$AuthStateTearOff {
   const _$AuthStateTearOff();
 
-  AuthInit authInit() {
-    return const AuthInit();
+  AuthInitializing authInitializing() {
+    return const AuthInitializing();
   }
 
   AuthAuthenticated authAuthenticated(User user) {
@@ -25,10 +300,6 @@ class _$AuthStateTearOff {
   AuthUnauthenticated authUnauthenticated() {
     return const AuthUnauthenticated();
   }
-
-  AuthLoading authLoading() {
-    return const AuthLoading();
-  }
 }
 
 // ignore: unused_element
@@ -37,32 +308,28 @@ const $AuthState = _$AuthStateTearOff();
 mixin _$AuthState {
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result authInit(),
+    @required Result authInitializing(),
     @required Result authAuthenticated(User user),
     @required Result authUnauthenticated(),
-    @required Result authLoading(),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result authInit(),
+    Result authInitializing(),
     Result authAuthenticated(User user),
     Result authUnauthenticated(),
-    Result authLoading(),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result authInit(AuthInit value),
+    @required Result authInitializing(AuthInitializing value),
     @required Result authAuthenticated(AuthAuthenticated value),
     @required Result authUnauthenticated(AuthUnauthenticated value),
-    @required Result authLoading(AuthLoading value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result authInit(AuthInit value),
+    Result authInitializing(AuthInitializing value),
     Result authAuthenticated(AuthAuthenticated value),
     Result authUnauthenticated(AuthUnauthenticated value),
-    Result authLoading(AuthLoading value),
     @required Result orElse(),
   });
 }
@@ -80,37 +347,41 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
   final $Res Function(AuthState) _then;
 }
 
-abstract class $AuthInitCopyWith<$Res> {
-  factory $AuthInitCopyWith(AuthInit value, $Res Function(AuthInit) then) =
-      _$AuthInitCopyWithImpl<$Res>;
+abstract class $AuthInitializingCopyWith<$Res> {
+  factory $AuthInitializingCopyWith(
+          AuthInitializing value, $Res Function(AuthInitializing) then) =
+      _$AuthInitializingCopyWithImpl<$Res>;
 }
 
-class _$AuthInitCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
-    implements $AuthInitCopyWith<$Res> {
-  _$AuthInitCopyWithImpl(AuthInit _value, $Res Function(AuthInit) _then)
-      : super(_value, (v) => _then(v as AuthInit));
+class _$AuthInitializingCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
+    implements $AuthInitializingCopyWith<$Res> {
+  _$AuthInitializingCopyWithImpl(
+      AuthInitializing _value, $Res Function(AuthInitializing) _then)
+      : super(_value, (v) => _then(v as AuthInitializing));
 
   @override
-  AuthInit get _value => super._value as AuthInit;
+  AuthInitializing get _value => super._value as AuthInitializing;
 }
 
-class _$AuthInit with DiagnosticableTreeMixin implements AuthInit {
-  const _$AuthInit();
+class _$AuthInitializing
+    with DiagnosticableTreeMixin
+    implements AuthInitializing {
+  const _$AuthInitializing();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthState.authInit()';
+    return 'AuthState.authInitializing()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'AuthState.authInit'));
+    properties..add(DiagnosticsProperty('type', 'AuthState.authInitializing'));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is AuthInit);
+    return identical(this, other) || (other is AuthInitializing);
   }
 
   @override
@@ -119,30 +390,27 @@ class _$AuthInit with DiagnosticableTreeMixin implements AuthInit {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result authInit(),
+    @required Result authInitializing(),
     @required Result authAuthenticated(User user),
     @required Result authUnauthenticated(),
-    @required Result authLoading(),
   }) {
-    assert(authInit != null);
+    assert(authInitializing != null);
     assert(authAuthenticated != null);
     assert(authUnauthenticated != null);
-    assert(authLoading != null);
-    return authInit();
+    return authInitializing();
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result authInit(),
+    Result authInitializing(),
     Result authAuthenticated(User user),
     Result authUnauthenticated(),
-    Result authLoading(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (authInit != null) {
-      return authInit();
+    if (authInitializing != null) {
+      return authInitializing();
     }
     return orElse();
   }
@@ -150,37 +418,34 @@ class _$AuthInit with DiagnosticableTreeMixin implements AuthInit {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result authInit(AuthInit value),
+    @required Result authInitializing(AuthInitializing value),
     @required Result authAuthenticated(AuthAuthenticated value),
     @required Result authUnauthenticated(AuthUnauthenticated value),
-    @required Result authLoading(AuthLoading value),
   }) {
-    assert(authInit != null);
+    assert(authInitializing != null);
     assert(authAuthenticated != null);
     assert(authUnauthenticated != null);
-    assert(authLoading != null);
-    return authInit(this);
+    return authInitializing(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result authInit(AuthInit value),
+    Result authInitializing(AuthInitializing value),
     Result authAuthenticated(AuthAuthenticated value),
     Result authUnauthenticated(AuthUnauthenticated value),
-    Result authLoading(AuthLoading value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (authInit != null) {
-      return authInit(this);
+    if (authInitializing != null) {
+      return authInitializing(this);
     }
     return orElse();
   }
 }
 
-abstract class AuthInit implements AuthState {
-  const factory AuthInit() = _$AuthInit;
+abstract class AuthInitializing implements AuthState {
+  const factory AuthInitializing() = _$AuthInitializing;
 }
 
 abstract class $AuthAuthenticatedCopyWith<$Res> {
@@ -262,25 +527,22 @@ class _$AuthAuthenticated
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result authInit(),
+    @required Result authInitializing(),
     @required Result authAuthenticated(User user),
     @required Result authUnauthenticated(),
-    @required Result authLoading(),
   }) {
-    assert(authInit != null);
+    assert(authInitializing != null);
     assert(authAuthenticated != null);
     assert(authUnauthenticated != null);
-    assert(authLoading != null);
     return authAuthenticated(user);
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result authInit(),
+    Result authInitializing(),
     Result authAuthenticated(User user),
     Result authUnauthenticated(),
-    Result authLoading(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -293,25 +555,22 @@ class _$AuthAuthenticated
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result authInit(AuthInit value),
+    @required Result authInitializing(AuthInitializing value),
     @required Result authAuthenticated(AuthAuthenticated value),
     @required Result authUnauthenticated(AuthUnauthenticated value),
-    @required Result authLoading(AuthLoading value),
   }) {
-    assert(authInit != null);
+    assert(authInitializing != null);
     assert(authAuthenticated != null);
     assert(authUnauthenticated != null);
-    assert(authLoading != null);
     return authAuthenticated(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result authInit(AuthInit value),
+    Result authInitializing(AuthInitializing value),
     Result authAuthenticated(AuthAuthenticated value),
     Result authUnauthenticated(AuthUnauthenticated value),
-    Result authLoading(AuthLoading value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -374,25 +633,22 @@ class _$AuthUnauthenticated
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result authInit(),
+    @required Result authInitializing(),
     @required Result authAuthenticated(User user),
     @required Result authUnauthenticated(),
-    @required Result authLoading(),
   }) {
-    assert(authInit != null);
+    assert(authInitializing != null);
     assert(authAuthenticated != null);
     assert(authUnauthenticated != null);
-    assert(authLoading != null);
     return authUnauthenticated();
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result authInit(),
+    Result authInitializing(),
     Result authAuthenticated(User user),
     Result authUnauthenticated(),
-    Result authLoading(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -405,25 +661,22 @@ class _$AuthUnauthenticated
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result authInit(AuthInit value),
+    @required Result authInitializing(AuthInitializing value),
     @required Result authAuthenticated(AuthAuthenticated value),
     @required Result authUnauthenticated(AuthUnauthenticated value),
-    @required Result authLoading(AuthLoading value),
   }) {
-    assert(authInit != null);
+    assert(authInitializing != null);
     assert(authAuthenticated != null);
     assert(authUnauthenticated != null);
-    assert(authLoading != null);
     return authUnauthenticated(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result authInit(AuthInit value),
+    Result authInitializing(AuthInitializing value),
     Result authAuthenticated(AuthAuthenticated value),
     Result authUnauthenticated(AuthUnauthenticated value),
-    Result authLoading(AuthLoading value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -436,109 +689,4 @@ class _$AuthUnauthenticated
 
 abstract class AuthUnauthenticated implements AuthState {
   const factory AuthUnauthenticated() = _$AuthUnauthenticated;
-}
-
-abstract class $AuthLoadingCopyWith<$Res> {
-  factory $AuthLoadingCopyWith(
-          AuthLoading value, $Res Function(AuthLoading) then) =
-      _$AuthLoadingCopyWithImpl<$Res>;
-}
-
-class _$AuthLoadingCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
-    implements $AuthLoadingCopyWith<$Res> {
-  _$AuthLoadingCopyWithImpl(
-      AuthLoading _value, $Res Function(AuthLoading) _then)
-      : super(_value, (v) => _then(v as AuthLoading));
-
-  @override
-  AuthLoading get _value => super._value as AuthLoading;
-}
-
-class _$AuthLoading with DiagnosticableTreeMixin implements AuthLoading {
-  const _$AuthLoading();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthState.authLoading()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'AuthState.authLoading'));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is AuthLoading);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result authInit(),
-    @required Result authAuthenticated(User user),
-    @required Result authUnauthenticated(),
-    @required Result authLoading(),
-  }) {
-    assert(authInit != null);
-    assert(authAuthenticated != null);
-    assert(authUnauthenticated != null);
-    assert(authLoading != null);
-    return authLoading();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result authInit(),
-    Result authAuthenticated(User user),
-    Result authUnauthenticated(),
-    Result authLoading(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (authLoading != null) {
-      return authLoading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result authInit(AuthInit value),
-    @required Result authAuthenticated(AuthAuthenticated value),
-    @required Result authUnauthenticated(AuthUnauthenticated value),
-    @required Result authLoading(AuthLoading value),
-  }) {
-    assert(authInit != null);
-    assert(authAuthenticated != null);
-    assert(authUnauthenticated != null);
-    assert(authLoading != null);
-    return authLoading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result authInit(AuthInit value),
-    Result authAuthenticated(AuthAuthenticated value),
-    Result authUnauthenticated(AuthUnauthenticated value),
-    Result authLoading(AuthLoading value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (authLoading != null) {
-      return authLoading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class AuthLoading implements AuthState {
-  const factory AuthLoading() = _$AuthLoading;
 }
