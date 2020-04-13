@@ -13,7 +13,6 @@ import 'package:smarty_duelist/src/domain/domain.dart'
         ChangeEmailFailure,
         ChangePasswordFailure,
         ConfirmResetPasswordFailure,
-        DeleteUserFailure,
         FetchSignInMethodsForEmailFailure,
         IAuthDataProvider,
         SendResetPasswordFailure,
@@ -36,15 +35,6 @@ class FirebaseAuthProvider implements IAuthDataProvider {
     @required this.googleAuth,
     @required this.auth,
   });
-
-  @override
-  Future<Option<User>> getCurrentUser() async {
-    final user = await auth.currentUser();
-
-    if (user == null) return None();
-
-    return Some(user.toDomainUser());
-  }
 
   @override
   Future<void> signOut() async {
@@ -176,19 +166,6 @@ class FirebaseAuthProvider implements IAuthDataProvider {
       return Right(unit);
     } on PlatformException catch (exp) {
       return Left(ChangePasswordFailure(exp));
-    }
-  }
-
-  @override
-  Future<Either<AuthFailure, Unit>> deleteUser() async {
-    try {
-      final user = await auth.currentUser();
-
-      await user?.delete();
-
-      return Right(unit);
-    } on PlatformException catch (exp) {
-      return Left(DeleteUserFailure(exp));
     }
   }
 

@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 
 import 'package:smarty_duelist/src/core/core.dart' show SupportedLanguages;
 
-import 'entities/entities.dart';
+import '../user/entities/entities.dart';
 import 'failures/failures.dart';
 
 abstract class IAuthRepository {
@@ -22,8 +22,6 @@ abstract class IAuthRepository {
 
   Future<void> signOut();
 
-  Future<Option<User>> getCurrentUser();
-
   Stream<User> onAuthStateChanged();
 
   Future<Either<AuthFailure, Unit>> sendResetPassword({
@@ -39,8 +37,6 @@ abstract class IAuthRepository {
   Future<Either<AuthFailure, Unit>> changeEmail(String email);
 
   Future<Either<AuthFailure, Unit>> changePassword(String password);
-
-  Future<Either<AuthFailure, Unit>> deleteUser();
 }
 
 enum AuthCredentialsProviders { google, facebook, apple }

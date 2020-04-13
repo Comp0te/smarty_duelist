@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
-import 'package:smarty_duelist/src/domain/auth/auth.dart';
+import 'package:smarty_duelist/src/domain/user/user.dart';
 
 extension FirebaseUserX on FirebaseUser {
   User toDomainUser() {

@@ -12,11 +12,15 @@ import 'package:smarty_duelist/src/presentation/pages/main_bottom_tabs_page/bloc
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:smarty_duelist/src/injector/injector.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:smarty_duelist/src/data/data_providers/user.dart';
+import 'package:smarty_duelist/src/domain/user/data_providers.dart';
 import 'package:smarty_duelist/src/data/repositories/image.dart';
 import 'package:smarty_duelist/src/domain/api/image/repositories.dart';
 import 'package:smarty_duelist/src/data/data_providers/auth/google_auth.dart';
 import 'package:smarty_duelist/src/presentation/core_blocs/image_picker/image_picker_bloc.dart';
 import 'package:smarty_duelist/src/presentation/pages/image_editor_modal/blocs/image_editor/image_editor_bloc.dart';
+import 'package:smarty_duelist/src/data/repositories/user.dart';
+import 'package:smarty_duelist/src/domain/user/repositories.dart';
 import 'package:smarty_duelist/src/data/data_providers/auth/firabase_auth.dart';
 import 'package:smarty_duelist/src/domain/auth/data_providers.dart';
 import 'package:smarty_duelist/src/data/repositories/auth.dart';
@@ -60,9 +64,13 @@ void $initGetIt(GetIt g, {String environment}) {
 
   //Eager singletons must be registered in the right order
   g.registerSingleton<FirebaseAuth>(registerModule.auth);
+  g.registerSingleton<IUserDataProvider>(
+      UserDataProvider(auth: g<FirebaseAuth>()));
   g.registerSingleton<IImageRepository>(ImageRepository(
       imagePickerDataProvider: g<IImagePickerDataProvider>(),
       imageEditorDataProvider: g<IImageEditorDataProvider>()));
+  g.registerSingleton<IUserRepository>(
+      UserRepository(userDataProvider: g<IUserDataProvider>()));
   g.registerSingleton<IAuthDataProvider>(FirebaseAuthProvider(
       googleAuth: g<GoogleAuth>(), auth: g<FirebaseAuth>()));
   g.registerSingleton<IAuthRepository>(

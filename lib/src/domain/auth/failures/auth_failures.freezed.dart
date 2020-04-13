@@ -69,12 +69,6 @@ class _$AuthFailureTearOff {
     );
   }
 
-  DeleteUserFailure deleteUser(PlatformException exp) {
-    return DeleteUserFailure(
-      exp,
-    );
-  }
-
   ChangeEmailFailure changeEmail(PlatformException exp) {
     return ChangeEmailFailure(
       exp,
@@ -106,7 +100,6 @@ mixin _$AuthFailure {
     @required
         Result accountExistsWithDifferentCredential(
             List<String> possibleAuthMethods),
-    @required Result deleteUser(PlatformException exp),
     @required Result changeEmail(PlatformException exp),
     @required Result changePassword(PlatformException exp),
   });
@@ -123,7 +116,6 @@ mixin _$AuthFailure {
     Result fetchSignInMethodsForEmail(),
     Result accountExistsWithDifferentCredential(
         List<String> possibleAuthMethods),
-    Result deleteUser(PlatformException exp),
     Result changeEmail(PlatformException exp),
     Result changePassword(PlatformException exp),
     @required Result orElse(),
@@ -144,7 +136,6 @@ mixin _$AuthFailure {
     @required
         Result accountExistsWithDifferentCredential(
             AccountExistsWithDifferentCredentialFailure value),
-    @required Result deleteUser(DeleteUserFailure value),
     @required Result changeEmail(ChangeEmailFailure value),
     @required Result changePassword(ChangePasswordFailure value),
   });
@@ -161,7 +152,6 @@ mixin _$AuthFailure {
     Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
     Result accountExistsWithDifferentCredential(
         AccountExistsWithDifferentCredentialFailure value),
-    Result deleteUser(DeleteUserFailure value),
     Result changeEmail(ChangeEmailFailure value),
     Result changePassword(ChangePasswordFailure value),
     @required Result orElse(),
@@ -238,7 +228,6 @@ class _$CancelledByUser
     @required
         Result accountExistsWithDifferentCredential(
             List<String> possibleAuthMethods),
-    @required Result deleteUser(PlatformException exp),
     @required Result changeEmail(PlatformException exp),
     @required Result changePassword(PlatformException exp),
   }) {
@@ -252,7 +241,6 @@ class _$CancelledByUser
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
     assert(accountExistsWithDifferentCredential != null);
-    assert(deleteUser != null);
     assert(changeEmail != null);
     assert(changePassword != null);
     return cancelledByUser();
@@ -272,7 +260,6 @@ class _$CancelledByUser
     Result fetchSignInMethodsForEmail(),
     Result accountExistsWithDifferentCredential(
         List<String> possibleAuthMethods),
-    Result deleteUser(PlatformException exp),
     Result changeEmail(PlatformException exp),
     Result changePassword(PlatformException exp),
     @required Result orElse(),
@@ -301,7 +288,6 @@ class _$CancelledByUser
     @required
         Result accountExistsWithDifferentCredential(
             AccountExistsWithDifferentCredentialFailure value),
-    @required Result deleteUser(DeleteUserFailure value),
     @required Result changeEmail(ChangeEmailFailure value),
     @required Result changePassword(ChangePasswordFailure value),
   }) {
@@ -315,7 +301,6 @@ class _$CancelledByUser
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
     assert(accountExistsWithDifferentCredential != null);
-    assert(deleteUser != null);
     assert(changeEmail != null);
     assert(changePassword != null);
     return cancelledByUser(this);
@@ -335,7 +320,6 @@ class _$CancelledByUser
     Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
     Result accountExistsWithDifferentCredential(
         AccountExistsWithDifferentCredentialFailure value),
-    Result deleteUser(DeleteUserFailure value),
     Result changeEmail(ChangeEmailFailure value),
     Result changePassword(ChangePasswordFailure value),
     @required Result orElse(),
@@ -433,7 +417,6 @@ class _$SendResetPasswordFailure
     @required
         Result accountExistsWithDifferentCredential(
             List<String> possibleAuthMethods),
-    @required Result deleteUser(PlatformException exp),
     @required Result changeEmail(PlatformException exp),
     @required Result changePassword(PlatformException exp),
   }) {
@@ -447,7 +430,6 @@ class _$SendResetPasswordFailure
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
     assert(accountExistsWithDifferentCredential != null);
-    assert(deleteUser != null);
     assert(changeEmail != null);
     assert(changePassword != null);
     return sendResetPassword(exp);
@@ -467,7 +449,6 @@ class _$SendResetPasswordFailure
     Result fetchSignInMethodsForEmail(),
     Result accountExistsWithDifferentCredential(
         List<String> possibleAuthMethods),
-    Result deleteUser(PlatformException exp),
     Result changeEmail(PlatformException exp),
     Result changePassword(PlatformException exp),
     @required Result orElse(),
@@ -496,7 +477,6 @@ class _$SendResetPasswordFailure
     @required
         Result accountExistsWithDifferentCredential(
             AccountExistsWithDifferentCredentialFailure value),
-    @required Result deleteUser(DeleteUserFailure value),
     @required Result changeEmail(ChangeEmailFailure value),
     @required Result changePassword(ChangePasswordFailure value),
   }) {
@@ -510,7 +490,6 @@ class _$SendResetPasswordFailure
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
     assert(accountExistsWithDifferentCredential != null);
-    assert(deleteUser != null);
     assert(changeEmail != null);
     assert(changePassword != null);
     return sendResetPassword(this);
@@ -530,7 +509,6 @@ class _$SendResetPasswordFailure
     Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
     Result accountExistsWithDifferentCredential(
         AccountExistsWithDifferentCredentialFailure value),
-    Result deleteUser(DeleteUserFailure value),
     Result changeEmail(ChangeEmailFailure value),
     Result changePassword(ChangePasswordFailure value),
     @required Result orElse(),
@@ -633,7 +611,6 @@ class _$ConfirmResetPasswordFailure
     @required
         Result accountExistsWithDifferentCredential(
             List<String> possibleAuthMethods),
-    @required Result deleteUser(PlatformException exp),
     @required Result changeEmail(PlatformException exp),
     @required Result changePassword(PlatformException exp),
   }) {
@@ -647,7 +624,6 @@ class _$ConfirmResetPasswordFailure
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
     assert(accountExistsWithDifferentCredential != null);
-    assert(deleteUser != null);
     assert(changeEmail != null);
     assert(changePassword != null);
     return confirmResetPassword(exp);
@@ -667,7 +643,6 @@ class _$ConfirmResetPasswordFailure
     Result fetchSignInMethodsForEmail(),
     Result accountExistsWithDifferentCredential(
         List<String> possibleAuthMethods),
-    Result deleteUser(PlatformException exp),
     Result changeEmail(PlatformException exp),
     Result changePassword(PlatformException exp),
     @required Result orElse(),
@@ -696,7 +671,6 @@ class _$ConfirmResetPasswordFailure
     @required
         Result accountExistsWithDifferentCredential(
             AccountExistsWithDifferentCredentialFailure value),
-    @required Result deleteUser(DeleteUserFailure value),
     @required Result changeEmail(ChangeEmailFailure value),
     @required Result changePassword(ChangePasswordFailure value),
   }) {
@@ -710,7 +684,6 @@ class _$ConfirmResetPasswordFailure
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
     assert(accountExistsWithDifferentCredential != null);
-    assert(deleteUser != null);
     assert(changeEmail != null);
     assert(changePassword != null);
     return confirmResetPassword(this);
@@ -730,7 +703,6 @@ class _$ConfirmResetPasswordFailure
     Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
     Result accountExistsWithDifferentCredential(
         AccountExistsWithDifferentCredentialFailure value),
-    Result deleteUser(DeleteUserFailure value),
     Result changeEmail(ChangeEmailFailure value),
     Result changePassword(ChangePasswordFailure value),
     @required Result orElse(),
@@ -832,7 +804,6 @@ class _$SignUpWithEmailFailure
     @required
         Result accountExistsWithDifferentCredential(
             List<String> possibleAuthMethods),
-    @required Result deleteUser(PlatformException exp),
     @required Result changeEmail(PlatformException exp),
     @required Result changePassword(PlatformException exp),
   }) {
@@ -846,7 +817,6 @@ class _$SignUpWithEmailFailure
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
     assert(accountExistsWithDifferentCredential != null);
-    assert(deleteUser != null);
     assert(changeEmail != null);
     assert(changePassword != null);
     return signUpWithEmail(exp);
@@ -866,7 +836,6 @@ class _$SignUpWithEmailFailure
     Result fetchSignInMethodsForEmail(),
     Result accountExistsWithDifferentCredential(
         List<String> possibleAuthMethods),
-    Result deleteUser(PlatformException exp),
     Result changeEmail(PlatformException exp),
     Result changePassword(PlatformException exp),
     @required Result orElse(),
@@ -895,7 +864,6 @@ class _$SignUpWithEmailFailure
     @required
         Result accountExistsWithDifferentCredential(
             AccountExistsWithDifferentCredentialFailure value),
-    @required Result deleteUser(DeleteUserFailure value),
     @required Result changeEmail(ChangeEmailFailure value),
     @required Result changePassword(ChangePasswordFailure value),
   }) {
@@ -909,7 +877,6 @@ class _$SignUpWithEmailFailure
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
     assert(accountExistsWithDifferentCredential != null);
-    assert(deleteUser != null);
     assert(changeEmail != null);
     assert(changePassword != null);
     return signUpWithEmail(this);
@@ -929,7 +896,6 @@ class _$SignUpWithEmailFailure
     Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
     Result accountExistsWithDifferentCredential(
         AccountExistsWithDifferentCredentialFailure value),
-    Result deleteUser(DeleteUserFailure value),
     Result changeEmail(ChangeEmailFailure value),
     Result changePassword(ChangePasswordFailure value),
     @required Result orElse(),
@@ -1032,7 +998,6 @@ class _$SignInWithCredentialFailure
     @required
         Result accountExistsWithDifferentCredential(
             List<String> possibleAuthMethods),
-    @required Result deleteUser(PlatformException exp),
     @required Result changeEmail(PlatformException exp),
     @required Result changePassword(PlatformException exp),
   }) {
@@ -1046,7 +1011,6 @@ class _$SignInWithCredentialFailure
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
     assert(accountExistsWithDifferentCredential != null);
-    assert(deleteUser != null);
     assert(changeEmail != null);
     assert(changePassword != null);
     return signInWithCredential(exp);
@@ -1066,7 +1030,6 @@ class _$SignInWithCredentialFailure
     Result fetchSignInMethodsForEmail(),
     Result accountExistsWithDifferentCredential(
         List<String> possibleAuthMethods),
-    Result deleteUser(PlatformException exp),
     Result changeEmail(PlatformException exp),
     Result changePassword(PlatformException exp),
     @required Result orElse(),
@@ -1095,7 +1058,6 @@ class _$SignInWithCredentialFailure
     @required
         Result accountExistsWithDifferentCredential(
             AccountExistsWithDifferentCredentialFailure value),
-    @required Result deleteUser(DeleteUserFailure value),
     @required Result changeEmail(ChangeEmailFailure value),
     @required Result changePassword(ChangePasswordFailure value),
   }) {
@@ -1109,7 +1071,6 @@ class _$SignInWithCredentialFailure
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
     assert(accountExistsWithDifferentCredential != null);
-    assert(deleteUser != null);
     assert(changeEmail != null);
     assert(changePassword != null);
     return signInWithCredential(this);
@@ -1129,7 +1090,6 @@ class _$SignInWithCredentialFailure
     Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
     Result accountExistsWithDifferentCredential(
         AccountExistsWithDifferentCredentialFailure value),
-    Result deleteUser(DeleteUserFailure value),
     Result changeEmail(ChangeEmailFailure value),
     Result changePassword(ChangePasswordFailure value),
     @required Result orElse(),
@@ -1230,7 +1190,6 @@ class _$GoogleAuthFailure
     @required
         Result accountExistsWithDifferentCredential(
             List<String> possibleAuthMethods),
-    @required Result deleteUser(PlatformException exp),
     @required Result changeEmail(PlatformException exp),
     @required Result changePassword(PlatformException exp),
   }) {
@@ -1244,7 +1203,6 @@ class _$GoogleAuthFailure
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
     assert(accountExistsWithDifferentCredential != null);
-    assert(deleteUser != null);
     assert(changeEmail != null);
     assert(changePassword != null);
     return googleAuth(exp);
@@ -1264,7 +1222,6 @@ class _$GoogleAuthFailure
     Result fetchSignInMethodsForEmail(),
     Result accountExistsWithDifferentCredential(
         List<String> possibleAuthMethods),
-    Result deleteUser(PlatformException exp),
     Result changeEmail(PlatformException exp),
     Result changePassword(PlatformException exp),
     @required Result orElse(),
@@ -1293,7 +1250,6 @@ class _$GoogleAuthFailure
     @required
         Result accountExistsWithDifferentCredential(
             AccountExistsWithDifferentCredentialFailure value),
-    @required Result deleteUser(DeleteUserFailure value),
     @required Result changeEmail(ChangeEmailFailure value),
     @required Result changePassword(ChangePasswordFailure value),
   }) {
@@ -1307,7 +1263,6 @@ class _$GoogleAuthFailure
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
     assert(accountExistsWithDifferentCredential != null);
-    assert(deleteUser != null);
     assert(changeEmail != null);
     assert(changePassword != null);
     return googleAuth(this);
@@ -1327,7 +1282,6 @@ class _$GoogleAuthFailure
     Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
     Result accountExistsWithDifferentCredential(
         AccountExistsWithDifferentCredentialFailure value),
-    Result deleteUser(DeleteUserFailure value),
     Result changeEmail(ChangeEmailFailure value),
     Result changePassword(ChangePasswordFailure value),
     @required Result orElse(),
@@ -1427,7 +1381,6 @@ class _$SignInWithEmailFailure
     @required
         Result accountExistsWithDifferentCredential(
             List<String> possibleAuthMethods),
-    @required Result deleteUser(PlatformException exp),
     @required Result changeEmail(PlatformException exp),
     @required Result changePassword(PlatformException exp),
   }) {
@@ -1441,7 +1394,6 @@ class _$SignInWithEmailFailure
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
     assert(accountExistsWithDifferentCredential != null);
-    assert(deleteUser != null);
     assert(changeEmail != null);
     assert(changePassword != null);
     return signInWithEmail(exp);
@@ -1461,7 +1413,6 @@ class _$SignInWithEmailFailure
     Result fetchSignInMethodsForEmail(),
     Result accountExistsWithDifferentCredential(
         List<String> possibleAuthMethods),
-    Result deleteUser(PlatformException exp),
     Result changeEmail(PlatformException exp),
     Result changePassword(PlatformException exp),
     @required Result orElse(),
@@ -1490,7 +1441,6 @@ class _$SignInWithEmailFailure
     @required
         Result accountExistsWithDifferentCredential(
             AccountExistsWithDifferentCredentialFailure value),
-    @required Result deleteUser(DeleteUserFailure value),
     @required Result changeEmail(ChangeEmailFailure value),
     @required Result changePassword(ChangePasswordFailure value),
   }) {
@@ -1504,7 +1454,6 @@ class _$SignInWithEmailFailure
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
     assert(accountExistsWithDifferentCredential != null);
-    assert(deleteUser != null);
     assert(changeEmail != null);
     assert(changePassword != null);
     return signInWithEmail(this);
@@ -1524,7 +1473,6 @@ class _$SignInWithEmailFailure
     Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
     Result accountExistsWithDifferentCredential(
         AccountExistsWithDifferentCredentialFailure value),
-    Result deleteUser(DeleteUserFailure value),
     Result changeEmail(ChangeEmailFailure value),
     Result changePassword(ChangePasswordFailure value),
     @required Result orElse(),
@@ -1625,7 +1573,6 @@ class _$UnexpectedAuthFailure
     @required
         Result accountExistsWithDifferentCredential(
             List<String> possibleAuthMethods),
-    @required Result deleteUser(PlatformException exp),
     @required Result changeEmail(PlatformException exp),
     @required Result changePassword(PlatformException exp),
   }) {
@@ -1639,7 +1586,6 @@ class _$UnexpectedAuthFailure
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
     assert(accountExistsWithDifferentCredential != null);
-    assert(deleteUser != null);
     assert(changeEmail != null);
     assert(changePassword != null);
     return unexpected(exp);
@@ -1659,7 +1605,6 @@ class _$UnexpectedAuthFailure
     Result fetchSignInMethodsForEmail(),
     Result accountExistsWithDifferentCredential(
         List<String> possibleAuthMethods),
-    Result deleteUser(PlatformException exp),
     Result changeEmail(PlatformException exp),
     Result changePassword(PlatformException exp),
     @required Result orElse(),
@@ -1688,7 +1633,6 @@ class _$UnexpectedAuthFailure
     @required
         Result accountExistsWithDifferentCredential(
             AccountExistsWithDifferentCredentialFailure value),
-    @required Result deleteUser(DeleteUserFailure value),
     @required Result changeEmail(ChangeEmailFailure value),
     @required Result changePassword(ChangePasswordFailure value),
   }) {
@@ -1702,7 +1646,6 @@ class _$UnexpectedAuthFailure
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
     assert(accountExistsWithDifferentCredential != null);
-    assert(deleteUser != null);
     assert(changeEmail != null);
     assert(changePassword != null);
     return unexpected(this);
@@ -1722,7 +1665,6 @@ class _$UnexpectedAuthFailure
     Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
     Result accountExistsWithDifferentCredential(
         AccountExistsWithDifferentCredentialFailure value),
-    Result deleteUser(DeleteUserFailure value),
     Result changeEmail(ChangeEmailFailure value),
     Result changePassword(ChangePasswordFailure value),
     @required Result orElse(),
@@ -1805,7 +1747,6 @@ class _$FetchSignInMethodsForEmailFailure
     @required
         Result accountExistsWithDifferentCredential(
             List<String> possibleAuthMethods),
-    @required Result deleteUser(PlatformException exp),
     @required Result changeEmail(PlatformException exp),
     @required Result changePassword(PlatformException exp),
   }) {
@@ -1819,7 +1760,6 @@ class _$FetchSignInMethodsForEmailFailure
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
     assert(accountExistsWithDifferentCredential != null);
-    assert(deleteUser != null);
     assert(changeEmail != null);
     assert(changePassword != null);
     return fetchSignInMethodsForEmail();
@@ -1839,7 +1779,6 @@ class _$FetchSignInMethodsForEmailFailure
     Result fetchSignInMethodsForEmail(),
     Result accountExistsWithDifferentCredential(
         List<String> possibleAuthMethods),
-    Result deleteUser(PlatformException exp),
     Result changeEmail(PlatformException exp),
     Result changePassword(PlatformException exp),
     @required Result orElse(),
@@ -1868,7 +1807,6 @@ class _$FetchSignInMethodsForEmailFailure
     @required
         Result accountExistsWithDifferentCredential(
             AccountExistsWithDifferentCredentialFailure value),
-    @required Result deleteUser(DeleteUserFailure value),
     @required Result changeEmail(ChangeEmailFailure value),
     @required Result changePassword(ChangePasswordFailure value),
   }) {
@@ -1882,7 +1820,6 @@ class _$FetchSignInMethodsForEmailFailure
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
     assert(accountExistsWithDifferentCredential != null);
-    assert(deleteUser != null);
     assert(changeEmail != null);
     assert(changePassword != null);
     return fetchSignInMethodsForEmail(this);
@@ -1902,7 +1839,6 @@ class _$FetchSignInMethodsForEmailFailure
     Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
     Result accountExistsWithDifferentCredential(
         AccountExistsWithDifferentCredentialFailure value),
-    Result deleteUser(DeleteUserFailure value),
     Result changeEmail(ChangeEmailFailure value),
     Result changePassword(ChangePasswordFailure value),
     @required Result orElse(),
@@ -2011,7 +1947,6 @@ class _$AccountExistsWithDifferentCredentialFailure
     @required
         Result accountExistsWithDifferentCredential(
             List<String> possibleAuthMethods),
-    @required Result deleteUser(PlatformException exp),
     @required Result changeEmail(PlatformException exp),
     @required Result changePassword(PlatformException exp),
   }) {
@@ -2025,7 +1960,6 @@ class _$AccountExistsWithDifferentCredentialFailure
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
     assert(accountExistsWithDifferentCredential != null);
-    assert(deleteUser != null);
     assert(changeEmail != null);
     assert(changePassword != null);
     return accountExistsWithDifferentCredential(possibleAuthMethods);
@@ -2045,7 +1979,6 @@ class _$AccountExistsWithDifferentCredentialFailure
     Result fetchSignInMethodsForEmail(),
     Result accountExistsWithDifferentCredential(
         List<String> possibleAuthMethods),
-    Result deleteUser(PlatformException exp),
     Result changeEmail(PlatformException exp),
     Result changePassword(PlatformException exp),
     @required Result orElse(),
@@ -2074,7 +2007,6 @@ class _$AccountExistsWithDifferentCredentialFailure
     @required
         Result accountExistsWithDifferentCredential(
             AccountExistsWithDifferentCredentialFailure value),
-    @required Result deleteUser(DeleteUserFailure value),
     @required Result changeEmail(ChangeEmailFailure value),
     @required Result changePassword(ChangePasswordFailure value),
   }) {
@@ -2088,7 +2020,6 @@ class _$AccountExistsWithDifferentCredentialFailure
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
     assert(accountExistsWithDifferentCredential != null);
-    assert(deleteUser != null);
     assert(changeEmail != null);
     assert(changePassword != null);
     return accountExistsWithDifferentCredential(this);
@@ -2108,7 +2039,6 @@ class _$AccountExistsWithDifferentCredentialFailure
     Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
     Result accountExistsWithDifferentCredential(
         AccountExistsWithDifferentCredentialFailure value),
-    Result deleteUser(DeleteUserFailure value),
     Result changeEmail(ChangeEmailFailure value),
     Result changePassword(ChangePasswordFailure value),
     @required Result orElse(),
@@ -2130,202 +2060,6 @@ abstract class AccountExistsWithDifferentCredentialFailure
   List<String> get possibleAuthMethods;
   $AccountExistsWithDifferentCredentialFailureCopyWith<
       AccountExistsWithDifferentCredentialFailure> get copyWith;
-}
-
-abstract class $DeleteUserFailureCopyWith<$Res> {
-  factory $DeleteUserFailureCopyWith(
-          DeleteUserFailure value, $Res Function(DeleteUserFailure) then) =
-      _$DeleteUserFailureCopyWithImpl<$Res>;
-  $Res call({PlatformException exp});
-}
-
-class _$DeleteUserFailureCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
-    implements $DeleteUserFailureCopyWith<$Res> {
-  _$DeleteUserFailureCopyWithImpl(
-      DeleteUserFailure _value, $Res Function(DeleteUserFailure) _then)
-      : super(_value, (v) => _then(v as DeleteUserFailure));
-
-  @override
-  DeleteUserFailure get _value => super._value as DeleteUserFailure;
-
-  @override
-  $Res call({
-    Object exp = freezed,
-  }) {
-    return _then(DeleteUserFailure(
-      exp == freezed ? _value.exp : exp as PlatformException,
-    ));
-  }
-}
-
-class _$DeleteUserFailure
-    with DiagnosticableTreeMixin
-    implements DeleteUserFailure {
-  const _$DeleteUserFailure(this.exp) : assert(exp != null);
-
-  @override
-  final PlatformException exp;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AuthFailure.deleteUser(exp: $exp)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'AuthFailure.deleteUser'))
-      ..add(DiagnosticsProperty('exp', exp));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is DeleteUserFailure &&
-            (identical(other.exp, exp) ||
-                const DeepCollectionEquality().equals(other.exp, exp)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(exp);
-
-  @override
-  $DeleteUserFailureCopyWith<DeleteUserFailure> get copyWith =>
-      _$DeleteUserFailureCopyWithImpl<DeleteUserFailure>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result cancelledByUser(),
-    @required Result sendResetPassword(PlatformException exp),
-    @required Result confirmResetPassword(PlatformException exp),
-    @required Result signUpWithEmail(PlatformException exp),
-    @required Result signInWithCredential(PlatformException exp),
-    @required Result googleAuth(PlatformException exp),
-    @required Result signInWithEmail(PlatformException exp),
-    @required Result unexpected(PlatformException exp),
-    @required Result fetchSignInMethodsForEmail(),
-    @required
-        Result accountExistsWithDifferentCredential(
-            List<String> possibleAuthMethods),
-    @required Result deleteUser(PlatformException exp),
-    @required Result changeEmail(PlatformException exp),
-    @required Result changePassword(PlatformException exp),
-  }) {
-    assert(cancelledByUser != null);
-    assert(sendResetPassword != null);
-    assert(confirmResetPassword != null);
-    assert(signUpWithEmail != null);
-    assert(signInWithCredential != null);
-    assert(googleAuth != null);
-    assert(signInWithEmail != null);
-    assert(unexpected != null);
-    assert(fetchSignInMethodsForEmail != null);
-    assert(accountExistsWithDifferentCredential != null);
-    assert(deleteUser != null);
-    assert(changeEmail != null);
-    assert(changePassword != null);
-    return deleteUser(exp);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result cancelledByUser(),
-    Result sendResetPassword(PlatformException exp),
-    Result confirmResetPassword(PlatformException exp),
-    Result signUpWithEmail(PlatformException exp),
-    Result signInWithCredential(PlatformException exp),
-    Result googleAuth(PlatformException exp),
-    Result signInWithEmail(PlatformException exp),
-    Result unexpected(PlatformException exp),
-    Result fetchSignInMethodsForEmail(),
-    Result accountExistsWithDifferentCredential(
-        List<String> possibleAuthMethods),
-    Result deleteUser(PlatformException exp),
-    Result changeEmail(PlatformException exp),
-    Result changePassword(PlatformException exp),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (deleteUser != null) {
-      return deleteUser(exp);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result cancelledByUser(CancelledByUser value),
-    @required Result sendResetPassword(SendResetPasswordFailure value),
-    @required Result confirmResetPassword(ConfirmResetPasswordFailure value),
-    @required Result signUpWithEmail(SignUpWithEmailFailure value),
-    @required Result signInWithCredential(SignInWithCredentialFailure value),
-    @required Result googleAuth(GoogleAuthFailure value),
-    @required Result signInWithEmail(SignInWithEmailFailure value),
-    @required Result unexpected(UnexpectedAuthFailure value),
-    @required
-        Result fetchSignInMethodsForEmail(
-            FetchSignInMethodsForEmailFailure value),
-    @required
-        Result accountExistsWithDifferentCredential(
-            AccountExistsWithDifferentCredentialFailure value),
-    @required Result deleteUser(DeleteUserFailure value),
-    @required Result changeEmail(ChangeEmailFailure value),
-    @required Result changePassword(ChangePasswordFailure value),
-  }) {
-    assert(cancelledByUser != null);
-    assert(sendResetPassword != null);
-    assert(confirmResetPassword != null);
-    assert(signUpWithEmail != null);
-    assert(signInWithCredential != null);
-    assert(googleAuth != null);
-    assert(signInWithEmail != null);
-    assert(unexpected != null);
-    assert(fetchSignInMethodsForEmail != null);
-    assert(accountExistsWithDifferentCredential != null);
-    assert(deleteUser != null);
-    assert(changeEmail != null);
-    assert(changePassword != null);
-    return deleteUser(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result cancelledByUser(CancelledByUser value),
-    Result sendResetPassword(SendResetPasswordFailure value),
-    Result confirmResetPassword(ConfirmResetPasswordFailure value),
-    Result signUpWithEmail(SignUpWithEmailFailure value),
-    Result signInWithCredential(SignInWithCredentialFailure value),
-    Result googleAuth(GoogleAuthFailure value),
-    Result signInWithEmail(SignInWithEmailFailure value),
-    Result unexpected(UnexpectedAuthFailure value),
-    Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
-    Result accountExistsWithDifferentCredential(
-        AccountExistsWithDifferentCredentialFailure value),
-    Result deleteUser(DeleteUserFailure value),
-    Result changeEmail(ChangeEmailFailure value),
-    Result changePassword(ChangePasswordFailure value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (deleteUser != null) {
-      return deleteUser(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class DeleteUserFailure implements AuthFailure {
-  const factory DeleteUserFailure(PlatformException exp) = _$DeleteUserFailure;
-
-  PlatformException get exp;
-  $DeleteUserFailureCopyWith<DeleteUserFailure> get copyWith;
 }
 
 abstract class $ChangeEmailFailureCopyWith<$Res> {
@@ -2407,7 +2141,6 @@ class _$ChangeEmailFailure
     @required
         Result accountExistsWithDifferentCredential(
             List<String> possibleAuthMethods),
-    @required Result deleteUser(PlatformException exp),
     @required Result changeEmail(PlatformException exp),
     @required Result changePassword(PlatformException exp),
   }) {
@@ -2421,7 +2154,6 @@ class _$ChangeEmailFailure
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
     assert(accountExistsWithDifferentCredential != null);
-    assert(deleteUser != null);
     assert(changeEmail != null);
     assert(changePassword != null);
     return changeEmail(exp);
@@ -2441,7 +2173,6 @@ class _$ChangeEmailFailure
     Result fetchSignInMethodsForEmail(),
     Result accountExistsWithDifferentCredential(
         List<String> possibleAuthMethods),
-    Result deleteUser(PlatformException exp),
     Result changeEmail(PlatformException exp),
     Result changePassword(PlatformException exp),
     @required Result orElse(),
@@ -2470,7 +2201,6 @@ class _$ChangeEmailFailure
     @required
         Result accountExistsWithDifferentCredential(
             AccountExistsWithDifferentCredentialFailure value),
-    @required Result deleteUser(DeleteUserFailure value),
     @required Result changeEmail(ChangeEmailFailure value),
     @required Result changePassword(ChangePasswordFailure value),
   }) {
@@ -2484,7 +2214,6 @@ class _$ChangeEmailFailure
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
     assert(accountExistsWithDifferentCredential != null);
-    assert(deleteUser != null);
     assert(changeEmail != null);
     assert(changePassword != null);
     return changeEmail(this);
@@ -2504,7 +2233,6 @@ class _$ChangeEmailFailure
     Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
     Result accountExistsWithDifferentCredential(
         AccountExistsWithDifferentCredentialFailure value),
-    Result deleteUser(DeleteUserFailure value),
     Result changeEmail(ChangeEmailFailure value),
     Result changePassword(ChangePasswordFailure value),
     @required Result orElse(),
@@ -2605,7 +2333,6 @@ class _$ChangePasswordFailure
     @required
         Result accountExistsWithDifferentCredential(
             List<String> possibleAuthMethods),
-    @required Result deleteUser(PlatformException exp),
     @required Result changeEmail(PlatformException exp),
     @required Result changePassword(PlatformException exp),
   }) {
@@ -2619,7 +2346,6 @@ class _$ChangePasswordFailure
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
     assert(accountExistsWithDifferentCredential != null);
-    assert(deleteUser != null);
     assert(changeEmail != null);
     assert(changePassword != null);
     return changePassword(exp);
@@ -2639,7 +2365,6 @@ class _$ChangePasswordFailure
     Result fetchSignInMethodsForEmail(),
     Result accountExistsWithDifferentCredential(
         List<String> possibleAuthMethods),
-    Result deleteUser(PlatformException exp),
     Result changeEmail(PlatformException exp),
     Result changePassword(PlatformException exp),
     @required Result orElse(),
@@ -2668,7 +2393,6 @@ class _$ChangePasswordFailure
     @required
         Result accountExistsWithDifferentCredential(
             AccountExistsWithDifferentCredentialFailure value),
-    @required Result deleteUser(DeleteUserFailure value),
     @required Result changeEmail(ChangeEmailFailure value),
     @required Result changePassword(ChangePasswordFailure value),
   }) {
@@ -2682,7 +2406,6 @@ class _$ChangePasswordFailure
     assert(unexpected != null);
     assert(fetchSignInMethodsForEmail != null);
     assert(accountExistsWithDifferentCredential != null);
-    assert(deleteUser != null);
     assert(changeEmail != null);
     assert(changePassword != null);
     return changePassword(this);
@@ -2702,7 +2425,6 @@ class _$ChangePasswordFailure
     Result fetchSignInMethodsForEmail(FetchSignInMethodsForEmailFailure value),
     Result accountExistsWithDifferentCredential(
         AccountExistsWithDifferentCredentialFailure value),
-    Result deleteUser(DeleteUserFailure value),
     Result changeEmail(ChangeEmailFailure value),
     Result changePassword(ChangePasswordFailure value),
     @required Result orElse(),

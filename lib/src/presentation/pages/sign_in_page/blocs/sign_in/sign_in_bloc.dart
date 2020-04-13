@@ -7,6 +7,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 
 import 'package:smarty_duelist/src/domain/auth/auth.dart';
+import 'package:smarty_duelist/src/domain/user/user.dart';
 
 part 'sign_in_bloc.freezed.dart';
 
