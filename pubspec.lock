@@ -545,7 +545,7 @@ packages:
       name: image_picker
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.6.4"
+    version: "0.6.5"
   injectable:
     dependency: "direct main"
     description:
@@ -559,7 +559,7 @@ packages:
       name: injectable_generator
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.3"
+    version: "0.3.4"
   intl:
     dependency: "direct overridden"
     description:
