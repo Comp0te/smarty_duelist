@@ -1,12 +1,17 @@
+import 'dart:typed_data';
+
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/widgets.dart';
 import 'package:image_editor/image_editor.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 import 'package:bloc/bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter/foundation.dart';
 
-import 'package:smarty_duelist/src/domain/domain.dart' show IImageRepository;
-import 'bloc.dart';
+import 'package:smarty_duelist/src/domain/api/api.dart';
+
+part 'image_editor_bloc.freezed.dart';
 
 @injectable
 class ImageEditorBloc extends Bloc<ImageEditorEvent, ImageEditorState> {
@@ -23,24 +28,24 @@ class ImageEditorBloc extends Bloc<ImageEditorEvent, ImageEditorState> {
 
   @override
   Stream<ImageEditorState> mapEventToState(ImageEditorEvent event) async* {
-    yield* event.map(
-      rotateLeft: (event) async* {
+    yield* event.when(
+      rotateLeft: () async* {
         editorKey.currentState.rotate(right: false);
       },
-      rotateRight: (event) async* {
+      rotateRight: () async* {
         editorKey.currentState.rotate(right: false);
       },
-      flip: (event) async* {
+      flip: () async* {
         editorKey.currentState.flip();
       },
-      restore: (event) async* {
+      restore: () async* {
         editorKey.currentState.reset();
       },
-      edit: (event) => _mapEditToState(event),
+      edit: () => _mapEditToState(),
     );
   }
 
-  Stream<ImageEditorState> _mapEditToState(Edit event) async* {
+  Stream<ImageEditorState> _mapEditToState() async* {
     yield const Loading();
     final action = editorKey.currentState.editAction;
     final img = editorKey.currentState.rawImageData;
@@ -75,4 +80,23 @@ class ImageEditorBloc extends Bloc<ImageEditorEvent, ImageEditorState> {
     editorKey.currentState?.dispose();
     return super.close();
   }
+}
+
+@freezed
+abstract class ImageEditorState with _$ImageEditorState {
+  const factory ImageEditorState.init() = Init;
+  const factory ImageEditorState.loading() = Loading;
+  const factory ImageEditorState.imageEdited(
+    Uint8List imageData,
+  ) = ImageEdited;
+  const factory ImageEditorState.error(ImageFailure failure) = Error;
+}
+
+@freezed
+abstract class ImageEditorEvent with _$ImageEditorEvent {
+  const factory ImageEditorEvent.edit() = Edit;
+  const factory ImageEditorEvent.rotateLeft() = RotateLeft;
+  const factory ImageEditorEvent.rotateRight() = RotateRight;
+  const factory ImageEditorEvent.flip() = Flip;
+  const factory ImageEditorEvent.restore() = Restore;
 }
