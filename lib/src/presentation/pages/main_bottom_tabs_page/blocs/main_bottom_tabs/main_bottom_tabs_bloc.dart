@@ -1,9 +1,12 @@
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:injectable/injectable.dart';
 import 'package:bloc/bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter/foundation.dart';
 
-import '../../../../routes/routes.dart' show MainBottomTabs;
-import 'bloc.dart';
+import '../../../../routes/routes.dart';
+
+part 'main_bottom_tabs_bloc.freezed.dart';
 
 @injectable
 class MainBottomTabsBloc extends Bloc<MainBottomTabsEvent, MainBottomTabs> {
@@ -28,4 +31,11 @@ class MainBottomTabsBloc extends Bloc<MainBottomTabsEvent, MainBottomTabs> {
     tabController.dispose();
     return super.close();
   }
+}
+
+@freezed
+abstract class MainBottomTabsEvent with _$MainBottomTabsEvent {
+  const factory MainBottomTabsEvent.navigateToTab(
+    MainBottomTabs tab,
+  ) = NavigateToTab;
 }
