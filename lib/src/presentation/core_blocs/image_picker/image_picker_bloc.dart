@@ -1,11 +1,15 @@
+import 'dart:typed_data';
+
 import 'package:flutter/widgets.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 import 'package:bloc/bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter/foundation.dart';
 
-import 'package:smarty_duelist/src/domain/domain.dart'
-    show Camera, IImageRepository;
-import 'bloc.dart';
+import 'package:smarty_duelist/src/domain/api/api.dart';
+
+part 'image_picker_bloc.freezed.dart';
 
 @injectable
 class ImagePickerBloc extends Bloc<ImagePickerEvent, ImagePickerState> {
@@ -42,4 +46,21 @@ class ImagePickerBloc extends Bloc<ImagePickerEvent, ImagePickerState> {
       },
     );
   }
+}
+
+@freezed
+abstract class ImagePickerState with _$ImagePickerState {
+  const factory ImagePickerState.init() = Init;
+  const factory ImagePickerState.loading() = Loading;
+  const factory ImagePickerState.imageSelected(
+    Uint8List imageData,
+  ) = ImageSelected;
+  const factory ImagePickerState.error(ImageFailure failure) = Error;
+}
+
+@freezed
+abstract class ImagePickerEvent with _$ImagePickerEvent {
+  const factory ImagePickerEvent.selectFromLibrary() = SelectFromLibrary;
+  const factory ImagePickerEvent.selectFromCamera() = SelectFromCamera;
+  const factory ImagePickerEvent.clear() = ClearSelected;
 }
