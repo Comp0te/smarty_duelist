@@ -90,7 +90,17 @@ class MainBottomTabsPage extends StatelessWidget implements AutoRouteWrapper {
             title: Text(MainBottomTabs.profile.getLabel(context)),
             backgroundColor: Theme.of(context).primaryColorLight,
           ),
-          body: const ProfileTab(),
+          body: MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (_) => getIt<SignOutBloc>(),
+              ),
+              BlocProvider(
+                create: (_) => getIt<ProfileTabBloc>(),
+              ),
+            ],
+            child: const ProfileTab(),
+          ),
           title: Text(MainBottomTabs.profile.getLabel(context)),
           trailingActions: const <Widget>[
             LanguageButton(),
