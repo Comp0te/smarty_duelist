@@ -6,13 +6,15 @@ import 'package:flutter/widgets.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 import 'package:bloc/bloc.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter/foundation.dart';
 
-import 'package:smarty_duelist/src/domain/domain.dart' show IAuthRepository;
-
+import 'package:smarty_duelist/src/domain/auth/auth.dart';
 import '../../../../core_blocs/core_blocs.dart'
     show ClearSelected, ImagePickerBloc;
 import '../../../../routes/routes.dart' show ImageEditorModalArguments, Routes;
-import 'bloc.dart';
+
+part 'profile_tab_bloc.freezed.dart';
 
 @injectable
 class ProfileTabBloc extends Bloc<ProfileTabEvent, ProfileTabState> {
@@ -26,14 +28,13 @@ class ProfileTabBloc extends Bloc<ProfileTabEvent, ProfileTabState> {
     @required IAuthRepository authRepository,
     @required this.imagePickerBloc,
   })  : assert(authRepository != null),
-        _authRepository = authRepository;
-
-  @override
-  ProfileTabState get initialState {
+        _authRepository = authRepository {
     imagePickerSubscription = _getImagePickerSubscription();
     debugPrint(_authRepository.toString());
-    return const ProfileTabState();
   }
+
+  @override
+  ProfileTabState get initialState => const ProfileTabState();
 
   @override
   Stream<ProfileTabState> mapEventToState(ProfileTabEvent event) async* {
@@ -71,4 +72,20 @@ class ProfileTabBloc extends Bloc<ProfileTabEvent, ProfileTabState> {
     nameController.dispose();
     return super.close();
   }
+}
+
+@freezed
+abstract class ProfileTabEvent with _$ProfileTabEvent {
+  const factory ProfileTabEvent.avatarSelected(
+    Uint8List avatar,
+  ) = AvatarSelected;
+  const factory ProfileTabEvent.submit() = Submit;
+}
+
+@freezed
+abstract class ProfileTabState with _$ProfileTabState {
+  const factory ProfileTabState({
+    Uint8List avatar,
+    String name,
+  }) = _ProfileTabState;
 }
