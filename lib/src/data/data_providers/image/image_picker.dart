@@ -8,6 +8,7 @@ import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 import 'package:image_picker/image_picker.dart';
 
+import 'package:smarty_duelist/src/data/dto/dto.dart' show validateImageData;
 import 'package:smarty_duelist/src/domain/domain.dart'
     show Camera, IImagePickerDataProvider, ImageFailure, ImagePickerFailure;
 
@@ -24,7 +25,7 @@ class ImagePickerDataProvider implements IImagePickerDataProvider {
             camera == Camera.front ? CameraDevice.front : CameraDevice.front,
       );
 
-      return Right(await file.readAsBytes());
+      return validateImageData(await file.readAsBytes());
     } on PlatformException catch (exp) {
       return Left(ImagePickerFailure(exp));
     }
@@ -37,7 +38,7 @@ class ImagePickerDataProvider implements IImagePickerDataProvider {
         source: ImageSource.gallery,
       );
 
-      return Right(await file.readAsBytes());
+      return validateImageData(await file.readAsBytes());
     } on PlatformException catch (exp) {
       return Left(ImagePickerFailure(exp));
     }

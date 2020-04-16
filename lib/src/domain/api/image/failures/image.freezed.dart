@@ -18,6 +18,12 @@ class _$ImageFailureTearOff {
     );
   }
 
+  MaxSizeExceeded maxSizeExceeded(double megabyte) {
+    return MaxSizeExceeded(
+      megabyte,
+    );
+  }
+
   ImageEditorFailure editor(PlatformException exp) {
     return ImageEditorFailure(
       exp,
@@ -29,39 +35,38 @@ class _$ImageFailureTearOff {
 const $ImageFailure = _$ImageFailureTearOff();
 
 mixin _$ImageFailure {
-  PlatformException get exp;
-
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result picker(PlatformException exp),
+    @required Result maxSizeExceeded(double megabyte),
     @required Result editor(PlatformException exp),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result picker(PlatformException exp),
+    Result maxSizeExceeded(double megabyte),
     Result editor(PlatformException exp),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result picker(ImagePickerFailure value),
+    @required Result maxSizeExceeded(MaxSizeExceeded value),
     @required Result editor(ImageEditorFailure value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result picker(ImagePickerFailure value),
+    Result maxSizeExceeded(MaxSizeExceeded value),
     Result editor(ImageEditorFailure value),
     @required Result orElse(),
   });
-
-  $ImageFailureCopyWith<ImageFailure> get copyWith;
 }
 
 abstract class $ImageFailureCopyWith<$Res> {
   factory $ImageFailureCopyWith(
           ImageFailure value, $Res Function(ImageFailure) then) =
       _$ImageFailureCopyWithImpl<$Res>;
-  $Res call({PlatformException exp});
 }
 
 class _$ImageFailureCopyWithImpl<$Res> implements $ImageFailureCopyWith<$Res> {
@@ -70,23 +75,12 @@ class _$ImageFailureCopyWithImpl<$Res> implements $ImageFailureCopyWith<$Res> {
   final ImageFailure _value;
   // ignore: unused_field
   final $Res Function(ImageFailure) _then;
-
-  @override
-  $Res call({
-    Object exp = freezed,
-  }) {
-    return _then(_value.copyWith(
-      exp: exp == freezed ? _value.exp : exp as PlatformException,
-    ));
-  }
 }
 
-abstract class $ImagePickerFailureCopyWith<$Res>
-    implements $ImageFailureCopyWith<$Res> {
+abstract class $ImagePickerFailureCopyWith<$Res> {
   factory $ImagePickerFailureCopyWith(
           ImagePickerFailure value, $Res Function(ImagePickerFailure) then) =
       _$ImagePickerFailureCopyWithImpl<$Res>;
-  @override
   $Res call({PlatformException exp});
 }
 
@@ -151,9 +145,11 @@ class _$ImagePickerFailure
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result picker(PlatformException exp),
+    @required Result maxSizeExceeded(double megabyte),
     @required Result editor(PlatformException exp),
   }) {
     assert(picker != null);
+    assert(maxSizeExceeded != null);
     assert(editor != null);
     return picker(exp);
   }
@@ -162,6 +158,7 @@ class _$ImagePickerFailure
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result picker(PlatformException exp),
+    Result maxSizeExceeded(double megabyte),
     Result editor(PlatformException exp),
     @required Result orElse(),
   }) {
@@ -176,9 +173,11 @@ class _$ImagePickerFailure
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result picker(ImagePickerFailure value),
+    @required Result maxSizeExceeded(MaxSizeExceeded value),
     @required Result editor(ImageEditorFailure value),
   }) {
     assert(picker != null);
+    assert(maxSizeExceeded != null);
     assert(editor != null);
     return picker(this);
   }
@@ -187,6 +186,7 @@ class _$ImagePickerFailure
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result picker(ImagePickerFailure value),
+    Result maxSizeExceeded(MaxSizeExceeded value),
     Result editor(ImageEditorFailure value),
     @required Result orElse(),
   }) {
@@ -202,18 +202,143 @@ abstract class ImagePickerFailure implements ImageFailure {
   const factory ImagePickerFailure(PlatformException exp) =
       _$ImagePickerFailure;
 
-  @override
   PlatformException get exp;
-  @override
   $ImagePickerFailureCopyWith<ImagePickerFailure> get copyWith;
 }
 
-abstract class $ImageEditorFailureCopyWith<$Res>
-    implements $ImageFailureCopyWith<$Res> {
+abstract class $MaxSizeExceededCopyWith<$Res> {
+  factory $MaxSizeExceededCopyWith(
+          MaxSizeExceeded value, $Res Function(MaxSizeExceeded) then) =
+      _$MaxSizeExceededCopyWithImpl<$Res>;
+  $Res call({double megabyte});
+}
+
+class _$MaxSizeExceededCopyWithImpl<$Res>
+    extends _$ImageFailureCopyWithImpl<$Res>
+    implements $MaxSizeExceededCopyWith<$Res> {
+  _$MaxSizeExceededCopyWithImpl(
+      MaxSizeExceeded _value, $Res Function(MaxSizeExceeded) _then)
+      : super(_value, (v) => _then(v as MaxSizeExceeded));
+
+  @override
+  MaxSizeExceeded get _value => super._value as MaxSizeExceeded;
+
+  @override
+  $Res call({
+    Object megabyte = freezed,
+  }) {
+    return _then(MaxSizeExceeded(
+      megabyte == freezed ? _value.megabyte : megabyte as double,
+    ));
+  }
+}
+
+class _$MaxSizeExceeded
+    with DiagnosticableTreeMixin
+    implements MaxSizeExceeded {
+  const _$MaxSizeExceeded(this.megabyte) : assert(megabyte != null);
+
+  @override
+  final double megabyte;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ImageFailure.maxSizeExceeded(megabyte: $megabyte)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ImageFailure.maxSizeExceeded'))
+      ..add(DiagnosticsProperty('megabyte', megabyte));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is MaxSizeExceeded &&
+            (identical(other.megabyte, megabyte) ||
+                const DeepCollectionEquality()
+                    .equals(other.megabyte, megabyte)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(megabyte);
+
+  @override
+  $MaxSizeExceededCopyWith<MaxSizeExceeded> get copyWith =>
+      _$MaxSizeExceededCopyWithImpl<MaxSizeExceeded>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result picker(PlatformException exp),
+    @required Result maxSizeExceeded(double megabyte),
+    @required Result editor(PlatformException exp),
+  }) {
+    assert(picker != null);
+    assert(maxSizeExceeded != null);
+    assert(editor != null);
+    return maxSizeExceeded(megabyte);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result picker(PlatformException exp),
+    Result maxSizeExceeded(double megabyte),
+    Result editor(PlatformException exp),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (maxSizeExceeded != null) {
+      return maxSizeExceeded(megabyte);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result picker(ImagePickerFailure value),
+    @required Result maxSizeExceeded(MaxSizeExceeded value),
+    @required Result editor(ImageEditorFailure value),
+  }) {
+    assert(picker != null);
+    assert(maxSizeExceeded != null);
+    assert(editor != null);
+    return maxSizeExceeded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result picker(ImagePickerFailure value),
+    Result maxSizeExceeded(MaxSizeExceeded value),
+    Result editor(ImageEditorFailure value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (maxSizeExceeded != null) {
+      return maxSizeExceeded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class MaxSizeExceeded implements ImageFailure {
+  const factory MaxSizeExceeded(double megabyte) = _$MaxSizeExceeded;
+
+  double get megabyte;
+  $MaxSizeExceededCopyWith<MaxSizeExceeded> get copyWith;
+}
+
+abstract class $ImageEditorFailureCopyWith<$Res> {
   factory $ImageEditorFailureCopyWith(
           ImageEditorFailure value, $Res Function(ImageEditorFailure) then) =
       _$ImageEditorFailureCopyWithImpl<$Res>;
-  @override
   $Res call({PlatformException exp});
 }
 
@@ -278,9 +403,11 @@ class _$ImageEditorFailure
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result picker(PlatformException exp),
+    @required Result maxSizeExceeded(double megabyte),
     @required Result editor(PlatformException exp),
   }) {
     assert(picker != null);
+    assert(maxSizeExceeded != null);
     assert(editor != null);
     return editor(exp);
   }
@@ -289,6 +416,7 @@ class _$ImageEditorFailure
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result picker(PlatformException exp),
+    Result maxSizeExceeded(double megabyte),
     Result editor(PlatformException exp),
     @required Result orElse(),
   }) {
@@ -303,9 +431,11 @@ class _$ImageEditorFailure
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result picker(ImagePickerFailure value),
+    @required Result maxSizeExceeded(MaxSizeExceeded value),
     @required Result editor(ImageEditorFailure value),
   }) {
     assert(picker != null);
+    assert(maxSizeExceeded != null);
     assert(editor != null);
     return editor(this);
   }
@@ -314,6 +444,7 @@ class _$ImageEditorFailure
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result picker(ImagePickerFailure value),
+    Result maxSizeExceeded(MaxSizeExceeded value),
     Result editor(ImageEditorFailure value),
     @required Result orElse(),
   }) {
@@ -329,8 +460,6 @@ abstract class ImageEditorFailure implements ImageFailure {
   const factory ImageEditorFailure(PlatformException exp) =
       _$ImageEditorFailure;
 
-  @override
   PlatformException get exp;
-  @override
   $ImageEditorFailureCopyWith<ImageEditorFailure> get copyWith;
 }

@@ -11,6 +11,9 @@ abstract class ImageFailure with _$ImageFailure implements IFailure {
   const factory ImageFailure.picker(
     PlatformException exp,
   ) = ImagePickerFailure;
+  const factory ImageFailure.maxSizeExceeded(
+      double megabyte,
+      ) = MaxSizeExceeded;
   const factory ImageFailure.editor(
     PlatformException exp,
   ) = ImageEditorFailure;
