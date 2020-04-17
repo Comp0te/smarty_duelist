@@ -21,34 +21,50 @@ class ProfileTab extends StatelessWidget {
           orElse: () => null,
         );
 
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        Container(
-          margin: const EdgeInsets.only(bottom: 20),
-          child: Avatar(
-            size: 150,
-            url: url,
-            onTap: () {
-              showImageActions(
-                context,
-                profileTabBloc.imagePickerBloc,
+    return SingleChildScrollView(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Container(
+            alignment: Alignment.center,
+            margin: const EdgeInsets.only(bottom: 20),
+            child: BlocBuilder<ProfileTabBloc, ProfileTabState>(
+              condition: (prev, cur) => prev.avatar != cur.avatar,
+              builder: (context, state) => Avatar(
+                size: 150,
                 url: url,
-              );
-            },
+                imageData: state.avatar,
+                onTap: () {
+                  showImageActions(
+                    context,
+                    profileTabBloc.imagePickerBloc,
+                    url: url,
+                  );
+                },
+              ),
+            ),
           ),
-        ),
-        SizedBox(
-          width: 100,
-          child: Button(
-            title: S.of(context).logout,
-            onPress: () {
-              BlocProvider.of<SignOutBloc>(context).add(const SignOut());
-            },
+          Container(
+            margin: const EdgeInsets.only(bottom: 20),
+            child: Button(
+              title: S.of(context).logout,
+              onPress: () {
+                BlocProvider.of<SignOutBloc>(context).add(const SignOut());
+              },
+            ),
           ),
-        )
-      ],
+          BlocBuilder<ProfileTabBloc, ProfileTabState>(
+            builder: (context, state) => Button(
+              isLoading: state.loading ?? false,
+              title: S.of(context).submit,
+              onPress: () {
+                BlocProvider.of<ProfileTabBloc>(context).add(const Submit());
+              },
+            ),
+          )
+        ],
+      ),
     );
   }
 }

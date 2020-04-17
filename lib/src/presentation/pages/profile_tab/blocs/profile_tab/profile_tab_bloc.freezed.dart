@@ -280,8 +280,9 @@ abstract class Submit implements ProfileTabEvent {
 class _$ProfileTabStateTearOff {
   const _$ProfileTabStateTearOff();
 
-  _ProfileTabState call({Uint8List avatar, String name}) {
+  _ProfileTabState call({bool loading, Uint8List avatar, String name}) {
     return _ProfileTabState(
+      loading: loading,
       avatar: avatar,
       name: name,
     );
@@ -292,6 +293,7 @@ class _$ProfileTabStateTearOff {
 const $ProfileTabState = _$ProfileTabStateTearOff();
 
 mixin _$ProfileTabState {
+  bool get loading;
   Uint8List get avatar;
   String get name;
 
@@ -302,7 +304,7 @@ abstract class $ProfileTabStateCopyWith<$Res> {
   factory $ProfileTabStateCopyWith(
           ProfileTabState value, $Res Function(ProfileTabState) then) =
       _$ProfileTabStateCopyWithImpl<$Res>;
-  $Res call({Uint8List avatar, String name});
+  $Res call({bool loading, Uint8List avatar, String name});
 }
 
 class _$ProfileTabStateCopyWithImpl<$Res>
@@ -315,10 +317,12 @@ class _$ProfileTabStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object loading = freezed,
     Object avatar = freezed,
     Object name = freezed,
   }) {
     return _then(_value.copyWith(
+      loading: loading == freezed ? _value.loading : loading as bool,
       avatar: avatar == freezed ? _value.avatar : avatar as Uint8List,
       name: name == freezed ? _value.name : name as String,
     ));
@@ -331,7 +335,7 @@ abstract class _$ProfileTabStateCopyWith<$Res>
           _ProfileTabState value, $Res Function(_ProfileTabState) then) =
       __$ProfileTabStateCopyWithImpl<$Res>;
   @override
-  $Res call({Uint8List avatar, String name});
+  $Res call({bool loading, Uint8List avatar, String name});
 }
 
 class __$ProfileTabStateCopyWithImpl<$Res>
@@ -346,10 +350,12 @@ class __$ProfileTabStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object loading = freezed,
     Object avatar = freezed,
     Object name = freezed,
   }) {
     return _then(_ProfileTabState(
+      loading: loading == freezed ? _value.loading : loading as bool,
       avatar: avatar == freezed ? _value.avatar : avatar as Uint8List,
       name: name == freezed ? _value.name : name as String,
     ));
@@ -359,8 +365,10 @@ class __$ProfileTabStateCopyWithImpl<$Res>
 class _$_ProfileTabState
     with DiagnosticableTreeMixin
     implements _ProfileTabState {
-  const _$_ProfileTabState({this.avatar, this.name});
+  const _$_ProfileTabState({this.loading, this.avatar, this.name});
 
+  @override
+  final bool loading;
   @override
   final Uint8List avatar;
   @override
@@ -368,7 +376,7 @@ class _$_ProfileTabState
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ProfileTabState(avatar: $avatar, name: $name)';
+    return 'ProfileTabState(loading: $loading, avatar: $avatar, name: $name)';
   }
 
   @override
@@ -376,6 +384,7 @@ class _$_ProfileTabState
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'ProfileTabState'))
+      ..add(DiagnosticsProperty('loading', loading))
       ..add(DiagnosticsProperty('avatar', avatar))
       ..add(DiagnosticsProperty('name', name));
   }
@@ -384,6 +393,9 @@ class _$_ProfileTabState
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _ProfileTabState &&
+            (identical(other.loading, loading) ||
+                const DeepCollectionEquality()
+                    .equals(other.loading, loading)) &&
             (identical(other.avatar, avatar) ||
                 const DeepCollectionEquality().equals(other.avatar, avatar)) &&
             (identical(other.name, name) ||
@@ -393,6 +405,7 @@ class _$_ProfileTabState
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(loading) ^
       const DeepCollectionEquality().hash(avatar) ^
       const DeepCollectionEquality().hash(name);
 
@@ -402,9 +415,11 @@ class _$_ProfileTabState
 }
 
 abstract class _ProfileTabState implements ProfileTabState {
-  const factory _ProfileTabState({Uint8List avatar, String name}) =
-      _$_ProfileTabState;
+  const factory _ProfileTabState(
+      {bool loading, Uint8List avatar, String name}) = _$_ProfileTabState;
 
+  @override
+  bool get loading;
   @override
   Uint8List get avatar;
   @override
