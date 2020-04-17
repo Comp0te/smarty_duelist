@@ -49,46 +49,65 @@ class ImageEditorModal extends StatelessWidget implements AutoRouteWrapper {
 
   Widget _buildImageEditor(BuildContext context) {
     final imageEditorBloc = BlocProvider.of<ImageEditorBloc>(context);
-
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        SizedBox(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.width,
-          child: ExtendedImage(
-            image: imagePickerBloc.state.maybeWhen(
-              imageSelected: (imageData) =>
-                  ExtendedMemoryImageProvider(imageData),
-              orElse: () => ExtendedNetworkImageProvider(url, cache: true),
+    return BlocBuilder<ImagePickerBloc, ImagePickerState>(
+      bloc: imagePickerBloc,
+      builder: (context, state) => Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          if (url != null && state is! ImageSelected)
+            ExtendedImage.network(
+              url,
+              cache: true,
+              fit: BoxFit.contain,
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.width,
+              mode: ExtendedImageMode.editor,
+              enableLoadState: true,
+              extendedImageEditorKey: imageEditorBloc.editorKey,
+              initEditorConfigHandler: (state) {
+                return EditorConfig(
+                  cornerColor: context.primaryColor,
+                  lineColor: context.scaffoldBackgroundColor.withOpacity(0.7),
+                  maxScale: 8.0,
+                  cropRectPadding: const EdgeInsets.all(20.0),
+                  hitTestSize: 20.0,
+                  initCropRectType: InitCropRectType.imageRect,
+                  cropAspectRatio: CropAspectRatios.ratio1_1,
+                );
+              },
             ),
-            fit: BoxFit.contain,
-            mode: ExtendedImageMode.editor,
-            enableLoadState: true,
-            extendedImageEditorKey: imageEditorBloc.editorKey,
-            initEditorConfigHandler: (state) {
-              return EditorConfig(
-                cornerColor: context.primaryColor,
-                lineColor: context.scaffoldBackgroundColor.withOpacity(0.7),
-                maxScale: 8.0,
-                cropRectPadding: const EdgeInsets.all(20.0),
-                hitTestSize: 20.0,
-                initCropRectType: InitCropRectType.imageRect,
-                cropAspectRatio: CropAspectRatios.ratio1_1,
-              );
-            },
+          if (state is ImageSelected)
+            ExtendedImage.memory(
+              state.imageData,
+              fit: BoxFit.contain,
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.width,
+              mode: ExtendedImageMode.editor,
+              enableLoadState: true,
+              extendedImageEditorKey: imageEditorBloc.editorKey,
+              initEditorConfigHandler: (state) {
+                return EditorConfig(
+                  cornerColor: context.primaryColor,
+                  lineColor: context.scaffoldBackgroundColor.withOpacity(0.7),
+                  maxScale: 8.0,
+                  cropRectPadding: const EdgeInsets.all(20.0),
+                  hitTestSize: 20.0,
+                  initCropRectType: InitCropRectType.imageRect,
+                  cropAspectRatio: CropAspectRatios.ratio1_1,
+                );
+              },
+            ),
+          _buildControls(context),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Button(
+              title: S.of(context).confirm,
+              onPress: () => imageEditorBloc.add(const Edit()),
+            ),
           ),
-        ),
-        _buildControls(context),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Button(
-            title: S.of(context).confirm,
-            onPress: () => imageEditorBloc.add(const Edit()),
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
