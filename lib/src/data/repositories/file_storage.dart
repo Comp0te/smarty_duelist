@@ -39,6 +39,7 @@ class FileStorageRepository implements IFileStorageRepository {
         data,
         getAvatarPath(user),
         cacheControl: kAvatarCacheControl,
+        mimeType: kAvatarMimeType,
       ),
     );
   }

@@ -7,3 +7,4 @@ final urlProxyMan =
 
 const kAvatarMaxSize = 300.0;
 const kAvatarCacheControl = 'public,max-age=300';
+const kAvatarMimeType = 'image/jpeg';
