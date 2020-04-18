@@ -48,5 +48,7 @@ extension BuildContextTheme on BuildContext {
         );
   }
 
-  double get defaultPaddingHorizontal => 16.0;
+  EdgeInsets get defaultPaddingHorizontal => const EdgeInsets.symmetric(
+        horizontal: 16,
+      );
 }

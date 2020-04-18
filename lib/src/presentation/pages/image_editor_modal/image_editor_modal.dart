@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +46,24 @@ class ImageEditorModal extends StatelessWidget implements AutoRouteWrapper {
           child: BlocBuilder<ImageEditorBloc, ImageEditorState>(
             builder: (context, state) => state.maybeWhen(
               loading: () => const Spinner(spinnerMode: SpinnerMode.standalone),
-              orElse: () => _buildImageEditor(context),
+              orElse: () => BlocBuilder<ImagePickerBloc, ImagePickerState>(
+                bloc: imagePickerBloc,
+                builder: (context, state) {
+                  if (state is EditedImage) {
+                    return _buildImageEditor(
+                      context,
+                      imageData: state.imageData,
+                    );
+                  } else if (state is SelectedImage) {
+                    return _buildImageEditor(
+                      context,
+                      imageData: state.imageData,
+                    );
+                  } else {
+                    return _buildImageEditor(context, url: url);
+                  }
+                },
+              ),
             ),
           ),
         ),
@@ -52,68 +71,45 @@ class ImageEditorModal extends StatelessWidget implements AutoRouteWrapper {
     );
   }
 
-  Widget _buildImageEditor(BuildContext context) {
+  Widget _buildImageEditor(
+    BuildContext context, {
+    Uint8List imageData,
+    String url,
+  }) {
+    assert(imageData != null || url != null);
+    if (url == null && imageData == null) return Container();
+
     final imageEditorBloc = BlocProvider.of<ImageEditorBloc>(context);
 
-    return BlocBuilder<ImagePickerBloc, ImagePickerState>(
-      bloc: imagePickerBloc,
-      builder: (context, state) => Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          if (url != null && state is! ImageSelected)
-            ExtendedImage.network(
-              url,
-              cache: true,
-              fit: BoxFit.contain,
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.width,
-              mode: ExtendedImageMode.editor,
-              enableLoadState: true,
-              extendedImageEditorKey: imageEditorBloc.editorKey,
-              initEditorConfigHandler: (state) {
-                return EditorConfig(
-                  cornerColor: context.primaryColor,
-                  lineColor: context.scaffoldBackgroundColor.withOpacity(0.7),
-                  maxScale: 8.0,
-                  cropRectPadding: const EdgeInsets.all(20.0),
-                  hitTestSize: 20.0,
-                  initCropRectType: InitCropRectType.imageRect,
-                  cropAspectRatio: CropAspectRatios.ratio1_1,
-                );
-              },
-            ),
-          if (state is ImageSelected)
-            ExtendedImage.memory(
-              state.imageData,
-              fit: BoxFit.contain,
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.width,
-              mode: ExtendedImageMode.editor,
-              enableLoadState: true,
-              extendedImageEditorKey: imageEditorBloc.editorKey,
-              initEditorConfigHandler: (state) {
-                return EditorConfig(
-                  cornerColor: context.primaryColor,
-                  lineColor: context.scaffoldBackgroundColor.withOpacity(0.7),
-                  maxScale: 8.0,
-                  cropRectPadding: const EdgeInsets.all(20.0),
-                  hitTestSize: 20.0,
-                  initCropRectType: InitCropRectType.imageRect,
-                  cropAspectRatio: CropAspectRatios.ratio1_1,
-                );
-              },
-            ),
-          _buildControls(context),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Button(
-              title: S.of(context).confirm,
-              onPress: () => imageEditorBloc.add(const Edit()),
-            ),
-          ),
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        ExtendedImage(
+          image: imageData != null
+              ? ExtendedMemoryImageProvider(imageData) as ImageProvider
+              : ExtendedNetworkImageProvider(url, cache: true),
+          fit: BoxFit.contain,
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.width,
+          mode: ExtendedImageMode.editor,
+          enableLoadState: true,
+          extendedImageEditorKey: imageEditorBloc.editorKey,
+          initEditorConfigHandler: (state) {
+            return EditorConfig(
+              cornerColor: context.primaryColor,
+              lineColor: context.scaffoldBackgroundColor.withOpacity(0.7),
+              maxScale: 8.0,
+              cropRectPadding: const EdgeInsets.all(20.0),
+              hitTestSize: 20.0,
+              initCropRectType: InitCropRectType.imageRect,
+              cropAspectRatio: CropAspectRatios.ratio1_1,
+            );
+          },
+        ),
+        _buildControls(context),
+        _buildSubmitButton(context),
+      ],
     );
   }
 
@@ -144,6 +140,17 @@ class ImageEditorModal extends StatelessWidget implements AutoRouteWrapper {
             onPressed: () => imageEditorBloc.add(const Restore()),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildSubmitButton(BuildContext context) {
+    return Padding(
+      padding: context.defaultPaddingHorizontal,
+      child: Button(
+        title: S.of(context).confirm,
+        onPress: () =>
+            BlocProvider.of<ImageEditorBloc>(context).add(const Edit()),
       ),
     );
   }

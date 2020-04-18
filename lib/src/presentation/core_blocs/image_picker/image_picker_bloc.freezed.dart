@@ -20,14 +20,14 @@ class _$ImagePickerStateTearOff {
     return const Loading();
   }
 
-  ImageSelected imageSelected(Uint8List imageData) {
-    return ImageSelected(
+  SelectedImage selectedImage(Uint8List imageData) {
+    return SelectedImage(
       imageData,
     );
   }
 
-  ImageEdited imageEdited(Uint8List imageData) {
-    return ImageEdited(
+  EditedImage editedImage(Uint8List imageData) {
+    return EditedImage(
       imageData,
     );
   }
@@ -47,16 +47,16 @@ mixin _$ImagePickerState {
   Result when<Result extends Object>({
     @required Result init(),
     @required Result loading(),
-    @required Result imageSelected(Uint8List imageData),
-    @required Result imageEdited(Uint8List imageData),
+    @required Result selectedImage(Uint8List imageData),
+    @required Result editedImage(Uint8List imageData),
     @required Result error(ImageFailure failure),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result init(),
     Result loading(),
-    Result imageSelected(Uint8List imageData),
-    Result imageEdited(Uint8List imageData),
+    Result selectedImage(Uint8List imageData),
+    Result editedImage(Uint8List imageData),
     Result error(ImageFailure failure),
     @required Result orElse(),
   });
@@ -64,16 +64,16 @@ mixin _$ImagePickerState {
   Result map<Result extends Object>({
     @required Result init(Init value),
     @required Result loading(Loading value),
-    @required Result imageSelected(ImageSelected value),
-    @required Result imageEdited(ImageEdited value),
+    @required Result selectedImage(SelectedImage value),
+    @required Result editedImage(EditedImage value),
     @required Result error(Error value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result init(Init value),
     Result loading(Loading value),
-    Result imageSelected(ImageSelected value),
-    Result imageEdited(ImageEdited value),
+    Result selectedImage(SelectedImage value),
+    Result editedImage(EditedImage value),
     Result error(Error value),
     @required Result orElse(),
   });
@@ -135,14 +135,14 @@ class _$Init with DiagnosticableTreeMixin implements Init {
   Result when<Result extends Object>({
     @required Result init(),
     @required Result loading(),
-    @required Result imageSelected(Uint8List imageData),
-    @required Result imageEdited(Uint8List imageData),
+    @required Result selectedImage(Uint8List imageData),
+    @required Result editedImage(Uint8List imageData),
     @required Result error(ImageFailure failure),
   }) {
     assert(init != null);
     assert(loading != null);
-    assert(imageSelected != null);
-    assert(imageEdited != null);
+    assert(selectedImage != null);
+    assert(editedImage != null);
     assert(error != null);
     return init();
   }
@@ -152,8 +152,8 @@ class _$Init with DiagnosticableTreeMixin implements Init {
   Result maybeWhen<Result extends Object>({
     Result init(),
     Result loading(),
-    Result imageSelected(Uint8List imageData),
-    Result imageEdited(Uint8List imageData),
+    Result selectedImage(Uint8List imageData),
+    Result editedImage(Uint8List imageData),
     Result error(ImageFailure failure),
     @required Result orElse(),
   }) {
@@ -169,14 +169,14 @@ class _$Init with DiagnosticableTreeMixin implements Init {
   Result map<Result extends Object>({
     @required Result init(Init value),
     @required Result loading(Loading value),
-    @required Result imageSelected(ImageSelected value),
-    @required Result imageEdited(ImageEdited value),
+    @required Result selectedImage(SelectedImage value),
+    @required Result editedImage(EditedImage value),
     @required Result error(Error value),
   }) {
     assert(init != null);
     assert(loading != null);
-    assert(imageSelected != null);
-    assert(imageEdited != null);
+    assert(selectedImage != null);
+    assert(editedImage != null);
     assert(error != null);
     return init(this);
   }
@@ -186,8 +186,8 @@ class _$Init with DiagnosticableTreeMixin implements Init {
   Result maybeMap<Result extends Object>({
     Result init(Init value),
     Result loading(Loading value),
-    Result imageSelected(ImageSelected value),
-    Result imageEdited(ImageEdited value),
+    Result selectedImage(SelectedImage value),
+    Result editedImage(EditedImage value),
     Result error(Error value),
     @required Result orElse(),
   }) {
@@ -244,14 +244,14 @@ class _$Loading with DiagnosticableTreeMixin implements Loading {
   Result when<Result extends Object>({
     @required Result init(),
     @required Result loading(),
-    @required Result imageSelected(Uint8List imageData),
-    @required Result imageEdited(Uint8List imageData),
+    @required Result selectedImage(Uint8List imageData),
+    @required Result editedImage(Uint8List imageData),
     @required Result error(ImageFailure failure),
   }) {
     assert(init != null);
     assert(loading != null);
-    assert(imageSelected != null);
-    assert(imageEdited != null);
+    assert(selectedImage != null);
+    assert(editedImage != null);
     assert(error != null);
     return loading();
   }
@@ -261,8 +261,8 @@ class _$Loading with DiagnosticableTreeMixin implements Loading {
   Result maybeWhen<Result extends Object>({
     Result init(),
     Result loading(),
-    Result imageSelected(Uint8List imageData),
-    Result imageEdited(Uint8List imageData),
+    Result selectedImage(Uint8List imageData),
+    Result editedImage(Uint8List imageData),
     Result error(ImageFailure failure),
     @required Result orElse(),
   }) {
@@ -278,14 +278,14 @@ class _$Loading with DiagnosticableTreeMixin implements Loading {
   Result map<Result extends Object>({
     @required Result init(Init value),
     @required Result loading(Loading value),
-    @required Result imageSelected(ImageSelected value),
-    @required Result imageEdited(ImageEdited value),
+    @required Result selectedImage(SelectedImage value),
+    @required Result editedImage(EditedImage value),
     @required Result error(Error value),
   }) {
     assert(init != null);
     assert(loading != null);
-    assert(imageSelected != null);
-    assert(imageEdited != null);
+    assert(selectedImage != null);
+    assert(editedImage != null);
     assert(error != null);
     return loading(this);
   }
@@ -295,8 +295,8 @@ class _$Loading with DiagnosticableTreeMixin implements Loading {
   Result maybeMap<Result extends Object>({
     Result init(Init value),
     Result loading(Loading value),
-    Result imageSelected(ImageSelected value),
-    Result imageEdited(ImageEdited value),
+    Result selectedImage(SelectedImage value),
+    Result editedImage(EditedImage value),
     Result error(Error value),
     @required Result orElse(),
   }) {
@@ -312,56 +312,56 @@ abstract class Loading implements ImagePickerState {
   const factory Loading() = _$Loading;
 }
 
-abstract class $ImageSelectedCopyWith<$Res> {
-  factory $ImageSelectedCopyWith(
-          ImageSelected value, $Res Function(ImageSelected) then) =
-      _$ImageSelectedCopyWithImpl<$Res>;
+abstract class $SelectedImageCopyWith<$Res> {
+  factory $SelectedImageCopyWith(
+          SelectedImage value, $Res Function(SelectedImage) then) =
+      _$SelectedImageCopyWithImpl<$Res>;
   $Res call({Uint8List imageData});
 }
 
-class _$ImageSelectedCopyWithImpl<$Res>
+class _$SelectedImageCopyWithImpl<$Res>
     extends _$ImagePickerStateCopyWithImpl<$Res>
-    implements $ImageSelectedCopyWith<$Res> {
-  _$ImageSelectedCopyWithImpl(
-      ImageSelected _value, $Res Function(ImageSelected) _then)
-      : super(_value, (v) => _then(v as ImageSelected));
+    implements $SelectedImageCopyWith<$Res> {
+  _$SelectedImageCopyWithImpl(
+      SelectedImage _value, $Res Function(SelectedImage) _then)
+      : super(_value, (v) => _then(v as SelectedImage));
 
   @override
-  ImageSelected get _value => super._value as ImageSelected;
+  SelectedImage get _value => super._value as SelectedImage;
 
   @override
   $Res call({
     Object imageData = freezed,
   }) {
-    return _then(ImageSelected(
+    return _then(SelectedImage(
       imageData == freezed ? _value.imageData : imageData as Uint8List,
     ));
   }
 }
 
-class _$ImageSelected with DiagnosticableTreeMixin implements ImageSelected {
-  const _$ImageSelected(this.imageData) : assert(imageData != null);
+class _$SelectedImage with DiagnosticableTreeMixin implements SelectedImage {
+  const _$SelectedImage(this.imageData) : assert(imageData != null);
 
   @override
   final Uint8List imageData;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ImagePickerState.imageSelected(imageData: $imageData)';
+    return 'ImagePickerState.selectedImage(imageData: $imageData)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'ImagePickerState.imageSelected'))
+      ..add(DiagnosticsProperty('type', 'ImagePickerState.selectedImage'))
       ..add(DiagnosticsProperty('imageData', imageData));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is ImageSelected &&
+        (other is SelectedImage &&
             (identical(other.imageData, imageData) ||
                 const DeepCollectionEquality()
                     .equals(other.imageData, imageData)));
@@ -372,24 +372,24 @@ class _$ImageSelected with DiagnosticableTreeMixin implements ImageSelected {
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(imageData);
 
   @override
-  $ImageSelectedCopyWith<ImageSelected> get copyWith =>
-      _$ImageSelectedCopyWithImpl<ImageSelected>(this, _$identity);
+  $SelectedImageCopyWith<SelectedImage> get copyWith =>
+      _$SelectedImageCopyWithImpl<SelectedImage>(this, _$identity);
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result init(),
     @required Result loading(),
-    @required Result imageSelected(Uint8List imageData),
-    @required Result imageEdited(Uint8List imageData),
+    @required Result selectedImage(Uint8List imageData),
+    @required Result editedImage(Uint8List imageData),
     @required Result error(ImageFailure failure),
   }) {
     assert(init != null);
     assert(loading != null);
-    assert(imageSelected != null);
-    assert(imageEdited != null);
+    assert(selectedImage != null);
+    assert(editedImage != null);
     assert(error != null);
-    return imageSelected(imageData);
+    return selectedImage(imageData);
   }
 
   @override
@@ -397,14 +397,14 @@ class _$ImageSelected with DiagnosticableTreeMixin implements ImageSelected {
   Result maybeWhen<Result extends Object>({
     Result init(),
     Result loading(),
-    Result imageSelected(Uint8List imageData),
-    Result imageEdited(Uint8List imageData),
+    Result selectedImage(Uint8List imageData),
+    Result editedImage(Uint8List imageData),
     Result error(ImageFailure failure),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (imageSelected != null) {
-      return imageSelected(imageData);
+    if (selectedImage != null) {
+      return selectedImage(imageData);
     }
     return orElse();
   }
@@ -414,16 +414,16 @@ class _$ImageSelected with DiagnosticableTreeMixin implements ImageSelected {
   Result map<Result extends Object>({
     @required Result init(Init value),
     @required Result loading(Loading value),
-    @required Result imageSelected(ImageSelected value),
-    @required Result imageEdited(ImageEdited value),
+    @required Result selectedImage(SelectedImage value),
+    @required Result editedImage(EditedImage value),
     @required Result error(Error value),
   }) {
     assert(init != null);
     assert(loading != null);
-    assert(imageSelected != null);
-    assert(imageEdited != null);
+    assert(selectedImage != null);
+    assert(editedImage != null);
     assert(error != null);
-    return imageSelected(this);
+    return selectedImage(this);
   }
 
   @override
@@ -431,76 +431,76 @@ class _$ImageSelected with DiagnosticableTreeMixin implements ImageSelected {
   Result maybeMap<Result extends Object>({
     Result init(Init value),
     Result loading(Loading value),
-    Result imageSelected(ImageSelected value),
-    Result imageEdited(ImageEdited value),
+    Result selectedImage(SelectedImage value),
+    Result editedImage(EditedImage value),
     Result error(Error value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (imageSelected != null) {
-      return imageSelected(this);
+    if (selectedImage != null) {
+      return selectedImage(this);
     }
     return orElse();
   }
 }
 
-abstract class ImageSelected implements ImagePickerState {
-  const factory ImageSelected(Uint8List imageData) = _$ImageSelected;
+abstract class SelectedImage implements ImagePickerState {
+  const factory SelectedImage(Uint8List imageData) = _$SelectedImage;
 
   Uint8List get imageData;
-  $ImageSelectedCopyWith<ImageSelected> get copyWith;
+  $SelectedImageCopyWith<SelectedImage> get copyWith;
 }
 
-abstract class $ImageEditedCopyWith<$Res> {
-  factory $ImageEditedCopyWith(
-          ImageEdited value, $Res Function(ImageEdited) then) =
-      _$ImageEditedCopyWithImpl<$Res>;
+abstract class $EditedImageCopyWith<$Res> {
+  factory $EditedImageCopyWith(
+          EditedImage value, $Res Function(EditedImage) then) =
+      _$EditedImageCopyWithImpl<$Res>;
   $Res call({Uint8List imageData});
 }
 
-class _$ImageEditedCopyWithImpl<$Res>
+class _$EditedImageCopyWithImpl<$Res>
     extends _$ImagePickerStateCopyWithImpl<$Res>
-    implements $ImageEditedCopyWith<$Res> {
-  _$ImageEditedCopyWithImpl(
-      ImageEdited _value, $Res Function(ImageEdited) _then)
-      : super(_value, (v) => _then(v as ImageEdited));
+    implements $EditedImageCopyWith<$Res> {
+  _$EditedImageCopyWithImpl(
+      EditedImage _value, $Res Function(EditedImage) _then)
+      : super(_value, (v) => _then(v as EditedImage));
 
   @override
-  ImageEdited get _value => super._value as ImageEdited;
+  EditedImage get _value => super._value as EditedImage;
 
   @override
   $Res call({
     Object imageData = freezed,
   }) {
-    return _then(ImageEdited(
+    return _then(EditedImage(
       imageData == freezed ? _value.imageData : imageData as Uint8List,
     ));
   }
 }
 
-class _$ImageEdited with DiagnosticableTreeMixin implements ImageEdited {
-  const _$ImageEdited(this.imageData) : assert(imageData != null);
+class _$EditedImage with DiagnosticableTreeMixin implements EditedImage {
+  const _$EditedImage(this.imageData) : assert(imageData != null);
 
   @override
   final Uint8List imageData;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ImagePickerState.imageEdited(imageData: $imageData)';
+    return 'ImagePickerState.editedImage(imageData: $imageData)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'ImagePickerState.imageEdited'))
+      ..add(DiagnosticsProperty('type', 'ImagePickerState.editedImage'))
       ..add(DiagnosticsProperty('imageData', imageData));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is ImageEdited &&
+        (other is EditedImage &&
             (identical(other.imageData, imageData) ||
                 const DeepCollectionEquality()
                     .equals(other.imageData, imageData)));
@@ -511,24 +511,24 @@ class _$ImageEdited with DiagnosticableTreeMixin implements ImageEdited {
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(imageData);
 
   @override
-  $ImageEditedCopyWith<ImageEdited> get copyWith =>
-      _$ImageEditedCopyWithImpl<ImageEdited>(this, _$identity);
+  $EditedImageCopyWith<EditedImage> get copyWith =>
+      _$EditedImageCopyWithImpl<EditedImage>(this, _$identity);
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result init(),
     @required Result loading(),
-    @required Result imageSelected(Uint8List imageData),
-    @required Result imageEdited(Uint8List imageData),
+    @required Result selectedImage(Uint8List imageData),
+    @required Result editedImage(Uint8List imageData),
     @required Result error(ImageFailure failure),
   }) {
     assert(init != null);
     assert(loading != null);
-    assert(imageSelected != null);
-    assert(imageEdited != null);
+    assert(selectedImage != null);
+    assert(editedImage != null);
     assert(error != null);
-    return imageEdited(imageData);
+    return editedImage(imageData);
   }
 
   @override
@@ -536,14 +536,14 @@ class _$ImageEdited with DiagnosticableTreeMixin implements ImageEdited {
   Result maybeWhen<Result extends Object>({
     Result init(),
     Result loading(),
-    Result imageSelected(Uint8List imageData),
-    Result imageEdited(Uint8List imageData),
+    Result selectedImage(Uint8List imageData),
+    Result editedImage(Uint8List imageData),
     Result error(ImageFailure failure),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (imageEdited != null) {
-      return imageEdited(imageData);
+    if (editedImage != null) {
+      return editedImage(imageData);
     }
     return orElse();
   }
@@ -553,16 +553,16 @@ class _$ImageEdited with DiagnosticableTreeMixin implements ImageEdited {
   Result map<Result extends Object>({
     @required Result init(Init value),
     @required Result loading(Loading value),
-    @required Result imageSelected(ImageSelected value),
-    @required Result imageEdited(ImageEdited value),
+    @required Result selectedImage(SelectedImage value),
+    @required Result editedImage(EditedImage value),
     @required Result error(Error value),
   }) {
     assert(init != null);
     assert(loading != null);
-    assert(imageSelected != null);
-    assert(imageEdited != null);
+    assert(selectedImage != null);
+    assert(editedImage != null);
     assert(error != null);
-    return imageEdited(this);
+    return editedImage(this);
   }
 
   @override
@@ -570,24 +570,24 @@ class _$ImageEdited with DiagnosticableTreeMixin implements ImageEdited {
   Result maybeMap<Result extends Object>({
     Result init(Init value),
     Result loading(Loading value),
-    Result imageSelected(ImageSelected value),
-    Result imageEdited(ImageEdited value),
+    Result selectedImage(SelectedImage value),
+    Result editedImage(EditedImage value),
     Result error(Error value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (imageEdited != null) {
-      return imageEdited(this);
+    if (editedImage != null) {
+      return editedImage(this);
     }
     return orElse();
   }
 }
 
-abstract class ImageEdited implements ImagePickerState {
-  const factory ImageEdited(Uint8List imageData) = _$ImageEdited;
+abstract class EditedImage implements ImagePickerState {
+  const factory EditedImage(Uint8List imageData) = _$EditedImage;
 
   Uint8List get imageData;
-  $ImageEditedCopyWith<ImageEdited> get copyWith;
+  $EditedImageCopyWith<EditedImage> get copyWith;
 }
 
 abstract class $ErrorCopyWith<$Res> {
@@ -666,14 +666,14 @@ class _$Error with DiagnosticableTreeMixin implements Error {
   Result when<Result extends Object>({
     @required Result init(),
     @required Result loading(),
-    @required Result imageSelected(Uint8List imageData),
-    @required Result imageEdited(Uint8List imageData),
+    @required Result selectedImage(Uint8List imageData),
+    @required Result editedImage(Uint8List imageData),
     @required Result error(ImageFailure failure),
   }) {
     assert(init != null);
     assert(loading != null);
-    assert(imageSelected != null);
-    assert(imageEdited != null);
+    assert(selectedImage != null);
+    assert(editedImage != null);
     assert(error != null);
     return error(failure);
   }
@@ -683,8 +683,8 @@ class _$Error with DiagnosticableTreeMixin implements Error {
   Result maybeWhen<Result extends Object>({
     Result init(),
     Result loading(),
-    Result imageSelected(Uint8List imageData),
-    Result imageEdited(Uint8List imageData),
+    Result selectedImage(Uint8List imageData),
+    Result editedImage(Uint8List imageData),
     Result error(ImageFailure failure),
     @required Result orElse(),
   }) {
@@ -700,14 +700,14 @@ class _$Error with DiagnosticableTreeMixin implements Error {
   Result map<Result extends Object>({
     @required Result init(Init value),
     @required Result loading(Loading value),
-    @required Result imageSelected(ImageSelected value),
-    @required Result imageEdited(ImageEdited value),
+    @required Result selectedImage(SelectedImage value),
+    @required Result editedImage(EditedImage value),
     @required Result error(Error value),
   }) {
     assert(init != null);
     assert(loading != null);
-    assert(imageSelected != null);
-    assert(imageEdited != null);
+    assert(selectedImage != null);
+    assert(editedImage != null);
     assert(error != null);
     return error(this);
   }
@@ -717,8 +717,8 @@ class _$Error with DiagnosticableTreeMixin implements Error {
   Result maybeMap<Result extends Object>({
     Result init(Init value),
     Result loading(Loading value),
-    Result imageSelected(ImageSelected value),
-    Result imageEdited(ImageEdited value),
+    Result selectedImage(SelectedImage value),
+    Result editedImage(EditedImage value),
     Result error(Error value),
     @required Result orElse(),
   }) {

@@ -30,7 +30,7 @@ class ImagePickerBloc extends Bloc<ImagePickerEvent, ImagePickerState> {
 
         yield imageEither.fold(
           $ImagePickerState.error,
-          $ImagePickerState.imageSelected,
+          $ImagePickerState.selectedImage,
         );
       },
       selectFromCamera: (event) async* {
@@ -38,14 +38,14 @@ class ImagePickerBloc extends Bloc<ImagePickerEvent, ImagePickerState> {
 
         yield imageEither.fold(
           $ImagePickerState.error,
-          $ImagePickerState.imageSelected,
+          $ImagePickerState.selectedImage,
         );
       },
       clear: (_) async* {
         yield const Init();
       },
       selectEditedImage: (SelectEditedImage event) async* {
-        yield ImageEdited(event.imageData);
+        yield EditedImage(event.imageData);
       },
     );
   }
@@ -55,12 +55,12 @@ class ImagePickerBloc extends Bloc<ImagePickerEvent, ImagePickerState> {
 abstract class ImagePickerState with _$ImagePickerState {
   const factory ImagePickerState.init() = Init;
   const factory ImagePickerState.loading() = Loading;
-  const factory ImagePickerState.imageSelected(
+  const factory ImagePickerState.selectedImage(
     Uint8List imageData,
-  ) = ImageSelected;
-  const factory ImagePickerState.imageEdited(
+  ) = SelectedImage;
+  const factory ImagePickerState.editedImage(
     Uint8List imageData,
-  ) = ImageEdited;
+  ) = EditedImage;
   const factory ImagePickerState.error(ImageFailure failure) = Error;
 }
 

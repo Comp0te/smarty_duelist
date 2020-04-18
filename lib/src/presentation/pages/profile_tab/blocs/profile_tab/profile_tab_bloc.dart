@@ -51,6 +51,7 @@ class ProfileTabBloc extends Bloc<ProfileTabEvent, ProfileTabState> {
         yield state.copyWith.call(loading: true);
         await _fileStorageRepository.uploadAvatar(state.avatar);
         await _userRepository.updateProfile(name: nameController.text);
+        imagePickerBloc.add(const ClearSelected());
         yield state.copyWith.call(loading: false);
       },
     );
@@ -59,17 +60,15 @@ class ProfileTabBloc extends Bloc<ProfileTabEvent, ProfileTabState> {
   StreamSubscription _getImagePickerSubscription() {
     return imagePickerBloc.listen((pickerState) {
       pickerState.maybeWhen(
-        imageSelected: (imageData) async {
+        selectedImage: (imageData) async {
           await ExtendedNavigator.rootNavigator.pushNamed(
             Routes.imageEditorModal,
             arguments: ImageEditorModalArguments(
               imagePickerBloc: imagePickerBloc,
             ),
           );
-
-          imagePickerBloc.add(const ClearSelected());
         },
-        imageEdited: (imageData) {
+        editedImage: (imageData) {
           add(AvatarSelected(imageData));
         },
         orElse: () => {},
