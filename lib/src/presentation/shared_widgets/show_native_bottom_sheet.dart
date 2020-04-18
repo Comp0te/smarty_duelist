@@ -6,6 +6,7 @@ import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import 'package:smarty_duelist/generated/l10n.dart';
 
+import '../theme/theme.dart';
 import 'native_dialog_action.dart';
 
 class SelectorItem<T> {
@@ -78,7 +79,10 @@ Future<SelectorItem<T>> showNativeBottomSheet<T>(
         mainAxisSize: MainAxisSize.min,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+            padding: context.defaultPaddingHorizontal.copyWith(
+              top: 10,
+              bottom: 10,
+            ),
             child: Text(title, style: Theme.of(context).textTheme.title),
           ),
           if (message != null)

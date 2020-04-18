@@ -11,6 +11,7 @@ import 'package:smarty_duelist/src/injector/injector.dart' show getIt;
 import '../../shared_widgets/shared_widgets.dart'
     show Button, FormTextField, NativeScaffold;
 import '../../extensions/extensions.dart';
+import '../../theme/theme.dart';
 import 'blocs/blocs.dart';
 import 'widgets/widgets.dart';
 
@@ -33,7 +34,7 @@ class SignUpPage extends StatelessWidget implements AutoRouteWrapper {
           withKeyboardAnimation: true,
           body: Center(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
+              padding: context.defaultPaddingHorizontal,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
