@@ -34,9 +34,11 @@ class LanguageButton extends StatelessWidget {
           }).toList(),
         );
 
-        BlocProvider.of<PreferencesBloc>(context).add(
-          LanguageChanged(item.value),
-        );
+        if (item != null) {
+          BlocProvider.of<PreferencesBloc>(context).add(
+            LanguageChanged(item.value),
+          );
+        }
       },
       icon: Icon(Icons.language),
     );

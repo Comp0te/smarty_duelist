@@ -34,9 +34,11 @@ class ThemeButton extends StatelessWidget {
           }).toList(),
         );
 
-        BlocProvider.of<PreferencesBloc>(context).add(
-          ThemeChanged(item.value),
-        );
+        if (item != null) {
+          BlocProvider.of<PreferencesBloc>(context).add(
+            ThemeChanged(item.value),
+          );
+        }
       },
       icon: BlocBuilder<PreferencesBloc, PreferencesState>(
         builder: (context, state) {
