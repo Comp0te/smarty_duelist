@@ -60,17 +60,17 @@ class ProfileTabBloc extends Bloc<ProfileTabEvent, ProfileTabState> {
     return imagePickerBloc.listen((pickerState) {
       pickerState.maybeWhen(
         imageSelected: (imageData) async {
-          final editedImage = await ExtendedNavigator.rootNavigator.pushNamed(
+          await ExtendedNavigator.rootNavigator.pushNamed(
             Routes.imageEditorModal,
             arguments: ImageEditorModalArguments(
               imagePickerBloc: imagePickerBloc,
             ),
           );
 
-          if (editedImage is Uint8List && editedImage != null) {
-            add(AvatarSelected(editedImage));
-          }
           imagePickerBloc.add(const ClearSelected());
+        },
+        imageEdited: (imageData) {
+          add(AvatarSelected(imageData));
         },
         orElse: () => {},
       );
