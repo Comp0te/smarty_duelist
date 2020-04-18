@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
+import '../theme/theme.dart';
+
 @immutable
 class NativeTabData {
   final String previousPageTitle;
@@ -57,7 +59,12 @@ class NativeTabScaffold extends StatelessWidget {
 
   Widget _buildBody(BuildContext context, int index) {
     return PlatformWidget(
-      ios: (_) => tabsData[index].body,
+      ios: (_) => Padding(
+        padding: EdgeInsets.only(
+          top: MediaQuery.of(context).viewPadding.top + kCupertinoHeaderHeight,
+        ),
+        child: tabsData[index].body,
+      ),
       android: (_) => PageTransitionSwitcher(
         transitionBuilder: (
           Widget child,

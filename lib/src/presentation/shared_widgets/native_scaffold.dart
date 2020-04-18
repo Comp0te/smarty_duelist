@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
+import '../theme/theme.dart';
+
 class NativeScaffold extends StatelessWidget {
   final Widget title;
   final String previousPageTitle;
@@ -46,7 +48,10 @@ class NativeScaffold extends StatelessWidget {
       child: AnimatedContainer(
         curve: Curves.easeOutQuad,
         duration: const Duration(milliseconds: 375),
-        padding: EdgeInsets.only(bottom: bottomOffset),
+        padding: EdgeInsets.only(
+          bottom: bottomOffset,
+          top: MediaQuery.of(context).viewPadding.top + kCupertinoHeaderHeight,
+        ),
         child: body,
       ),
     );

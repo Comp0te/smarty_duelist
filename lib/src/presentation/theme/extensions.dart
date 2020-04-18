@@ -47,4 +47,6 @@ extension BuildContextTheme on BuildContext {
           color: errorColor,
         );
   }
+
+  double get defaultPaddingHorizontal => 16.0;
 }
