@@ -44,6 +44,9 @@ class ImagePickerBloc extends Bloc<ImagePickerEvent, ImagePickerState> {
       clear: (_) async* {
         yield const Init();
       },
+      selectEditedImage: (SelectEditedImage event) async* {
+        yield ImageEdited(event.imageData);
+      },
     );
   }
 }
@@ -55,6 +58,9 @@ abstract class ImagePickerState with _$ImagePickerState {
   const factory ImagePickerState.imageSelected(
     Uint8List imageData,
   ) = ImageSelected;
+  const factory ImagePickerState.imageEdited(
+    Uint8List imageData,
+  ) = ImageEdited;
   const factory ImagePickerState.error(ImageFailure failure) = Error;
 }
 
@@ -62,5 +68,8 @@ abstract class ImagePickerState with _$ImagePickerState {
 abstract class ImagePickerEvent with _$ImagePickerEvent {
   const factory ImagePickerEvent.selectFromLibrary() = SelectFromLibrary;
   const factory ImagePickerEvent.selectFromCamera() = SelectFromCamera;
+  const factory ImagePickerEvent.selectEditedImage(
+    Uint8List imageData,
+  ) = SelectEditedImage;
   const factory ImagePickerEvent.clear() = ClearSelected;
 }
