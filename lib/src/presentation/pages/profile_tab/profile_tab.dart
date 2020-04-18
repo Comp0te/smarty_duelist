@@ -25,11 +25,11 @@ class ProfileTab extends StatelessWidget {
     return SingleChildScrollView(
       padding: context.defaultPaddingHorizontal,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Container(
             alignment: Alignment.center,
-            margin: const EdgeInsets.only(bottom: 20),
+            margin: const EdgeInsets.symmetric(vertical: 20),
             child: BlocBuilder<ProfileTabBloc, ProfileTabState>(
               condition: (prev, cur) => prev.avatar != cur.avatar,
               builder: (context, state) => Avatar(
