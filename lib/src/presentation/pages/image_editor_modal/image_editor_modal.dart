@@ -25,8 +25,13 @@ class ImageEditorModal extends StatelessWidget implements AutoRouteWrapper {
   }) : super(key: key);
 
   @override
-  Widget get wrappedRoute => BlocProvider<ImageEditorBloc>(
-        create: (_) => getIt<ImageEditorBloc>(),
+  Widget get wrappedRoute => MultiBlocProvider(
+        providers: [
+          BlocProvider<ImageEditorBloc>(
+            create: (_) => getIt<ImageEditorBloc>(),
+          ),
+          BlocProvider.value(value: imagePickerBloc),
+        ],
         child: this,
       );
 
@@ -49,6 +54,7 @@ class ImageEditorModal extends StatelessWidget implements AutoRouteWrapper {
 
   Widget _buildImageEditor(BuildContext context) {
     final imageEditorBloc = BlocProvider.of<ImageEditorBloc>(context);
+
     return BlocBuilder<ImagePickerBloc, ImagePickerState>(
       bloc: imagePickerBloc,
       builder: (context, state) => Column(

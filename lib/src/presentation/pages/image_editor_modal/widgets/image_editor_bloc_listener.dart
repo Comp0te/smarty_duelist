@@ -1,5 +1,3 @@
-import 'dart:typed_data';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:smarty_duelist/generated/l10n.dart';
 
+import '../../../core_blocs/core_blocs.dart'
+    show ImagePickerBloc, SelectEditedImage;
 import '../blocs/blocs.dart';
 
 class ImageEditorBlocListener extends StatelessWidget {
@@ -32,7 +32,12 @@ class ImageEditorBlocListener extends StatelessWidget {
                   duration: const Duration(seconds: 4),
                 ),
             imageEdited: (imageData) {
-              ExtendedNavigator.of(context).pop<Uint8List>(imageData);
+              BlocProvider.of<ImagePickerBloc>(context).add(
+                SelectEditedImage(imageData),
+              );
+              ExtendedNavigator.of(context).popUntil(
+                (route) => route.isFirst,
+              );
             },
             orElse: () {});
       },

@@ -38,7 +38,7 @@ Future<SelectorItem<Unit>> showImageActions(
         SelectorItem(
           label: S.of(context).edit,
           isPopOnSelect: false,
-          onSelect: (_) => ExtendedNavigator.of(context).pushReplacementNamed(
+          onSelect: (_) => ExtendedNavigator.of(context).pushNamed(
             Routes.imageEditorModal,
             arguments: ImageEditorModalArguments(
               url: url,
