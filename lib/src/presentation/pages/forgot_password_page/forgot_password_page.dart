@@ -5,17 +5,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 import 'package:smarty_duelist/generated/l10n.dart';
-import 'package:smarty_duelist/src/core/core.dart' show OrientationMixin;
 import 'package:smarty_duelist/src/injector/injector.dart' show getIt;
-import 'package:smarty_duelist/src/presentation/shared_widgets/shared_widgets.dart'
-    show Button, FormTextField, NativeScaffold;
 
+import '../../shared_widgets/shared_widgets.dart'
+    show Button, FormTextField, NativeScaffold;
+import '../../extensions/extensions.dart';
+import '../../theme/theme.dart';
 import 'blocs/blocs.dart';
 import 'widgets/widgets.dart';
 
-class ForgotPasswordPage extends StatelessWidget
-    with OrientationMixin
-    implements AutoRouteWrapper {
+class ForgotPasswordPage extends StatelessWidget implements AutoRouteWrapper {
   @override
   Widget get wrappedRoute => BlocProvider<ForgotPasswordBloc>(
         create: (_) => getIt<ForgotPasswordBloc>(),
@@ -34,7 +33,7 @@ class ForgotPasswordPage extends StatelessWidget
           withKeyboardAnimation: true,
           body: Center(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
+              padding: context.defaultPaddingHorizontal,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -70,17 +69,17 @@ class ForgotPasswordPage extends StatelessWidget
     }
 
     final forgotPasswordBloc = BlocProvider.of<ForgotPasswordBloc>(context);
+    final mq = MediaQuery.of(context);
 
     return Container(
       margin: const EdgeInsets.only(bottom: 20),
       child: Flex(
-        direction: isLandscape(context) ? Axis.horizontal : Axis.vertical,
-        mainAxisSize:
-            isLandscape(context) ? MainAxisSize.max : MainAxisSize.min,
+        direction: mq.isLandscape ? Axis.horizontal : Axis.vertical,
+        mainAxisSize: mq.isLandscape ? MainAxisSize.max : MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Container(
-            constraints: getMaxWidthConstraints(context, 0.4),
+            constraints: mq.getMaxWidthConstraints(0.4),
             margin: const EdgeInsets.only(bottom: 0),
             child: FormTextField(
               controller: forgotPasswordBloc.emailController,
@@ -98,13 +97,15 @@ class ForgotPasswordPage extends StatelessWidget
   }
 
   Widget _buildSubmitButton(BuildContext context) {
+    final mq = MediaQuery.of(context);
+
     return Flex(
-      direction: isPortrait(context) ? Axis.vertical : Axis.horizontal,
+      direction: mq.isPortrait ? Axis.vertical : Axis.horizontal,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
-          constraints: getMaxWidthConstraints(context, 0.25),
+          constraints: mq.getMaxWidthConstraints(0.25),
           margin: const EdgeInsets.only(bottom: 15),
           child: BlocBuilder<ForgotPasswordBloc, ForgotPasswordState>(
             builder: (context, state) {

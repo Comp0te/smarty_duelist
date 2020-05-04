@@ -3,7 +3,7 @@ import 'package:meta/meta.dart';
 
 import 'package:smarty_duelist/src/core/core.dart' show SupportedLanguages;
 
-import 'entities/entities.dart';
+import '../user/entities/entities.dart';
 import 'failures/failures.dart';
 
 abstract class IAuthDataProvider {
@@ -19,7 +19,6 @@ abstract class IAuthDataProvider {
     @required String password,
   });
   Future<void> signOut();
-  Future<Option<User>> getCurrentUser();
   Stream<User> onAuthStateChanged();
   Future<Either<AuthFailure, Unit>> sendResetPassword({@required String email});
   Future<Either<AuthFailure, Unit>> confirmResetPassword({
@@ -29,5 +28,4 @@ abstract class IAuthDataProvider {
   Future<void> configureAuthLanguage(SupportedLanguages languageTag);
   Future<Either<AuthFailure, Unit>> changeEmail(String email);
   Future<Either<AuthFailure, Unit>> changePassword(String password);
-  Future<Either<AuthFailure, Unit>> deleteUser();
 }

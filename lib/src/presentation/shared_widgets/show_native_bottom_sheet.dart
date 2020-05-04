@@ -6,6 +6,7 @@ import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import 'package:smarty_duelist/generated/l10n.dart';
 
+import '../theme/theme.dart';
 import 'native_dialog_action.dart';
 
 class SelectorItem<T> {
@@ -13,12 +14,16 @@ class SelectorItem<T> {
   final String label;
   final T value;
   final bool isDestructive;
+  final ValueChanged<T> onSelect;
+  final bool isPopOnSelect;
 
   SelectorItem({
-    @required this.key,
     @required this.label,
-    @required this.value,
+    this.key,
+    this.value,
     this.isDestructive = false,
+    this.onSelect,
+    this.isPopOnSelect = true,
   });
 }
 
@@ -42,6 +47,14 @@ Future<SelectorItem<T>> showNativeBottomSheet<T>(
     return Text(item.label);
   }
 
+  VoidCallback _onPress(BuildContext context, SelectorItem<T> item) {
+    return () {
+      if (item.onSelect != null) item.onSelect(item.value);
+
+      if (item.isPopOnSelect) ExtendedNavigator.of(context).pop(item);
+    };
+  }
+
   return showPlatformModalSheet<SelectorItem<T>>(
     context: context,
     builder: (context) => PlatformWidget(
@@ -51,9 +64,7 @@ Future<SelectorItem<T>> showNativeBottomSheet<T>(
         actions: actions.map((item) {
           return CupertinoActionSheetAction(
             isDestructiveAction: item.isDestructive,
-            onPressed: () {
-              ExtendedNavigator.of(context).pop(item);
-            },
+            onPressed: _onPress(context, item),
             child: _buildChild(context, item),
           );
         }).toList(),
@@ -68,7 +79,10 @@ Future<SelectorItem<T>> showNativeBottomSheet<T>(
         mainAxisSize: MainAxisSize.min,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+            padding: context.defaultPaddingHorizontal.copyWith(
+              top: 10,
+              bottom: 10,
+            ),
             child: Text(title, style: Theme.of(context).textTheme.title),
           ),
           if (message != null)
@@ -80,9 +94,7 @@ Future<SelectorItem<T>> showNativeBottomSheet<T>(
           ...actions.map((item) {
             return NativeDialogAction(
               isDestructiveAction: item.isDestructive,
-              onPress: () {
-                ExtendedNavigator.of(context).pop(item);
-              },
+              onPress: _onPress(context, item),
               child: _buildChild(context, item),
             );
           }).toList(),

@@ -13,6 +13,8 @@ import 'package:smarty_duelist/src/presentation/pages/sign_up_page/sign_up_page.
 import 'package:smarty_duelist/src/presentation/pages/forgot_password_page/forgot_password_page.dart';
 import 'package:smarty_duelist/src/presentation/pages/main_bottom_tabs_page/main_bottom_tabs_page.dart';
 import 'package:smarty_duelist/src/presentation/routes/guards/aurh_guard.dart';
+import 'package:smarty_duelist/src/presentation/pages/image_editor_modal/image_editor_modal.dart';
+import 'package:smarty_duelist/src/presentation/core_blocs/image_picker/image_picker_bloc.dart';
 
 abstract class Routes {
   static const splashPage = '/';
@@ -20,6 +22,7 @@ abstract class Routes {
   static const signUpPage = '/sign-up-page';
   static const forgotPasswordPage = '/forgot-password-page';
   static const mainBottomTabsPage = '/main-bottom-tabs-page';
+  static const imageEditorModal = '/image-editor-modal';
 }
 
 class CupertinoRouter extends RouterBase {
@@ -68,10 +71,37 @@ class CupertinoRouter extends RouterBase {
           transitionsBuilder: TransitionsBuilders.fadeIn,
           transitionDuration: const Duration(milliseconds: 500),
         );
+      case Routes.imageEditorModal:
+        if (hasInvalidArgs<ImageEditorModalArguments>(args)) {
+          return misTypedArgsRoute<ImageEditorModalArguments>(args);
+        }
+        final typedArgs =
+            args as ImageEditorModalArguments ?? ImageEditorModalArguments();
+        return CupertinoPageRoute<dynamic>(
+          builder: (_) => ImageEditorModal(
+                  key: typedArgs.key,
+                  url: typedArgs.url,
+                  imagePickerBloc: typedArgs.imagePickerBloc)
+              .wrappedRoute,
+          settings: settings,
+          fullscreenDialog: true,
+        );
       default:
         return unknownRoutePage(settings.name);
     }
   }
+}
+
+//**************************************************************************
+// Arguments holder classes
+//***************************************************************************
+
+//ImageEditorModal arguments holder class
+class ImageEditorModalArguments {
+  final Key key;
+  final String url;
+  final ImagePickerBloc imagePickerBloc;
+  ImageEditorModalArguments({this.key, this.url, this.imagePickerBloc});
 }
 
 //**************************************************************************
@@ -84,4 +114,12 @@ extension CupertinoRouterNavigationHelperMethods on ExtendedNavigatorState {
   Future pushSignUpPage() => pushNamed(Routes.signUpPage);
   Future pushForgotPasswordPage() => pushNamed(Routes.forgotPasswordPage);
   Future pushMainBottomTabsPage() => pushNamed(Routes.mainBottomTabsPage);
+  Future pushImageEditorModal({
+    Key key,
+    String url,
+    ImagePickerBloc imagePickerBloc,
+  }) =>
+      pushNamed(Routes.imageEditorModal,
+          arguments: ImageEditorModalArguments(
+              key: key, url: url, imagePickerBloc: imagePickerBloc));
 }

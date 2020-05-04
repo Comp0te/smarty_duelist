@@ -6,10 +6,12 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import 'package:smarty_duelist/generated/l10n.dart';
-import 'package:smarty_duelist/src/core/core.dart' show OrientationMixin;
 import 'package:smarty_duelist/src/injector/injector.dart' show getIt;
-import 'package:smarty_duelist/src/presentation/routes/routes.dart' show Routes;
-import 'package:smarty_duelist/src/presentation/shared_widgets/shared_widgets.dart'
+
+import '../../routes/routes.dart' show Routes;
+import '../../extensions/extensions.dart';
+import '../../theme/theme.dart';
+import '../../shared_widgets/shared_widgets.dart'
     show
         Button,
         FormTextField,
@@ -17,15 +19,12 @@ import 'package:smarty_duelist/src/presentation/shared_widgets/shared_widgets.da
         NativeScaffold,
         TextButton,
         ThemeButton;
-
 import 'blocs/blocs.dart';
 import 'widgets/widgets.dart';
 
 enum SignInFormData { email, password }
 
-class SignInPage extends StatelessWidget
-    with OrientationMixin
-    implements AutoRouteWrapper {
+class SignInPage extends StatelessWidget implements AutoRouteWrapper {
   @override
   Widget get wrappedRoute => BlocProvider<SignInBloc>(
         create: (_) => getIt<SignInBloc>(),
@@ -56,7 +55,7 @@ class SignInPage extends StatelessWidget
           withKeyboardAnimation: true,
           body: Center(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
+              padding: context.defaultPaddingHorizontal,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -105,17 +104,17 @@ class SignInPage extends StatelessWidget
     }
 
     final signInBloc = BlocProvider.of<SignInBloc>(context);
+    final mq = MediaQuery.of(context);
 
     return Container(
       margin: const EdgeInsets.only(bottom: 20),
       child: Flex(
-        direction: isLandscape(context) ? Axis.horizontal : Axis.vertical,
-        mainAxisSize:
-            isLandscape(context) ? MainAxisSize.max : MainAxisSize.min,
+        direction: mq.isLandscape ? Axis.horizontal : Axis.vertical,
+        mainAxisSize: mq.isLandscape ? MainAxisSize.max : MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Container(
-            constraints: getMaxWidthConstraints(context, 0.4),
+            constraints: mq.getMaxWidthConstraints(0.4),
             margin: const EdgeInsets.only(bottom: 0),
             child: FormTextField(
               controller: signInBloc.emailController,
@@ -130,7 +129,7 @@ class SignInPage extends StatelessWidget
             ),
           ),
           Container(
-            constraints: getMaxWidthConstraints(context, 0.4),
+            constraints: mq.getMaxWidthConstraints(0.4),
             margin: const EdgeInsets.only(bottom: 0),
             child: FormTextField(
               controller: signInBloc.passwordController,
@@ -156,13 +155,15 @@ class SignInPage extends StatelessWidget
       BlocProvider.of<SignInBloc>(context).add(const SignInWithGoogle());
     }
 
+    final mq = MediaQuery.of(context);
+
     return Flex(
-      direction: isPortrait(context) ? Axis.vertical : Axis.horizontal,
+      direction: mq.isPortrait ? Axis.vertical : Axis.horizontal,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
-          constraints: getMaxWidthConstraints(context, 0.25),
+          constraints: mq.getMaxWidthConstraints(0.25),
           margin: const EdgeInsets.only(bottom: 15),
           child: BlocBuilder<SignInBloc, SignInState>(
             builder: (context, signInState) {
@@ -175,7 +176,7 @@ class SignInPage extends StatelessWidget
           ),
         ),
         Container(
-          constraints: getMaxWidthConstraints(context, 0.25),
+          constraints: mq.getMaxWidthConstraints(0.25),
           child: BlocBuilder<SignInBloc, SignInState>(
             builder: (context, signInState) {
               return Button(

@@ -61,9 +61,6 @@ class AuthRepository implements IAuthRepository {
   }
 
   @override
-  Future<Option<User>> getCurrentUser() => authDataProvider.getCurrentUser();
-
-  @override
   Stream<User> onAuthStateChanged() {
     return authDataProvider.onAuthStateChanged();
   }
@@ -102,10 +99,5 @@ class AuthRepository implements IAuthRepository {
   @override
   Future<Either<AuthFailure, Unit>> changePassword(String password) {
     return authDataProvider.changePassword(password);
-  }
-
-  @override
-  Future<Either<AuthFailure, Unit>> deleteUser() {
-    return authDataProvider.deleteUser();
   }
 }

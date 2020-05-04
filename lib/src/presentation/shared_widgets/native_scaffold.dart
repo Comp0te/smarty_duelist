@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
-import 'native_app_bar.dart';
+import '../theme/theme.dart';
 
 class NativeScaffold extends StatelessWidget {
   final Widget title;
@@ -48,18 +48,27 @@ class NativeScaffold extends StatelessWidget {
       child: AnimatedContainer(
         curve: Curves.easeOutQuad,
         duration: const Duration(milliseconds: 375),
-        padding: EdgeInsets.only(bottom: bottomOffset),
+        padding: EdgeInsets.only(
+          bottom: bottomOffset,
+          top: MediaQuery.of(context).viewPadding.top + kCupertinoHeaderHeight,
+        ),
         child: body,
       ),
     );
   }
 
   PlatformAppBar _buildAppBar() {
-    return NativeAppBar(
+    if (title == null) return null;
+
+    return PlatformAppBar(
       title: title,
       leading: leading,
       trailingActions: trailingActions,
-      previousPageTitle: previousPageTitle,
+      android: (_) => MaterialAppBarData(),
+      ios: (_) => CupertinoNavigationBarData(
+        transitionBetweenRoutes: true,
+        previousPageTitle: previousPageTitle,
+      ),
     );
   }
 }

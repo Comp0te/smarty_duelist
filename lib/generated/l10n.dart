@@ -99,10 +99,64 @@ class S {
     );
   }
 
+  String get confirm {
+    return Intl.message(
+      'Confirm',
+      name: 'confirm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get camera {
+    return Intl.message(
+      'Camera',
+      name: 'camera',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get gallery {
+    return Intl.message(
+      'Gallery',
+      name: 'gallery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get delete {
+    return Intl.message(
+      'Delete',
+      name: 'delete',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get edit {
+    return Intl.message(
+      'Edit',
+      name: 'edit',
+      desc: '',
+      args: [],
+    );
+  }
+
   String get error {
     return Intl.message(
       'Error',
       name: 'error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get errorLoading {
+    return Intl.message(
+      'Loading error',
+      name: 'errorLoading',
       desc: '',
       args: [],
     );
@@ -243,6 +297,15 @@ class S {
     );
   }
 
+  String get errorImageEditor {
+    return Intl.message(
+      'Something went wrong with image editor. Try another image',
+      name: 'errorImageEditor',
+      desc: '',
+      args: [],
+    );
+  }
+
   String get signInTitle {
     return Intl.message(
       'Greetings!',
@@ -333,6 +396,15 @@ class S {
     );
   }
 
+  String get imageEditorTitle {
+    return Intl.message(
+      'Image editor',
+      name: 'imageEditorTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
   String get bottomSheetSelectLanguage {
     return Intl.message(
       'Select Language',
@@ -346,6 +418,15 @@ class S {
     return Intl.message(
       'Select Theme',
       name: 'bottomSheetSelectTheme',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get bottomSheetAvatarTitle {
+    return Intl.message(
+      'Avatar actions',
+      name: 'bottomSheetAvatarTitle',
       desc: '',
       args: [],
     );

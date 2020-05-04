@@ -7,8 +7,14 @@
   "ok": "Ok",
   "cancel": "Cancel",
   "logout": "Logout",
+  "confirm": "Confirm",
+  "camera": "Camera",
+  "gallery": "Gallery",
+  "delete": "Delete",
+  "edit": "Edit",
 
   "error": "Error",
+  "errorLoading": "Loading error",
   "errorRequired": "Required",
   "errorMinLength": "Min {digit} characters",
   "errorEmailIncorrect": "Incorrect email address",
@@ -24,6 +30,7 @@
   "errorEmailAlreadyInUse": "The email is already in use by a different account.",
   "errorUserNotFound": "There is no user corresponding to the given email address.",
   "errorPasswordsDoNotMatch": "Passwords don't match",
+  "errorImageEditor": "Something went wrong with image editor. Try another image",
 
   "signInTitle": "Greetings!",
   "singInEmail": "Sign in with Email",
@@ -38,8 +45,11 @@
   "forgotPasswordTitle": "Forgot password",
   "forgotPasswordSuccess": "We sent the password reset instructions to your email. Change password and login",
 
+  "imageEditorTitle": "Image editor",
+
   "bottomSheetSelectLanguage": "Select Language",
   "bottomSheetSelectTheme": "Select Theme",
+  "bottomSheetAvatarTitle": "Avatar actions",
 
   "languageEnglish": "English",
   "languageRussian": "Русский",

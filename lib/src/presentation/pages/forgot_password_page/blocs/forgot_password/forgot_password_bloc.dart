@@ -3,10 +3,13 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 import 'package:bloc/bloc.dart';
-import 'package:smarty_duelist/src/core/constants/constants.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter/foundation.dart';
 
-import 'package:smarty_duelist/src/domain/domain.dart' show IAuthRepository;
-import 'bloc.dart';
+import 'package:smarty_duelist/src/core/constants/constants.dart';
+import 'package:smarty_duelist/src/domain/auth/auth.dart';
+
+part 'forgot_password_bloc.freezed.dart';
 
 enum ForgotPasswordFormData { email, password, confirmPassword }
 
@@ -26,7 +29,8 @@ class ForgotPasswordBloc
 
   @override
   Stream<ForgotPasswordState> mapEventToState(
-      ForgotPasswordEvent event) async* {
+    ForgotPasswordEvent event,
+  ) async* {
     if (fbKey.currentState.validate()) {
       yield const Loading();
 
@@ -36,8 +40,8 @@ class ForgotPasswordBloc
       );
 
       yield failureOrForgotPassword.fold(
-        (failure) => Error(failure: failure),
-        (auth) => const Success(),
+        $ForgotPasswordState.error,
+        (unit) => const Success(),
       );
     } else if (state is! ValidationShowed) {
       yield const ValidationShowed();
@@ -50,4 +54,20 @@ class ForgotPasswordBloc
     emailController.dispose();
     return super.close();
   }
+}
+
+@freezed
+abstract class ForgotPasswordEvent with _$ForgotPasswordEvent {
+  const factory ForgotPasswordEvent() = ForgotPassword;
+}
+
+@freezed
+abstract class ForgotPasswordState with _$ForgotPasswordState {
+  const factory ForgotPasswordState.init() = Init;
+  const factory ForgotPasswordState.validationShowed() = ValidationShowed;
+  const factory ForgotPasswordState.loading() = Loading;
+  const factory ForgotPasswordState.success() = Success;
+  const factory ForgotPasswordState.error(
+    AuthFailure failure,
+  ) = Error;
 }

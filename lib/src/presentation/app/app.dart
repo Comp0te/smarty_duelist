@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
@@ -18,7 +19,7 @@ class App extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<AuthBloc>(
-          create: (_) => getIt<AuthBloc>()..add(const AppStarted()),
+          create: (_) => getIt<AuthBloc>(),
         ),
         BlocProvider<PreferencesBloc>(
           create: (_) => getIt<PreferencesBloc>(),
@@ -28,7 +29,11 @@ class App extends StatelessWidget {
         child: BlocBuilder<PreferencesBloc, PreferencesState>(
           builder: (context, prefs) => PlatformApp(
             locale: prefs.locale,
-            localizationsDelegates: [S.delegate],
+            localizationsDelegates: [
+              S.delegate,
+              DefaultMaterialLocalizations.delegate,
+              DefaultCupertinoLocalizations.delegate,
+            ],
             supportedLocales: S.delegate.supportedLocales,
             debugShowCheckedModeBanner: false,
             ios: (_) => CupertinoAppData(

@@ -35,9 +35,6 @@ abstract class AuthFailure with _$AuthFailure implements IFailure {
   const factory AuthFailure.accountExistsWithDifferentCredential(
     List<String> possibleAuthMethods,
   ) = AccountExistsWithDifferentCredentialFailure;
-  const factory AuthFailure.deleteUser(
-    PlatformException exp,
-  ) = DeleteUserFailure;
   const factory AuthFailure.changeEmail(
     PlatformException exp,
   ) = ChangeEmailFailure;

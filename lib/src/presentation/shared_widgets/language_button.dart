@@ -5,12 +5,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import 'package:smarty_duelist/generated/l10n.dart';
-
-import 'package:smarty_duelist/src/presentation/localisation/localisation.dart';
 import 'package:smarty_duelist/src/core/core.dart' show SupportedLanguages;
-import 'package:smarty_duelist/src/presentation/core_blocs/core_blocs.dart'
-    show LanguageChanged, PreferencesBloc;
-import 'package:smarty_duelist/src/presentation/shared_widgets/shared_widgets.dart'
+
+import '../localisation/localisation.dart';
+import '../core_blocs/core_blocs.dart' show LanguageChanged, PreferencesBloc;
+import '../shared_widgets/show_native_bottom_sheet.dart'
     show SelectorItem, showNativeBottomSheet;
 
 class LanguageButton extends StatelessWidget {
@@ -35,9 +34,11 @@ class LanguageButton extends StatelessWidget {
           }).toList(),
         );
 
-        BlocProvider.of<PreferencesBloc>(context).add(
-          LanguageChanged(item.value),
-        );
+        if (item != null) {
+          BlocProvider.of<PreferencesBloc>(context).add(
+            LanguageChanged(item.value),
+          );
+        }
       },
       icon: Icon(Icons.language),
     );
