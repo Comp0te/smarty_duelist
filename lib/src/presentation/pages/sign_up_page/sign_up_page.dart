@@ -85,7 +85,7 @@ class SignUpPage extends StatelessWidget implements AutoRouteWrapper {
         children: <Widget>[
           Container(
             constraints: mq.getMaxWidthConstraints(0.4),
-            margin: const EdgeInsets.only(bottom: 0),
+            margin: const EdgeInsets.only(),
             child: FormTextField(
               controller: signUpBloc.emailController,
               attribute: describeEnum(SignUpFormData.email),
@@ -100,7 +100,7 @@ class SignUpPage extends StatelessWidget implements AutoRouteWrapper {
           ),
           Container(
             constraints: mq.getMaxWidthConstraints(0.4),
-            margin: const EdgeInsets.only(bottom: 0),
+            margin: const EdgeInsets.only(),
             child: FormTextField(
               controller: signUpBloc.passwordController,
               attribute: describeEnum(SignUpFormData.password),
@@ -116,7 +116,7 @@ class SignUpPage extends StatelessWidget implements AutoRouteWrapper {
           ),
           Container(
             constraints: mq.getMaxWidthConstraints(0.4),
-            margin: const EdgeInsets.only(bottom: 0),
+            margin: const EdgeInsets.only(),
             child: FormTextField(
               controller: signUpBloc.confirmPasswordController,
               attribute: describeEnum(SignUpFormData.confirmPassword),

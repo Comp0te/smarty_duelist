@@ -37,14 +37,10 @@ class TextButton extends StatelessWidget {
               PlatformButton(
                 onPressed: onPress,
                 androidFlat: (_) => MaterialFlatButtonData(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 0,
-                  ),
+                  padding: const EdgeInsets.symmetric(),
                 ),
                 ios: (_) => CupertinoButtonData(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 0,
-                  ),
+                  padding: const EdgeInsets.symmetric(),
                 ),
                 child: Text(label),
               ),

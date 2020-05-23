@@ -52,7 +52,7 @@ class Button extends StatelessWidget {
       ),
       child: Container(
         alignment: Alignment.center,
-        padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 8),
         width: double.infinity,
         height: height,
         decoration: _getDecoration(context),
