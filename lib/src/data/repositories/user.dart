@@ -5,7 +5,7 @@ import 'package:meta/meta.dart';
 import 'package:smarty_duelist/src/domain/domain.dart'
     show IUserDataProvider, IUserRepository, User, UserFailure;
 
-@RegisterAs(IUserRepository)
+@Injectable(as: IUserRepository)
 @singleton
 @immutable
 class UserRepository implements IUserRepository {

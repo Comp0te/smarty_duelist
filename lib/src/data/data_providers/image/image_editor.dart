@@ -10,7 +10,7 @@ import 'package:meta/meta.dart';
 import 'package:smarty_duelist/src/domain/domain.dart'
     show IImageEditorDataProvider, ImageFailure, ImageEditorFailure;
 
-@RegisterAs(IImageEditorDataProvider)
+@Injectable(as: IImageEditorDataProvider)
 @lazySingleton
 @immutable
 class ImageEditorDataProvider implements IImageEditorDataProvider {

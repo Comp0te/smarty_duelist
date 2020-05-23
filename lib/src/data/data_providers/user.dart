@@ -15,7 +15,7 @@ import 'package:smarty_duelist/src/domain/domain.dart'
 
 import '../dto/dto.dart';
 
-@RegisterAs(IUserDataProvider)
+@Injectable(as: IUserDataProvider)
 @singleton
 @immutable
 class UserDataProvider implements IUserDataProvider {

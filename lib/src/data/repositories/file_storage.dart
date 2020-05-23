@@ -15,7 +15,7 @@ import 'package:smarty_duelist/src/domain/domain.dart'
         UploadTaskEvent,
         User;
 
-@RegisterAs(IFileStorageRepository)
+@Injectable(as: IFileStorageRepository)
 @singleton
 @immutable
 class FileStorageRepository implements IFileStorageRepository {

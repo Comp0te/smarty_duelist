@@ -24,7 +24,7 @@ import 'package:smarty_duelist/src/domain/domain.dart'
 import '../../dto/dto.dart';
 import 'google_auth.dart';
 
-@RegisterAs(IAuthDataProvider)
+@Injectable(as: IAuthDataProvider)
 @singleton
 @immutable
 class FirebaseAuthProvider implements IAuthDataProvider {

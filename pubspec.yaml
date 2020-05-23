@@ -23,8 +23,8 @@ dependencies:
   hydrated_bloc: ^4.0.0
   # Code generators and it dependencies
   meta: ^1.1.8
-  get_it: ^4.0.1
-  injectable: ^0.3.0
+  get_it: ^4.0.2
+  injectable: ^0.4.0
   freezed_annotation: ^0.7.1
   json_serializable: ^3.3.0
   auto_route: ^0.4.4
@@ -49,7 +49,7 @@ dev_dependencies:
   lint: ^1.2.0
   freezed: ^0.10.9
   build_runner: ^1.10.0
-  injectable_generator: ^0.3.4
+  injectable_generator: ^0.4.0
   auto_route_generator: ^0.4.5
 
 flutter:
