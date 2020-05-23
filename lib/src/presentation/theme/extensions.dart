@@ -43,7 +43,7 @@ extension BuildContextTheme on BuildContext {
           );
     }
 
-    return Theme.of(this).textTheme.body1.copyWith(
+    return Theme.of(this).textTheme.bodyText1.copyWith(
           color: errorColor,
         );
   }

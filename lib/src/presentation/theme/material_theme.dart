@@ -2,7 +2,7 @@ import 'package:animations/animations.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-final textTypography = Typography(
+final textTypography = Typography.material2018(
   englishLike: Typography.englishLike2018,
   tall: Typography.tall2018,
   dense: Typography.dense2018,

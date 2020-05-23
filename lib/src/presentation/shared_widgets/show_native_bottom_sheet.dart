@@ -83,12 +83,13 @@ Future<SelectorItem<T>> showNativeBottomSheet<T>(
               top: 10,
               bottom: 10,
             ),
-            child: Text(title, style: Theme.of(context).textTheme.title),
+            child: Text(title, style: Theme.of(context).textTheme.headline6),
           ),
           if (message != null)
             Padding(
               padding: const EdgeInsets.fromLTRB(16, 0, 16, 10),
-              child: Text(message, style: Theme.of(context).textTheme.subtitle),
+              child:
+                  Text(message, style: Theme.of(context).textTheme.subtitle1),
             ),
           const Divider(),
           ...actions.map((item) {
