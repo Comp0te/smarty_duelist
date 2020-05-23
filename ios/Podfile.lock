@@ -262,9 +262,6 @@ PODS:
     - Flutter
   - flutter_plugin_android_lifecycle (0.0.1):
     - Flutter
-  - FMDB (2.7.5):
-    - FMDB/standard (= 2.7.5)
-  - FMDB/standard (2.7.5)
   - google_sign_in (0.0.1):
     - Flutter
     - GoogleSignIn (~> 5.0)
@@ -345,9 +342,6 @@ PODS:
     - PhoneNumberKit/PhoneNumberKitCore (~> 3.2.0)
   - PhoneNumberKit/PhoneNumberKitCore (3.2.0)
   - PromisesObjC (1.2.8)
-  - sqflite (0.0.1):
-    - Flutter
-    - FMDB (~> 2.7.2)
 
 DEPENDENCIES:
   - cloud_firestore (from `.symlinks/plugins/cloud_firestore/ios`)
@@ -367,7 +361,6 @@ DEPENDENCIES:
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
   - path_provider_macos (from `.symlinks/plugins/path_provider_macos/ios`)
   - phone_number (from `.symlinks/plugins/phone_number/ios`)
-  - sqflite (from `.symlinks/plugins/sqflite/ios`)
 
 SPEC REPOS:
   trunk:
@@ -385,7 +378,6 @@ SPEC REPOS:
     - FirebaseInstallations
     - FirebaseInstanceID
     - FirebaseStorage
-    - FMDB
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleDataTransportCCTSupport
@@ -435,8 +427,6 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/path_provider_macos/ios"
   phone_number:
     :path: ".symlinks/plugins/phone_number/ios"
-  sqflite:
-    :path: ".symlinks/plugins/sqflite/ios"
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
@@ -463,7 +453,6 @@ SPEC CHECKSUMS:
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   flutter_keyboard_visibility: 6195387fb6d8f46e5cd6dda4a4154e41f800f545
   flutter_plugin_android_lifecycle: 47de533a02850f070f5696a623995e93eddcdb9b
-  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   google_sign_in: f32920a589fdf4ab2918ec6dc5e5b0d5b8040ff5
   google_sign_in_web: 52deb24929ac0992baff65c57956031c44ed44c3
   GoogleAppMeasurement: d0560d915abf15e692e8538ba1d58442217b6aff
@@ -484,7 +473,6 @@ SPEC CHECKSUMS:
   phone_number: b545f5b7d9711bec0f020c7df43ae5a82119f4ad
   PhoneNumberKit: df411d46177d1492da84e10b6c093846dd861452
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
-  sqflite: 4001a31ff81d210346b500c55b17f4d6c7589dd0
 
 PODFILE CHECKSUM: 8f8c861fcb052da2e8967f107e8931ee7ae35f38
 
