@@ -54,13 +54,13 @@ class ImagePickerDataProvider implements IImagePickerDataProvider {
         if (!response.isEmpty && response.file != null) {
           return Right(Some(await response.file.readAsBytes()));
         } else {
-          return Right(None());
+          return const Right(None());
         }
       } on PlatformException catch (exp) {
         return Left(ImagePickerFailure(exp));
       }
     }
 
-    return Right(None());
+    return const Right(None());
   }
 }

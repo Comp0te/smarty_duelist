@@ -189,7 +189,7 @@ class FirebaseAuthProvider implements IAuthDataProvider {
 
       return Right(methods);
     } on PlatformException catch (_) {
-      return Left(const FetchSignInMethodsForEmailFailure());
+      return const Left(FetchSignInMethodsForEmailFailure());
     }
   }
 

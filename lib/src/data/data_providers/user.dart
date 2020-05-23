@@ -29,7 +29,7 @@ class UserDataProvider implements IUserDataProvider {
   Future<Option<User>> getCurrentUser() async {
     final user = await auth.currentUser();
 
-    if (user == null) return None();
+    if (user == null) return const None();
 
     return Some(user.toDomainUser());
   }

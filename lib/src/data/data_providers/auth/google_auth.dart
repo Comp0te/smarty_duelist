@@ -34,7 +34,7 @@ class GoogleAuth {
     try {
       final googleUser = await googleSignIn.signIn();
 
-      if (googleUser == null) return Left(const CancelledByUser());
+      if (googleUser == null) return const Left(CancelledByUser());
 
       final googleAuth = await googleUser.authentication;
 
