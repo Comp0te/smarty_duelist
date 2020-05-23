@@ -29,9 +29,9 @@ dependencies:
   json_serializable: ^3.3.0
   auto_route: ^0.4.4
   # Utils
-  path_provider: ^1.6.5
+  path_provider: ^1.6.9
   dartz: ^0.8.9
-  rxdart: ^0.23.1
+  rxdart: ^0.24.1
   # Firebase and dependencies
   firebase_auth: ^0.16.0
   firebase_core: ^0.4.4+3
