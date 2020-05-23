@@ -18,9 +18,9 @@ dependencies:
   animations: ^1.0.0+5
   flutter_form_builder: ^3.10.1
   # Bloc
-  bloc: ^3.0.0
-  flutter_bloc: ^3.2.0
-  hydrated_bloc: ^3.0.0
+  bloc: ^4.0.0
+  flutter_bloc: ^4.0.0
+  hydrated_bloc: ^4.0.0
   # Code generators and it dependencies
   meta: ^1.1.8
   get_it: ^4.0.1
