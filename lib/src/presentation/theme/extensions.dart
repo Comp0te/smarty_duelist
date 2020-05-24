@@ -22,7 +22,8 @@ extension BuildContextTheme on BuildContext {
 
   Brightness get brightness {
     if (Platform.isIOS) {
-      return CupertinoTheme.of(this).brightness;
+      return CupertinoTheme.of(this).brightness ??
+          MediaQuery.of(this).platformBrightness;
     }
 
     return Theme.of(this).brightness;
