@@ -26,7 +26,7 @@ enum SignInFormData { email, password }
 
 class SignInPage extends StatelessWidget implements AutoRouteWrapper {
   @override
-  Widget get wrappedRoute => BlocProvider<SignInBloc>(
+  Widget wrappedRoute(BuildContext context) => BlocProvider<SignInBloc>(
         create: (_) => getIt<SignInBloc>(),
         child: this,
       );

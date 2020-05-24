@@ -14,7 +14,7 @@ import 'blocs/blocs.dart';
 
 class MainBottomTabsPage extends StatelessWidget implements AutoRouteWrapper {
   @override
-  Widget get wrappedRoute => BlocProvider<MainBottomTabsBloc>(
+  Widget wrappedRoute(BuildContext context) => BlocProvider<MainBottomTabsBloc>(
         create: (_) => getIt<MainBottomTabsBloc>(),
         child: this,
       );

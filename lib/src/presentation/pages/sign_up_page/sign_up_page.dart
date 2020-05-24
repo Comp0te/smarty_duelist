@@ -17,7 +17,7 @@ import 'widgets/widgets.dart';
 
 class SignUpPage extends StatelessWidget implements AutoRouteWrapper {
   @override
-  Widget get wrappedRoute => BlocProvider<SignUpBloc>(
+  Widget wrappedRoute(BuildContext context) => BlocProvider<SignUpBloc>(
         create: (_) => getIt<SignUpBloc>(),
         child: this,
       );
