@@ -8,6 +8,7 @@ Turn-based tactical game. My first personal commercial project :-)
 
  1. Clone repository
  2. `flutter pub get`
+ 3. `flutter pub run build_runner build`
  3. Add `google-services.json` to `android/app/` folder
  4. Add `GoogleService-Info.plist` to ios folder
  5. Look in the `scripts/` folder to add git hooks

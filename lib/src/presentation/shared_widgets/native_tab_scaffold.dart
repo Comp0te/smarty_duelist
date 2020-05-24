@@ -43,29 +43,29 @@ class NativeTabScaffold extends StatelessWidget {
       itemChanged: bottomNavBatItemChanged,
       appBarBuilder: _buildAppBar,
       bodyBuilder: _buildBody,
-      androidTabs: (_) => MaterialNavBarData(
+      materialTabs: (_, __) => MaterialNavBarData(
 //        shape: const CircularNotchedRectangle(),
           ),
-      iosTabs: (_) => CupertinoTabBarData(),
-      ios: (_) => CupertinoTabScaffoldData(
+      cupertinoTabs: (_, __) => CupertinoTabBarData(),
+      cupertino: (_, __) => CupertinoTabScaffoldData(
         useCupertinoTabView: false,
         bodyBuilder: _buildBody,
 //        tabViewDataBuilder: (_, __) => CupertinoTabViewData(
 //        )
       ),
-      android: (_) => MaterialTabScaffoldData(),
+      material: (_, __) => MaterialTabScaffoldData(),
     );
   }
 
   Widget _buildBody(BuildContext context, int index) {
     return PlatformWidget(
-      ios: (_) => Padding(
+      cupertino: (_, __) => Padding(
         padding: EdgeInsets.only(
           top: MediaQuery.of(context).viewPadding.top + kCupertinoHeaderHeight,
         ),
         child: tabsData[index].body,
       ),
-      android: (_) => PageTransitionSwitcher(
+      material: (_, __) => PageTransitionSwitcher(
         transitionBuilder: (
           Widget child,
           Animation<double> primaryAnimation,
@@ -87,8 +87,8 @@ class NativeTabScaffold extends StatelessWidget {
       title: tabsData[index].title,
       leading: tabsData[index].leading,
       trailingActions: tabsData[index].trailingActions,
-      android: (_) => MaterialAppBarData(),
-      ios: (_) => CupertinoNavigationBarData(
+      material: (_, __) => MaterialAppBarData(),
+      cupertino: (_, __) => CupertinoNavigationBarData(
         transitionBetweenRoutes: false,
         previousPageTitle: tabsData[index].previousPageTitle,
       ),

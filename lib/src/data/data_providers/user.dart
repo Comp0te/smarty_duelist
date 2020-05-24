@@ -15,7 +15,7 @@ import 'package:smarty_duelist/src/domain/domain.dart'
 
 import '../dto/dto.dart';
 
-@RegisterAs(IUserDataProvider)
+@Injectable(as: IUserDataProvider)
 @singleton
 @immutable
 class UserDataProvider implements IUserDataProvider {
@@ -29,7 +29,7 @@ class UserDataProvider implements IUserDataProvider {
   Future<Option<User>> getCurrentUser() async {
     final user = await auth.currentUser();
 
-    if (user == null) return None();
+    if (user == null) return const None();
 
     return Some(user.toDomainUser());
   }

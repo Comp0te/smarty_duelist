@@ -16,7 +16,7 @@ import 'widgets/widgets.dart';
 
 class ForgotPasswordPage extends StatelessWidget implements AutoRouteWrapper {
   @override
-  Widget get wrappedRoute => BlocProvider<ForgotPasswordBloc>(
+  Widget wrappedRoute(BuildContext context) => BlocProvider<ForgotPasswordBloc>(
         create: (_) => getIt<ForgotPasswordBloc>(),
         child: this,
       );
@@ -80,7 +80,7 @@ class ForgotPasswordPage extends StatelessWidget implements AutoRouteWrapper {
         children: <Widget>[
           Container(
             constraints: mq.getMaxWidthConstraints(0.4),
-            margin: const EdgeInsets.only(bottom: 0),
+            margin: const EdgeInsets.only(),
             child: FormTextField(
               controller: forgotPasswordBloc.emailController,
               attribute: describeEnum(ForgotPasswordFormData.email),

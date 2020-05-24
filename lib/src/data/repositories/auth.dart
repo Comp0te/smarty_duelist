@@ -12,7 +12,7 @@ import 'package:smarty_duelist/src/domain/domain.dart'
         IAuthRepository,
         User;
 
-@RegisterAs(IAuthRepository)
+@Injectable(as: IAuthRepository)
 @singleton
 @immutable
 class AuthRepository implements IAuthRepository {

@@ -26,7 +26,7 @@ enum SignInFormData { email, password }
 
 class SignInPage extends StatelessWidget implements AutoRouteWrapper {
   @override
-  Widget get wrappedRoute => BlocProvider<SignInBloc>(
+  Widget wrappedRoute(BuildContext context) => BlocProvider<SignInBloc>(
         create: (_) => getIt<SignInBloc>(),
         child: this,
       );
@@ -115,7 +115,7 @@ class SignInPage extends StatelessWidget implements AutoRouteWrapper {
         children: <Widget>[
           Container(
             constraints: mq.getMaxWidthConstraints(0.4),
-            margin: const EdgeInsets.only(bottom: 0),
+            margin: const EdgeInsets.only(),
             child: FormTextField(
               controller: signInBloc.emailController,
               attribute: describeEnum(SignInFormData.email),
@@ -130,7 +130,7 @@ class SignInPage extends StatelessWidget implements AutoRouteWrapper {
           ),
           Container(
             constraints: mq.getMaxWidthConstraints(0.4),
-            margin: const EdgeInsets.only(bottom: 0),
+            margin: const EdgeInsets.only(),
             child: FormTextField(
               controller: signInBloc.passwordController,
               attribute: describeEnum(SignInFormData.password),

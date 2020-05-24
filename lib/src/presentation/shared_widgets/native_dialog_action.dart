@@ -21,10 +21,10 @@ class NativeDialogAction extends StatelessWidget {
   PlatformDialogAction build(BuildContext context) {
     return PlatformDialogAction(
       onPressed: onPress,
-      android: (_) => MaterialDialogActionData(
+      material: (_, __) => MaterialDialogActionData(
         textColor: isDestructiveAction ? Theme.of(context).errorColor : null,
       ),
-      ios: (_) => CupertinoDialogActionData(
+      cupertino: (_, __) => CupertinoDialogActionData(
         isDefaultAction: isDefaultAction,
         isDestructiveAction: isDestructiveAction,
       ),

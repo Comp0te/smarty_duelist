@@ -11,7 +11,7 @@ import 'auth_bloc_listener.dart';
 import '../theme/theme.dart'
     show darkMaterialTheme, getCupertinoThemeData, lightMaterialTheme;
 import '../core_blocs/core_blocs.dart';
-import '../routes/routes.dart' show AuthGuard, CupertinoRouter, MaterialRouter;
+import '../routes/routes.dart' show AuthGuard, MainRouter;
 
 class App extends StatelessWidget {
   @override
@@ -36,18 +36,14 @@ class App extends StatelessWidget {
             ],
             supportedLocales: S.delegate.supportedLocales,
             debugShowCheckedModeBanner: false,
-            ios: (_) => CupertinoAppData(
-              theme: getCupertinoThemeData(prefs.brightness),
-              builder: ExtendedNavigator<CupertinoRouter>(
-                router: CupertinoRouter(),
-                guards: [AuthGuard()],
-              ),
+            builder: ExtendedNavigator<MainRouter>(
+              router: MainRouter(),
+              guards: [AuthGuard()],
             ),
-            android: (_) => MaterialAppData(
-              builder: ExtendedNavigator<MaterialRouter>(
-                router: MaterialRouter(),
-                guards: [AuthGuard()],
-              ),
+            cupertino: (_, __) => CupertinoAppData(
+              theme: getCupertinoThemeData(prefs.brightness),
+            ),
+            material: (_, __) => MaterialAppData(
               theme: lightMaterialTheme,
               darkTheme: darkMaterialTheme,
               themeMode: prefs.themeMode,

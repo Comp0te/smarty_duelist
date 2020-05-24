@@ -11,10 +11,11 @@ import '../pages/pages.dart'
         SplashPage,
         ImageEditorModal;
 
-@CupertinoAutoRouter(generateNavigationHelperExtension: true)
-class $CupertinoRouter {
+@AdaptiveAutoRouter(generateNavigationHelperExtension: true)
+class $MainRouter {
   @initial
   SplashPage splashPage;
+
   // Auth routes
   @CustomRoute(
     transitionsBuilder: TransitionsBuilders.fadeIn,
@@ -23,6 +24,7 @@ class $CupertinoRouter {
   SignInPage signInPage;
   SignUpPage signUpPage;
   ForgotPasswordPage forgotPasswordPage;
+
   // App routes
   @GuardedBy([AuthGuard])
   @CustomRoute(
@@ -30,6 +32,6 @@ class $CupertinoRouter {
     durationInMilliseconds: 500,
   )
   MainBottomTabsPage mainBottomTabsPage;
-  @CupertinoRoute(fullscreenDialog: true)
+  @AdaptiveRoute(fullscreenDialog: true)
   ImageEditorModal imageEditorModal;
 }

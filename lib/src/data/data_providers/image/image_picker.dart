@@ -12,7 +12,7 @@ import 'package:smarty_duelist/src/data/dto/dto.dart' show validateImageData;
 import 'package:smarty_duelist/src/domain/domain.dart'
     show Camera, IImagePickerDataProvider, ImageFailure, ImagePickerFailure;
 
-@RegisterAs(IImagePickerDataProvider)
+@Injectable(as: IImagePickerDataProvider)
 @lazySingleton
 @immutable
 class ImagePickerDataProvider implements IImagePickerDataProvider {
@@ -54,13 +54,13 @@ class ImagePickerDataProvider implements IImagePickerDataProvider {
         if (!response.isEmpty && response.file != null) {
           return Right(Some(await response.file.readAsBytes()));
         } else {
-          return Right(None());
+          return const Right(None());
         }
       } on PlatformException catch (exp) {
         return Left(ImagePickerFailure(exp));
       }
     }
 
-    return Right(None());
+    return const Right(None());
   }
 }

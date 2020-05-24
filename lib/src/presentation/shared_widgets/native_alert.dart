@@ -19,8 +19,8 @@ class NativeAlert extends StatelessWidget {
     return PlatformAlertDialog(
       title: Text(title),
       content: content,
-      ios: (_) => CupertinoAlertDialogData(),
-      android: (_) => MaterialAlertDialogData(),
+      cupertino: (_, __) => CupertinoAlertDialogData(),
+      material: (_, __) => MaterialAlertDialogData(),
       actions: actions,
     );
   }

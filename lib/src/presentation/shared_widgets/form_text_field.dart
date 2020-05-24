@@ -83,12 +83,12 @@ class FormTextField extends StatelessWidget {
 
   ThemeData _getPlatformTheme(BuildContext context) {
     if (isCupertino(context)) {
-      if (context.brightness == Brightness.light) {
-        return lightMaterialTheme.copyWith(
+      if (context.brightness == Brightness.dark) {
+        return darkMaterialTheme.copyWith(
           accentColor: context.primaryColor,
         );
       } else {
-        return darkMaterialTheme.copyWith(
+        return lightMaterialTheme.copyWith(
           accentColor: context.primaryColor,
         );
       }

@@ -17,6 +17,8 @@ jobs:
           channel: 'stable'
       - name: Flutter pub get
         run: flutter pub get
+      - name: Generate code (freezed, auto_route, injectable, json_annotation)
+        run: flutter pub run build_runner build
 #      - name: run tests
 #        run: flutter test
       - name: Run lint

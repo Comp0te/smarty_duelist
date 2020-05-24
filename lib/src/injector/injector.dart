@@ -11,7 +11,7 @@ final getIt = GetIt.instance;
 @injectableInit
 void configureInjector() => $initGetIt(getIt);
 
-@registerModule
+@module
 abstract class RegisterModule {
   @singleton
   FirebaseAuth get auth => FirebaseAuth.instance;

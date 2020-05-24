@@ -24,7 +24,7 @@ import 'package:smarty_duelist/src/domain/domain.dart'
 import '../../dto/dto.dart';
 import 'google_auth.dart';
 
-@RegisterAs(IAuthDataProvider)
+@Injectable(as: IAuthDataProvider)
 @singleton
 @immutable
 class FirebaseAuthProvider implements IAuthDataProvider {
@@ -189,7 +189,7 @@ class FirebaseAuthProvider implements IAuthDataProvider {
 
       return Right(methods);
     } on PlatformException catch (_) {
-      return Left(const FetchSignInMethodsForEmailFailure());
+      return const Left(FetchSignInMethodsForEmailFailure());
     }
   }
 

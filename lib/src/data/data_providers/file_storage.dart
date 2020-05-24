@@ -16,7 +16,7 @@ import 'package:smarty_duelist/src/domain/domain.dart'
 
 import '../dto/dto.dart';
 
-@RegisterAs(IFileStorageDataProvider)
+@Injectable(as: IFileStorageDataProvider)
 @singleton
 @immutable
 class FirebaseStorageDataProvider implements IFileStorageDataProvider {

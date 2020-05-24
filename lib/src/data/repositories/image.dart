@@ -12,7 +12,7 @@ import 'package:smarty_duelist/src/domain/domain.dart'
         IImageRepository,
         ImageFailure;
 
-@RegisterAs(IImageRepository)
+@Injectable(as: IImageRepository)
 @singleton
 @immutable
 class ImageRepository implements IImageRepository {

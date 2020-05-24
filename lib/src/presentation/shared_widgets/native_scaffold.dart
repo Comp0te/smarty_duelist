@@ -24,10 +24,10 @@ class NativeScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PlatformScaffold(
-      ios: (_) => CupertinoPageScaffoldData(
+      cupertino: (_, __) => CupertinoPageScaffoldData(
         resizeToAvoidBottomInset: !withKeyboardAnimation,
       ),
-      android: (_) => MaterialScaffoldData(
+      material: (_, __) => MaterialScaffoldData(
         resizeToAvoidBottomInset: !withKeyboardAnimation,
       ),
       body: _getBody(context),
@@ -64,8 +64,8 @@ class NativeScaffold extends StatelessWidget {
       title: title,
       leading: leading,
       trailingActions: trailingActions,
-      android: (_) => MaterialAppBarData(),
-      ios: (_) => CupertinoNavigationBarData(
+      material: (_, __) => MaterialAppBarData(),
+      cupertino: (_, __) => CupertinoNavigationBarData(
         transitionBetweenRoutes: true,
         previousPageTitle: previousPageTitle,
       ),
