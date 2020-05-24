@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:injectable/injectable.dart';
 import 'package:bloc/bloc.dart';
@@ -21,8 +22,7 @@ class MainBottomTabsBloc extends Bloc<MainBottomTabsEvent, MainBottomTabs> {
 
   @override
   Stream<MainBottomTabs> mapEventToState(MainBottomTabsEvent event) async* {
-//    tabController.setIndex(event.tab.index); // TODO Added PR to package
-    // https://github.com/aqwert/flutter_platform_widgets/pull/156
+    tabController.setIndex(event.context, event.tab.index);
     yield event.tab;
   }
 
@@ -36,6 +36,7 @@ class MainBottomTabsBloc extends Bloc<MainBottomTabsEvent, MainBottomTabs> {
 @freezed
 abstract class MainBottomTabsEvent with _$MainBottomTabsEvent {
   const factory MainBottomTabsEvent.navigateToTab(
+    BuildContext context,
     MainBottomTabs tab,
   ) = NavigateToTab;
 }

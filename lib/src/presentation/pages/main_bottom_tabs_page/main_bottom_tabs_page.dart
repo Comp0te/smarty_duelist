@@ -18,14 +18,14 @@ class MainBottomTabsPage extends StatelessWidget implements AutoRouteWrapper {
         create: (_) => getIt<MainBottomTabsBloc>(),
         child: this,
       );
-
+// TODO Fix ios theme when inherit from system
   @override
   Widget build(BuildContext context) {
     return NativeTabScaffold(
       tabController: BlocProvider.of<MainBottomTabsBloc>(context).tabController,
       bottomNavBatItemChanged: (index) {
         BlocProvider.of<MainBottomTabsBloc>(context).add(
-          NavigateToTab(MainBottomTabs.values[index]),
+          NavigateToTab(context, MainBottomTabs.values[index]),
         );
       },
       tabsData: <NativeTabData>[
