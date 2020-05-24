@@ -30,20 +30,20 @@ class Button extends StatelessWidget {
   bool get isOutlined =>
       iosOutlined && Platform.isIOS && !isLoading && onPress != null;
   BorderRadius get borderRadius => BorderRadius.circular(16);
-
+// TODO add new cupertino filled button and outlined button for android
   @override
   Widget build(BuildContext context) {
     return PlatformButton(
       onPressed: isLoading ? null : onPress,
       padding: const EdgeInsets.all(0),
-      android: (_) => MaterialRaisedButtonData(
+      material: (_, __) => MaterialRaisedButtonData(
         shape: RoundedRectangleBorder(
           borderRadius: borderRadius,
         ),
         color: color,
         textTheme: ButtonTextTheme.primary,
       ),
-      ios: (_) => CupertinoButtonData(
+      cupertino: (_, __) => CupertinoButtonData(
         minSize: 44,
         color: iosOutlined
             ? null

@@ -58,7 +58,7 @@ Future<SelectorItem<T>> showNativeBottomSheet<T>(
   return showPlatformModalSheet<SelectorItem<T>>(
     context: context,
     builder: (context) => PlatformWidget(
-      ios: (_) => CupertinoActionSheet(
+      cupertino: (_, __) => CupertinoActionSheet(
         title: Text(title),
         message: message != null ? Text(message) : null,
         actions: actions.map((item) {
@@ -75,7 +75,7 @@ Future<SelectorItem<T>> showNativeBottomSheet<T>(
           child: Text(S.of(context).cancel),
         ),
       ),
-      android: (_) => Column(
+      material: (_, __) => Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Padding(

@@ -46,8 +46,8 @@ class Spinner extends StatelessWidget {
 
   Widget _buildSpinner(BuildContext context, [double size]) {
     return PlatformCircularProgressIndicator(
-      ios: (_) => CupertinoProgressIndicatorData(radius: size),
-      android: (_) => MaterialProgressIndicatorData(
+      cupertino: (_, __) => CupertinoProgressIndicatorData(radius: size),
+      material: (_, __) => MaterialProgressIndicatorData(
         strokeWidth: 2,
         backgroundColor: color ?? Theme.of(context).primaryColor,
       ),

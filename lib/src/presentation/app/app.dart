@@ -40,10 +40,10 @@ class App extends StatelessWidget {
               router: MainRouter(),
               guards: [AuthGuard()],
             ),
-            ios: (_) => CupertinoAppData(
+            cupertino: (_, __) => CupertinoAppData(
               theme: getCupertinoThemeData(prefs.brightness),
             ),
-            android: (_) => MaterialAppData(
+            material: (_, __) => MaterialAppData(
               theme: lightMaterialTheme,
               darkTheme: darkMaterialTheme,
               themeMode: prefs.themeMode,
