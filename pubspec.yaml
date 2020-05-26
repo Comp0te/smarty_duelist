@@ -20,7 +20,7 @@ dependencies:
   # Bloc
   bloc: ^4.0.0
   flutter_bloc: ^4.0.0
-  hydrated_bloc: ^4.0.0
+  hydrated_bloc: ^4.1.0
   # Code generators and it dependencies
   meta: ^1.1.8
   get_it: ^4.0.2
@@ -41,7 +41,7 @@ dependencies:
   google_sign_in: ^4.5.1
   image_picker: ^0.6.6+4
   extended_image: ^0.8.0
-  image_editor: ^0.4.0+2
+  image_editor: ^0.5.0
 
 dev_dependencies:
   flutter_test:
