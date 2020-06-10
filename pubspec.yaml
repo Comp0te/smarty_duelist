@@ -20,7 +20,7 @@ dependencies:
   # Bloc
   bloc: ^4.0.0
   flutter_bloc: ^4.0.0
-  hydrated_bloc: ^4.1.0
+  hydrated_bloc: ^4.1.1
   # Code generators and it dependencies
   meta: ^1.1.8
   get_it: ^4.0.2
