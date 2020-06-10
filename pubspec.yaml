@@ -39,7 +39,7 @@ dependencies:
   cloud_firestore: ^0.13.6
   # API
   google_sign_in: ^4.5.1
-  image_picker: ^0.6.6+4
+  image_picker: ^0.6.7+1
   extended_image: ^0.8.0
   image_editor: ^0.5.0
 

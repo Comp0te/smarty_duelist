@@ -16,10 +16,16 @@ import 'package:smarty_duelist/src/domain/domain.dart'
 @lazySingleton
 @immutable
 class ImagePickerDataProvider implements IImagePickerDataProvider {
+  final ImagePicker imagePicker;
+
+  const ImagePickerDataProvider({
+    @required this.imagePicker,
+  });
+
   @override
   Future<Either<ImageFailure, Uint8List>> getPhoto([Camera camera]) async {
     try {
-      final file = await ImagePicker.pickImage(
+      final file = await imagePicker.getImage(
         source: ImageSource.camera,
         preferredCameraDevice:
             camera == Camera.front ? CameraDevice.front : CameraDevice.front,
@@ -34,7 +40,7 @@ class ImagePickerDataProvider implements IImagePickerDataProvider {
   @override
   Future<Either<ImageFailure, Uint8List>> getGalleryImage() async {
     try {
-      final file = await ImagePicker.pickImage(
+      final file = await imagePicker.getImage(
         source: ImageSource.gallery,
       );
 
@@ -49,7 +55,7 @@ class ImagePickerDataProvider implements IImagePickerDataProvider {
       retrieveAndroidLostData() async {
     if (Platform.isAndroid) {
       try {
-        final response = await ImagePicker.retrieveLostData();
+        final response = await imagePicker.getLostData();
 
         if (!response.isEmpty && response.file != null) {
           return Right(Some(await response.file.readAsBytes()));
