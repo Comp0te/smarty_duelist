@@ -16,7 +16,7 @@ dependencies:
   flutter_platform_widgets: ^0.50.1
   flushbar: ^1.10.4
   animations: ^1.1.0
-  flutter_form_builder: ^3.10.1
+  flutter_form_builder: ^3.11.1
   # Bloc
   bloc: ^4.0.0
   flutter_bloc: ^4.0.0
