@@ -1,26 +1,17 @@
 import 'package:animations/animations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
-import '../theme/theme.dart';
-
 @immutable
 class NativeTabData {
-  final String previousPageTitle;
-  final Widget title;
-  final Widget leading;
-  final List<Widget> trailingActions;
   final BottomNavigationBarItem bottomNavBarItem;
-  final Widget body;
+  final ExtendedNavigator navigator;
 
   const NativeTabData({
     @required this.bottomNavBarItem,
-    @required this.body,
-    this.previousPageTitle = '',
-    this.title,
-    this.leading,
-    this.trailingActions,
+    this.navigator,
   });
 }
 
@@ -34,24 +25,20 @@ class NativeTabScaffold extends StatelessWidget {
     this.tabController,
     this.bottomNavBatItemChanged,
   });
-// TODO new cupertinoTabChildBuilder
+
   @override
   Widget build(BuildContext context) {
     return PlatformTabScaffold(
       tabController: tabController,
       items: tabsData.map((item) => item.bottomNavBarItem).toList(),
       itemChanged: bottomNavBatItemChanged,
-      appBarBuilder: _buildAppBar,
-      bodyBuilder: _buildBody,
       materialTabs: (_, __) => MaterialNavBarData(
 //        shape: const CircularNotchedRectangle(),
           ),
+      bodyBuilder: _buildBody,
       cupertinoTabs: (_, __) => CupertinoTabBarData(),
       cupertino: (_, __) => CupertinoTabScaffoldData(
         useCupertinoTabView: false,
-        bodyBuilder: _buildBody,
-//        tabViewDataBuilder: (_, __) => CupertinoTabViewData(
-//        )
       ),
       material: (_, __) => MaterialTabScaffoldData(),
     );
@@ -59,12 +46,7 @@ class NativeTabScaffold extends StatelessWidget {
 
   Widget _buildBody(BuildContext context, int index) {
     return PlatformWidget(
-      cupertino: (_, __) => Padding(
-        padding: EdgeInsets.only(
-          top: MediaQuery.of(context).viewPadding.top + kCupertinoHeaderHeight,
-        ),
-        child: tabsData[index].body,
-      ),
+      cupertino: (_, __) => tabsData[index].navigator,
       material: (_, __) => PageTransitionSwitcher(
         transitionBuilder: (
           Widget child,
@@ -77,20 +59,34 @@ class NativeTabScaffold extends StatelessWidget {
             child: child,
           );
         },
-        child: tabsData[index].body,
-      ),
-    );
-  }
+        child: WillPopScope(
+          onWillPop: () async {
+            final navKey = tabsData[index].navigator.key;
+            // TODO back button first time pop home route
+            if (navKey is GlobalKey<NavigatorState>) {
+              final isFirstRouteInCurrentTab = !navKey.currentState.canPop();
 
-  PlatformAppBar _buildAppBar(BuildContext context, int index) {
-    return PlatformAppBar(
-      title: tabsData[index].title,
-      leading: tabsData[index].leading,
-      trailingActions: tabsData[index].trailingActions,
-      material: (_, __) => MaterialAppBarData(),
-      cupertino: (_, __) => CupertinoNavigationBarData(
-        transitionBetweenRoutes: false,
-        previousPageTitle: tabsData[index].previousPageTitle,
+              if (isFirstRouteInCurrentTab && index != 0) {
+                bottomNavBatItemChanged(0);
+                return false;
+              }
+
+              return isFirstRouteInCurrentTab;
+            }
+
+            debugPrint('$navKey is not a GlobalKey<NavigatorState>');
+
+            return false;
+          },
+          child: Visibility(
+            maintainState: true,
+            visible: index == tabController.index(context),
+            child: IndexedStack(
+              index: index,
+              children: tabsData.map((tab) => tab.navigator).toList(),
+            ),
+          ),
+        ),
       ),
     );
   }

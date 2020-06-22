@@ -14,6 +14,9 @@ class MainBottomTabsBloc extends Bloc<MainBottomTabsEvent, MainBottomTabs> {
   final tabController = PlatformTabController(
     initialIndex: MainBottomTabs.home.index,
   );
+  Map<MainBottomTabs, GlobalKey<NavigatorState>> navigationKeys = {
+    for (var tab in MainBottomTabs.values) tab: GlobalKey<NavigatorState>()
+  };
 
   MainBottomTabsBloc();
 
@@ -22,8 +25,12 @@ class MainBottomTabsBloc extends Bloc<MainBottomTabsEvent, MainBottomTabs> {
 
   @override
   Stream<MainBottomTabs> mapEventToState(MainBottomTabsEvent event) async* {
-    tabController.setIndex(event.context, event.tab.index);
-    yield event.tab;
+    if (event.tab == state) {
+      navigationKeys[event.tab].currentState.popUntil((route) => route.isFirst);
+    } else {
+      tabController.setIndex(event.context, event.tab.index);
+      yield event.tab;
+    }
   }
 
   @override
