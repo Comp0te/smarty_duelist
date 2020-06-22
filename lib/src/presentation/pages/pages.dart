@@ -1,4 +1,9 @@
 export 'main_bottom_tabs_page/main_bottom_tabs_page.dart';
+export 'profile_tab/profile_tab.dart';
+export 'game_tab/game_tab.dart';
+export 'home_tab/home_tab.dart';
+export 'messages_tab/messages_tab.dart';
+export 'shop_tab/shop_tab.dart';
 
 export 'sign_in_page/sign_in_page.dart';
 export 'sign_up_page/sign_up_page.dart';
