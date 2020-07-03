@@ -25,8 +25,15 @@ class ProfileTab extends StatelessWidget implements AutoRouteWrapper {
   const ProfileTab();
 
   @override
-  Widget wrappedRoute(BuildContext context) => BlocProvider<ProfileTabBloc>(
-        create: (_) => getIt<ProfileTabBloc>(),
+  Widget wrappedRoute(BuildContext context) => MultiBlocProvider(
+        providers: [
+          BlocProvider<ProfileTabBloc>(
+            create: (_) => getIt<ProfileTabBloc>(),
+          ),
+          BlocProvider<SignOutBloc>(
+            create: (_) => getIt<SignOutBloc>(),
+          ),
+        ],
         child: this,
       );
 
