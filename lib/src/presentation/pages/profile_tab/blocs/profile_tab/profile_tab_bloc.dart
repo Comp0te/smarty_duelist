@@ -14,7 +14,7 @@ import 'package:smarty_duelist/src/domain/domain.dart'
 
 import '../../../../core_blocs/core_blocs.dart'
     show ClearSelected, ImagePickerBloc;
-import '../../../../routes/routes.dart' show ImageEditorModalArguments, Routes;
+import '../../../../routes/routes.dart';
 
 part 'profile_tab_bloc.freezed.dart';
 
@@ -61,11 +61,9 @@ class ProfileTabBloc extends Bloc<ProfileTabEvent, ProfileTabState> {
     return imagePickerBloc.listen((pickerState) {
       pickerState.maybeWhen(
         selectedImage: (imageData) async {
-          await ExtendedNavigator.rootNavigator.pushNamed(
-            Routes.imageEditorModal,
-            arguments: ImageEditorModalArguments(
-              imagePickerBloc: imagePickerBloc,
-            ),
+          await ExtendedNavigator.ofRouter<ProfileRouter>()
+              .pushImageEditorModal(
+            imagePickerBloc: imagePickerBloc,
           );
         },
         editedImage: (imageData) {

@@ -36,3 +36,4 @@ class ImageEditorDataProvider implements IImageEditorDataProvider {
     }
   }
 }
+// TODO add additional edit options

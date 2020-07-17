@@ -8,8 +8,7 @@ import '../pages/pages.dart'
         MainBottomTabsPage,
         SignInPage,
         SignUpPage,
-        SplashPage,
-        ImageEditorModal;
+        SplashPage;
 
 @AdaptiveAutoRouter(generateNavigationHelperExtension: true)
 class $MainRouter {
@@ -32,6 +31,4 @@ class $MainRouter {
     durationInMilliseconds: 500,
   )
   MainBottomTabsPage mainBottomTabsPage;
-  @AdaptiveRoute(fullscreenDialog: true)
-  ImageEditorModal imageEditorModal;
 }

@@ -1,6 +1,6 @@
 # smarty_duelist
 
-Turn-based tactical game. My first personal commercial project :-)
+Turn-based tactical game.
 
 ![](https://github.com/Comp0te/Flutter-test/workflows/Code%20check/badge.svg?branch=dev)
 

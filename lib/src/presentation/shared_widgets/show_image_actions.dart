@@ -38,13 +38,12 @@ Future<SelectorItem<Unit>> showImageActions(
         SelectorItem(
           label: S.of(context).edit,
           isPopOnSelect: false,
-          onSelect: (_) => ExtendedNavigator.of(context).pushNamed(
-            Routes.imageEditorModal,
-            arguments: ImageEditorModalArguments(
+          onSelect: (_) {
+            ExtendedNavigator.ofRouter<ProfileRouter>().pushImageEditorModal(
               url: url,
               imagePickerBloc: imagePickerBloc,
-            ),
-          ),
+            );
+          },
         ),
       if (onDelete != null)
         SelectorItem(

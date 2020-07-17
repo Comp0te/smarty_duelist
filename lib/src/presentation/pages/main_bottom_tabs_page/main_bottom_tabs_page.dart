@@ -6,10 +6,9 @@ import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:smarty_duelist/src/injector/injector.dart' show getIt;
 
 import '../../routes/routes.dart';
-import '../profile_tab/profile_tab.dart';
 import '../../localisation/localisation.dart';
 import '../../shared_widgets/shared_widgets.dart'
-    show LanguageButton, NativeTabData, NativeTabScaffold, ThemeButton;
+    show NativeTabData, NativeTabScaffold;
 import 'blocs/blocs.dart';
 
 class MainBottomTabsPage extends StatelessWidget implements AutoRouteWrapper {
@@ -21,10 +20,12 @@ class MainBottomTabsPage extends StatelessWidget implements AutoRouteWrapper {
 // TODO Fix ios theme when inherit from system
   @override
   Widget build(BuildContext context) {
+    final mainBottomTamsBloc = BlocProvider.of<MainBottomTabsBloc>(context);
+
     return NativeTabScaffold(
-      tabController: BlocProvider.of<MainBottomTabsBloc>(context).tabController,
+      tabController: mainBottomTamsBloc.tabController,
       bottomNavBatItemChanged: (index) {
-        BlocProvider.of<MainBottomTabsBloc>(context).add(
+        mainBottomTamsBloc.add(
           NavigateToTab(context, MainBottomTabs.values[index]),
         );
       },
@@ -35,10 +36,10 @@ class MainBottomTabsPage extends StatelessWidget implements AutoRouteWrapper {
             title: Text(MainBottomTabs.home.getLabel(context)),
             backgroundColor: Theme.of(context).primaryColor,
           ),
-          body: Center(
-            child: Text(MainBottomTabs.home.getLabel(context)),
+          navigator: ExtendedNavigator<HomeRouter>(
+            router: HomeRouter(),
+            key: mainBottomTamsBloc.navigationKeys[MainBottomTabs.home],
           ),
-          title: Text(MainBottomTabs.home.getLabel(context)),
         ),
         NativeTabData(
           bottomNavBarItem: BottomNavigationBarItem(
@@ -46,10 +47,10 @@ class MainBottomTabsPage extends StatelessWidget implements AutoRouteWrapper {
             title: Text(MainBottomTabs.messages.getLabel(context)),
             backgroundColor: Theme.of(context).primaryColorDark,
           ),
-          body: Center(
-            child: Text(MainBottomTabs.messages.getLabel(context)),
+          navigator: ExtendedNavigator<MessageRouter>(
+            router: MessageRouter(),
+            key: mainBottomTamsBloc.navigationKeys[MainBottomTabs.messages],
           ),
-          title: Text(MainBottomTabs.messages.getLabel(context)),
         ),
         NativeTabData(
           bottomNavBarItem: BottomNavigationBarItem(
@@ -57,10 +58,10 @@ class MainBottomTabsPage extends StatelessWidget implements AutoRouteWrapper {
             title: Text(MainBottomTabs.game.getLabel(context)),
             backgroundColor: Theme.of(context).colorScheme.secondaryVariant,
           ),
-          body: Center(
-            child: Text(MainBottomTabs.game.getLabel(context)),
+          navigator: ExtendedNavigator<GameRouter>(
+            router: GameRouter(),
+            key: mainBottomTamsBloc.navigationKeys[MainBottomTabs.game],
           ),
-          title: Text(MainBottomTabs.game.getLabel(context)),
         ),
         NativeTabData(
           bottomNavBarItem: BottomNavigationBarItem(
@@ -68,21 +69,10 @@ class MainBottomTabsPage extends StatelessWidget implements AutoRouteWrapper {
             title: Text(MainBottomTabs.shop.getLabel(context)),
             backgroundColor: Theme.of(context).errorColor,
           ),
-          body: Center(
-            child: Text(MainBottomTabs.shop.getLabel(context)),
+          navigator: ExtendedNavigator<ShopRouter>(
+            router: ShopRouter(),
+            key: mainBottomTamsBloc.navigationKeys[MainBottomTabs.shop],
           ),
-          title: Text(MainBottomTabs.shop.getLabel(context)),
-          trailingActions: [
-            PlatformIconButton(
-              padding: EdgeInsets.zero,
-              icon: Icon(context.platformIcons.photoCamera),
-              onPressed: () {
-                ExtendedNavigator.of(context).pushNamed(
-                  Routes.imageEditorModal,
-                );
-              },
-            ),
-          ],
         ),
         NativeTabData(
           bottomNavBarItem: BottomNavigationBarItem(
@@ -90,22 +80,11 @@ class MainBottomTabsPage extends StatelessWidget implements AutoRouteWrapper {
             title: Text(MainBottomTabs.profile.getLabel(context)),
             backgroundColor: Theme.of(context).primaryColorLight,
           ),
-          body: MultiBlocProvider(
-            providers: [
-              BlocProvider(
-                create: (_) => getIt<SignOutBloc>(),
-              ),
-              BlocProvider(
-                create: (_) => getIt<ProfileTabBloc>(),
-              ),
-            ],
-            child: const ProfileTab(),
+          navigator: ExtendedNavigator<ProfileRouter>(
+            router: ProfileRouter(),
+            guards: [AuthGuard()],
+            key: mainBottomTamsBloc.navigationKeys[MainBottomTabs.profile],
           ),
-          title: Text(MainBottomTabs.profile.getLabel(context)),
-          trailingActions: const <Widget>[
-            LanguageButton(),
-            ThemeButton(),
-          ],
         ),
       ],
     );

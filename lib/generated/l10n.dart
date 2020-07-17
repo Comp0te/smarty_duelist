@@ -8,8 +8,12 @@ import 'intl/messages_all.dart';
 // Made by Localizely
 // **************************************************************************
 
+// ignore_for_file: non_constant_identifier_names, lines_longer_than_80_chars
+
 class S {
   S();
+  
+  static S current;
   
   static const AppLocalizationDelegate delegate =
     AppLocalizationDelegate();
@@ -19,7 +23,9 @@ class S {
     final localeName = Intl.canonicalizedLocale(name); 
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
-      return S();
+      S.current = S();
+      
+      return S.current;
     });
   } 
 
@@ -27,6 +33,7 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `Email`
   String get email {
     return Intl.message(
       'Email',
@@ -36,6 +43,7 @@ class S {
     );
   }
 
+  /// `Password`
   String get password {
     return Intl.message(
       'Password',
@@ -45,6 +53,7 @@ class S {
     );
   }
 
+  /// `Confirm password`
   String get confirmPassword {
     return Intl.message(
       'Confirm password',
@@ -54,6 +63,7 @@ class S {
     );
   }
 
+  /// `Submit`
   String get submit {
     return Intl.message(
       'Submit',
@@ -63,6 +73,7 @@ class S {
     );
   }
 
+  /// `Success`
   String get success {
     return Intl.message(
       'Success',
@@ -72,6 +83,7 @@ class S {
     );
   }
 
+  /// `Ok`
   String get ok {
     return Intl.message(
       'Ok',
@@ -81,6 +93,7 @@ class S {
     );
   }
 
+  /// `Cancel`
   String get cancel {
     return Intl.message(
       'Cancel',
@@ -90,6 +103,7 @@ class S {
     );
   }
 
+  /// `Logout`
   String get logout {
     return Intl.message(
       'Logout',
@@ -99,6 +113,7 @@ class S {
     );
   }
 
+  /// `Confirm`
   String get confirm {
     return Intl.message(
       'Confirm',
@@ -108,6 +123,7 @@ class S {
     );
   }
 
+  /// `Camera`
   String get camera {
     return Intl.message(
       'Camera',
@@ -117,6 +133,7 @@ class S {
     );
   }
 
+  /// `Gallery`
   String get gallery {
     return Intl.message(
       'Gallery',
@@ -126,6 +143,7 @@ class S {
     );
   }
 
+  /// `Delete`
   String get delete {
     return Intl.message(
       'Delete',
@@ -135,6 +153,7 @@ class S {
     );
   }
 
+  /// `Edit`
   String get edit {
     return Intl.message(
       'Edit',
@@ -144,6 +163,7 @@ class S {
     );
   }
 
+  /// `Error`
   String get error {
     return Intl.message(
       'Error',
@@ -153,6 +173,7 @@ class S {
     );
   }
 
+  /// `Loading error`
   String get errorLoading {
     return Intl.message(
       'Loading error',
@@ -162,6 +183,7 @@ class S {
     );
   }
 
+  /// `Required`
   String get errorRequired {
     return Intl.message(
       'Required',
@@ -171,6 +193,7 @@ class S {
     );
   }
 
+  /// `Min {digit} characters`
   String errorMinLength(Object digit) {
     return Intl.message(
       'Min $digit characters',
@@ -180,6 +203,7 @@ class S {
     );
   }
 
+  /// `Incorrect email address`
   String get errorEmailIncorrect {
     return Intl.message(
       'Incorrect email address',
@@ -189,6 +213,7 @@ class S {
     );
   }
 
+  /// `Email address is malformed`
   String get errorEmailMalformed {
     return Intl.message(
       'Email address is malformed',
@@ -198,6 +223,7 @@ class S {
     );
   }
 
+  /// `Email or password is wrong`
   String get errorWrongEmailOrPassword {
     return Intl.message(
       'Email or password is wrong',
@@ -207,6 +233,7 @@ class S {
     );
   }
 
+  /// `User disabled`
   String get errorUserDisabled {
     return Intl.message(
       'User disabled',
@@ -216,6 +243,7 @@ class S {
     );
   }
 
+  /// `You made too many attempts to sign in`
   String get errorToManySignIn {
     return Intl.message(
       'You made too many attempts to sign in',
@@ -225,6 +253,7 @@ class S {
     );
   }
 
+  /// `Something went wrong during authentication via Google`
   String get errorGoogleAuth {
     return Intl.message(
       'Something went wrong during authentication via Google',
@@ -234,6 +263,7 @@ class S {
     );
   }
 
+  /// `Credential data is malformed or has expired`
   String get errorCredentialMalformed {
     return Intl.message(
       'Credential data is malformed or has expired',
@@ -243,6 +273,7 @@ class S {
     );
   }
 
+  /// `Something went wrong. We are sorry.`
   String get errorUnexpected {
     return Intl.message(
       'Something went wrong. We are sorry.',
@@ -252,6 +283,7 @@ class S {
     );
   }
 
+  /// `Sign in process was aborted`
   String get errorSignInCanceled {
     return Intl.message(
       'Sign in process was aborted',
@@ -261,6 +293,7 @@ class S {
     );
   }
 
+  /// `The password is not strong enough`
   String get errorWeakPassword {
     return Intl.message(
       'The password is not strong enough',
@@ -270,6 +303,7 @@ class S {
     );
   }
 
+  /// `The email is already in use by a different account.`
   String get errorEmailAlreadyInUse {
     return Intl.message(
       'The email is already in use by a different account.',
@@ -279,6 +313,7 @@ class S {
     );
   }
 
+  /// `There is no user corresponding to the given email address.`
   String get errorUserNotFound {
     return Intl.message(
       'There is no user corresponding to the given email address.',
@@ -288,6 +323,7 @@ class S {
     );
   }
 
+  /// `Passwords don't match`
   String get errorPasswordsDoNotMatch {
     return Intl.message(
       'Passwords don\'t match',
@@ -297,6 +333,7 @@ class S {
     );
   }
 
+  /// `Something went wrong with image editor. Try another image`
   String get errorImageEditor {
     return Intl.message(
       'Something went wrong with image editor. Try another image',
@@ -306,6 +343,7 @@ class S {
     );
   }
 
+  /// `Greetings!`
   String get signInTitle {
     return Intl.message(
       'Greetings!',
@@ -315,6 +353,7 @@ class S {
     );
   }
 
+  /// `Sign in with Email`
   String get singInEmail {
     return Intl.message(
       'Sign in with Email',
@@ -324,6 +363,7 @@ class S {
     );
   }
 
+  /// `Sign in with {provider}`
   String signInProvider(Object provider) {
     return Intl.message(
       'Sign in with $provider',
@@ -333,6 +373,7 @@ class S {
     );
   }
 
+  /// `Create an account`
   String get signInCreateAccount {
     return Intl.message(
       'Create an account',
@@ -342,6 +383,7 @@ class S {
     );
   }
 
+  /// `Not registered yet?`
   String get signInNotRegisteredYet {
     return Intl.message(
       'Not registered yet?',
@@ -351,6 +393,7 @@ class S {
     );
   }
 
+  /// `Forgot password?`
   String get signInForgotPassword {
     return Intl.message(
       'Forgot password?',
@@ -360,6 +403,7 @@ class S {
     );
   }
 
+  /// `You have already created an account for this email. Try logging in with: {methods}`
   String signAccountExistsWithDifferentCredential(Object methods) {
     return Intl.message(
       'You have already created an account for this email. Try logging in with: $methods',
@@ -369,6 +413,7 @@ class S {
     );
   }
 
+  /// `Registration`
   String get signUpTitle {
     return Intl.message(
       'Registration',
@@ -378,6 +423,7 @@ class S {
     );
   }
 
+  /// `Forgot password`
   String get forgotPasswordTitle {
     return Intl.message(
       'Forgot password',
@@ -387,6 +433,7 @@ class S {
     );
   }
 
+  /// `We sent the password reset instructions to your email. Change password and login`
   String get forgotPasswordSuccess {
     return Intl.message(
       'We sent the password reset instructions to your email. Change password and login',
@@ -396,6 +443,7 @@ class S {
     );
   }
 
+  /// `Image editor`
   String get imageEditorTitle {
     return Intl.message(
       'Image editor',
@@ -405,6 +453,7 @@ class S {
     );
   }
 
+  /// `Select Language`
   String get bottomSheetSelectLanguage {
     return Intl.message(
       'Select Language',
@@ -414,6 +463,7 @@ class S {
     );
   }
 
+  /// `Select Theme`
   String get bottomSheetSelectTheme {
     return Intl.message(
       'Select Theme',
@@ -423,6 +473,7 @@ class S {
     );
   }
 
+  /// `Avatar actions`
   String get bottomSheetAvatarTitle {
     return Intl.message(
       'Avatar actions',
@@ -432,6 +483,7 @@ class S {
     );
   }
 
+  /// `English`
   String get languageEnglish {
     return Intl.message(
       'English',
@@ -441,6 +493,7 @@ class S {
     );
   }
 
+  /// `Русский`
   String get languageRussian {
     return Intl.message(
       'Русский',
@@ -450,6 +503,7 @@ class S {
     );
   }
 
+  /// `Українська`
   String get languageUkrainian {
     return Intl.message(
       'Українська',
@@ -459,6 +513,7 @@ class S {
     );
   }
 
+  /// `Light`
   String get themeLight {
     return Intl.message(
       'Light',
@@ -468,6 +523,7 @@ class S {
     );
   }
 
+  /// `Dark`
   String get themeDark {
     return Intl.message(
       'Dark',
@@ -477,6 +533,7 @@ class S {
     );
   }
 
+  /// `Inherit from system`
   String get themeSystem {
     return Intl.message(
       'Inherit from system',
@@ -486,6 +543,7 @@ class S {
     );
   }
 
+  /// `Home`
   String get bottomTabHome {
     return Intl.message(
       'Home',
@@ -495,6 +553,7 @@ class S {
     );
   }
 
+  /// `Messages`
   String get bottomTabMessages {
     return Intl.message(
       'Messages',
@@ -504,6 +563,7 @@ class S {
     );
   }
 
+  /// `Game`
   String get bottomTabGame {
     return Intl.message(
       'Game',
@@ -513,6 +573,7 @@ class S {
     );
   }
 
+  /// `Shop`
   String get bottomTabShop {
     return Intl.message(
       'Shop',
@@ -522,6 +583,7 @@ class S {
     );
   }
 
+  /// `Profile`
   String get bottomTabProfile {
     return Intl.message(
       'Profile',
